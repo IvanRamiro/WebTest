@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Footer Reveal on Scroll
     function toggleFooter() {
+        if (!footer) return;
+
         if (window.scrollY > 500) {
             footer.classList.add("show-footer");
             footer.style.transition = "all 0.5s ease-in-out"; // Smooth animation
@@ -67,9 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
         });
     });
 
@@ -85,7 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Reusable navigation function
 function navigateTo(page) {
-    window.location.href = `${page}.html`;
+    if (page) {
+        window.location.href = `${page}.html`;
+    }
 }
 
 // Navigation functions
@@ -127,7 +134,9 @@ function navigateToContactUs() {
 
 // Reusable email function
 function sendEmail(email) {
-    window.location.href = `mailto:${email}`;
+    if (email) {
+        window.location.href = `mailto:${email}`;
+    }
 }
 
 // Contact functions
