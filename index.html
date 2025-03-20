@@ -25,39 +25,26 @@
             </div>            
         </div>
     </header>
-    
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-  </div>
-</nav>
 
 <!-- Banner Slideshow -->
-<div id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+<div id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Banner Slideshow">
 
     <!-- Navbar (Fixed on Top of All Banners) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3" role="navigation">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Loans</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Help & Support</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Consumer Protection</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">News and Events</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="loans.html">Loans</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="help-support.html">Help & Support</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.html">Consumer Protection</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about-us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="news-events.html">News and Events</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -74,15 +61,15 @@
     <!-- Banner Images with Text -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="images/banner.jpg" class="d-block w-100" alt="Banner 1">
+            <img src="images/banner.jpg" class="d-block w-100" alt="Financial Access Banner">
             <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
                 <h1 class="fw-bold text-white">Delivering Financial Access to Everyone</h1>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="images/banner2.jpg" class="d-block w-100" alt="Banner 2">
+            <img src="images/banner2.jpg" class="d-block w-100" alt="Empowering Small Businesses Banner">
             <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="fw-bold text-white">Delivering Financial Access to Everyone</h1>
+                <h1 class="fw-bold text-white">Empowering Small Businesses</h1>
             </div>
         </div>
     </div>
@@ -100,12 +87,17 @@
     </button>
 </div>
 
+<!-- Image Slider Mockup -->
+<div class="image-slider-mockup position-absolute">
+    <img src="images/mockup1.jpg" alt="Mockup" class="mockup-slide">
+</div>
+
     <main class="container py-5">
         <section class="loan-requirements text-center">
             <h2>Loan Requirements</h2>
             <div class="row mt-4">
                 <div class="col-md-3">
-                    <img src="Images/adult.png" alt="Age Requirement" class="img-fluid">
+                    <img src="Images/adult.png" alt="Icon representing age requirement" class="img-fluid">
                     <p>18 to 75 Years of Age</p>
                 </div>
                 <div class="col-md-3">
@@ -122,19 +114,19 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="market-vendor-loan text-center py-5">
             <h3>Want to know if you're eligible for <strong>Market Vendor Loan?</strong></h3>
             <div class="btn-group mt-3">
-                <button class="btn btn-primary">Affordability & Suitability Assessment</button>
-                <button class="btn btn-primary">Review Your Assessment Result</button>
+                <button class="btn btn-primary me-2" onclick="openAffordabilityAssessment()">Affordability & Suitability Assessment</button>
+                <button class="btn btn-primary" onclick="reviewAssessmentResult()">Review Your Assessment Result</button>
             </div>
             
             <div class="loan-details container mt-4 p-4 bg-light rounded shadow-sm">
                 <h4 class="text-danger">NO HASSLE. FAST AND EASY.</h4>
                 <h2>How does <strong>Market Vendor Loan</strong> work?</h2>
                 <p>Borrow up to <strong>₱200,000</strong> without collateral or co-maker. Perfect for small to medium-scale businesses looking to finance short-term needs.</p>
-                <button class="btn btn-dark">&#10140; Learn More About MVL</button>
+                <button class="btn btn-dark" aria-label="Learn more about Market Vendor Loan">&#10140; Learn More About MVL</button>
             </div>
             
             <div class="loan-steps container mt-5 d-flex flex-wrap justify-content-between">
@@ -160,57 +152,54 @@
                 </div>
             </div>
         </section>
-        <section id="news-events" class="news-section hidden">
-            <div class="container text-center">
-                <h6 class="text-danger">NEWS & EVENTS</h6>
-                <h2>Our Latest <strong>Updates</strong> in QCredit Corp.</h2>
-                
-                <div class="row mt-4">
-                    <!-- News Item 1 -->
-                    <div class="col-md-4">
-                        <div class="card shadow">
-                            <img src="Images/News1.png" class="card-img-top" alt="News Image">
-                            <div class="card-body">
-                                <span class="badge bg-danger">DEC 11</span>
-                                <h5 class="card-title">QCredit Corp. Recognized as Top Producer by La Jolla Hotel and Beach Resort</h5>
-                                <p class="card-text">On December 7, 2024, QCredit Corp. was honored as one of the Top Producers during the Christmas Lighting...</p>
-                                <a href="#" class="btn btn-dark">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- News Item 2 -->
-                    <div class="col-md-4">
-                        <div class="card shadow">
-                            <img src="Images/News2.png" class="card-img-top" alt="News Image">
-                            <div class="card-body">
-                                <span class="badge bg-danger">OCT 31</span>
-                                <h5 class="card-title">QCredit Grants Scholarships and Educational Assistance to 543 Students</h5>
-                                <p class="card-text">In a remarkable demonstration of its commitment to Corporate Social Responsibility (CSR)...</p>
-                                <a href="#" class="btn btn-dark">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
+        <section id="news-events" class="news-section">
+    <div class="container text-center">
+        <h6 class="text-danger">NEWS & EVENTS</h6>
+        <h2>Our Latest <strong>Updates</strong> in QCredit Corp.</h2>
         
-                    <!-- News Item 3 -->
+        <div id="news-container" class="row mt-4">
+            <!-- News items will be dynamically loaded here -->
+        </div>
+
+        <div class="mt-4">
+            <a href="#" class="btn btn-primary">GO TO NEWS & EVENTS</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Fetch news items from the server
+    fetch('fetch_news.php')
+        .then(response => response.json())
+        .then(data => {
+            const newsContainer = document.getElementById('news-container');
+            if (data.error) {
+                newsContainer.innerHTML = `<p class="text-danger">Error loading news: ${data.error}</p>`;
+                return;
+            }
+
+            // Populate news items
+            data.forEach(news => {
+                const newsItem = `
                     <div class="col-md-4">
                         <div class="card shadow">
-                            <img src="Images/news3.png" class="card-img-top" alt="News Image">
+                            <img src="${news.image_url}" class="card-img-top" alt="${news.title}">
                             <div class="card-body">
-                                <span class="badge bg-danger">OCT 01</span>
-                                <h5 class="card-title">QCredit Corp. Launches Pilot Run of Ka-Partner Mo Program</h5>
-                                <p class="card-text">In a bold move to enhance customer outreach and support local businesses, QCredit Corp...</p>
+                                <span class="badge bg-danger">${new Date(news.date).toLocaleDateString()}</span>
+                                <h5 class="card-title">${news.title}</h5>
+                                <p class="card-text">${news.description}</p>
                                 <a href="#" class="btn btn-dark">READ MORE</a>
                             </div>
                         </div>
                     </div>
-                </div>
-        
-                <div class="mt-4">
-                    <a href="#" class="btn btn-primary">GO TO NEWS & EVENTS</a>
-                </div>
-            </div>
-        </section>        
+                `;
+                newsContainer.innerHTML += newsItem;
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching news:', error);
+        });
+</script>
         <footer id="footer" class="hidden-footer">
             
             <!-- Your footer content goes here -->

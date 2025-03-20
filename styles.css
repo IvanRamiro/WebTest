@@ -1,9 +1,15 @@
+/* ===========================
+   General Styles
+=========================== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* ===========================
+   Top Bar
+=========================== */
 .top-bar {
     background-color: #fff;
     padding: 10px 0;
@@ -31,6 +37,9 @@ body {
     font-size: 14px;
 }
 
+/* ===========================
+   Navbar
+=========================== */
 .navbar {
     padding: 0.7rem 1rem;
     font-weight: bold;
@@ -41,6 +50,9 @@ body {
     padding: 10px 15px;
 }
 
+/* ===========================
+   Banner
+=========================== */
 .banner {
     width: 100%;
     height: auto;
@@ -49,10 +61,13 @@ body {
 
 .banner-img {
     width: 100%;
-    height: 400px; /* Adjusted for better visibility */
+    height: 400px;
     object-fit: cover;
 }
 
+/* ===========================
+   Loan Requirements
+=========================== */
 .loan-requirements {
     margin-top: 30px;
 }
@@ -62,9 +77,21 @@ body {
     height: auto;
     margin-bottom: 10px;
 }
+
+.loan-requirements p {
+    color: #333; /* Default text color */
+}
+
+.loan-requirements img + p {
+    color: red; /* Apply red color only to text directly following images */
+}
+
+/* ===========================
+   Market Vendor Loan Section
+=========================== */
 .market-vendor-loan {
-    background-color: #f5f5f5;
     padding: 50px 0;
+    background-color: #f8f9fa;
 }
 
 .market-vendor-loan .container {
@@ -73,10 +100,10 @@ body {
 }
 
 .market-vendor-loan h2 {
-    font-size: 28px;
+    text-align: center;
     font-weight: bold;
-    text-align: left;
     color: #000;
+    margin-bottom: 20px;
 }
 
 .market-vendor-loan p {
@@ -85,7 +112,7 @@ body {
 }
 
 .market-vendor-loan .btn-primary {
-    background-color: #0e1473;  
+    background-color: #0e1473;
     border: none;
     padding: 12px 20px;
     font-weight: bold;
@@ -97,7 +124,9 @@ body {
     margin-right: 8px;
 }
 
-/* Steps Section */
+/* ===========================
+   Steps Section
+=========================== */
 .steps {
     display: flex;
     flex-wrap: wrap;
@@ -108,7 +137,7 @@ body {
 .step-box {
     background: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: calc(50% - 15px);
     margin-bottom: 20px;
@@ -141,18 +170,10 @@ body {
     left: -10px;
     border-radius: 3px;
 }
-.market-vendor-loan {
-    padding: 50px 0;
-    background-color: #f8f9fa;
-}
 
-.market-vendor-loan h2 {
-    text-align: center;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 20px;
-}
-
+/* ===========================
+   Loan Steps
+=========================== */
 .loan-steps {
     display: flex;
     flex-wrap: wrap;
@@ -188,7 +209,9 @@ body {
     color: #666;
 }
 
-/* Styles for Testimonials Section */
+/* ===========================
+   Testimonials Section
+=========================== */
 .testimonials {
     padding: 50px 0;
     text-align: center;
@@ -227,13 +250,16 @@ body {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    transition: Background 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .youtube-btn:hover {
     background: #0e1473;
 }
-/* Styles for the Numbers Speak section */
+
+/* ===========================
+   Numbers Speak Section
+=========================== */
 .numbers-speak-section {
     background: url('Images/Background.jpg') no-repeat center center;
     background-size: cover;
@@ -288,6 +314,10 @@ body {
     text-transform: uppercase;
     margin-top: 5px;
 }
+
+/* ===========================
+   Animations
+=========================== */
 .hidden {
     opacity: 0;
     transform: translateY(50px);
@@ -299,6 +329,9 @@ body {
     transform: translateY(0);
 }
 
+/* ===========================
+   News Section
+=========================== */
 .news-section {
     padding: 60px 0;
 }
@@ -321,19 +354,106 @@ body {
     font-size: 14px;
     padding: 5px 10px;
 }
+
+/* ===========================
+   Footer
+=========================== */
 .hidden-footer {
     position: fixed;
-    bottom: -100%; /* Initially hidden below the screen */
+    bottom: -100%;
     left: 0;
     width: 100%;
-    background: #0e1473; /* Adjust the background color */
+    background: #0e1473;
     transition: bottom 0.5s ease-in-out;
 }
 
 .show-footer {
-    bottom: 0; /* Makes the footer appear */
+    bottom: 0;
 }
+
+/* ===========================
+   Carousel
+=========================== */
 .carousel-caption {
     position: absolute;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.carousel-caption p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   Button Styles
+=========================== */
+.btn-affordable {
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-affordable:hover {
+    background-color: #218838;
+}
+
+.btn-review-assessment {
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-review-assessment:hover {
+    background-color: #e0a800;
+}
+
+.loan-details {
+    border-radius: 10px;
+}
+
+/* Style for the image slider mockup */
+.image-slider-mockup {
+    position: absolute;
+    bottom: -20px; /* Lower the position closer to the banner's bottom line */
+    right: 30px; /* Adjust to align with the right edge */
+    width: 350px; /* Set a fixed width for the slider */
+    z-index: 10; /* Ensure it appears in front of the banner */
+    overflow: hidden; /* Hide the image during animation */
+}
+
+.image-slider-mockup .mockup-slide {
+    width: 100%;
+    height: 250px; /* Adjust height as needed */
+    object-fit: cover;
+    position: relative;
+    animation: slideFromRight 5s infinite; /* Apply sliding animation */
+}
+
+/* Keyframes for sliding animation */
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    50% {
+        transform: translateX(0); /* Fully visible in the center */
+    }
+    100% {
+        transform: translateX(-100%); /* Slide off-screen to the left */
+    }
 }

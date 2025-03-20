@@ -1,46 +1,148 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Navbar Toggler (for mobile menu)
+    // Cache frequently accessed elements
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarNav = document.querySelector("#navbarNav");
     const footer = document.getElementById("footer");
     const section = document.getElementById("news-events");
+    const buttons = document.querySelectorAll(".btn-primary");
 
+    // Navbar Toggler (for mobile menu)
     if (navbarToggler && navbarNav) {
-        navbarToggler.addEventListener("click", function () {
+        navbarToggler.addEventListener("click", () => {
             navbarNav.classList.toggle("show");
+            navbarNav.style.transition = "all 0.3s ease-in-out"; // Smooth animation
         });
     }
 
     // Scroll Reveal Effect for News Section
     function revealOnScroll() {
-        if (!section) return; // Prevents errors if section doesn't exist
+        if (!section) return;
 
         const sectionTop = section.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
         if (sectionTop < windowHeight - 100) {
             section.classList.add("show");
+            section.style.transition = "opacity 0.5s ease-in-out"; // Smooth fade-in
         }
     }
 
     // Footer Reveal on Scroll
     function toggleFooter() {
-        if (window.scrollY > 500) { // Adjust scroll value as needed
+        if (window.scrollY > 500) {
             footer.classList.add("show-footer");
+            footer.style.transition = "all 0.5s ease-in-out"; // Smooth animation
         } else {
             footer.classList.remove("show-footer");
         }
     }
 
-    // Attach scroll event listeners
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("scroll", toggleFooter);
+    // Debounce function to improve scroll performance
+    function debounce(func, wait = 20) {
+        let timeout;
+        return function (...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func.apply(this, args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Attach scroll event listeners with debounce
+    window.addEventListener("scroll", debounce(() => {
+        revealOnScroll();
+        toggleFooter();
+    }));
 
     // Button Click Alert (Future Feature)
-    const buttons = document.querySelectorAll(".btn-primary");
     buttons.forEach(button => {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", () => {
             alert("Feature coming soon!");
         });
     });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // Ensure the carousel starts automatically with a 3-second interval
+    const mockupSlider = document.querySelector('#mockupSlider');
+    if (mockupSlider) {
+        new bootstrap.Carousel(mockupSlider, {
+            interval: 3000, // 3 seconds
+            ride: 'carousel'
+        });
+    }
 });
+
+// Reusable navigation function
+function navigateTo(page) {
+    window.location.href = `${page}.html`;
+}
+
+// Navigation functions
+function openAffordabilityAssessment() {
+    navigateTo("affordability-assessment");
+}
+
+function reviewAssessmentResult() {
+    navigateTo("review-assessment-result");
+}
+
+function navigateToLoan() {
+    navigateTo("loan");
+}
+
+function navigateToHelpSupport() {
+    navigateTo("help-support");
+}
+
+function navigateToConsumerProtection() {
+    navigateTo("consumer-protection");
+}
+
+function navigateToAboutUs() {
+    navigateTo("about-us");
+}
+
+function navigateToCareers() {
+    navigateTo("careers");
+}
+
+function navigateToNewsAndEvents() {
+    navigateTo("news-and-events");
+}
+
+function navigateToContactUs() {
+    navigateTo("contact-us");
+}
+
+// Reusable email function
+function sendEmail(email) {
+    window.location.href = `mailto:${email}`;
+}
+
+// Contact functions
+function callPhoneNumber() {
+    window.location.href = "tel:+63253102796";
+}
+
+function emailWeCare() {
+    sendEmail("wecare@qcreditcorp.net");
+}
+
+function emailHiring() {
+    sendEmail("hiring@qcreditcorp.net");
+}
+
+function emailIReport() {
+    sendEmail("ireport@qcreditcorp.net");
+}
