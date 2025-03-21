@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background-color: #f4f4f4; /* Added background color for better contrast */
 }
 
 img {
@@ -14,12 +15,12 @@ img {
 }
 
 /* ===========================
-   Top Bar
+   Header Section
 =========================== */
 .top-bar {
-    background-color: #fff;
-    padding: 10px 0;
-    border-bottom: 2px solid #ddd;
+    background-color: #f8f9fa; /* Updated for consistency */
+    padding: 15px 20px; /* Adjusted padding for better spacing */
+    border-bottom: 1px solid #ccc; /* Reduced border thickness */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,9 +49,6 @@ img {
     color: #555;
 }
 
-/* ===========================
-   Navbar
-=========================== */
 .navbar {
     padding: 0.7rem 1rem;
     font-weight: bold;
@@ -60,22 +58,24 @@ img {
 .navbar-nav .nav-link {
     font-size: 16px;
     padding: 10px 15px;
-    color: #333;
+    color: #555; /* Updated color for better readability */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Added background transition */
 }
 
 .navbar-nav .nav-link:hover {
     color: #0e1473;
+    background-color: #e9ecef; /* Added hover background for better UX */
 }
 
 /* ===========================
-   Banner
+   Hero Section
 =========================== */
 .banner {
     width: 100%;
     height: auto;
     margin-top: 10px;
+    margin-bottom: 30px; /* Added margin to separate from the next section */
 }
 
 .banner-img {
@@ -85,14 +85,14 @@ img {
 }
 
 /* ===========================
-   Loan Requirements
+   Loan Requirements Section
 =========================== */
 .loan-requirements {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    text-align: center;
+    margin-top: 0; /* Removed top margin to align with the hero section */
+    padding: 30px 20px; /* Added padding for better spacing */
+    background-color: #ffffff; /* Added background for better contrast */
+    border: 1px solid #ddd; /* Added border for separation */
+    border-radius: 10px; /* Added rounded corners */
 }
 
 .loan-requirements img {       
@@ -108,14 +108,15 @@ img {
 }
 
 .loan-requirements img + p {
-    color: red;}
+    color: rgb(0, 0, 0);
+}
 
 /* ===========================
    Market Vendor Loan Section
 =========================== */
 .market-vendor-loan {
-    padding: 50px 20px;
-    background-color: #f8f9fa;
+    padding: 60px 20px; /* Increased padding for better spacing */
+    background-color: #ffffff; /* Changed background for better contrast */
     text-align: center;
 }
 
@@ -145,15 +146,248 @@ img {
     align-items: center;
     color: #fff;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase; /* Added text transformation */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform transition */
 }
 
 .market-vendor-loan .btn-primary:hover {
-    background-color: #0c115e;
+    background-color: #0e1473; /* Updated hover color */
+    transform: scale(1.05); /* Added slight scaling effect */
 }
 
 .market-vendor-loan .btn-primary i {
     margin-right: 8px;
+}
+
+/* ===========================
+   Loan Section
+=========================== */
+.loan-section {
+    padding: 50px 20px; /* Added padding for spacing */
+    background-color: #f8f9fa; /* Added background color */
+    text-align: center;
+}
+
+.loan-section h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dc3545; /* Text-danger color */
+    margin-bottom: 10px;
+}
+
+.loan-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.loan-section p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.loan-section .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.loan-section .btn-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.loan-section .btn-dark:hover {
+    background-color: #23272b;
+    transform: scale(1.05);
+}
+
+.loan-section .btn-group .btn-primary {
+    background-color: #0e1473; /* Updated button color */
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.loan-section .btn-group .btn-primary:hover {
+    background-color: #0e1473; /* Updated hover color */
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Testimonials Section
+=========================== */
+.testimonials {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-top: 2px solid #ddd; /* Added border for section separation */
+}
+
+.testimonials h2 {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.testimonial-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item img {
+    width: 100%;
+    display: block;
+}
+
+.youtube-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #0e1473;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.youtube-btn:hover {
+    background: #0e1473; /* Updated hover color */
+    transform: scale(1.1); /* Added scaling effect */
+}
+
+/* ===========================
+   Numbers Speak Section
+=========================== */
+.numbers-speak-section {
+    background: url('Images/Background.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.numbers-speak-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 50, 0.7);
+    z-index: 1;
+}
+
+.numbers-speak-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numbers-speak-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.numbers-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.stat-item p {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* ===========================
+   News & Events Section
+=========================== */
+.news-section {
+    padding: 60px 0;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+/* ===========================
+   Footer Section
+=========================== */
+.hidden-footer {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: #0e1473; /* Updated background color */
+    color: #fff;
+    text-align: center;
+    padding: 15px 0; /* Increased padding for better spacing */
+    transition: bottom 0.5s ease-in-out, opacity 0.3s ease; /* Added opacity transition */
+}
+
+.show-footer {
+    bottom: 0;
+}
+
+footer .btn-sm {
+    margin-right: 5px;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px; /* Added font size for consistency */
+}
+
+footer ul li a:hover {
+    color: #0e1473; /* Updated hover color */
+    text-decoration: underline;
 }
 
 /* ===========================
@@ -242,113 +476,6 @@ img {
 }
 
 /* ===========================
-   Testimonials Section
-=========================== */
-.testimonials {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #f8f9fa;
-}
-
-.testimonials h2 {
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.testimonial-videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.testimonial-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-item img {
-    width: 100%;
-    display: block;
-}
-
-.youtube-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 20px;
-    background: #0e1473;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.youtube-btn:hover {
-    background: #0e1473;
-}
-
-/* ===========================
-   Numbers Speak Section
-=========================== */
-.numbers-speak-section {
-    background: url('Images/Background.jpg') no-repeat center center;
-    background-size: cover;
-    padding: 60px 20px;
-    color: white;
-    text-align: center;
-    position: relative;
-}
-
-.numbers-speak-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 50, 0.7);
-    z-index: 1;
-}
-
-.numbers-speak-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.numbers-speak-content h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.numbers-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-item h3 {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.stat-item p {
-    font-size: 14px;
-    text-transform: uppercase;
-    margin-top: 5px;
-}
-
-/* ===========================
    Animations
 =========================== */
 .hidden {
@@ -360,92 +487,6 @@ img {
 .show {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* ===========================
-   News Section
-=========================== */
-.news-section {
-    padding: 60px 0;
-}
-
-.card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card img {
-    height: 200px;
-    object-fit: cover;
-}
-
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 14px;
-    padding: 5px 10px;
-}
-
-/* ===========================
-   Footer
-=========================== */
-.hidden-footer {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background: #0e1473;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    transition: bottom 0.5s ease-in-out;
-}
-
-.show-footer {
-    bottom: 0;
-}
-
-footer .btn-sm {
-    margin-right: 5px;
-}
-
-footer ul {
-    padding-left: 0;
-    list-style: none;
-}
-
-footer ul li a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-footer ul li a:hover {
-    text-decoration: underline;
-}
-
-/* ===========================
-   Carousel
-=========================== */
-.carousel-caption {
-    position: absolute;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.carousel-caption h2 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.carousel-caption p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.carousel-caption h1 {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* ===========================
