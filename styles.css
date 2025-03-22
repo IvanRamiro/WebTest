@@ -63,6 +63,15 @@ nav p {
     }
 }
 
+a.text-white:hover {
+    color: red !important;
+}
+
+p.fs-7 a:hover, 
+a.btn-danger:hover {
+    color: red !important;
+}
+
 
 /* Transparent border effect for the navbar */
 .navbar {
@@ -299,6 +308,59 @@ nav p {
 .loan-section .btn-group .btn-primary:hover {
     background-color: #0e1473; /* Updated hover color */
     transform: scale(1.05);
+}
+
+/* ===========================
+   Market Vendor Section
+=========================== */
+/* Custom button style */
+.custom-btn {
+    background-color: #0c1474;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.custom-btn:hover {
+    background-color: #0a105c;
+    transform: scale(1.05);
+}
+
+/* Step Box Styling */
+.step-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+}
+
+.step-label {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.step-box h5 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.step-box p {
+    font-size: 14px;
+    color: #555;
 }
 
 /* ===========================
@@ -616,15 +678,4 @@ footer .text-center {
 
 .text-shadow {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-a.text-white:hover {
-    color: red !important;
-    text-decoration: underline !important;
-}
-
-p.fs-7 a:hover, 
-a.btn-danger:hover {
-    color: red !important;
-    text-decoration: underline !important;
 }
