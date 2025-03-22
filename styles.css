@@ -452,6 +452,18 @@ a.btn-danger:hover {
     text-transform: uppercase;
     margin-top: 5px;
 }
+/* Number Speak Section */
+.number-speak-section {
+    background-color: #f8f9fa;
+}
+.number-box h3 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.number-box p {
+    font-size: 1.25rem;
+    margin: 0;
+}
 
 /* ===========================
    News & Events Section
