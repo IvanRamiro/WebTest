@@ -114,6 +114,7 @@ a.btn-danger:hover {
 .carousel-control-prev, .carousel-control-next {
     width: 5%;
 }
+
 /* ===========================
    MVL Section
 =========================== */
@@ -366,52 +367,32 @@ a.btn-danger:hover {
 /* ===========================
    Testimonials Section
 =========================== */
-.testimonials {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #f8f9fa;
-    border-top: 2px solid #ddd; /* Added border for section separation */
-}
-
-.testimonials h2 {
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.testimonial-videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.testimonial-item {
+.video-thumbnail {
     position: relative;
-    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial-item img {
+.video-thumbnail img {
     width: 100%;
-    display: block;
+    height: auto;
 }
 
-.youtube-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 20px;
-    background: #0e1473;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: 0.3s ease;
 }
 
-.youtube-btn:hover {
-    background: #0e1473; /* Updated hover color */
-    transform: scale(1.1); /* Added scaling effect */
+.video-thumbnail:hover .play-overlay {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* ===========================
@@ -476,79 +457,84 @@ a.btn-danger:hover {
    News & Events Section
 =========================== */
 .news-section {
-    padding: 60px 0;
+    background-color: #f9f9f9;
 }
 
-.card {
+.news-card {
     border: none;
-    border-radius: 10px;
-    overflow: hidden;
+    transition: 0.3s;
 }
 
-.card img {
-    height: 200px;
-    object-fit: cover;
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.badge {
+.news-date {
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 14px;
+    background: red;
+    color: white;
     padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
 }
+
+.news-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.news-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-link:hover .card-title {
+    color: red;
+}
+
 /* ===========================
    Footer Section
 =========================== */
+/* Footer Styling */
 footer {
-    background: #0e1473;
-    color: #fff;
+    background-color: #0A1F66; /* Matches the dark blue shade */
+    color: white;
 }
 
-footer .btn-sm {
-    margin-right: 5px;
-}
-
-footer ul {
-    padding-left: 0;
-    list-style: none;
-}
-
-footer ul li a {
+.footer-link {
+    color: white;
     text-decoration: none;
-    color: #ffffff;
-    font-size: 14px;
+    transition: color 0.3s;
 }
 
-footer ul li a:hover {
-    color: #ffcc00;
+.footer-link:hover {
+    color: red;
     text-decoration: underline;
 }
 
-footer .social-icons {
-    margin-top: 10px;
+/* Social Media Button Styling */
+.btn-danger {
+    background-color: red;
+    border: none;
 }
 
-footer .social-icons .btn {
-    background: #fff;
-    color: #0e1473;
-    margin-right: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+.btn-danger:hover {
+    background-color: #0e1473;
 }
 
-footer .social-icons .btn:hover {
-    background: #ffcc00;
-    color: #0e1473;
-}
+/* Responsive Layout Fix */
+@media (max-width: 768px) {
+    .col-md-4 {
+        text-align: center;
+    }
 
-footer .text-center {
-    font-size: 12px;
-    opacity: 0.9;
+    .social-icons {
+        justify-content: center;
+    }
 }
 
 /* Responsive Footer */
