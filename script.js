@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const footer = document.getElementById("footer");
     const section = document.getElementById("news-events");
     const buttons = document.querySelectorAll(".btn-primary");
+    const navLinks = document.querySelectorAll(".nav-link");
 
     // Navbar Toggler (for mobile menu)
     if (navbarToggler && navbarNav) {
@@ -13,6 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
             navbarNav.style.transition = "all 0.3s ease-in-out"; // Smooth animation
         });
     }
+    navLinks.forEach((link) => {
+        if (link.href === window.location.href) {
+            link.classList.add("active");
+            link.classList.remove("inactive");
+        } else {
+            link.classList.add("inactive");
+        }
+    });
+
+    // Optional: Add click event to highlight link on user interaction
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+            navLinks.forEach((lnk) => lnk.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});
 
     // Scroll Reveal Effect for News Section
     function revealOnScroll() {
@@ -85,8 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             interval: 3000, // 3 seconds
             ride: 'carousel'
         });
-    }
-});
+    };
 
 // Reusable navigation function
 function navigateTo(page) {
