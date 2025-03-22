@@ -18,13 +18,9 @@ img {
    Header Section
 =========================== */
 .top-bar {
-    background-color: #f8f9fa; /* Updated for consistency */
-    padding: 15px 20px; /* Adjusted padding for better spacing */
-    border-bottom: 1px solid #ccc; /* Reduced border thickness */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
 }
 
 .logo {
@@ -33,82 +29,171 @@ img {
 }
 
 .logo-img {
-    width: 60px;
+    width: 50px;
     height: auto;
     margin-right: 10px;
 }
 
 .brand-name {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: red !important;
 }
 
-.contact-info {
+nav p {
     font-size: 14px;
     color: #555;
+    margin-bottom: 5px;
 }
 
+/* Center align on small screens */
+@media (max-width: 768px) {
+    .top-bar .logo {
+        justify-content: center;
+    }
+
+    .top-bar nav {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .top-bar .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* Transparent border effect for the navbar */
 .navbar {
-    padding: 0.7rem 1rem;
-    font-weight: bold;
-    background-color: #f8f9fa;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Semi-transparent white border */
+    backdrop-filter: blur(5px); /* Subtle blur effect */
+    transition: all 0.3s ease-in-out;
 }
 
-.navbar-nav .nav-link {
+/* Fix navigation bar visibility */
+.navbar .nav-link {
     font-size: 16px;
-    padding: 10px 15px;
-    color: #555; /* Updated color for better readability */
-    text-decoration: none;
-    transition: color 0.3s ease, background-color 0.3s ease; /* Added background transition */
+    font-weight: 500;
+    padding: 8px 15px;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #0e1473;
-    background-color: #e9ecef; /* Added hover background for better UX */
-}
-
-/* ===========================
-   Hero Section
-=========================== */
-.banner {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-    margin-bottom: 30px; /* Added margin to separate from the next section */
-}
-
+/* Make the carousel images adjust responsively */
 .banner-img {
+    height: 100vh; /* Full-screen height */
+    object-fit: cover; /* Ensure images cover the area properly */
+}
+
+/* Text shadow for better readability */
+.text-shadow {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Make carousel indicators larger */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.carousel-indicators .active {
+    background-color: white;
+}
+
+/* Ensure carousel buttons are visible */
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+/* ===========================
+   MVL Section
+=========================== */
+/* MVL Section Styling */
+.mvl-section {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    min-height: 400px;
+    padding: 40px 0;
+    background-color: #f8f8f8; /* Light background for contrast */
+    overflow: hidden;
+}
+
+.mvl-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%); /* Start off-screen */
+    animation: slideIn 1s ease-out forwards;
+}
+
+.mvl-img img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.mvl-content {
+    max-width: 400px;
+}
+
+/* Sliding Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .mvl-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .mvl-img img {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 /* ===========================
    Loan Requirements Section
 =========================== */
+/* Loan Requirements Section */
 .loan-requirements {
-    margin-top: 0; /* Removed top margin to align with the hero section */
-    padding: 30px 20px; /* Added padding for better spacing */
-    background-color: #ffffff; /* Added background for better contrast */
-    border: 1px solid #ddd; /* Added border for separation */
-    border-radius: 10px; /* Added rounded corners */
+    background: #f8f8f8; /* Light background */
+    padding: 60px 20px;
 }
 
-.loan-requirements img {       
-    max-width: 80px;
+/* Flexbox for Icons */
+.requirement-item {
+    text-align: center;
+    margin: 0 15px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.requirement-item img {
+    width: 100px;
     height: auto;
-    margin-bottom: 10px;
 }
 
-.loan-requirements p {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-}
-
-.loan-requirements img + p {
-    color: rgb(0, 0, 0);
+/* Buttons */
+.btn-primary {
+    background-color: #001f61;
+    border: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 /* ===========================
