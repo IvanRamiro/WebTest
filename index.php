@@ -106,53 +106,6 @@
                 </div>
             </div>
         </div>
-<!-- Dashboard Section -->
-<div class="dashboard">
-    <div class="background-container" id="background-container">
-        <h1>Welcome to Your Dashboard</h1>
-        <p>Upload a background image for your dashboard.</p>
-        
-        <!-- Upload Form -->
-        <form id="upload-form" action="upload.php" method="POST" enctype="multipart/form-data">
-            <input type="file" id="image-upload" name="background-image" accept="image/*" class="form-control">
-            <button id="upload-btn" class="btn btn-primary mt-2" type="submit">Upload</button>
-        </form>
-
-        <!-- Preview of Uploaded Image -->
-        <img id="preview-image" src="" alt="Preview" class="img-fluid mt-3" style="display: none; max-width: 100%; height: auto;">
-
-        <!-- Change Background Button (Hidden Initially) -->
-        <button id="change-bg-btn" class="btn btn-warning mt-2" style="display: none;">Change Background</button>
-
-        <!-- Status Message -->
-        <p id="status-message" class="mt-2"></p>
-    </div>
-</div>
-
-<!-- Current Background Preview -->
-<div id="image-preview" class="mt-3">
-    <h5>Current Background:</h5>
-    <img id="uploaded-image" src="images/banner.jpg" class="img-fluid border rounded shadow" style="max-width: 100%; height: auto;">
-</div>
-
-
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev" aria-label="Previous Slide">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next" aria-label="Next Slide">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-
-        <!-- Carousel Indicators -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-    </div>
-</section>
 
 <!-- MVL Section -->
 <section class="mvl-section d-flex justify-content-center align-items-center" aria-labelledby="mvl-heading">
