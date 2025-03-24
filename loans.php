@@ -117,32 +117,32 @@
         <h2>ONLINE LOAN APPLICATION <span class="highlight">PROCEDURE</span></h2>
         <div class="steps-container">
             <div class="step">
-                <img src="step1.png" alt="Step 1">
+                <img src="Images/DefaultCat.jpg" alt="Step 1">
                 <h3>STEP 1</h3>
                 <p>Complete the Online Affordability and Suitability Assessment and MVL Application Form.</p>
             </div>
             <div class="step">
-                <img src="step2.png" alt="Step 2">
+                <img src="Images/DefaultCat.jpg" alt="Step 2">
                 <h3>STEP 2</h3>
                 <p>Upload your valid IDs and proof of business.</p>
             </div>
             <div class="step">
-                <img src="step3.png" alt="Step 3">
+                <img src="Images/DefaultCat.jpg" alt="Step 3">
                 <h3>STEP 3</h3>
                 <p>Expect a video chat interview schedule within 1-2 days.</p>
             </div>
             <div class="step">
-                <img src="step4.png" alt="Step 4">
+                <img src="Images/DefaultCat.jpg" alt="Step 4">
                 <h3>STEP 4</h3>
                 <p>A credit investigation will take place within 7 days from the interview date.</p>
             </div>
             <div class="step">
-                <img src="step5.png" alt="Step 5">
+                <img src="Images/DefaultCat.jpg" alt="Step 5">
                 <h3>STEP 5</h3>
                 <p>Attend the pre-loan orientation.</p>
             </div>
             <div class="step">
-                <img src="step6.png" alt="Step 6">
+                <img src="Images/DefaultCat.jpg" alt="Step 6">
                 <h3>STEP 6</h3>
                 <p>Receive your loan through a convenient method of your choice.</p>
             </div>
@@ -153,7 +153,7 @@
      <section class="eligibility-section">
         <div class="eligibility-container">
             <div class="eligibility-box">
-                <img src="who-can-apply.png" alt="Who Can Apply">
+                <img src="Images/DefaultCat.jpg" alt="Who Can Apply">
                 <h3>WHO CAN APPLY?</h3>
                 <ul>
                     <li>18 – 75 years of age</li>
@@ -162,7 +162,7 @@
                 </ul>
             </div>
             <div class="eligibility-box">
-                <img src="how-to-apply.png" alt="How to Apply">
+                <img src="Images/DefaultCat.jpg" alt="How to Apply">
                 <h3>HOW TO APPLY?</h3>
                 <p>
                     If you are interested to apply, please visit our 
@@ -172,7 +172,7 @@
                 </p>
             </div>
             <div class="eligibility-box">
-                <img src="requirements.png" alt="Requirements">
+                <img src="Images/DefaultCat.jpg" alt="Requirements">
                 <h3>REQUIREMENTS</h3>
                 <ul>
                     <li>Affordability and Suitability Assessment Form</li>

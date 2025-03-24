@@ -105,15 +105,15 @@
 
                 <ul class="contact-list">
                     <li>
-                        <img src="email-icon.png" alt="Email">
+                        <img src="Images/DefaultCat.jpg" alt="Email">
                         <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
                     </li>
                     <li>
-                        <img src="phone-icon.png" alt="Phone">
+                        <img src="Images/DefaultCat.jpg" alt="Phone">
                         Call 0908-898-5606
                     </li>
                     <li>
-                        <img src="facebook-icon.png" alt="Facebook">
+                        <img src="Images/DefaultCat.jpg" alt="Facebook">
                         <a href="#">Facebook Messenger</a>
                     </li>
                 </ul>
@@ -127,7 +127,7 @@
 
             <!-- Complaint Image -->
             <div class="report-image">
-                <img src="report-complaint.jpg" alt="Complaint Report">
+                <img src="Images/DefaultCat.jpg" alt="Complaint Report">
             </div>
         </div>
     </section>
@@ -139,33 +139,33 @@
 
             <div class="category-grid">
                 <div class="category-card">
-                    <img src="loan-renewal.png" alt="Loan Renewal">
+                    <img src="Images/DefaultCat.jpg" alt="Loan Renewal">
                     <p>Loan Renewal</p>
                 </div>
                 <div class="category-card">
-                    <img src="credit-investigation.png" alt="Credit Investigation">
+                    <img src="Images/DefaultCat.jpg" alt="Credit Investigation">
                     <p>Credit Investigation</p>
                 </div>
                 <div class="category-card">
-                    <img src="loan-disbursement.png" alt="Loan Disbursement">
+                    <img src="Images/DefaultCat.jpg" alt="Loan Disbursement">
                     <p>Loan Disbursement</p>
                 </div>
                 <div class="category-card">
-                    <img src="unfair-collection.png" alt="Unfair Collection Practice">
+                    <img src="Images/DefaultCat.jpg" alt="Unfair Collection Practice">
                     <p>Unfair Collection Practice</p>
                 </div>
                 <div class="category-card">
-                    <img src="loan-usage.png" alt="Usage of Loan Accounts">
+                    <img src="Images/DefaultCat.jpg" alt="Usage of Loan Accounts">
                     <p>Usage of Loan Accounts</p>
                 </div>
                 <div class="category-card">
-                    <img src="none-options.png" alt="None of the options">
+                    <img src="Images/DefaultCat.jpg" alt="None of the options">
                     <p>None of the options</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">
     <div class="container">
