@@ -30,6 +30,95 @@ document.addEventListener("DOMContentLoaded", function () {
             this.classList.add("active");
         });
     });
+
+    // Handle window resize for responsive adjustments
+    window.addEventListener("resize", debounce(() => {
+        if (window.innerWidth > 768) {
+            navbarNav.classList.remove("show"); // Ensure menu is hidden on larger screens
+        }
+    }));
+
+    // Improve accessibility for keyboard navigation
+    navLinks.forEach((link) => {
+        link.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                link.click(); // Trigger click on Enter key
+            }
+        });
+    });
+
+    // Add ARIA attributes for better accessibility
+    if (navbarToggler && navbarNav) {
+        navbarToggler.setAttribute("aria-expanded", "false");
+        navbarToggler.addEventListener("click", () => {
+            const isExpanded = navbarNav.classList.contains("show");
+            navbarToggler.setAttribute("aria-expanded", !isExpanded);
+        });
+    }
+
+    // Add responsive behavior for footer
+    function adjustFooter() {
+        if (window.innerWidth < 768) {
+            footer.style.position = "relative"; // Ensure footer is not fixed on small screens
+        } else {
+            footer.style.position = "fixed"; // Keep footer fixed on larger screens
+        }
+    }
+    adjustFooter();
+    window.addEventListener("resize", debounce(adjustFooter));
+
+    // Enhance button interactivity with hover effects
+    buttons.forEach(button => {
+        button.addEventListener("mouseover", () => {
+            button.style.backgroundColor = "#0056b3"; // Change color on hover
+        });
+        button.addEventListener("mouseout", () => {
+            button.style.backgroundColor = ""; // Reset color
+        });
+    });
+
+    // Add focus styles for better keyboard navigation
+    document.querySelectorAll("a, button").forEach((element) => {
+        element.addEventListener("focus", () => {
+            element.style.outline = "2px solid #0056b3"; // Add focus outline
+        });
+        element.addEventListener("blur", () => {
+            element.style.outline = ""; // Remove focus outline
+        });
+    });
+
+    // Ensure carousel is paused on hover for better user control
+    const mockupSlider = document.querySelector('#mockupSlider');
+    if (mockupSlider) {
+        mockupSlider.addEventListener("mouseenter", () => {
+            bootstrap.Carousel.getInstance(mockupSlider).pause();
+        });
+        mockupSlider.addEventListener("mouseleave", () => {
+            bootstrap.Carousel.getInstance(mockupSlider).cycle();
+        });
+    }
+
+    // Initialize the carousel using Bootstrap's JavaScript API
+    const bannerCarousel = document.querySelector('#bannerCarousel');
+    if (bannerCarousel) {
+        const carouselInstance = new bootstrap.Carousel(bannerCarousel, {
+            interval: 5000, // Auto-slide every 5 seconds
+            ride: 'carousel', // Automatically start the carousel
+            pause: 'hover', // Pause on hover
+            wrap: true // Enable infinite looping
+        });
+
+        // Ensure arrow controls work properly
+        const prevButton = bannerCarousel.querySelector('.carousel-control-prev');
+        const nextButton = bannerCarousel.querySelector('.carousel-control-next');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => carouselInstance.prev());
+        }
+        if (nextButton) {
+            nextButton.addEventListener('click', () => carouselInstance.next());
+        }
+    }
 });
 
     // Scroll Reveal Effect for News Section
@@ -96,79 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Ensure the carousel starts automatically with a 3-second interval
-    const mockupSlider = document.querySelector('#mockupSlider');
-    if (mockupSlider) {
-        new bootstrap.Carousel(mockupSlider, {
-            interval: 3000, // 3 seconds
-            ride: 'carousel'
-        });
-    };
-
-// Reusable navigation function
-function navigateTo(page) {
-    if (page) {
-        window.location.href = `${page}.html`;
-    }
-}
-
-// Navigation functions
-function openAffordabilityAssessment() {
-    navigateTo("affordability-assessment");
-}
-
-function reviewAssessmentResult() {
-    navigateTo("review-assessment-result");
-}
-
-function navigateToLoan() {
-    navigateTo("loan");
-}
-
-function navigateToHelpSupport() {
-    navigateTo("help-support");
-}
-
-function navigateToConsumerProtection() {
-    navigateTo("consumer-protection");
-}
-
-function navigateToAboutUs() {
-    navigateTo("about-us");
-}
-
-function navigateToCareers() {
-    navigateTo("careers");
-}
-
-function navigateToNewsAndEvents() {
-    navigateTo("news-and-events");
-}
-
-function navigateToContactUs() {
-    navigateTo("contact-us");
-}
-
-// Reusable email function
-function sendEmail(email) {
-    if (email) {
-        window.location.href = `mailto:${email}`;
-    }
-}
-
-// Contact functions
-function callPhoneNumber() {
-    window.location.href = "tel:+63253102796";
-}
-
-function emailWeCare() {
-    sendEmail("wecare@qcreditcorp.net");
-}
-
-function emailHiring() {
-    sendEmail("hiring@qcreditcorp.net");
-}
-
-function emailIReport() {
-    sendEmail("ireport@qcreditcorp.net");
+// Placeholder for future improvements
+function futureEnhancements() {
+    console.log("This is a placeholder for future functionality.");
 }
