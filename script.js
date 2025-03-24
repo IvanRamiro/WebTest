@@ -12,18 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         navbarToggler.addEventListener("click", () => {
             navbarNav.classList.toggle("show");
             navbarNav.style.transition = "all 0.3s ease-in-out"; // Smooth animation
+            navbarToggler.setAttribute("aria-expanded", navbarNav.classList.contains("show"));
         });
     }
-    navLinks.forEach((link) => {
-        if (link.href === window.location.href) {
-            link.classList.add("active");
-            link.classList.remove("inactive");
-        } else {
-            link.classList.add("inactive");
-        }
-    });
 
-    // Optional: Add click event to highlight link on user interaction
+    // Add active class to the current navigation link
     navLinks.forEach((link) => {
         link.addEventListener("click", function () {
             navLinks.forEach((lnk) => lnk.classList.remove("active"));
@@ -36,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (window.innerWidth > 768) {
             navbarNav.classList.remove("show"); // Ensure menu is hidden on larger screens
         }
+        adjustFooter(); // Adjust footer position on resize
     }));
 
     // Improve accessibility for keyboard navigation
@@ -47,16 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Add ARIA attributes for better accessibility
-    if (navbarToggler && navbarNav) {
-        navbarToggler.setAttribute("aria-expanded", "false");
-        navbarToggler.addEventListener("click", () => {
-            const isExpanded = navbarNav.classList.contains("show");
-            navbarToggler.setAttribute("aria-expanded", !isExpanded);
-        });
-    }
-
-    // Add responsive behavior for footer
+    // Adjust footer position on window size change
     function adjustFooter() {
         if (window.innerWidth < 768) {
             footer.style.position = "relative"; // Ensure footer is not fixed on small screens
@@ -64,8 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             footer.style.position = "fixed"; // Keep footer fixed on larger screens
         }
     }
-    adjustFooter();
-    window.addEventListener("resize", debounce(adjustFooter));
+    adjustFooter(); // Call it initially to set the correct footer position
 
     // Enhance button interactivity with hover effects
     buttons.forEach(button => {
@@ -77,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Add focus styles for better keyboard navigation
+    // Focus styles for better keyboard navigation
     document.querySelectorAll("a, button").forEach((element) => {
         element.addEventListener("focus", () => {
             element.style.outline = "2px solid #0056b3"; // Add focus outline
@@ -87,39 +71,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Ensure carousel is paused on hover for better user control
-    const mockupSlider = document.querySelector('#mockupSlider');
-    if (mockupSlider) {
-        mockupSlider.addEventListener("mouseenter", () => {
-            bootstrap.Carousel.getInstance(mockupSlider).pause();
-        });
-        mockupSlider.addEventListener("mouseleave", () => {
-            bootstrap.Carousel.getInstance(mockupSlider).cycle();
+    // Image Upload functionality
+    const uploadInput = document.getElementById('image-upload');
+    const backgroundContainer = document.getElementById('background-container');
+    if (uploadInput) {
+        uploadInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('image', file);
+
+                // Send the file to the server using fetch API
+                fetch('upload.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.imageUrl) {
+                        backgroundContainer.style.backgroundImage = `url(${data.imageUrl})`; // Update background
+                    } else {
+                        console.error('Error:', data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                });
+            }
         });
     }
-
-    // Initialize the carousel using Bootstrap's JavaScript API
-    const bannerCarousel = document.querySelector('#bannerCarousel');
-    if (bannerCarousel) {
-        const carouselInstance = new bootstrap.Carousel(bannerCarousel, {
-            interval: 5000, // Auto-slide every 5 seconds
-            ride: 'carousel', // Automatically start the carousel
-            pause: 'hover', // Pause on hover
-            wrap: true // Enable infinite looping
-        });
-
-        // Ensure arrow controls work properly
-        const prevButton = bannerCarousel.querySelector('.carousel-control-prev');
-        const nextButton = bannerCarousel.querySelector('.carousel-control-next');
-
-        if (prevButton) {
-            prevButton.addEventListener('click', () => carouselInstance.prev());
-        }
-        if (nextButton) {
-            nextButton.addEventListener('click', () => carouselInstance.next());
-        }
-    }
-});
 
     // Scroll Reveal Effect for News Section
     function revealOnScroll() {
@@ -165,13 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleFooter();
     }));
 
-    // Button Click Alert (Future Feature)
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            alert("Feature coming soon!");
-        });
-    });
-
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
@@ -185,7 +158,49 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-// Placeholder for future improvements
-function futureEnhancements() {
-    console.log("This is a placeholder for future functionality.");
-}
+    // Initialize the carousel using Bootstrap's JavaScript API
+    const bannerCarousel = document.querySelector('#bannerCarousel');
+    if (bannerCarousel) {
+        const carouselInstance = new bootstrap.Carousel(bannerCarousel, {
+            interval: 5000, // Auto-slide every 5 seconds
+            ride: 'carousel', // Automatically start the carousel
+            pause: 'hover', // Pause on hover
+            wrap: true // Enable infinite looping
+        });
+
+        // Ensure arrow controls work properly
+        const prevButton = bannerCarousel.querySelector('.carousel-control-prev');
+        const nextButton = bannerCarousel.querySelector('.carousel-control-next');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => carouselInstance.prev());
+        }
+        if (nextButton) {
+            nextButton.addEventListener('click', () => carouselInstance.next());
+        }
+    }
+
+    // Handle image upload preview
+    const imageUpload = document.getElementById("image-upload");
+    imageUpload.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                backgroundContainer.style.backgroundImage = `url(${e.target.result})`;
+                backgroundContainer.style.backgroundSize = "cover";
+                backgroundContainer.style.backgroundPosition = "center";
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Carousel auto-play
+    const carousel = document.querySelector("#bannerCarousel");
+    if (carousel) {
+        new bootstrap.Carousel(carousel, {
+            interval: 5000,
+            ride: "carousel",
+        });
+    }
+});

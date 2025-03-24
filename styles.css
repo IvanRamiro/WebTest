@@ -82,17 +82,23 @@ a.btn-danger:hover {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .main-section .btn-primary {
     background-color: #0e1473;
     color: #fff;
-    border: none;
 }
 
 .main-section .btn-primary:hover {
     background-color: #0c1163; /* Slightly darker blue */
     transform: scale(1.05); /* Hover effect */
+}
+
+.main-section .btn-primary:focus, .main-section .btn-primary:active {
+    outline: 2px solid #0e1473;
+    transform: scale(1.02); /* Slight shrink on active */
 }
 
 /* Responsive Design */
@@ -107,6 +113,72 @@ a.btn-danger:hover {
 
     .main-section p {
         font-size: 14px;
+    }
+}
+
+/* ===========================
+   Hero Section 2 (Dashboard)
+=========================== */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.hero-section .background-container {
+    width: 100%;
+    height: 100%;
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    transition: background-size 0.3s ease;
+}
+
+.hero-section h1 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.hero-section input[type="file"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #3b8f7d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero-section input[type="file"]:hover {
+    background-color: #2e6b59;
+}
+
+.hero-section input[type="file"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(59, 143, 125, 0.7);
+}
+
+/* Mobile responsiveness for Hero Section */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-section p {
+        font-size: 16px;
     }
 }
 
@@ -618,4 +690,44 @@ footer .social-icons {
     footer .social-icons {
         justify-content: center;
     }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard {
+        padding: 1rem;
+    }
+}
+
+/* Dashboard Styling */
+.dashboard {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#upload-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#upload-btn:hover {
+    background-color: #0056b3;
 }
