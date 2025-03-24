@@ -89,6 +89,28 @@
                 </form>
             </div>
         </nav>
+        <img src="images/currency.jpg" class="d-block w-100 banner-img" alt="Financial Access for Everyone">
+    </div>
+</section>
+
+
+<!-- MVL Section -->
+<section class="mvl-section d-flex justify-content-center align-items-center" aria-labelledby="mvl-heading">
+    <div class="mvl-card d-flex align-items-center flex-wrap">
+        <!-- Image -->
+        <figure class="mvl-img mb-4 mb-md-0 me-md-4">
+            <img src="images/mvl.jpg" alt="Market Vendor Loan Advertisement" class="img-fluid">
+            <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
+        </figure>
+        <!-- Text Content -->
+        <div class="mvl-content">
+            <h6 id="mvl-heading" class="text-danger fw-bold">LEARN MORE ABOUT MVL</h6>
+            <h2 class="fw-bold">Grow your business with <br><span class="text-dark">Market Vendor Loan</span></h2>
+            <p>Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
+            <a href="#" class="btn btn-danger fw-bold" aria-label="Apply online for Market Vendor Loan">APPLY ONLINE</a>
+        </div>
+    </div>
+</section>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">

@@ -711,23 +711,3 @@ footer .social-icons {
         padding: 1rem;
     }
 }
-
-/* Dashboard Styling */
-.dashboard {
-    text-align: center;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-#upload-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#upload-btn:hover {
-    background-color: #0056b3;
-}
