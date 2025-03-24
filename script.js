@@ -38,7 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.key === "Enter") link.click();
         });
     });
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+            // Remove active class from all links
+            navLinks.forEach((nav) => nav.classList.remove("active"));
 
+            // Add active class to the clicked link
+            this.classList.add("active");
+        });
+    });
+});
     /*** Footer Position Adjustment ***/
     function adjustFooter() {
         footer.style.position = window.innerWidth < 768 ? "relative" : "fixed";
@@ -223,5 +232,4 @@ document.addEventListener("DOMContentLoaded", function () {
         if (prevButton) prevButton.addEventListener("click", () => carouselInstance.prev());
         if (nextButton) nextButton.addEventListener("click", () => carouselInstance.next());
     };
-    }
-});
+    };

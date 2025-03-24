@@ -64,7 +64,7 @@
 <section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
     <div class="container-fluid p-0">
         <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
                 <!-- Collapsible Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,8 +89,9 @@
                 </form>
             </div>
         </nav>
-        <img src="images/currency.jpg" class="d-block w-100 banner-img" alt="Financial Access for Everyone">
-    </div>
+        <div class="currency">
+    <img src="images/currency.jpg" class="currency__image" alt="currency image">
+</div>
 </section>
 
 
@@ -111,6 +112,136 @@
         </div>
     </div>
 </section>
+
+<section class="loan-application">
+        <h2>ONLINE LOAN APPLICATION <span class="highlight">PROCEDURE</span></h2>
+        <div class="steps-container">
+            <div class="step">
+                <img src="step1.png" alt="Step 1">
+                <h3>STEP 1</h3>
+                <p>Complete the Online Affordability and Suitability Assessment and MVL Application Form.</p>
+            </div>
+            <div class="step">
+                <img src="step2.png" alt="Step 2">
+                <h3>STEP 2</h3>
+                <p>Upload your valid IDs and proof of business.</p>
+            </div>
+            <div class="step">
+                <img src="step3.png" alt="Step 3">
+                <h3>STEP 3</h3>
+                <p>Expect a video chat interview schedule within 1-2 days.</p>
+            </div>
+            <div class="step">
+                <img src="step4.png" alt="Step 4">
+                <h3>STEP 4</h3>
+                <p>A credit investigation will take place within 7 days from the interview date.</p>
+            </div>
+            <div class="step">
+                <img src="step5.png" alt="Step 5">
+                <h3>STEP 5</h3>
+                <p>Attend the pre-loan orientation.</p>
+            </div>
+            <div class="step">
+                <img src="step6.png" alt="Step 6">
+                <h3>STEP 6</h3>
+                <p>Receive your loan through a convenient method of your choice.</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- Loan Eligibility Section -->
+     <section class="eligibility-section">
+        <div class="eligibility-container">
+            <div class="eligibility-box">
+                <img src="who-can-apply.png" alt="Who Can Apply">
+                <h3>WHO CAN APPLY?</h3>
+                <ul>
+                    <li>18 – 75 years of age</li>
+                    <li>An owner of legitimate business/es with daily revenue</li>
+                    <li>A responsible borrower</li>
+                </ul>
+            </div>
+            <div class="eligibility-box">
+                <img src="how-to-apply.png" alt="How to Apply">
+                <h3>HOW TO APPLY?</h3>
+                <p>
+                    If you are interested to apply, please visit our 
+                    <a href="#">nearest branch office</a> in your place. 
+                    Our staff will assist you through the application process. 
+                    You may also apply online.
+                </p>
+            </div>
+            <div class="eligibility-box">
+                <img src="requirements.png" alt="Requirements">
+                <h3>REQUIREMENTS</h3>
+                <ul>
+                    <li>Affordability and Suitability Assessment Form</li>
+                    <li>Duly accomplished MVL Application Form</li>
+                    <li>One (1) valid primary ID or two (2) secondary IDs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator Section -->
+    <section class="loan-calculator">
+        <h2>LOAN <span class="highlight">CALCULATOR</span></h2>
+        <div class="calculator-container">
+            <div class="slider-box">
+                <label>Slide to Select Desired Loan Amount</label>
+                <input type="range" min="5000" max="50000" value="10500" id="loanSlider">
+                <span id="loanAmount">₱10,500</span>
+            </div>
+            <div class="loan-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>60-DAY LOAN OPTIONS</th>
+                            <th>60 DAYS</th>
+                            <th>48 DAYS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PRINCIPAL</td>
+                            <td>₱10,500.00</td>
+                            <td>₱10,500.00</td>
+                        </tr>
+                        <tr>
+                            <td>INTEREST</td>
+                            <td>₱1,680.00</td>
+                            <td>₱1,680.00</td>
+                        </tr>
+                        <tr>
+                            <td>PAYABLE</td>
+                            <td>₱12,180.00</td>
+                            <td>₱12,180.00</td>
+                        </tr>
+                        <tr>
+                            <td>FREQUENCY</td>
+                            <td>Daily</td>
+                            <td>Daily except Sunday plus 4 days allowance</td>
+                        </tr>
+                        <tr>
+                            <td>AMORTIZATION</td>
+                            <td>₱203.00</td>
+                            <td>₱253.75</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="notice">Rates are subject to change without prior notice.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const slider = document.getElementById("loanSlider");
+        const loanAmount = document.getElementById("loanAmount");
+
+        slider.addEventListener("input", function() {
+            loanAmount.textContent = `₱${parseInt(this.value).toLocaleString()}`;
+        });
+    </script>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">

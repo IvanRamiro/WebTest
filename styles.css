@@ -194,7 +194,6 @@ a.btn-danger:hover {
 
 .nav-link:hover {
     color: red; /* Highlight color on hover */
-    text-decoration: underline;
 }
 
 /* Active State */
@@ -710,4 +709,209 @@ footer .social-icons {
     .dashboard {
         padding: 1rem;
     }
+}
+.currency {
+    width: 100%;
+    text-align: center; /* Aligns content inside */
+}
+
+.currency__image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: top;
+    display: block; /* Removes extra spacing below image */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.loan-application {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #0056b3;
+}
+
+.steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.step {
+    flex: 1 1 30%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #d9534f;
+}
+
+p {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* Eligibility Section */
+.eligibility-section {
+    background-color: #eaeaea;
+    padding: 40px 0;
+}
+
+.eligibility-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.eligibility-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.eligibility-box img {
+    width: 50px;
+    height: 50px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.eligibility-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.eligibility-box ul li {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Loan Calculator Section */
+.loan-calculator {
+    background: white;
+    padding: 40px 0;
+}
+
+.loan-calculator h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #0056b3;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.slider-box {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+}
+
+.slider-box label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.slider-box input {
+    width: 80%;
+}
+
+.slider-box span {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Loan Table */
+.loan-table {
+    width: 60%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: navy;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.notice {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
 }
