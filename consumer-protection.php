@@ -64,7 +64,7 @@
 <section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
     <div class="container-fluid p-0">
         <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
                 <!-- Collapsible Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,6 +90,82 @@
             </div>
         </nav>
 
+        
+    <!-- iReport Complaint Section -->
+    <section class="report-section">
+        <div class="report-container">
+            <!-- Complaint Information -->
+            <div class="report-info">
+                <p>
+                    Do you feel that you have been treated unfairly? Worry no more because QCredit cares! 
+                    If you suspect any irregularity, discrepancy, or unfair lending practice, submit a complaint.
+                </p>
+
+                <p><strong>You may also reach us thru these iReport channels:</strong></p>
+
+                <ul class="contact-list">
+                    <li>
+                        <img src="email-icon.png" alt="Email">
+                        <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                    </li>
+                    <li>
+                        <img src="phone-icon.png" alt="Phone">
+                        Call 0908-898-5606
+                    </li>
+                    <li>
+                        <img src="facebook-icon.png" alt="Facebook">
+                        <a href="#">Facebook Messenger</a>
+                    </li>
+                </ul>
+
+                <p class="service-hours">
+                    <strong>Our Consumer Protection Unit is open from 08:30am to 5:30pm (Monday to Saturday).</strong>
+                </p>
+
+                <button class="report-button">➤ SUBMIT A COMPLAINT</button>
+            </div>
+
+            <!-- Complaint Image -->
+            <div class="report-image">
+                <img src="report-complaint.jpg" alt="Complaint Report">
+            </div>
+        </div>
+    </section>
+
+    <!-- Consumer Protection Category Section -->
+    <section class="protection-section">
+        <div class="container">
+            <h2>Consumer Protection <strong>Category</strong></h2>
+
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="loan-renewal.png" alt="Loan Renewal">
+                    <p>Loan Renewal</p>
+                </div>
+                <div class="category-card">
+                    <img src="credit-investigation.png" alt="Credit Investigation">
+                    <p>Credit Investigation</p>
+                </div>
+                <div class="category-card">
+                    <img src="loan-disbursement.png" alt="Loan Disbursement">
+                    <p>Loan Disbursement</p>
+                </div>
+                <div class="category-card">
+                    <img src="unfair-collection.png" alt="Unfair Collection Practice">
+                    <p>Unfair Collection Practice</p>
+                </div>
+                <div class="category-card">
+                    <img src="loan-usage.png" alt="Usage of Loan Accounts">
+                    <p>Usage of Loan Accounts</p>
+                </div>
+                <div class="category-card">
+                    <img src="none-options.png" alt="None of the options">
+                    <p>None of the options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">
     <div class="container">

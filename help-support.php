@@ -64,7 +64,7 @@
 <section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
     <div class="container-fluid p-0">
         <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
                 <!-- Collapsible Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +89,47 @@
                 </form>
             </div>
         </nav>
+
+        <!-- Help & Support Center Section -->
+    <section class="support-section">
+        <div class="support-container">
+            <!-- Contact Information -->
+            <div class="support-info">
+                <h2>Help & Support <span class="bold">Center</span></h2>
+                <p>You may also reach us thru these customer care channels:</p>
+
+                <ul class="contact-list">
+                    <li>
+                        <img src="email-icon.png" alt="Email">
+                        <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
+                    </li>
+                    <li>
+                        <img src="phone-icon.png" alt="Phone">
+                        0917-791-8872 (Globe)
+                    </li>
+                    <li>
+                        <img src="phone-icon.png" alt="Phone">
+                        0908-869-4991 (Smart)
+                    </li>
+                    <li>
+                        <img src="facebook-icon.png" alt="Facebook">
+                        <a href="#">Facebook Messenger</a>
+                    </li>
+                </ul>
+
+                <p class="service-hours">
+                    Our Customer Care Service is open from <strong>08:30am to 5:30pm (Monday to Saturday)</strong>.
+                </p>
+
+                <button class="help-ticket-btn">➤ SUBMIT A HELP TICKET</button>
+            </div>
+
+            <!-- Support Image -->
+            <div class="support-image">
+                <img src="customer-support.jpg" alt="Customer Support Team">
+            </div>
+        </div>
+    </section>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">
