@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <!-- Add jQuery for enhanced interactivity -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -73,14 +72,14 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="loans.html">Loans</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="help-support.html">Help & Support</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.html">Consumer Protection</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="about-us.html">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="careers.html">Careers</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="news-events.html">News and Events</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="contact-us.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- Search Form (Responsive) -->
@@ -107,18 +106,35 @@
                 </div>
             </div>
         </div>
+<!-- Dashboard Section -->
+<div class="dashboard">
+    <div class="background-container" id="background-container">
+        <h1>Welcome to Your Dashboard</h1>
+        <p>Upload a background image for your dashboard.</p>
+        
+        <!-- Upload Form -->
+        <form id="upload-form" action="upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" id="image-upload" name="background-image" accept="image/*" class="form-control">
+            <button id="upload-btn" class="btn btn-primary mt-2" type="submit">Upload</button>
+        </form>
 
-        <!-- Dashboard Section -->
-        <div class="dashboard">
-            <div class="background-container" id="background-container">
-                <h1>Welcome to Your Dashboard</h1>
-                <p>Upload a background image for your dashboard.</p>
-                <form id="upload-form" action="upload.php" method="POST" enctype="multipart/form-data">
-                    <input type="file" id="image-upload" name="background-image" accept="image/*">
-                    <button id="upload-btn" class="btn btn-primary mt-3" type="submit">Upload Image</button>
-                </form>
-            </div>
-        </div>
+        <!-- Preview of Uploaded Image -->
+        <img id="preview-image" src="" alt="Preview" class="img-fluid mt-3" style="display: none; max-width: 100%; height: auto;">
+
+        <!-- Change Background Button (Hidden Initially) -->
+        <button id="change-bg-btn" class="btn btn-warning mt-2" style="display: none;">Change Background</button>
+
+        <!-- Status Message -->
+        <p id="status-message" class="mt-2"></p>
+    </div>
+</div>
+
+<!-- Current Background Preview -->
+<div id="image-preview" class="mt-3">
+    <h5>Current Background:</h5>
+    <img id="uploaded-image" src="images/banner.jpg" class="img-fluid border rounded shadow" style="max-width: 100%; height: auto;">
+</div>
+
 
         <!-- Carousel Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev" aria-label="Previous Slide">
@@ -515,7 +531,7 @@
 
         <!-- Bottom Section -->
         <div class="text-center mt-4">
-            <p class="mb-0">&copy; 2024 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
             <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
         </div>
     </div>

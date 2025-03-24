@@ -1,14 +1,13 @@
 <?php
-$host = 'localhost';
-$dbname = 'qcredit';
-$username = 'root';
-$password = '';
+$host = "localhost";
+$dbname = "qcredit_db";
+$username = "root"; // Change if using a different username
+$password = ""; // Change if you have a password
 
-// Create connection
-$conn = new mysqli($host, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
 ?>

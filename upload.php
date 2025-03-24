@@ -1,78 +1,70 @@
 <?php
-include 'config.php';  // Include the database configuration file
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['background-image'])) {
-    $uploadDir = 'uploads/';
-    $uploadFile = $uploadDir . basename($_FILES['background-image']['name']);
-    $fileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
-
-    // Validate file type
-    $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
-    if (!in_array($fileType, $allowedTypes)) {
-        echo "Invalid file type.";
-        exit;
-    }
-
-    // Move uploaded file
-    if (move_uploaded_file($_FILES['background-image']['tmp_name'], $uploadFile)) {
-        echo "File uploaded successfully.";
-    } else {
-        echo "File upload failed.";
-    }
-}
+include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
     $image = $_FILES['image'];
 
-    // Check for upload errors
     if ($image['error'] != 0) {
-        echo json_encode(['error' => 'Error uploading the file']);
-        exit;
+        die(json_encode(['error' => 'Error uploading the file']));
     }
 
-    // Define the upload directory and ensure it exists
     $uploadDir = 'uploads/';
     if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);  // Create directory if it doesn't exist
+        mkdir($uploadDir, 0777, true);
     }
 
-    // Get the file name and sanitize it
     $imageName = basename($image['name']);
-    $imageName = preg_replace("/[^a-zA-Z0-9\-_\.]/", "_", $imageName);  // Remove unsafe characters
-
-    // Generate a unique file name using uniqid
+    $imageName = preg_replace("/[^a-zA-Z0-9\-_\.]/", "_", $imageName);
     $uniqueFileName = uniqid() . '_' . $imageName;
     $imagePath = $uploadDir . $uniqueFileName;
 
-    // Check if the file is an image (e.g., jpg, jpeg, png, gif)
-    $imageFileType = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
     $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+    $imageFileType = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
 
-    if (in_array($imageFileType, $allowedTypes)) {
-        // Check file size (e.g., max 5MB)
-        if ($image['size'] > 5 * 1024 * 1024) {  // 5MB
-            echo json_encode(['error' => 'File size exceeds the 5MB limit']);
-            exit;
-        }
+    if (!in_array($imageFileType, $allowedTypes)) {
+        die(json_encode(['error' => 'Only JPG, JPEG, PNG & GIF files are allowed']));
+    }
 
-        // Move the uploaded file to the server's uploads directory
-        if (move_uploaded_file($image['tmp_name'], $imagePath)) {
-            // Insert the image path into the database (using PDO)
-            try {
-                $stmt = $pdo->prepare("INSERT INTO images (image_path) VALUES (:image_path)");
-                $stmt->bindParam(':image_path', $imagePath);
-                $stmt->execute();  // Execute the query
+    if ($image['size'] > 5 * 1024 * 1024) {
+        die(json_encode(['error' => 'File size exceeds 5MB limit']));
+    }
 
-                // Return the image URL to be used in the frontend
-                echo json_encode(['imageUrl' => $imagePath]);
-            } catch (PDOException $e) {
-                echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
-            }
-        } else {
-            echo json_encode(['error' => 'Error moving the uploaded file']);
+    if (move_uploaded_file($image['tmp_name'], $imagePath)) {
+        try {
+            $stmt = $pdo->prepare("INSERT INTO images (image_path) VALUES (:image_path)");
+            $stmt->bindParam(':image_path', $imagePath);
+            $stmt->execute();
+
+            echo json_encode(['success' => 'Image uploaded successfully!', 'imageUrl' => $imagePath]);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
         }
     } else {
-        echo json_encode(['error' => 'Only JPG, JPEG, PNG & GIF files are allowed']);
+        echo json_encode(['error' => 'Error moving the uploaded file']);
     }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["background-image"])) {
+    $targetDir = "uploads/";
+    if (!file_exists($targetDir)) {
+        mkdir($targetDir, 0777, true);
+    }
+
+    $fileName = time() . "_" . basename($_FILES["background-image"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+    $allowedTypes = ["jpg", "jpeg", "png", "gif"];
+    if (in_array(strtolower($fileType), $allowedTypes)) {
+        if (move_uploaded_file($_FILES["background-image"]["tmp_name"], $targetFilePath)) {
+            echo json_encode(["imageUrl" => $targetFilePath]);
+        } else {
+            echo json_encode(["error" => "File upload failed."]);
+        }
+    } else {
+        echo json_encode(["error" => "Invalid file type."]);
+    }
+} else {
+    echo json_encode(["error" => "No file uploaded."]);
 }
 ?>
