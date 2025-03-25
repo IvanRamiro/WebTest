@@ -64,7 +64,7 @@
 <section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
     <div class="container-fluid p-0">
         <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
                 <!-- Collapsible Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +89,50 @@
                 </form>
             </div>
         </nav>
+
+<!-- Events Section -->
+<section class="container my-5">
+    <h2 class="text-center fw-bold mb-4">News and Events</h2>
+    <div class="row g-4">
+        <!-- Event Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+                <img src="Images/DefaultCat.jpg" class="card-img-top" alt="Event 1">
+                <div class="card-body">
+                    <h5 class="card-title">Event Title 1</h5>
+                    <p class="card-text">Short description of the event goes here...</p>
+                    <a href="#" class="btn btn-danger">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+                <img src="Images/DefaultCat.jpg" class="card-img-top" alt="Event 2">
+                <div class="card-body">
+                    <h5 class="card-title">Event Title 2</h5>
+                    <p class="card-text">Short description of the event goes here...</p>
+                    <a href="#" class="btn btn-danger">Read More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Add more event cards as needed -->
+        
+        <!-- Blank Column for Adding More Events -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <button class="btn btn-outline-danger w-100 h-100" style="min-height: 150px;" onclick="addEvent()">
+                <i class="fas fa-plus fa-2x"></i>
+                <p class="mt-2 mb-0">Add Event</p>
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function addEvent() {
+        alert('Add Event functionality coming soon!');
+        // Implement functionality to add new events dynamically
+    }
+</script>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">

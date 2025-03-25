@@ -1,73 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Navbar Toggle for Mobile
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarNav = document.querySelector("#navbarNav");
-    const footer = document.getElementById("footer");
-    const section = document.getElementById("news-events");
-    const buttons = document.querySelectorAll(".btn-primary");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const uploadInput = document.getElementById("image-upload");
-    const backgroundContainer = document.getElementById("background-container");
-    const bannerCarousel = document.querySelector("#bannerCarousel");
-    const uploadForm = document.getElementById("upload-form");
-    const fileInput = document.getElementById("file-input");
-    const previewImage = document.getElementById("preview-image");
-    const statusMessage = document.getElementById("status-message");
-    const changeBgBtn = document.getElementById("change-bg-btn");
-    const uploadedImage = document.getElementById("uploaded-image");
-
-    /*** Navbar Toggle for Mobile ***/
     if (navbarToggler && navbarNav) {
         navbarToggler.addEventListener("click", () => {
             navbarNav.classList.toggle("show");
-            navbarNav.style.transition = "all 0.3s ease-in-out";
             navbarToggler.setAttribute("aria-expanded", navbarNav.classList.contains("show"));
         });
     }
 
-    /*** Highlight Active Navigation Link ***/
-    navLinks.forEach((link) => {
+    // ✅ Highlight Active Navigation Link
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
         link.addEventListener("click", function () {
-            navLinks.forEach((lnk) => lnk.classList.remove("active"));
+            navLinks.forEach(lnk => lnk.classList.remove("active"));
             this.classList.add("active");
         });
     });
 
-    /*** Accessibility: Allow Enter Key to Trigger Click on Nav Links ***/
-    navLinks.forEach((link) => {
-        link.addEventListener("keydown", (e) => {
+    // ✅ Allow Enter Key to Trigger Click on Nav Links
+    navLinks.forEach(link => {
+        link.addEventListener("keydown", e => {
             if (e.key === "Enter") link.click();
         });
     });
-    navLinks.forEach((link) => {
-        link.addEventListener("click", function () {
-            // Remove active class from all links
-            navLinks.forEach((nav) => nav.classList.remove("active"));
 
-            // Add active class to the clicked link
-            this.classList.add("active");
-        });
-    });
-});
-    /*** Footer Position Adjustment ***/
+    // ✅ Footer Position Adjustment
+    const footer = document.getElementById("footer");
     function adjustFooter() {
-        footer.style.position = window.innerWidth < 768 ? "relative" : "fixed";
+        if (footer) {
+            footer.style.position = window.innerWidth < 768 ? "relative" : "fixed";
+        }
     }
     adjustFooter();
-    window.addEventListener("resize", debounce(adjustFooter));
+    window.addEventListener("resize", debounce(adjustFooter, 100));
 
-    /*** Button Hover Effects ***/
-    buttons.forEach(button => {
+    // ✅ Button Hover Effects
+    document.querySelectorAll(".btn-primary").forEach(button => {
         button.addEventListener("mouseover", () => button.classList.add("hover-effect"));
         button.addEventListener("mouseout", () => button.classList.remove("hover-effect"));
     });
 
-    /*** Image Upload for Hero Background ***/
-    if (uploadInput) {
+    // ✅ Image Upload for Hero Background
+    const uploadInput = document.getElementById("image-upload");
+    const backgroundContainer = document.getElementById("background-container");
+    if (uploadInput && backgroundContainer) {
         uploadInput.addEventListener("change", function (event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = (e) => {
+                reader.onload = e => {
                     backgroundContainer.style.backgroundImage = `url(${e.target.result})`;
                     backgroundContainer.style.backgroundSize = "cover";
                     backgroundContainer.style.backgroundPosition = "center";
@@ -77,10 +59,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // ✅ Upload Form Submission
+    const uploadForm = document.getElementById("upload-form");
+    const statusMessage = document.getElementById("status-message");
+    const uploadedImage = document.getElementById("uploaded-image");
+    const changeBgBtn = document.getElementById("change-bg-btn");
+
     if (uploadForm) {
         uploadForm.addEventListener("submit", function (event) {
             event.preventDefault();
-
             if (uploadInput.files.length === 0) {
                 alert("Please select an image before uploading.");
                 return;
@@ -96,102 +83,48 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
-                    statusMessage.innerHTML = data.error;
+                    statusMessage.textContent = data.error;
                     statusMessage.style.color = "red";
                 } else {
                     const uploadedUrl = data.imageUrl;
-                    statusMessage.innerHTML = "Background updated!";
+                    statusMessage.textContent = "Background updated!";
                     statusMessage.style.color = "green";
-                    
-                    // Apply the background
                     backgroundContainer.style.backgroundImage = `url(${uploadedUrl})`;
-                    backgroundContainer.style.backgroundSize = "cover";
-                    backgroundContainer.style.backgroundPosition = "center";
-            
-                    // Show preview image
                     uploadedImage.src = uploadedUrl;
                     uploadedImage.style.display = "block";
-                    changeBgBtn.style.display = "block"; // Ensure button remains visible
-            
-                    // Save to local storage
+                    changeBgBtn.style.display = "block";
                     localStorage.setItem("bgImage", uploadedUrl);
                 }
             })
             .catch(() => {
-                statusMessage.innerHTML = "An error occurred.";
+                statusMessage.textContent = "An error occurred.";
                 statusMessage.style.color = "red";
             });
-        });            
-
-    uploadInput.addEventListener("change", function (event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                previewImage.src = e.target.result;
-                previewImage.style.display = "block";
-                changeBgBtn.style.display = "block"; // Ensure button appears
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-    
-    /*** Upload Image via AJAX ***/
-    uploadForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        let formData = new FormData(uploadForm);
-
-        fetch("upload.php", {
-            method: "POST",
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                statusMessage.innerHTML = data.error;
-                statusMessage.style.color = "red";
-            } else {
-                statusMessage.innerHTML = "Background updated!";
-                statusMessage.style.color = "green";
-                backgroundContainer.style.backgroundImage = `url(${data.imageUrl})`;
-                localStorage.setItem("bgImage", data.imageUrl); // Save to local storage
-            }
-        })
-        .catch(() => {
-            statusMessage.innerHTML = "An error occurred.";
-            statusMessage.style.color = "red";
         });
-    });
+    }
 
-    /*** Change Background ***/
-    changeBgBtn.addEventListener("click", function () {
-        uploadInput.click();
-    });
-
-    /*** Load Background from Storage ***/
+    // ✅ Load Background from Local Storage
     const savedImage = localStorage.getItem("bgImage");
-    if (savedImage) {
+    if (savedImage && backgroundContainer) {
         backgroundContainer.style.backgroundImage = `url(${savedImage})`;
     }
 
-    /*** Scroll Reveal Effect for News Section ***/
+    // ✅ Scroll Reveal Effect for News Section
+    const section = document.getElementById("news-events");
     function revealOnScroll() {
-        if (!section) return;
-        if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+        if (section && section.getBoundingClientRect().top < window.innerHeight - 100) {
             section.classList.add("show");
         }
     }
 
-    /*** Footer Visibility on Scroll ***/
+    // ✅ Footer Visibility on Scroll
     function toggleFooter() {
-        if (window.scrollY > 500) {
-            footer.classList.add("show-footer");
-        } else {
-            footer.classList.remove("show-footer");
+        if (footer) {
+            footer.classList.toggle("show-footer", window.scrollY > 500);
         }
     }
 
-    /*** Debounce Function for Scroll Events ***/
+    // ✅ Debounce Function for Scroll Events
     function debounce(func, wait = 20) {
         let timeout;
         return function (...args) {
@@ -200,13 +133,13 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    /*** Attach Scroll Event Listeners ***/
+    // ✅ Attach Scroll Event Listeners
     window.addEventListener("scroll", debounce(() => {
         revealOnScroll();
         toggleFooter();
-    }));
+    }, 100));
 
-    /*** Smooth Scrolling for Internal Links ***/
+    // ✅ Smooth Scrolling for Internal Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -217,7 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /*** Initialize Bootstrap Carousel ***/
+    // ✅ Initialize Bootstrap Carousel
+    const bannerCarousel = document.querySelector("#bannerCarousel");
     if (bannerCarousel) {
         const carouselInstance = new bootstrap.Carousel(bannerCarousel, {
             interval: 5000,
@@ -231,5 +165,85 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (prevButton) prevButton.addEventListener("click", () => carouselInstance.prev());
         if (nextButton) nextButton.addEventListener("click", () => carouselInstance.next());
-    };
-    };
+    }
+
+    // ✅ Custom Carousel Functionality
+    let images = document.querySelectorAll(".carousel-images img");
+    let currentIndex = 0;
+
+    function showImage(index) {
+        if (images.length > 0) {
+            images.forEach((img, i) => {
+                img.classList.toggle("active", i === index);
+            });
+        }
+    }
+
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        prevBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        // Initialize with the first image displayed
+        showImage(currentIndex);
+    }
+
+    // Function to dynamically add a new event card
+    function addEvent() {
+        const row = document.querySelector(".news-section .row");
+        if (row) {
+            const newCard = document.createElement("div");
+            newCard.className = "col-12 col-sm-6 col-md-4 col-lg-3";
+            newCard.innerHTML = `
+                <div class="card h-100">
+                    <img src="Images/DefaultCat.jpg" class="card-img-top" alt="New Event">
+                    <div class="card-body">
+                        <h5 class="card-title">New Event</h5>
+                        <p class="card-text">Description of the new event...</p>
+                        <a href="#" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            `;
+            row.insertBefore(newCard, row.lastElementChild);
+        }
+    }
+
+    // Ensure the "Add Event" button is functional
+    const addEventButton = document.querySelector(".btn-outline-danger");
+    if (addEventButton) {
+        addEventButton.addEventListener("click", addEvent);
+    }
+
+    // Smooth Scroll for "Find Us" Section
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+
+    // Form Submission Handler
+    document.querySelector(".stay-connected form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Thank you for reaching out! We will get back to you soon.");
+    });
+
+    // Animation for "Find Us" Icons
+    const findUsIcons = document.querySelectorAll(".find-us i");
+    findUsIcons.forEach(icon => {
+        icon.addEventListener("mouseover", () => icon.classList.add("fa-bounce"));
+        icon.addEventListener("mouseout", () => icon.classList.remove("fa-bounce"));
+    });
+});

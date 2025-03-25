@@ -64,7 +64,7 @@
 <section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
     <div class="container-fluid p-0">
         <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
                 <!-- Collapsible Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +89,112 @@
                 </form>
             </div>
         </nav>
+
+<!-- Careers Section -->
+<section class="careers-section py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Job Listings -->
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-4">Job Openings</h2>
+                <div class="accordion" id="jobAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Audit Staff
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#jobAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Work Location:</strong> Field Work</p>
+                                <p><strong>Education:</strong> Graduate of any 4-year course</p>
+                                <p><strong>Job Summary:</strong> Responsible for the performance of audit work programs to ensure compliance of policies and other internal control systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Legal Clerk
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#jobAccordion">
+                            <div class="accordion-body">
+                                <!-- Add job details here -->
+                                <p>Details for Legal Clerk...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Training and Development Officer
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#jobAccordion">
+                            <div class="accordion-body">
+                                <!-- Add job details here -->
+                                <p>Details for Training and Development Officer...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Risk and Data Analyst
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#jobAccordion">
+                            <div class="accordion-body">
+                                <!-- Add job details here -->
+                                <p>Details for Risk and Data Analyst...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Apply Form -->
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-4">Quick Apply Form</h2>
+                <form action="submit-application.php" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name <span class="text-danger">(Required)</span></label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Position Applying for <span class="text-danger">(Required)</span></label>
+                        <select class="form-select" id="position" name="position" required>
+                            <option value="" disabled selected>Select Position</option>
+                            <option value="Audit Staff">Audit Staff</option>
+                            <option value="Legal Clerk">Legal Clerk</option>
+                            <option value="Training and Development Officer">Training and Development Officer</option>
+                            <option value="Risk and Data Analyst">Risk and Data Analyst</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address <span class="text-danger">(Required)</span></label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number <span class="text-danger">(Required)</span></label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="resume" class="form-label">File <span class="text-danger">(Required)</span></label>
+                        <input type="file" class="form-control" id="resume" name="resume" required>
+                        <small class="text-muted">Max. File size: 128 MB.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">
