@@ -56,11 +56,12 @@
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="loan-account-inquiry.html" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">LOAN ACCOUNT INQUIRY</a>
+                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
     </div>
 </header>
+
 
 <!-- Hero Section -->
 <section>

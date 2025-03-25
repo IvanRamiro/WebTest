@@ -55,13 +55,16 @@
                         </li>
                     </ul>
                 </nav>
+               
                 <!-- Loan Inquiry Button -->
-                <div class="col-12 col-md-2 text-center text-md-end">
-                    <a href="loan-account-inquiry.html" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">LOAN ACCOUNT INQUIRY</a>
-                </div>
+            <div class="col-12 col-md-2 text-center text-md-end">
+                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+
     <!-- Hero Section -->
     <section>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">

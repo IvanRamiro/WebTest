@@ -57,7 +57,7 @@
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="loan-account-inquiry.html" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">LOAN ACCOUNT INQUIRY</a>
+                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
     </div>
@@ -128,13 +128,13 @@
 </section>
 
 <!-- Brochure Section -->
-<section class="brochure-section py-5">
+<!-- <section class="brochure-section py-5">
     <div class="container text-center">
         <h2>DOWNLOAD <strong>OUR BROCHURE</strong></h2>
         <p class="text-black">Learn more about QCREDIT and our services by downloading our brochure.</p>
         <a href="brochure.pdf" download class="btn btn-primary" aria-label="Download Brochure">DOWNLOAD NOW</a>
     </div>
-</section>
+</section> -->
 
 <!-- Mission & Vision Section -->
 <section class="mission-vision-section py-5 bg-light">
