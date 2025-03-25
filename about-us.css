@@ -1,0 +1,57 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black; /* Added to turn text black */
+}
+
+/* Header Section */
+.top-bar {
+    padding: 1rem 0;
+}
+.logo-img {
+    max-height: 50px;
+}
+.brand-name {
+    font-size: 1.25rem;
+}
+
+/* Navigation Bar */
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+}
+.navbar-toggler {
+    border: none;
+}
+
+/* Hero Section */
+.carousel-inner img {
+    max-height: 500px;
+    object-fit: cover;
+}
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* About Section */
+.about-section {
+    padding: 3rem 1rem;
+}
+.about-text h2 {
+    font-size: 2rem;
+}
+.about-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Services Section */
+.our-services-section img {
+    max-width: 100%;
+    height: auto;
+}
+.our-services-section h2 {
+    font-size: 2rem;
+}
