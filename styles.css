@@ -53,6 +53,20 @@ a.btn-danger:hover {
     }
 }
 
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+    .top-bar .brand-name {
+        font-size: 1.2rem;
+    }
+    .top-bar ul {
+        gap: 2rem;
+    }
+    .top-bar .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
 /* ===========================
    Main Section
 =========================== */
@@ -689,6 +703,14 @@ footer .social-icons {
     margin-top: 10px;
 }
 
+/* Footer responsiveness */
+footer .footer-link {
+    font-size: 0.9rem;
+}
+footer .btn-sm {
+    font-size: 0.8rem;
+}
+
 /* Responsive Footer */
 @media (max-width: 768px) {
     footer .row > div {
@@ -1098,4 +1120,145 @@ h2 {
     font-size: 16px;
     color: #333;
     font-weight: bold;
+}
+
+/* ===========================
+   Contact Section
+=========================== */
+.contact-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+.contact-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0A1F66;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section form .form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-section form .form-control, 
+.contact-section form .form-select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.contact-section form .btn {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-section form .btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for contact form */
+.contact-section form {
+    max-width: 100%;
+}
+.contact-section .form-control, 
+.contact-section .form-select {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 40px 10px;
+    }
+
+    .contact-section h2 {
+        font-size: 24px;
+    }
+
+    .contact-section p {
+        font-size: 14px;
+    }
+}
+
+.find-us-section .text-muted {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #0b0c5f;
+}
+
+/* ===========================
+   Our Departments Section
+=========================== */
+.departments-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+.departments-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0A1F66;
+    margin-bottom: 30px;
+}
+
+/* Accordion styles */
+.accordion-button {
+    font-size: 1rem;
+}
+.accordion-body {
+    font-size: 0.9rem;
+}
+
+.accordion-button {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0A1F66;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.accordion-button:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.accordion-body {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

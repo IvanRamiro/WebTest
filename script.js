@@ -246,4 +246,55 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.addEventListener("mouseover", () => icon.classList.add("fa-bounce"));
         icon.addEventListener("mouseout", () => icon.classList.remove("fa-bounce"));
     });
+
+    // Contact Form Submission Handler
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your message! We will get back to you shortly.");
+            contactForm.reset();    
+        });
+    }
+
+    // Smooth scroll to "Our Departments" section
+    const departmentsLink = document.querySelector('a[href="#departments"]');
+    if (departmentsLink) {
+        departmentsLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(".departments-section");
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Toggle navbar on smaller screens
+    const navbarCollapse = document.querySelector('#navbarNav');
+
+    navbarToggler.addEventListener('click', () => {
+        navbarCollapse.classList.toggle('show');
+    });
+
+    // Form validation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const contactNumber = document.getElementById('contactNumber').value.trim();
+
+        if (!fullName || !email || !contactNumber) {
+            e.preventDefault();
+            alert('Please fill out all required fields.');
+        }
+    });
 });

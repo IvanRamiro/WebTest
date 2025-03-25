@@ -126,7 +126,7 @@
 
             <!-- Support Image -->
             <div class="support-image">
-                <img src="customer-support.jpg" alt="Customer Support Team">
+                <img src="Images/DefaultCat.jpg" alt="Customer Support Team">
             </div>
         </div>
     </section>
