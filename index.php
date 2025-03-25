@@ -115,22 +115,22 @@
         <h2 id="loan-requirements-heading">Who can apply for a <strong>Market Vendor Loan?</strong></h2>
 
         <!-- Flexbox for Requirements -->
-        <div class="row mt-4">
+        <div class="row mt-4 g-4"> <!-- Added gutter -->
             <article class="col-6 col-md-3 mb-3">
                 <img src="images/adult.png" alt="Age Requirement: 18 to 75 Years of Age" class="img-fluid mb-2">
-                <p>18 to 75 <br> Years of Age</p>
+                <p class="text-black">18 to 75 <br> Years of Age</p> <!-- Changed text color to black -->
             </article>
             <article class="col-6 col-md-3 mb-3">
                 <img src="images/market.png" alt="Requirement: Store or Market Stall Owner" class="img-fluid mb-2">
-                <p>A Store or <br> Market Stall Owner</p>
+                <p class="text-black">A Store or <br> Market Stall Owner</p> <!-- Changed text color to black -->
             </article>
             <article class="col-6 col-md-3 mb-3">
                 <img src="images/house.png" alt="Requirement: Permanent Resident" class="img-fluid mb-2">
-                <p>A Permanent <br> Resident</p>
+                <p class="text-black">A Permanent <br> Resident</p> <!-- Changed text color to black -->
             </article>
             <article class="col-6 col-md-3 mb-3">
                 <img src="images/responsibility.png" alt="Requirement: Responsible Borrower" class="img-fluid mb-2">
-                <p>A Responsible <br> Borrower</p>
+                <p class="text-black">A Responsible <br> Borrower</p> <!-- Changed text color to black -->
             </article>
         </div>
 
@@ -145,58 +145,60 @@
 
 <!-- Market Vendor Loan Steps Section -->
 <section class="container my-5" aria-labelledby="mvl-steps-heading">
-    <div class="row bg-light p-4 shadow-sm">
-        <!-- Left side text content -->
-        <article class="col-md-5 d-flex flex-column justify-content-center text-center text-md-start">
-            <h4 class="text-danger fw-bold">NO HASSLE. FAST AND EASY.</h4>
-            <h2 id="mvl-steps-heading" class="fw-bold">
-                How does <span class="text-primary">Market Vendor Loan</span> work?
-            </h2>
-            <p>
-                Borrow up to <strong>₱200,000</strong> without collateral or co-maker.
-                Market Vendor Loan (MVL) is perfect for small to medium-scale businesses looking 
-                to finance short-term needs, whether it's equipment or additional capital.
-            </p>
-            <a href="#" class="btn custom-btn mt-3" aria-label="Learn More About Market Vendor Loan">
-                <i class="fas fa-info-circle"></i> Learn More About MVL
-            </a>
-        </article>
+    <div class="container">
+        <div class="row">
+            <!-- Left side text content -->
+            <div class="col-md-6 d-flex flex-column justify-content-center text-center text-md-start">
+                <h4 class="text-danger fw-bold">NO HASSLE. FAST AND EASY.</h4>
+                <h2 id="mvl-steps-heading" class="fw-bold">
+                    How does <span class="text-primary">Market Vendor Loan</span> work?
+                </h2>
+                <p class="text-black">
+                    Borrow up to <strong>₱200,000</strong> without collateral or co-maker.
+                    Market Vendor Loan (MVL) is perfect for small to medium-scale businesses looking 
+                    to finance short-term needs, whether it's equipment or additional capital.
+                </p>
+                <a href="#" class="btn custom-btn mt-3" aria-label="Learn More About Market Vendor Loan">
+                    <i class="fas fa-info-circle"></i> Learn More About MVL
+                </a>
+            </div>
 
-        <!-- Right side steps -->
-        <div class="col-md-7">
-            <div class="row g-3">
-                <!-- Step 1 -->
-                <article class="col-6">
-                    <div class="step-box text-center p-3 border rounded">
-                        <div class="step-label">STEP 1</div>
-                        <h5><i class="fas fa-file-signature"></i> APPLY</h5>
-                        <p>Apply online or submit an accomplished MVL Application Form to any QCredit branch near you.</p>
+            <!-- Right side steps -->
+            <div class="col-md-6">
+                <div class="row g-3">
+                    <!-- Step 1 -->
+                    <div class="col-6">
+                        <div class="step-box text-center p-3 border rounded">
+                            <div class="step-label">STEP 1</div>
+                            <h5><i class="fas fa-file-signature"></i> APPLY</h5>
+                            <p class="mvl_loan">Apply online or submit an accomplished MVL Application Form to any QCredit branch near you.</p>
+                        </div>
                     </div>
-                </article>
-                <!-- Step 2 -->
-                <article class="col-6">
-                    <div class="step-box text-center p-3 border rounded">
-                        <div class="step-label">STEP 2</div>
-                        <h5><i class="fas fa-mobile-alt"></i> REGISTER</h5>
-                        <p>Subscribe your mobile number to QCredit e-Cash service through text messaging.</p>
+                    <!-- Step 2 -->
+                    <div class="col-6">
+                        <div class="step-box text-center p-3 border rounded">
+                            <div class="step-label">STEP 2</div>
+                            <h5><i class="fas fa-mobile-alt"></i> REGISTER</h5>
+                            <p class="mvl_loan">Subscribe your mobile number to QCredit e-Cash service through text messaging.</p>
+                        </div>
                     </div>
-                </article>
-                <!-- Step 3 -->
-                <article class="col-6">
-                    <div class="step-box text-center p-3 border rounded">
-                        <div class="step-label">STEP 3</div>
-                        <h5><i class="fas fa-comment-sms"></i> REQUEST</h5>
-                        <p>Send loan request by texting the right command using your registered mobile number.</p>
+                    <!-- Step 3 -->
+                    <div class="col-6">
+                        <div class="step-box text-center p-3 border rounded">
+                            <div class="step-label">STEP 3</div>
+                            <h5><i class="fas fa-comment-sms"></i> REQUEST</h5>
+                            <p class="mvl_loan">Send loan request by texting the right command using your registered mobile number.</p>
+                        </div>
                     </div>
-                </article>
-                <!-- Step 4 -->
-                <article class="col-6">
-                    <div class="step-box text-center p-3 border rounded">
-                        <div class="step-label">STEP 4</div>
-                        <h5><i class="fas fa-wallet"></i> RECEIVE</h5>
-                        <p>Get your loan from the branch where you applied or withdraw it from your BDO Cash Card.</p>
+                    <!-- Step 4 -->
+                    <div class="col-6">
+                        <div class="step-box text-center p-3 border rounded">
+                            <div class="step-label">STEP 4</div>
+                            <h5><i class="fas fa-wallet"></i> RECEIVE</h5>
+                            <p class="mvl_loan">Get your loan from the branch where you applied or withdraw it from your BDO Cash Card.</p>
+                        </div>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </div>

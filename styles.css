@@ -35,6 +35,12 @@ p.fs-7 a:hover,
 a.btn-danger:hover {
     color: red !important;
 }
+.main_paragraph {
+    color: black;
+}
+.mvl_loan {
+    color: black;
+}
 
 /* Responsive Header */
 @media (max-width: 768px) {
