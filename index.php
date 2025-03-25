@@ -62,7 +62,7 @@
 </header>
 <!-- Hero Section -->
 <section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
-    <sec class="container-fluid p-0">
+    < class="container-fluid p-0">
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
@@ -89,23 +89,6 @@
                 </form>
             </div>
         </nav>
-
-        <!-- Carousel -->
-        <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <img src="images/banner.jpg" class="d-block w-100 banner-img" alt="Financial Access for Everyone">
-                <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
-                    <h1 class="fw-bold text-white text-shadow">Delivering Financial Access to Everyone</h1>
-                </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-                <img src="images/banner2.jpg" class="d-block w-100 banner-img" alt="Empowering Small Businesses">
-                <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
-                </div>
-            </div>
-        </div>
 </section>
 
 <!-- MVL Section -->

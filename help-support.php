@@ -61,8 +61,7 @@
     </div>
 </header>
 <!-- Hero Section -->
-<section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
-    <div class="container-fluid p-0">
+<section>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
@@ -89,6 +88,7 @@
                 </form>
             </div>
         </nav>
+        </section>
 
         <!-- Help & Support Center Section -->
     <section class="support-section">

@@ -16,6 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        .vision_mission {
+            color: black;
+        }
         /* Add hover effects for buttons */
         .btn-primary, .btn-danger {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -101,8 +104,7 @@
     </div>
 </header>
 <!-- Hero Section -->
-<section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
-    <div class="container-fluid p-0">
+<section>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
@@ -159,11 +161,11 @@
     <section class="about-section py-5 bg-light">
         <div class="container">
             <div class="about-content d-flex flex-column flex-md-row align-items-center">
-                <article class="about-text me-md-4">
+                <article class="about-text me-md-4 text-black">
                     <h2>WHO <strong>WE ARE</strong></h2>
-                    <p>QCredit Corp. is a domestic corporation organized and existing under Philippine laws. It is a lending company aiming to provide micro-finance to small and medium-sized business establishments all over the Philippines.</p>
-                    <p>It aims to uplift the lives of Filipino business owners by providing them with the necessary financing to continue their businesses. Aside from providing credit, QCredit cares greatly for its customers. At the core of QCredit is its vision to be a lending company with a heart.</p>
-                    <p>QCredit enjoys the patronage of thousands of borrowers in 79 strong branches nationwide.</p>
+                    <p class="vision_mission">QCredit Corp. is a domestic corporation organized and existing under Philippine laws. It is a lending company aiming to provide micro-finance to small and medium-sized business establishments all over the Philippines.</p>
+                    <p class="vision_mission">It aims to uplift the lives of Filipino business owners by providing them with the necessary financing to continue their businesses. Aside from providing credit, QCredit cares greatly for its customers. At the core of QCredit is its vision to be a lending company with a heart.</p>
+                    <p class="vision_mission">QCredit enjoys the patronage of thousands of borrowers in 79 strong branches nationwide.</p>
                     <a href="#" class="btn btn-primary" aria-label="Contact Us"> <span>➤</span> CONTACT US</a>
                 </article>
                 <figure class="about-image animate__animated animate__fadeInRight">
@@ -176,7 +178,7 @@
 <!-- OUR SERVICES Section -->
 <section class="our-services-section py-5 bg-light">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center text-black">
             <!-- Image Column -->
             <div class="col-lg-6">
                 <img src="Images/DefaultCat.jpg" alt="Our Services" class="img-fluid rounded shadow">
@@ -184,8 +186,8 @@
             <!-- Text Column -->
             <div class="col-lg-6">
                 <h2 class="fw-bold">OUR <span class="text-primary">SERVICES</span></h2>
-                <p>Market Vendor Loan (MVL) remains to be QCREDIT’s flagship service, which has served more than half a million customers over the past years. With MVL, QCREDIT aims to unleash potential in every small enterprise and help them achieve financial freedom in the near future.</p>
-                <p>In partnership with BDO Unibank Inc., QCREDIT offers BDO Cash Cards in all our branches nationwide. Market Vendor Loan (MVL) customers can enjoy the security of an ATM card without having to open a deposit account at a minimal fee.</p>
+                <p class="vision_mission">Market Vendor Loan (MVL) remains to be QCREDIT’s flagship service, which has served more than half a million customers over the past years. With MVL, QCREDIT aims to unleash potential in every small enterprise and help them achieve financial freedom in the near future.</p>
+                <p class="vision_mission">In partnership with BDO Unibank Inc., QCREDIT offers BDO Cash Cards in all our branches nationwide. Market Vendor Loan (MVL) customers can enjoy the security of an ATM card without having to open a deposit account at a minimal fee.</p>
                 <a href="#" class="btn btn-primary">KNOW HOW TO APPLY</a>
             </div>
         </div>
@@ -194,7 +196,7 @@
 
 <!-- Brochure Section -->
 <section class="brochure-section py-5">
-    <div class="container px-4 text-center">
+    <div class="container px-4 text-center text-black">
         <div class="row gx-5 align-items-center">
             <!-- Carousel (Left Side) -->
             <div class="col-lg-8 col-md-7 col-12">
@@ -220,14 +222,14 @@
 
 <!-- MISSION & VISION Section -->
 <section class="mission-vision-section py-5 bg-light">
-    <div class="container text-center">
+    <div class="container text-center text-black">
         <div class="row align-items-center g-4">
             <!-- Mission Column -->
             <div class="col-lg-4 col-md-6">
                 <div class="p-3 border bg-white rounded">
                     <img src="Images/DefaultCat.jpg" alt="Mission Icon" class="mb-3" height="50">
                     <h3 class="fw-bold">MISSION</h3>
-                    <p>QCREDIT's mission is to provide speedy and accessible collateral-free loans to small and medium enterprises. It is passionate about helping and improving the quality of life of every Filipino individual, without compromising its commitment to making its customers first in all its ventures.</p>
+                    <p class="vision_mission">QCREDIT's mission is to provide speedy and accessible collateral-free loans to small and medium enterprises. It is passionate about helping and improving the quality of life of every Filipino individual, without compromising its commitment to making its customers first in all its ventures.</p>
                 </div>
             </div>
             <!-- Vision Column -->
@@ -235,7 +237,7 @@
                 <div class="p-3 border bg-white rounded">
                     <img src="Images/DefaultCat.jpg" alt="Vision Icon" class="mb-3" height="50">
                     <h3 class="fw-bold">VISION</h3>
-                    <p>QCREDIT aims to be a leading lending company in the Philippines with the best interests of its customers at heart. It is dedicated to exemplify its vision as a "lending company with a heart" in all of its business dealings and transactions.</p>
+                    <p class="vision_mission">QCREDIT aims to be a leading lending company in the Philippines with the best interests of its customers at heart. It is dedicated to exemplify its vision as a "lending company with a heart" in all of its business dealings and transactions.</p>
                 </div>
             </div>
             <!-- Our People Column -->
@@ -243,7 +245,7 @@
                 <div class="p-3 border bg-white rounded">
                     <img src="Images/DefaultCat.jpg" alt="Our People Icon" class="mb-3" height="50">
                     <h3 class="fw-bold">OUR PEOPLE</h3>
-                    <p>QCREDIT's employees are the very foundation of its success. Passion and energy fuel every person in QCREDIT Corp. to deliver the best service it can give to its customers.</p>
+                    <p class="vision_mission">QCREDIT's employees are the very foundation of its success. Passion and energy fuel every person in QCREDIT Corp. to deliver the best service it can give to its customers.</p>
                 </div>
             </div>
         </div>
@@ -252,27 +254,27 @@
 
 <!-- OUR VALUES Section -->
 <section class="our-values-section py-5 bg-light">
-    <div class="container text-center">
+    <div class="container text-center text-black">
         <div class="row align-items-center g-4">
             <!-- Advocacy Column -->
             <div class="col-lg-4 col-md-6">
                 <div class="p-3 border bg-white rounded">
                     <h3 class="fw-bold text-primary">ADVOCACY</h3>
-                    <p>We advocate for delivering financial access to reach unbanked members of society and to help Filipinos grow their businesses.</p>
+                    <p class="vision_mission">We advocate for delivering financial access to reach unbanked members of society and to help Filipinos grow their businesses.</p>
                 </div>
             </div>
             <!-- Integrity Column -->
             <div class="col-lg-4 col-md-6">
                 <div class="p-3 border bg-white rounded">
                     <h3 class="fw-bold text-primary">INTEGRITY</h3>
-                    <p>We uphold integrity by treating consumers fairly and with respect and upholding their rights, like transparency.</p>
+                    <p class="vision_mission">We uphold integrity by treating consumers fairly and with respect and upholding their rights, like transparency.</p>
                 </div>
             </div>
             <!-- Mutual Effort Column -->
             <div class="col-lg-4 col-md-12">
                 <div class="p-3 border bg-white rounded">
                     <h3 class="fw-bold text-primary">MUTUAL EFFORT</h3>
-                    <p>We build strong work relationships that foster trust and accountability to achieve a common goal: the sustainability and success of QCREDIT.</p>
+                    <p class="vision_mission">We build strong work relationships that foster trust and accountability to achieve a common goal: the sustainability and success of QCREDIT.</p>
                 </div>
             </div>
         </div>

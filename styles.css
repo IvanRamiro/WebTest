@@ -722,25 +722,6 @@ footer .btn-sm {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .top-bar .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-    }
-
-    .carousel-caption h1 {
-        font-size: 1.5rem;
-    }
-
-    .dashboard {
-        padding: 1rem;
-    }
-}
 .currency {
     width: 100%;
     text-align: center; /* Aligns content inside */

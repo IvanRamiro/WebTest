@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .step_description{
+            color: black;
+        }
+    </style>
 </head>
 <body>
     
@@ -61,8 +66,7 @@
     </div>
 </header>
 <!-- Hero Section -->
-<section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
-    <div class="container-fluid p-0">
+<section>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
             <div class="container">
@@ -94,7 +98,6 @@
 </div>
 </section>
 
-
 <!-- MVL Section -->
 <section class="mvl-section d-flex justify-content-center align-items-center" aria-labelledby="mvl-heading">
     <div class="mvl-card d-flex align-items-center flex-wrap">
@@ -119,32 +122,32 @@
             <div class="step">
                 <img src="Images/DefaultCat.jpg" alt="Step 1">
                 <h3>STEP 1</h3>
-                <p>Complete the Online Affordability and Suitability Assessment and MVL Application Form.</p>
+                <p class="step_description">Complete the Online Affordability and Suitability Assessment and MVL Application Form.</p>
             </div>
             <div class="step">
                 <img src="Images/DefaultCat.jpg" alt="Step 2">
                 <h3>STEP 2</h3>
-                <p>Upload your valid IDs and proof of business.</p>
+                <p class="step_description">Upload your valid IDs and proof of business.</p>
             </div>
             <div class="step">
                 <img src="Images/DefaultCat.jpg" alt="Step 3">
                 <h3>STEP 3</h3>
-                <p>Expect a video chat interview schedule within 1-2 days.</p>
+                <p class="step_description">Expect a video chat interview schedule within 1-2 days.</p>
             </div>
             <div class="step">
                 <img src="Images/DefaultCat.jpg" alt="Step 4">
                 <h3>STEP 4</h3>
-                <p>A credit investigation will take place within 7 days from the interview date.</p>
+                <p class="step_description">A credit investigation will take place within 7 days from the interview date.</p>
             </div>
             <div class="step">
                 <img src="Images/DefaultCat.jpg" alt="Step 5">
                 <h3>STEP 5</h3>
-                <p>Attend the pre-loan orientation.</p>
+                <p class="step_description">Attend the pre-loan orientation.</p>
             </div>
             <div class="step">
                 <img src="Images/DefaultCat.jpg" alt="Step 6">
                 <h3>STEP 6</h3>
-                <p>Receive your loan through a convenient method of your choice.</p>
+                <p class="step_description">Receive your loan through a convenient method of your choice.</p>
             </div>
         </div>
     </section>
