@@ -12,8 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         /* Add hover effects for buttons */
@@ -47,15 +47,6 @@
         }
         .carousel button:hover {
             background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Add icons to headers */
-        .about-section h2::before,
-        .our-services-section h2::before,
-        .mission-vision-section h3::before,
-        .our-values-section h3::before {
-            content: "⭐ ";
-            color: #ff5722;
         }
 
         /* Add background gradient to footer */
@@ -140,14 +131,14 @@
         </nav>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="Images/banner1.jpg" class="d-block w-100" alt="Banner 1">
+                <img src="Images/banner1.jpg" class="d-block w-100" alt="Empowering Small Businesses Banner">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-white">Empowering Small Businesses</h5>
                     <p>Join thousands of entrepreneurs achieving financial freedom.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="Images/banner2.jpg" class="d-block w-100" alt="Banner 2">
+                <img src="Images/banner2.jpg" class="d-block w-100" alt="Trusted Lending Partner Banner">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-white">Your Trusted Lending Partner</h5>
                     <p>Providing accessible loans nationwide.</p>
@@ -173,10 +164,10 @@
                     <p>QCredit Corp. is a domestic corporation organized and existing under Philippine laws. It is a lending company aiming to provide micro-finance to small and medium-sized business establishments all over the Philippines.</p>
                     <p>It aims to uplift the lives of Filipino business owners by providing them with the necessary financing to continue their businesses. Aside from providing credit, QCredit cares greatly for its customers. At the core of QCredit is its vision to be a lending company with a heart.</p>
                     <p>QCredit enjoys the patronage of thousands of borrowers in 79 strong branches nationwide.</p>
-                    <a href="#" class="btn-primary"> <span>➤</span> CONTACT US</a>
+                    <a href="#" class="btn btn-primary" aria-label="Contact Us"> <span>➤</span> CONTACT US</a>
                 </article>
                 <figure class="about-image animate__animated animate__fadeInRight">
-                    <img src="Images/logo.jpg" alt="QCredit Office" class="img-fluid rounded shadow">
+                    <img src="Images/logo.jpg" alt="QCredit Office" class="img-fluid rounded shadow" loading="lazy">
                 </figure>
             </div>
         </div>
@@ -188,7 +179,7 @@
         <div class="row align-items-center">
             <!-- Image Column -->
             <div class="col-lg-6">
-                <img src="Images/service-image.jpg" alt="Our Services" class="img-fluid rounded shadow">
+                <img src="Images/DefaultCat.jpg" alt="Our Services" class="img-fluid rounded shadow">
             </div>
             <!-- Text Column -->
             <div class="col-lg-6">
@@ -211,11 +202,6 @@
                     <button class="prev">&#10094;</button>
                     <div class="carousel-images">
                         <img src="Images/logo.jpg" alt="Brochure Page 1" class="active">
-                        <img src="Images/logo.jpg" alt="Brochure Page 2">
-                        <img src="Images/logo.jpg" alt="Brochure Page 3">
-                        <img src="Images/logo.jpg" alt="Brochure Page 4">
-                        <img src="Images/logo.jpg" alt="Brochure Page 5">
-                        <img src="Images/logo.jpg" alt="Brochure Page 6">
                     </div>
                     <button class="next">&#10095;</button>
                 </div>
@@ -309,10 +295,10 @@
                 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="YouTube" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="TikTok" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                 </div>
 
                 <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">

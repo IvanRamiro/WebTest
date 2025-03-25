@@ -137,30 +137,42 @@
         <div class="container">
             <h2>Consumer Protection <strong>Category</strong></h2>
 
-            <div class="category-grid">
-                <div class="category-card">
-                    <img src="Images/DefaultCat.jpg" alt="Loan Renewal">
-                    <p>Loan Renewal</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="category-card text-center">
+                        <img src="Images/DefaultCat.jpg" alt="Loan Renewal" class="img-fluid">
+                        <p>Loan Renewal</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="Images/DefaultCat.jpg" alt="Credit Investigation">
-                    <p>Credit Investigation</p>
+                <div class="col">
+                    <div class="category-card text-center">
+                        <img src="Images/DefaultCat.jpg" alt="Credit Investigation" class="img-fluid">
+                        <p>Credit Investigation</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="Images/DefaultCat.jpg" alt="Loan Disbursement">
-                    <p>Loan Disbursement</p>
+                <div class="col">
+                    <div class="category-card text-center">
+                        <img src="Images/DefaultCat.jpg" alt="Loan Disbursement" class="img-fluid">
+                        <p>Loan Disbursement</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="Images/DefaultCat.jpg" alt="Unfair Collection Practice">
-                    <p>Unfair Collection Practice</p>
+                <div class="col">
+                    <div class="category-card text-center">
+                        <img src="Images/DefaultCat.jpg" alt="Unfair Collection Practice" class="img-fluid">
+                        <p>Unfair Collection Practice</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="Images/DefaultCat.jpg" alt="Usage of Loan Accounts">
-                    <p>Usage of Loan Accounts</p>
+                <div class="col">
+                    <div class="category-card text-center">
+                        <img src="Images/DefaultCat.jpg" alt="Usage of Loan Accounts" class="img-fluid">
+                        <p>Usage of Loan Accounts</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="Images/DefaultCat.jpg" alt="None of the options">
-                    <p>None of the options</p>
+                <div class="col">
+                    <div class="category-card text-center">
+                        <img src="Images/DefaultCat.jpg" alt="None of the options" class="img-fluid">
+                        <p>None of the options</p>
+                    </div>
                 </div>
             </div>
         </div>
