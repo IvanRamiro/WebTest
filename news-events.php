@@ -96,37 +96,38 @@
 <!-- Events Section -->
 <section class="container my-5">
     <h2 class="text-center fw-bold mb-4">News and Events</h2>
+    <div class="text-end mb-3">
+        <a href="add_event.php" class="btn btn-success">Add New Event</a>
+    </div>
     <div class="row g-4">
-        <!-- Event Cards -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100">
-                <img src="Images/DefaultCat.jpg" class="card-img-top" alt="Event 1">
-                <div class="card-body">
-                    <h5 class="card-title">Event Title 1</h5>
-                    <p class="card-text">Short description of the event goes here...</p>
-                    <a href="#" class="btn btn-danger">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100">
-                <img src="Images/DefaultCat.jpg" class="card-img-top" alt="Event 2">
-                <div class="card-body">
-                    <h5 class="card-title">Event Title 2</h5>
-                    <p class="card-text">Short description of the event goes here...</p>
-                    <a href="#" class="btn btn-danger">Read More</a>
-                </div>
-            </div>
-        </div>
-        <!-- Add more event cards as needed -->
-        
-        <!-- Blank Column for Adding More Events -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
-            <button class="btn btn-outline-danger add-event-btn" onclick="addEvent()">
-                <i class="fas fa-plus fa-2x"></i>
-                <p class="mt-2 mb-0">Add Event</p>
-            </button>
-        </div>
+        <?php
+        include 'db.php'; // Include the database connection
+
+        // Fetch events from the database
+        $sql = "SELECT * FROM events ORDER BY created_at DESC";
+        $result = $conn->query($sql);
+
+        // Display events if they exist
+        if ($result->num_rows > 0) {
+            while ($event = $result->fetch_assoc()) {
+                echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3">';
+                echo '    <div class="card h-100">';
+                echo '        <img src="' . htmlspecialchars($event['image']) . '" class="card-img-top" alt="' . htmlspecialchars($event['title']) . '">';
+                echo '        <div class="card-body">';
+                echo '            <h5 class="card-title">' . htmlspecialchars($event['title']) . '</h5>';
+                echo '            <p class="card-text">' . htmlspecialchars($event['description']) . '</p>';
+                echo '            <a href="' . htmlspecialchars($event['link']) . '" class="btn btn-danger">Read More</a>';
+                echo '        </div>';
+                echo '    </div>';
+                echo '</div>';
+            }
+        } else {
+            echo '<p>No events found.</p>';
+        }
+
+        // Close the database connection
+        $conn->close();
+        ?>
     </div>
 </section>
 
@@ -136,7 +137,6 @@
         // Implement functionality to add new events dynamically
     }
 </script>
-
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white py-5" role="contentinfo">
