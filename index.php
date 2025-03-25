@@ -22,13 +22,13 @@
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
-            <div class="col-12 col-md-3 d-flex align-items-center">
+            <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
                 <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
             </div>
 
             <!-- Contact & Links -->
-            <nav class="col-12 col-md-7" aria-label="Main Contact Links">
+            <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
@@ -60,43 +60,42 @@
         </div>
     </div>
 </header>
+
 <!-- Hero Section -->
-<section id="bannerCarousel" class="carousel slide position-relative" data-bs-ride="carousel" aria-label="Hero Banner Slideshow">
-    < class="container-fluid p-0">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-            <div class="container">
-                <!-- Collapsible Navigation -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
-                    </ul>
-                </div>
-                <!-- Search Form (Responsive) -->
-                <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-                </form>
+<section>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <div class="container">
+            <!-- Collapsible Navigation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
+                </ul>
             </div>
-        </nav>
+            <!-- Search Form (Responsive) -->
+            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
 </section>
 
 <!-- MVL Section -->
-<section class="mvl-section d-flex justify-content-center align-items-center" aria-labelledby="mvl-heading">
+<section class="mvl-section d-flex flex-column flex-md-row justify-content-center align-items-center text-center text-md-start py-5" aria-labelledby="mvl-heading">
     <div class="mvl-card d-flex align-items-center flex-wrap">
         <!-- Image -->
         <figure class="mvl-img mb-4 mb-md-0 me-md-4">
-            <img src="images/mvl.jpg" alt="Market Vendor Loan Advertisement" class="img-fluid">
+            <img src="images/mvl.jpg" alt="Market Vendor Loan Advertisement" class="img-fluid rounded shadow">
             <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
         </figure>
         <!-- Text Content -->
@@ -108,36 +107,39 @@
         </div>
     </div>
 </section>
+
 <!-- Loan Requirements Section -->
 <section class="loan-requirements text-center py-5" aria-labelledby="loan-requirements-heading">
-    <h6 class="text-danger fw-bold">LOAN REQUIREMENTS</h6>
-    <h2 id="loan-requirements-heading">Who can apply for a <strong>Market Vendor Loan?</strong></h2>
+    <div class="container">
+        <h6 class="text-danger fw-bold">LOAN REQUIREMENTS</h6>
+        <h2 id="loan-requirements-heading">Who can apply for a <strong>Market Vendor Loan?</strong></h2>
 
-    <!-- Flexbox for Requirements -->
-    <div class="d-flex flex-wrap justify-content-center align-items-start mt-4">
-        <article class="requirement-item text-center mx-3 mb-3">
-            <img src="images/adult.png" alt="Age Requirement: 18 to 75 Years of Age" class="img-fluid">
-            <p>18 to 75 <br> Years of Age</p>
-        </article>
-        <article class="requirement-item text-center mx-3 mb-3">
-            <img src="images/market.png" alt="Requirement: Store or Market Stall Owner" class="img-fluid">
-            <p>A Store or <br> Market Stall Owner</p>
-        </article>
-        <article class="requirement-item text-center mx-3 mb-3">
-            <img src="images/house.png" alt="Requirement: Permanent Resident" class="img-fluid">
-            <p>A Permanent <br> Resident</p>
-        </article>
-        <article class="requirement-item text-center mx-3 mb-3">
-            <img src="images/responsibility.png" alt="Requirement: Responsible Borrower" class="img-fluid">
-            <p>A Responsible <br> Borrower</p>
-        </article>
-    </div>
+        <!-- Flexbox for Requirements -->
+        <div class="row mt-4">
+            <article class="col-6 col-md-3 mb-3">
+                <img src="images/adult.png" alt="Age Requirement: 18 to 75 Years of Age" class="img-fluid mb-2">
+                <p>18 to 75 <br> Years of Age</p>
+            </article>
+            <article class="col-6 col-md-3 mb-3">
+                <img src="images/market.png" alt="Requirement: Store or Market Stall Owner" class="img-fluid mb-2">
+                <p>A Store or <br> Market Stall Owner</p>
+            </article>
+            <article class="col-6 col-md-3 mb-3">
+                <img src="images/house.png" alt="Requirement: Permanent Resident" class="img-fluid mb-2">
+                <p>A Permanent <br> Resident</p>
+            </article>
+            <article class="col-6 col-md-3 mb-3">
+                <img src="images/responsibility.png" alt="Requirement: Responsible Borrower" class="img-fluid mb-2">
+                <p>A Responsible <br> Borrower</p>
+            </article>
+        </div>
 
-    <!-- Eligibility Section -->
-    <p class="mt-4">Want to know if you're eligible for <strong>Market Vendor Loan?</strong></p>
-    <div class="d-flex justify-content-center gap-3 mt-3">
-        <button class="btn btn-primary" aria-label="Affordability and Suitability Assessment">Affordability & Suitability Assessment</button>
-        <button class="btn btn-primary" aria-label="Review Your Assessment Result">Review Your Assessment Result</button>
+        <!-- Eligibility Section -->
+        <p class="mt-4">Want to know if you're eligible for <strong>Market Vendor Loan?</strong></p>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <button class="btn btn-primary" aria-label="Affordability and Suitability Assessment">Affordability & Suitability Assessment</button>
+            <button class="btn btn-primary" aria-label="Review Your Assessment Result">Review Your Assessment Result</button>
+        </div>
     </div>
 </section>
 
@@ -145,7 +147,7 @@
 <section class="container my-5" aria-labelledby="mvl-steps-heading">
     <div class="row bg-light p-4 shadow-sm">
         <!-- Left side text content -->
-        <article class="col-md-5 d-flex flex-column justify-content-center">
+        <article class="col-md-5 d-flex flex-column justify-content-center text-center text-md-start">
             <h4 class="text-danger fw-bold">NO HASSLE. FAST AND EASY.</h4>
             <h2 id="mvl-steps-heading" class="fw-bold">
                 How does <span class="text-primary">Market Vendor Loan</span> work?
@@ -165,7 +167,7 @@
             <div class="row g-3">
                 <!-- Step 1 -->
                 <article class="col-6">
-                    <div class="step-box">
+                    <div class="step-box text-center p-3 border rounded">
                         <div class="step-label">STEP 1</div>
                         <h5><i class="fas fa-file-signature"></i> APPLY</h5>
                         <p>Apply online or submit an accomplished MVL Application Form to any QCredit branch near you.</p>
@@ -173,7 +175,7 @@
                 </article>
                 <!-- Step 2 -->
                 <article class="col-6">
-                    <div class="step-box">
+                    <div class="step-box text-center p-3 border rounded">
                         <div class="step-label">STEP 2</div>
                         <h5><i class="fas fa-mobile-alt"></i> REGISTER</h5>
                         <p>Subscribe your mobile number to QCredit e-Cash service through text messaging.</p>
@@ -181,7 +183,7 @@
                 </article>
                 <!-- Step 3 -->
                 <article class="col-6">
-                    <div class="step-box">
+                    <div class="step-box text-center p-3 border rounded">
                         <div class="step-label">STEP 3</div>
                         <h5><i class="fas fa-comment-sms"></i> REQUEST</h5>
                         <p>Send loan request by texting the right command using your registered mobile number.</p>
@@ -189,7 +191,7 @@
                 </article>
                 <!-- Step 4 -->
                 <article class="col-6">
-                    <div class="step-box">
+                    <div class="step-box text-center p-3 border rounded">
                         <div class="step-label">STEP 4</div>
                         <h5><i class="fas fa-wallet"></i> RECEIVE</h5>
                         <p>Get your loan from the branch where you applied or withdraw it from your BDO Cash Card.</p>
@@ -294,8 +296,6 @@
     </div>
 </section>
 
-
-        <!-- Number Speak Section -->
 <!-- Number Speak Section -->
 <section id="number-speak" class="number-speak-section py-5 text-center bg-light" aria-labelledby="number-speak-heading">
     <div class="container">
@@ -334,7 +334,7 @@
     </div>
 </section>
 
-  <!-- News & Events Section -->
+<!-- News & Events Section -->
 <section id="news-events" class="news-section py-5" aria-labelledby="news-events-heading">
     <div class="container text-center">
         <h6 class="text-danger">NEWS & EVENTS</h6>
@@ -406,7 +406,7 @@
     <div class="container">
         <div class="row">
             <!-- Left Section: Company Info -->
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
                     <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
                     <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
@@ -427,7 +427,7 @@
             </div>
 
             <!-- Middle Section: Menu & Quick Links -->
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">
                     <li><a href="#" class="footer-link">Home</a></li>

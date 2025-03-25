@@ -56,6 +56,104 @@
         footer {
             background: linear-gradient(45deg, #333, #555);
         }
+
+        /* Header Section */
+        .top-bar {
+            padding: 1rem 0;
+        }
+        .logo-img {
+            max-height: 50px;
+        }
+        .brand-name {
+            font-size: 1.25rem;
+        }
+
+        /* Navigation Bar */
+        .navbar-nav .nav-link {
+            padding: 0.5rem 1rem;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+
+        /* Hero Section */
+        .carousel-inner img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 3rem 1rem;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+        }
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Services Section */
+        .our-services-section img {
+            max-width: 100%;
+            height: auto;
+        }
+        .our-services-section h2 {
+            font-size: 2rem;
+        }
+
+        /* Brochure Section */
+        .brochure-section .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brochure-section .carousel-images img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision-section .col-lg-4 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 2rem 1rem;
+        }
+        footer .btn-sm {
+            font-size: 0.875rem;
+        }
+        footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text {
+                margin-bottom: 2rem;
+            }
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .navbar-nav .nav-link {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -66,8 +164,8 @@
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center">
-                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
+                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2">
+                <span class="brand-name fw-bold text-danger">QCREDIT</span>
             </div>
 
             <!-- Contact & Links -->
@@ -103,92 +201,86 @@
         </div>
     </div>
 </header>
+
 <!-- Hero Section -->
 <section>
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-            <div class="container">
-                <!-- Collapsible Navigation -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
-                    </ul>
-                </div>
-                <!-- Search Form (Responsive) -->
-                <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="Images/banner1.jpg" class="d-block w-100" alt="Empowering Small Businesses Banner">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-white">Empowering Small Businesses</h5>
-                    <p>Join thousands of entrepreneurs achieving financial freedom.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="Images/banner2.jpg" class="d-block w-100" alt="Trusted Lending Partner Banner">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-white">Your Trusted Lending Partner</h5>
-                    <p>Providing accessible loans nationwide.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </section>
-
-        <!-- Who We Are Section -->
-    <section class="about-section py-5 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
         <div class="container">
-            <div class="about-content d-flex flex-column flex-md-row align-items-center">
-                <article class="about-text me-md-4 text-black">
-                    <h2>WHO <strong>WE ARE</strong></h2>
-                    <p class="vision_mission">QCredit Corp. is a domestic corporation organized and existing under Philippine laws. It is a lending company aiming to provide micro-finance to small and medium-sized business establishments all over the Philippines.</p>
-                    <p class="vision_mission">It aims to uplift the lives of Filipino business owners by providing them with the necessary financing to continue their businesses. Aside from providing credit, QCredit cares greatly for its customers. At the core of QCredit is its vision to be a lending company with a heart.</p>
-                    <p class="vision_mission">QCredit enjoys the patronage of thousands of borrowers in 79 strong branches nationwide.</p>
-                    <a href="#" class="btn btn-primary" aria-label="Contact Us"> <span>➤</span> CONTACT US</a>
-                </article>
-                <figure class="about-image animate__animated animate__fadeInRight">
-                    <img src="Images/logo.jpg" alt="QCredit Office" class="img-fluid rounded shadow" loading="lazy">
-                </figure>
+            <!-- Collapsible Navigation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Search Form (Responsive) -->
+            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+</section>
+
+<!-- About Us Main Content -->
+<section class="about-section py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>ABOUT <strong>QCREDIT</strong></h2>
+                <p>QCREDIT Corp. is a trusted lending company in the Philippines, dedicated to empowering small and medium-sized businesses through accessible financial solutions.</p>
+                <p>With a strong presence nationwide, we aim to uplift the lives of Filipino entrepreneurs by providing the necessary financial support to grow their businesses.</p>
+                <p>Our mission is to be a lending company with a heart, delivering exceptional service and fostering long-term relationships with our customers.</p>
+                <a href="contact-us.php" class="btn btn-primary" aria-label="Contact Us">CONTACT US</a>
+            </div>
+            <div class="col-md-6">
+                <img src="Images/about-us.jpg" alt="About QCREDIT" class="img-fluid rounded shadow">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-<!-- OUR SERVICES Section -->
+<!-- Our Services Section -->
 <section class="our-services-section py-5 bg-light">
     <div class="container">
-        <div class="row align-items-center text-black">
-            <!-- Image Column -->
+        <div class="row align-items-center">
             <div class="col-lg-6">
-                <img src="Images/DefaultCat.jpg" alt="Our Services" class="img-fluid rounded shadow">
+                <img src="Images/services.jpg" alt="Our Services" class="img-fluid rounded shadow">
             </div>
-            <!-- Text Column -->
             <div class="col-lg-6">
-                <h2 class="fw-bold">OUR <span class="text-primary">SERVICES</span></h2>
-                <p class="vision_mission">Market Vendor Loan (MVL) remains to be QCREDIT’s flagship service, which has served more than half a million customers over the past years. With MVL, QCREDIT aims to unleash potential in every small enterprise and help them achieve financial freedom in the near future.</p>
-                <p class="vision_mission">In partnership with BDO Unibank Inc., QCREDIT offers BDO Cash Cards in all our branches nationwide. Market Vendor Loan (MVL) customers can enjoy the security of an ATM card without having to open a deposit account at a minimal fee.</p>
-                <a href="#" class="btn btn-primary">KNOW HOW TO APPLY</a>
+                <h2>OUR <strong>SERVICES</strong></h2>
+                <p>Market Vendor Loan (MVL) remains QCREDIT’s flagship service, serving over half a million customers. With MVL, QCREDIT empowers small enterprises to achieve financial freedom.</p>
+                <p>In partnership with BDO Unibank Inc., QCREDIT offers BDO Cash Cards, providing customers with secure ATM access without requiring a deposit account.</p>
+                <a href="loans.php" class="btn btn-primary" aria-label="Learn More About Our Services">LEARN MORE</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="mission-vision-section py-5 bg-light">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>MISSION</h3>
+                <p>To provide speedy and accessible collateral-free loans to small and medium enterprises, improving the quality of life for every Filipino.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>VISION</h3>
+                <p>To be a leading lending company in the Philippines, exemplifying a "lending company with a heart" in all business dealings.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>OUR PEOPLE</h3>
+                <p>Our employees are the foundation of our success, delivering the best service with passion and energy.</p>
             </div>
         </div>
     </div>
@@ -196,86 +288,29 @@
 
 <!-- Brochure Section -->
 <section class="brochure-section py-5">
-    <div class="container px-4 text-center text-black">
-        <div class="row gx-5 align-items-center">
-            <!-- Carousel (Left Side) -->
-            <div class="col-lg-8 col-md-7 col-12">
-                <div class="carousel">
-                    <button class="prev">&#10094;</button>
-                    <div class="carousel-images">
-                        <img src="Images/logo.jpg" alt="Brochure Page 1" class="active">
-                    </div>
-                    <button class="next">&#10095;</button>
-                </div>
-            </div>
-
-            <!-- Download Section (Right Side) -->
-            <div class="col-lg-4 col-md-5 col-12 text-md-start text-center">
-                <h2>DOWNLOAD <strong>OUR BROCHURE</strong></h2>
-                <a href="brochure.pdf" download class="btn-primary">
-                    <span>⬇</span> CLICK TO DOWNLOAD
-                </a>
-            </div>
-        </div>
+    <div class="container text-center">
+        <h2>DOWNLOAD <strong>OUR BROCHURE</strong></h2>
+        <p>Learn more about QCREDIT and our services by downloading our brochure.</p>
+        <a href="brochure.pdf" download class="btn btn-primary" aria-label="Download Brochure">DOWNLOAD NOW</a>
     </div>
 </section>
 
-<!-- MISSION & VISION Section -->
-<section class="mission-vision-section py-5 bg-light">
-    <div class="container text-center text-black">
-        <div class="row align-items-center g-4">
-            <!-- Mission Column -->
-            <div class="col-lg-4 col-md-6">
-                <div class="p-3 border bg-white rounded">
-                    <img src="Images/DefaultCat.jpg" alt="Mission Icon" class="mb-3" height="50">
-                    <h3 class="fw-bold">MISSION</h3>
-                    <p class="vision_mission">QCREDIT's mission is to provide speedy and accessible collateral-free loans to small and medium enterprises. It is passionate about helping and improving the quality of life of every Filipino individual, without compromising its commitment to making its customers first in all its ventures.</p>
-                </div>
-            </div>
-            <!-- Vision Column -->
-            <div class="col-lg-4 col-md-6">
-                <div class="p-3 border bg-white rounded">
-                    <img src="Images/DefaultCat.jpg" alt="Vision Icon" class="mb-3" height="50">
-                    <h3 class="fw-bold">VISION</h3>
-                    <p class="vision_mission">QCREDIT aims to be a leading lending company in the Philippines with the best interests of its customers at heart. It is dedicated to exemplify its vision as a "lending company with a heart" in all of its business dealings and transactions.</p>
-                </div>
-            </div>
-            <!-- Our People Column -->
-            <div class="col-lg-4 col-md-12">
-                <div class="p-3 border bg-white rounded">
-                    <img src="Images/DefaultCat.jpg" alt="Our People Icon" class="mb-3" height="50">
-                    <h3 class="fw-bold">OUR PEOPLE</h3>
-                    <p class="vision_mission">QCREDIT's employees are the very foundation of its success. Passion and energy fuel every person in QCREDIT Corp. to deliver the best service it can give to its customers.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- OUR VALUES Section -->
+<!-- Our Values Section -->
 <section class="our-values-section py-5 bg-light">
-    <div class="container text-center text-black">
-        <div class="row align-items-center g-4">
-            <!-- Advocacy Column -->
-            <div class="col-lg-4 col-md-6">
-                <div class="p-3 border bg-white rounded">
-                    <h3 class="fw-bold text-primary">ADVOCACY</h3>
-                    <p class="vision_mission">We advocate for delivering financial access to reach unbanked members of society and to help Filipinos grow their businesses.</p>
-                </div>
+    <div class="container text-center">
+        <h2>OUR <strong>VALUES</strong></h2>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h5>Integrity</h5>
+                <p>We uphold transparency and fairness in all our dealings.</p>
             </div>
-            <!-- Integrity Column -->
-            <div class="col-lg-4 col-md-6">
-                <div class="p-3 border bg-white rounded">
-                    <h3 class="fw-bold text-primary">INTEGRITY</h3>
-                    <p class="vision_mission">We uphold integrity by treating consumers fairly and with respect and upholding their rights, like transparency.</p>
-                </div>
+            <div class="col-md-4">
+                <h5>Customer Focus</h5>
+                <p>Our customers are at the heart of everything we do.</p>
             </div>
-            <!-- Mutual Effort Column -->
-            <div class="col-lg-4 col-md-12">
-                <div class="p-3 border bg-white rounded">
-                    <h3 class="fw-bold text-primary">MUTUAL EFFORT</h3>
-                    <p class="vision_mission">We build strong work relationships that foster trust and accountability to achieve a common goal: the sustainability and success of QCREDIT.</p>
-                </div>
+            <div class="col-md-4">
+                <h5>Innovation</h5>
+                <p>We continuously improve to meet the evolving needs of our clients.</p>
             </div>
         </div>
     </div>

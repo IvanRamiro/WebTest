@@ -12,19 +12,160 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .vision_mission {
+            color: black;
+        }
+        /* Add hover effects for buttons */
+        .btn-primary, .btn-danger {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover, .btn-danger:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add hover effects for links */
+        .footer-link:hover {
+            text-decoration: underline;
+            color: #ff5722;
+        }
+
+        /* Add animation to sections */
+        section {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* Style for carousel buttons */
+        .carousel button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .carousel button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Add background gradient to footer */
+        footer {
+            background: linear-gradient(45deg, #333, #555);
+        }
+
+        /* Header Section */
+        .top-bar {
+            padding: 1rem 0;
+        }
+        .logo-img {
+            max-height: 50px;
+        }
+        .brand-name {
+            font-size: 1.25rem;
+        }
+
+        /* Navigation Bar */
+        .navbar-nav .nav-link {
+            padding: 0.5rem 1rem;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+
+        /* Hero Section */
+        .carousel-inner img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 3rem 1rem;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+        }
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Services Section */
+        .our-services-section img {
+            max-width: 100%;
+            height: auto;
+        }
+        .our-services-section h2 {
+            font-size: 2rem;
+        }
+
+        /* Brochure Section */
+        .brochure-section .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brochure-section .carousel-images img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision-section .col-lg-4 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 2rem 1rem;
+        }
+        footer .btn-sm {
+            font-size: 0.875rem;
+        }
+        footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text {
+                margin-bottom: 2rem;
+            }
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .navbar-nav .nav-link {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     
 <!-- Header Section -->
-<header class="top-bar bg-light py-2 border-bottom" role="banner">
+<header class="top-bar bg-light py-2 border-bottom shadow-sm" role="banner">
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center">
-                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
+                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2">
+                <span class="brand-name fw-bold text-danger">QCREDIT</span>
             </div>
 
             <!-- Contact & Links -->
@@ -60,36 +201,35 @@
         </div>
     </div>
 </header>
+
 <!-- Hero Section -->
 <section>
-
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-0 start-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-            <div class="container">
-                <!-- Collapsible Navigation -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
-                    </ul>
-                </div>
-                <!-- Search Form (Responsive) -->
-                <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-                </form>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <div class="container">
+            <!-- Collapsible Navigation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
+                </ul>
             </div>
-        </nav>
-    </section>
+            <!-- Search Form (Responsive) -->
+            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+</section>
 
         
     <!-- iReport Complaint Section -->
@@ -195,10 +335,10 @@
                 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="YouTube" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="btn btn-danger btn-sm" aria-label="TikTok" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                 </div>
 
                 <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
