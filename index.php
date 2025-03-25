@@ -211,9 +211,9 @@
         <div class="row mt-4">
             <!-- Testimonial 1 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-1-heading">
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="video-link">
+                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
                     <div class="video-thumbnail shadow-sm rounded">
-                        <img src="thumbnail1.jpg" alt="Testimonial Video 1" class="img-fluid rounded">
+                        <img src="Images/Extra Rice.PNG" alt="Testimonial Video 1" class="img-fluid rounded">
                         <div class="play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -224,9 +224,9 @@
 
             <!-- Testimonial 2 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-2-heading">
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="video-link">
+                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
                     <div class="video-thumbnail shadow-sm rounded">
-                        <img src="thumbnail2.jpg" alt="Testimonial Video 2" class="img-fluid rounded">
+                        <img src="Images/Extra Rice.PNG" alt="Testimonial Video 2" class="img-fluid rounded">
                         <div class="play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -237,9 +237,9 @@
 
             <!-- Testimonial 3 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-3-heading">
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="video-link">
+                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
                     <div class="video-thumbnail shadow-sm rounded">
-                        <img src="thumbnail3.jpg" alt="Testimonial Video 3" class="img-fluid rounded">
+                        <img src="Images/Extra Rice.PNG" alt="Testimonial Video 3" class="img-fluid rounded">
                         <div class="play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -250,9 +250,9 @@
 
             <!-- Testimonial 4 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-4-heading">
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID_4" target="_blank" class="video-link">
+                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
                     <div class="video-thumbnail shadow-sm rounded">
-                        <img src="thumbnail4.jpg" alt="Testimonial Video 4" class="img-fluid rounded">
+                        <img src="Images/Ah yung solo leveling.jpg" alt="Testimonial Video 4" class="img-fluid rounded">
                         <div class="play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -263,9 +263,9 @@
 
             <!-- Testimonial 5 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-5-heading">
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID_5" target="_blank" class="video-link">
+                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
                     <div class="video-thumbnail shadow-sm rounded">
-                        <img src="thumbnail5.jpg" alt="Testimonial Video 5" class="img-fluid rounded">
+                        <img src="Images/Ah yung solo leveling.jpg" alt="Testimonial Video 5" class="img-fluid rounded">
                         <div class="play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -276,9 +276,9 @@
 
             <!-- Testimonial 6 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-6-heading">
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID_6" target="_blank" class="video-link">
+                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
                     <div class="video-thumbnail shadow-sm rounded">
-                        <img src="thumbnail6.jpg" alt="Testimonial Video 6" class="img-fluid rounded">
+                        <img src="Images/Ah yung solo leveling.jpg" alt="Testimonial Video 6" class="img-fluid rounded">
                         <div class="play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -327,7 +327,7 @@
         <!-- Image -->
         <div class="mt-5">
             <figure>
-                <img src="images/journey.jpg" alt="Our Journey Image" class="img-fluid rounded shadow">
+                <img src="Images/JOURNEY.jpg" alt="Our Journey Image" class="img-fluid rounded shadow">
                 <figcaption class="visually-hidden">Our Journey with QCREDIT</figcaption>
             </figure>
         </div>
@@ -343,10 +343,10 @@
         <div class="row mt-4">
             <!-- News Item 1 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news1-title">
-                <a href="https://example.com/news1" target="_blank" class="news-link">
+                <a href="https://www.inquirer.net/" target="_blank" class="news-link">
                     <div class="card news-card shadow-sm">
                         <div class="position-relative">
-                            <img src="news1.jpg" class="card-img-top" alt="QCredit Corp. Recognized as Top Producer">
+                            <img src="Images/ABSOLUTE.jpg" class="card-img-top" alt="QCredit Corp. Recognized as Top Producer">
                             <span class="badge news-date">DEC 11</span>
                         </div>
                         <div class="card-body">
@@ -360,10 +360,10 @@
 
             <!-- News Item 2 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news2-title">
-                <a href="https://example.com/news2" target="_blank" class="news-link">
+                <a href="https://www.inquirer.net/" target="_blank" class="news-link">
                     <div class="card news-card shadow-sm">
                         <div class="position-relative">
-                            <img src="news2.jpg" class="card-img-top" alt="QCredit Grants Scholarships to 543 Students">
+                            <img src="Images/ABSOLUTE.jpg" class="card-img-top" alt="QCredit Grants Scholarships to 543 Students">
                             <span class="badge news-date">OCT 31</span>
                         </div>
                         <div class="card-body">
@@ -377,10 +377,10 @@
 
             <!-- News Item 3 -->
             <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news3-title">
-                <a href="https://example.com/news3" target="_blank" class="news-link">
+                <a href="https://www.inquirer.net/" target="_blank" class="news-link">
                     <div class="card news-card shadow-sm">
                         <div class="position-relative">
-                            <img src="news3.jpg" class="card-img-top" alt="QCredit Corp. Launches Pilot Run">
+                            <img src="Images/ABSOLUTE.jpg" class="card-img-top" alt="QCredit Corp. Launches Pilot Run">
                             <span class="badge news-date">OCT 01</span>
                         </div>
                         <div class="card-body">

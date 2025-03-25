@@ -141,37 +141,36 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-4">
-                <h3>MISSION</h3>
+                <h3><i class="fas fa-bullseye text-danger"></i> MISSION</h3>
                 <p class="text-black">To provide speedy and accessible collateral-free loans to small and medium enterprises, improving the quality of life for every Filipino.</p>
             </div>
             <div class="col-md-4">
-                <h3>VISION</h3>
+                <h3><i class="fas fa-eye text-danger"></i> VISION</h3>
                 <p class="text-black">To be a leading lending company in the Philippines, exemplifying a "lending company with a heart" in all business dealings.</p>
             </div>
             <div class="col-md-4">
-                <h3>OUR PEOPLE</h3>
+                <h3><i class="fas fa-users text-danger"></i> OUR PEOPLE</h3>
                 <p class="text-black">Our employees are the foundation of our success, delivering the best service with passion and energy.</p>
             </div>
         </div>
     </div>
 </section>
 
-
 <!-- Our Values Section -->
 <section class="our-values-section py-5 bg-light">
     <div class="container text-center">
-        <h2>OUR <strong>VALUES</strong></h2>
+        <h2><i class="fas fa-heart text-danger"></i> OUR <strong>VALUES</strong></h2>
         <div class="row mt-4">
             <div class="col-md-4">
-                <h5>Integrity</h5>
+                <h5><i class="fas fa-balance-scale text-danger"></i> Integrity</h5>
                 <p class="text-black">We uphold transparency and fairness in all our dealings.</p>
             </div>
             <div class="col-md-4">
-                <h5>Customer Focus</h5>
+                <h5><i class="fas fa-user-friends text-danger"></i> Customer Focus</h5>
                 <p class="text-black">Our customers are at the heart of everything we do.</p>
             </div>
             <div class="col-md-4">
-                <h5>Innovation</h5>
+                <h5><i class="fas fa-lightbulb text-danger"></i> Innovation</h5>
                 <p class="text-black">We continuously improve to meet the evolving needs of our clients.</p>
             </div>
         </div>
