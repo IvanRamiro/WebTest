@@ -1,56 +1,44 @@
 <?php
-// Include the database connection file
 include('db.php');
 
-// Start the session for login handling
 session_start();
 
-// Prevent browser caching for this page
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-// Check if the user is already logged in, if so, redirect to dashboard
 if (isset($_SESSION['user_id'])) {
     header("Location: ADMIN DASHBOARD/dashboard.php");
     exit();
 }
-
-// Define error variables
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get form data
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate input
     if (empty($email) || empty($password)) {
         $error = "Please fill in both email and password.";
     } else {
-        // Prepare and bind SQL query to prevent SQL injection
-        $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email); // 's' stands for string
 
-        // Execute query
+      $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+
         $stmt->execute();
         $stmt->store_result();
 
-        // Check if email exists
-        if ($stmt->num_rows > 0) {
-            // Bind the result to variables
-            $stmt->bind_result($id, $db_email, $db_password);
 
-            // Fetch the result
+        if ($stmt->num_rows > 0) {
+
+          $stmt->bind_result($id, $db_email, $db_password);
+
             $stmt->fetch();
 
-            // Check if the password matches (no hashing since passwords are stored as plain text)
             if ($password === $db_password) {
-                // Password is correct, start session and redirect
-                $_SESSION['user_id'] = $id;
+
+              $_SESSION['user_id'] = $id;
                 $_SESSION['email'] = $db_email;
 
-                // Set a session timeout (optional for added security)
                 $_SESSION['timeout'] = time();
 
                 header("Location: ADMIN DASHBOARD/dashboard.php"); // Redirect to a protected page
@@ -62,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "No user found with that email.";
         }
 
-        // Close statement
         $stmt->close();
     }
 }
@@ -127,6 +114,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </html>
 
 <?php
-// Close the connection when done
+
 $conn->close();
 ?>
