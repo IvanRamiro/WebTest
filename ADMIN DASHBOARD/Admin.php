@@ -111,80 +111,73 @@
                 <div class="numbers">$619</div>
                 <div class="cardName">Lending</div>
                 <div class="iconBx">
-                    <i class="fa-regular fa-money-bills"></i>
+                    <i class="fa-solid fa-money-bills"></i>
                 </div>
             </div>
         </div>
 
         <!-- ==================== DETAILS SECTION ==================== -->
         <div class="details">
-            <!-- ==================== ITEM ORDERS ==================== -->
-            <div class="itemOrders">
-                <div class="cardHeader">
-                    <h2>Recent Items</h2>
-                    <a href="#" class="btn">View All</a>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Items</td>
-                            <td>Sales</td>
-                            <td>Status</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Dell laptop</td>
-                            <td>$150</td>
-                            <td>Paid</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                        </tr>
-                        <tr>
-                            <td>Apple Watch</td>
-                            <td>$1200</td>
-                            <td>Paid</td>
-                            <td><span class="status pending">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td>Addidas shoes</td>
-                            <td>$620</td>
-                            <td>Due</td>
-                            <td><span class="status return">Return</span></td>
-                        </tr>
-                        <tr>
-                            <td>Good Items</td>
-                            <td>$5000</td>
-                            <td>Paid</td>
-                            <td><span class="status inProgress">In progress</span></td>
-                        </tr>
-                        <tr>
-                            <td>Dell laptop</td>
-                            <td>$150</td>
-                            <td>Paid</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                        </tr>
-                        <tr>
-                            <td>Apple Watch</td>
-                            <td>$1200</td>
-                            <td>Paid</td>
-                            <td><span class="status pending">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td>Addidas shoes</td>
-                            <td>$620</td>
-                            <td>Due</td>
-                            <td><span class="status return">Return</span></td>
-                        </tr>
-                        <tr>
-                            <td>Good Items</td>
-                            <td>$5000</td>
-                            <td>Paid</td>
-                            <td><span class="status inProgress">In progress</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<!-- ==================== ITEM ORDERS ==================== -->
+<div class="itemOrders">
+    <div class="cardHeader">
+        <h2>Recent Items</h2>
+        <button class="btn addItem">Add Item</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Items</td>
+                <td>Sales</td>
+                <td>Status</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dell laptop</td>
+                <td>$150</td>
+                <td>Paid</td>
+                <td><span class="status delivered">Delivered</span></td>
+                <td>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Apple Watch</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status pending">Pending</span></td>
+                <td>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Adidas shoes</td>
+                <td>$620</td>
+                <td>Due</td>
+                <td><span class="status return">Return</span></td>
+                <td>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Good Items</td>
+                <td>$5000</td>
+                <td>Paid</td>
+                <td><span class="status inProgress">In progress</span></td>
+                <td>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
            <!-- ==================== RECENT CUSTOMERS ==================== -->
 <div class="recentCustomers">

@@ -398,6 +398,39 @@ body {
     font-weight: 500;
 }
 
+/* Add Item Button */
+.addItem {
+    background: var(--blue);
+    color: var(--white);
+    padding: 5px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Edit & Delete Buttons */
+.editBtn, .deleteBtn {
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 2px;
+    border-radius: 4px;
+}
+
+/* Edit Button */
+.editBtn {
+    background: #e9b10a;
+    color: var(--white);
+}
+
+/* Delete Button */
+.deleteBtn {
+    background: #f00;
+    color: var(--white);
+}
+
+
 /* =================== Customers ================== */
 
 .recentCustomers {
@@ -464,11 +497,12 @@ body {
     color: var(--white);
 }
 
-/* =================== Responsive Design ================== */
+/* =================== Responsive Design ================== */ 
 @media (max-width: 1200px) {
     .navigation {
         left: -300px;
-}
+        overflow-y: auto;
+    }
     .navigation.active {
         width: 300px;
         left: 0;
@@ -476,6 +510,7 @@ body {
     .main {
         width: 100%;
         left: 0;
+        overflow-y: auto;
     }
     .main.active {
         width: 300px;
@@ -489,6 +524,7 @@ body {
 @media (max-width: 768px) {
     .details {
         grid-template-columns: 1fr;
+        overflow-x: auto;
     }
     .recentOrders {
         overflow-x: auto;
@@ -508,19 +544,25 @@ body {
     .user {
         min-width: 40px;
     }
-    .navigation{
+    .navigation {
         width: 100%;
         left: -100%;
         z-index: 1000;
+        overflow-y: auto;
+        height: 100vh;
     }
-    .navigation.active{
+    .navigation.active {
         width: 100%;
         left: 0;
     }
-    .toggle{
+    .toggle {
         z-index: 10001;
     }
-    .main.active .toggle{
+    .main {
+        overflow-y: auto;
+        height: 100vh;
+    }
+    .main.active .toggle {
         color: #fff;
         position: fixed;
         right: 0;
