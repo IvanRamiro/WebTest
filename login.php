@@ -1,3 +1,73 @@
+<?php
+// Include the database connection file
+include('db.php');
+
+// Start the session for login handling
+session_start();
+
+// Prevent browser caching for this page
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+// Check if the user is already logged in, if so, redirect to dashboard
+if (isset($_SESSION['user_id'])) {
+    header("Location: ADMIN DASHBOARD/dashboard.php");
+    exit();
+}
+
+// Define error variables
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get form data
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Validate input
+    if (empty($email) || empty($password)) {
+        $error = "Please fill in both email and password.";
+    } else {
+        // Prepare and bind SQL query to prevent SQL injection
+        $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email); // 's' stands for string
+
+        // Execute query
+        $stmt->execute();
+        $stmt->store_result();
+
+        // Check if email exists
+        if ($stmt->num_rows > 0) {
+            // Bind the result to variables
+            $stmt->bind_result($id, $db_email, $db_password);
+
+            // Fetch the result
+            $stmt->fetch();
+
+            // Check if the password matches (no hashing since passwords are stored as plain text)
+            if ($password === $db_password) {
+                // Password is correct, start session and redirect
+                $_SESSION['user_id'] = $id;
+                $_SESSION['email'] = $db_email;
+
+                // Set a session timeout (optional for added security)
+                $_SESSION['timeout'] = time();
+
+                header("Location: ADMIN DASHBOARD/dashboard.php"); // Redirect to a protected page
+                exit();
+            } else {
+                $error = "Incorrect password!";
+            }
+        } else {
+            $error = "No user found with that email.";
+        }
+
+        // Close statement
+        $stmt->close();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,37 +89,34 @@
 
             <h3 class="mb-5">Sign in</h3>
 
-            <div data-mdb-input-init class="form-outline mb-4">
-              <div class="input-group">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-              </div>
-              <label class="form-label" for="typeEmailX-2">Email</label>
-            </div>
+            <?php
+            if (!empty($error)) {
+                echo '<div class="alert alert-danger">' . $error . '</div>';
+            }
+            ?>
 
-            <div data-mdb-input-init class="form-outline mb-4">
-              <div class="input-group">
-                <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-              </div>
-              <label class="form-label" for="typePasswordX-2">Password</label>
-            </div>
+            <!-- Login Form -->
+            <form method="POST" action="login.php">
+                <div class="form-outline mb-4">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" name="email" class="form-control form-control-lg" required />
+                    </div>
+                    <label class="form-label" for="typeEmailX-2">Email</label>
+                </div>
 
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-start mb-4">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-              <label class="form-check-label" for="form1Example3"> Remember password </label>
-            </div>
+                <div class="form-outline mb-4">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="password" class="form-control form-control-lg" required />
+                    </div>
+                    <label class="form-label" for="typePasswordX-2">Password</label>
+                </div>
 
-            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                <hr class="my-4">
 
-            <hr class="my-4">
-
-            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-primary mb-3" style="background-color: #dd4b39;"
-              type="submit"><i class="fab fa-google me-2"></i> Sign in with Google</button>
-            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-primary" style="background-color: #3b5998;"
-              type="submit"><i class="fab fa-facebook-f me-2"></i> Sign in with Facebook</button>
-
+            </form>
           </div>
         </div>
       </div>
@@ -58,3 +125,8 @@
 </section>
 </body>
 </html>
+
+<?php
+// Close the connection when done
+$conn->close();
+?>

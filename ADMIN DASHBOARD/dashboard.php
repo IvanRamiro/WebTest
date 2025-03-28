@@ -1,4 +1,21 @@
-<?php include 'header.php'; ?>
+<?php
+// Start the session
+session_start();
+
+// Prevent browser caching for this page
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+// Check if the user is logged in, if not, redirect to login page
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Include the header
+include 'header.php'; 
+?>
 
 <!-- ==================== DASHBOARD CONTENT ==================== -->
 <div class="cardBox">
@@ -14,4 +31,6 @@
     </div>
 </div>
 
+<!-- Include footer -->
 <?php include 'footer.php'; ?>
+
