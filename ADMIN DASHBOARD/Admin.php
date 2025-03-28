@@ -7,57 +7,69 @@
 
     <!-- ==================== STYLES ==================== -->
     <link rel="stylesheet" href="admin.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
     <!-- ==================== NAVIGATION BAR ==================== -->
     <div class="container">
         <div class="navigation">
             <ul>
-                <li>
-                    <a href="">
+                <li class="logo">
+                    <a href="dashboard.php">
                         <span class="icon"><i class="fa-solid fa-circle-user"></i></span>
                         <span class="title">QCREDIT</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="dashboard.php">
                         <span class="icon"><i class="fa-regular fa-folder"></i></span>
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="customer.php">
                         <span class="icon"><i class="fa-solid fa-person"></i></span>
                         <span class="title">Customer</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="inventory.php">
                         <span class="icon"><i class="fa-solid fa-truck-moving"></i></span>
                         <span class="title">Inventory</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="news-events.php">
                         <span class="icon"><i class="fa-regular fa-calendar-days"></i></span>
                         <span class="title">News & Events</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="background.php">
                         <span class="icon"><i class="fa-regular fa-images"></i></span>
                         <span class="title">Background</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="settings.php">
                         <span class="icon"><i class="fa-solid fa-cogs"></i></span>
                         <span class="title">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="logout.php">
                         <span class="icon"><i class="fa-solid fa-sign-out-alt"></i></span>
                         <span class="title">Logout</span>
                     </a>
@@ -65,6 +77,9 @@
             </ul>
         </div>
     </div>
+
+</body>
+</html>
 
     <!-- ==================== MAIN SECTION ==================== -->
     <div class="main">
@@ -80,7 +95,7 @@
                 </label>
             </div>
             <div class="user">
-                <img src="Images/DefaultCat.jpg" alt="">
+                <img src="../Images/logo.jpg" alt="">
             </div>
         </div>
 
