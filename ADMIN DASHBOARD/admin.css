@@ -1,5 +1,5 @@
 /* =================== Google Fonts ================== */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 * {
     font-family: "Ubuntu", sans-serif;
@@ -37,12 +37,12 @@ body {
     border-left: 10px solid red(var(--blue));
     transition: 0.5s;
     overflow: hidden;
-
 }
+
 .navigation.active {
     width: 80px;
-
 }
+
 .navigation ul {
     position: absolute;
     top: 0;
@@ -57,12 +57,13 @@ body {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
+
 .navigation ul li:hover,
 .navigation ul li.hovered {
     background-color: var(--white);
 }
 
-.navigation ul li:nth-child(1){
+.navigation ul li:nth-child(1) {
     margin-bottom: 40px;
     pointer-events: none;
 }
@@ -74,9 +75,12 @@ body {
     display: flex;
     text-decoration: none;
     color: var(--white);
+    padding-left: 15px; /* Moved text slightly to the right */
+    font-size: 1.1rem; /* Increased font size */
 }
+
 .navigation ul li:hover a,
-.navigation ul li.hovered a{
+.navigation ul li.hovered a {
     color: var(--blue);
 }
 
@@ -91,18 +95,18 @@ body {
 }
 
 .navigation ul li a .icon i {
-    font-size: 1.75rem;
+    font-size: 1.3rem;
 }
 
 .navigation ul li a .title {
     position: relative;
     display: block;
-    padding: 0 10px;
+    padding: 0 15px; /* Adjusted text position */
     height: 60px;
     line-height: 60px;
     text-align: start;
     white-space: nowrap;
-
+    font-size: 1.1rem; /* Increased font size */
 }
 
 /* =================== Curve Outside dashboard ================== */
@@ -243,7 +247,7 @@ body {
 .cardBox .card .numbers {
     position: relative;
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: var(--blue);
 
 }
@@ -255,7 +259,7 @@ body {
 }
 
 .cardBox .card .iconBx {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     color: var(--blue);
 }
 
@@ -276,8 +280,9 @@ body {
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: 2r 1fr;
+    grid-template-columns: 2fr 1fr; /* Fixed typo */
     grid-gap: 30px;
+    overflow-x: auto; /* Ensures scrolling if content overflows */
 }
 
 .details .itemOrders {
@@ -288,7 +293,10 @@ body {
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
     border-radius: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    white-space: nowrap; /* Prevents text from wrapping */
 }
+
 .details .cardHeader {
     display: flex;
     justify-content: space-between;
@@ -309,10 +317,14 @@ body {
     border-radius: 6px;
 }
 
+/* Table Styles */
 .details table {
-    width: 100%;
+    width: 100%; /* Ensures the table fits within its container */
+    max-width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    table-layout: auto;
+    overflow-x: auto;
 }
 
 .details table thead td {
@@ -324,25 +336,32 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.details .itemOrders table tr:last-child  {
+.details .itemOrders table tr:last-child {
     border-bottom: none;
 }
+
 .details .itemOrders table tbody tr:hover {
     background: var(--blue);
     color: var(--white);
 }
+
 .details .itemOrders table tr td {
     padding: 10px;
-} 
+}
+
 .details .itemOrders table tr td:last-child {
     text-align: end;
 }
+
 .details .itemOrders table tr td:nth-child(2) {
     text-align: end;
 }
+
 .details .itemOrders table tr td:nth-child(3) {
     text-align: center;
 }
+
+/* Status Labels */
 .status.delivered {
     padding: 2px 4px;
     background: #8de02b;
@@ -351,6 +370,7 @@ body {
     font-size: 14px;
     font-weight: 500;
 }
+
 .status.pending {
     padding: 2px 4px;
     background: #e9b10a;
@@ -359,6 +379,7 @@ body {
     font-size: 14px;
     font-weight: 500;
 }
+
 .status.return {
     padding: 2px 4px;
     background: #f00;
@@ -379,7 +400,7 @@ body {
 
 /* =================== Customers ================== */
 
-.recentCustomer {
+.recentCustomers {
     position: relative;
     display: grid;
     min-height: 500px;
@@ -389,19 +410,120 @@ body {
     border-radius: 20px;
 }
 
-.recentCustomer .imgBx {
+.recentCustomers .imgBx {
     position: relative;
     width: 40px;
     height: 40px;
-    border-radius: 50px;
+    border-radius: 50%;
     overflow: hidden;
 }
-.recentCustomer .imgBx img {
+
+.recentCustomers .imgBx img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
+}
+
+/* Fix Hover Effect */
+.recentCustomers table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.recentCustomers table tr {
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.recentCustomers table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.recentCustomers table tr td {
+    padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2rem;
+}
+
+.recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--black1);
+}
+
+/* Ensure text color changes on hover */
+.recentCustomers table tr:hover h4 span {
+    color: var(--white);
+}
+
+/* =================== Responsive Design ================== */
+@media (max-width: 1200px) {
+    .navigation {
+        left: -300px;
+}
+    .navigation.active {
+        width: 300px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        width: 300px;
+        left: 0;
+    }
+    .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: 1fr;
+    }
+    .recentOrders {
+        overflow-x: auto;
+    }
+    .status.inProgress {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 500px) {
+    .cardBox {
+        grid-template-columns: 1fr;
+    }
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+    .user {
+        min-width: 40px;
+    }
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active{
+        width: 100%;
+        left: 0;
+    }
+    .toggle{
+        z-index: 10001;
+    }
+    .main.active .toggle{
+        color: #fff;
+        position: fixed;
+        right: 0;
+        left: initial;
+    }
 }
