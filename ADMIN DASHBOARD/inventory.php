@@ -70,23 +70,9 @@
 
 <script>
 function confirmDelete(id) {
-    const confirmationBox = document.createElement('div');
-    confirmationBox.innerHTML = `
-        <div class='confirm-box'>
-            <p>Are you sure you want to delete this item?</p>
-            <button onclick="window.location.href='delete_item.php?id=' + id" class='confirm-btn'>Yes</button>
-            <button onclick="document.body.removeChild(this.parentNode)" class='cancel-btn'>No</button>
-        </div>`;
-    
-    confirmationBox.style.position = 'fixed';
-    confirmationBox.style.top = '50%';
-    confirmationBox.style.left = '50%';
-    confirmationBox.style.transform = 'translate(-50%, -50%)';
-    confirmationBox.style.background = '#fff';
-    confirmationBox.style.padding = '20px';
-    confirmationBox.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.2)';
-    confirmationBox.style.borderRadius = '8px';
-    document.body.appendChild(confirmationBox);
+    if (confirm("Are you sure you want to delete this item?")) {
+        window.location.href = 'delete_item.php?id=' + id;
+    }
 }
 
 function openEditForm(id, name, stock, price) {
