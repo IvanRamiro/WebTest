@@ -60,27 +60,55 @@ if ($result->num_rows > 0) {
 }
 ?>
 
+<style>
+    .bg-container {
+        max-width: 100%;
+        max-height: 400px;
+        display: block;
+        margin: 0 auto;
+        object-fit: cover;
+    }
+    .upload-container {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .form-control {
+        text-align: center;
+    }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-container button {
+        width: 50%;
+    }
+</style>
+
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center mb-4">Background Settings</h2>
-            <div class="bg-white p-4 rounded shadow-sm">
+            <div class="bg-white p-4 rounded shadow-sm text-center">
                 <?php if ($bg_image): ?>
-                    <p class="text-center">Current Background:</p>
-                    <img src="<?php echo $bg_image; ?>" alt="Background Image" class="img-fluid rounded border">
+                    <p class="text-center fw-bold">Current Background:</p>
+                    <img src="<?php echo $bg_image; ?>" alt="Background Image" class="img-fluid rounded border bg-container mb-4">
                 <?php endif; ?>
 
-                <form method="post" enctype="multipart/form-data" class="mt-4 text-center">
-                    <label class="form-label">Upload Background Image:</label>
+                <div class="upload-container">
+                    <label class="form-label fw-semibold">Upload Background Image:</label>
                     <input type="file" name="bg-image" class="form-control mb-3" required>
-                    <button type="submit" class="btn btn-primary">Upload</button>
-                </form>
+                    <div class="btn-container">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                </div>
 
                 <?php if ($bg_image): ?>
                     <form method="post" class="mt-3 text-center">
-                        <button type="submit" name="remove-bg" class="btn btn-danger">
-                            Remove Background
-                        </button>
+                        <div class="btn-container">
+                            <button type="submit" name="remove-bg" class="btn btn-danger">Remove Background</button>
+                        </div>
                     </form>
                 <?php endif; ?>
             </div>
