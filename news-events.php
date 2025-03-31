@@ -92,52 +92,6 @@
     </nav>
 </section>
 
-
-<!-- Events Section -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold mb-4">News and Events</h2>
-    <div class="text-end mb-3">
-        <a href="add_event.php" class="btn btn-success">Add New Event</a>
-    </div>
-    <div class="row g-4">
-        <?php
-        include 'db.php'; // Include the database connection
-
-        // Fetch events from the database
-        $sql = "SELECT * FROM events ORDER BY created_at DESC";
-        $result = $conn->query($sql);
-
-        // Display events if they exist
-        if ($result->num_rows > 0) {
-            while ($event = $result->fetch_assoc()) {
-                echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3">';
-                echo '    <div class="card h-100">';
-                echo '        <img src="' . htmlspecialchars($event['image']) . '" class="card-img-top" alt="' . htmlspecialchars($event['title']) . '">';
-                echo '        <div class="card-body">';
-                echo '            <h5 class="card-title">' . htmlspecialchars($event['title']) . '</h5>';
-                echo '            <p class="card-text">' . htmlspecialchars($event['description']) . '</p>';
-                echo '            <a href="' . htmlspecialchars($event['link']) . '" class="btn btn-danger">Read More</a>';
-                echo '        </div>';
-                echo '    </div>';
-                echo '</div>';
-            }
-        } else {
-            echo '<p>No events found.</p>';
-        }
-
-        // Close the database connection
-        $conn->close();
-        ?>
-    </div>
-</section>
-
-<script>
-    function addEvent() {
-        alert('Add Event functionality coming soon!');
-        // Implement functionality to add new events dynamically
-    }
-</script>
-
     <!-- Footer Section -->
     <footer class="bg-dark text-white py-5" role="contentinfo">
         <div class="container">
