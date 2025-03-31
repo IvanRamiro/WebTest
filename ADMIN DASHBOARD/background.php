@@ -1,33 +1,28 @@
 <?php 
 include 'header.php'; 
-include '../db.php'; // Connect to database
+include '../db.php';
 
-// Ensure uploads directory exists
 $target_dir = "uploads/";
 if (!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
 }
 
-// Handle background upload
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['bg-image'])) {
     $target_file = $target_dir . basename($_FILES["bg-image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Validate image file
     $check = getimagesize($_FILES["bg-image"]["tmp_name"]);
     if ($check === false) {
         $uploadOk = 0;
         $message = "File is not an image.";
     }
 
-    // Allow only image formats
     if (!in_array($imageFileType, ["jpg", "png", "jpeg", "gif"])) {
         $uploadOk = 0;
         $message = "Only JPG, JPEG, PNG & GIF files are allowed.";
     }
 
-    // Upload and update database
     if ($uploadOk && move_uploaded_file($_FILES["bg-image"]["tmp_name"], $target_file)) {
         $sql = "INSERT INTO bgchanger (bg_image) VALUES ('$target_file')";
         if ($conn->query($sql) === TRUE) {
