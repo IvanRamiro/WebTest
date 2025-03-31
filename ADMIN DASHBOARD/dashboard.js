@@ -18,13 +18,6 @@ toggle.onclick = function () {
     main.classList.toggle("active");
 };
 
-// Delete Item Functionality
-function deleteItem(itemId) {
-    if (confirm("Are you sure you want to delete this item?")) {
-        window.location.href = `delete_item.php?id=${itemId}`;
-    }
-}
-
 // Attach delete event to dynamically loaded buttons
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".deleteBtn").forEach((button) => {

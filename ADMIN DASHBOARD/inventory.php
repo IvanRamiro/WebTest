@@ -48,7 +48,7 @@
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr>
+                            echo "<tr id='item-{$row['id']}'>
                                 <td>" . htmlspecialchars($row['name']) . "</td>
                                 <td>" . htmlspecialchars($row['stock']) . "</td>
                                 <td>$" . htmlspecialchars($row['price']) . "</td>
@@ -68,12 +68,46 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function confirmDelete(id) {
-    if (confirm("Are you sure you want to delete this item?")) {
-        window.location.href = 'delete_item.php?id=' + id;
-    }
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            
+            fetch(`delete_item.php?id=${id}`, { method: "GET" })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error("Failed to delete item.");
+                    }
+                })
+                .then(() => {
+                    // Show success message
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your item has been deleted.",
+                        icon: "success"
+                    }).then(() => {
+                        // Reload the page after the success alert
+                        location.reload();
+                    });
+                })
+                .catch(error => {
+                    Swal.fire("Error!", error.message, "error");
+                });
+        }
+    });
 }
+
 
 function openEditForm(id, name, stock, price) {
     document.getElementById('editId').value = id;

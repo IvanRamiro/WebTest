@@ -82,8 +82,7 @@ if ($result && $result->num_rows > 0) {
 
 <!-- Hero Section -->
 <section class="hero"
-    style="height: 500px; display: flex; align-items: center; justify-content: center; color: white;
-    background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
         <div class="container">
