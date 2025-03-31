@@ -1,67 +1,91 @@
 <?php 
 include 'header.php'; 
-include '../db.php'; // Ensure this file connects to qcredit_db
+include '../db.php'; // Connect to database
 
-// Handle form submission
+// Ensure uploads directory exists
+$target_dir = "uploads/";
+if (!is_dir($target_dir)) {
+    mkdir($target_dir, 0777, true);
+}
+
+// Handle background upload
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['bg-image'])) {
-    $target_dir = "uploads/"; // Ensure this directory exists and is writable
     $target_file = $target_dir . basename($_FILES["bg-image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if file is an actual image
+    // Validate image file
     $check = getimagesize($_FILES["bg-image"]["tmp_name"]);
     if ($check === false) {
-        echo "<p>File is not an image.</p>";
         $uploadOk = 0;
+        $message = "File is not an image.";
     }
 
-    // Allow certain file formats
+    // Allow only image formats
     if (!in_array($imageFileType, ["jpg", "png", "jpeg", "gif"])) {
-        echo "<p>Only JPG, JPEG, PNG & GIF files are allowed.</p>";
         $uploadOk = 0;
+        $message = "Only JPG, JPEG, PNG & GIF files are allowed.";
     }
 
-    // Upload file
+    // Upload and update database
     if ($uploadOk && move_uploaded_file($_FILES["bg-image"]["tmp_name"], $target_file)) {
-        // Store file path in database using the connection from db.php
-        $sql = "UPDATE bgchanger SET bg_image = '$target_file' WHERE id = 1";
+        $sql = "INSERT INTO bgchanger (bg_image) VALUES ('$target_file')";
         if ($conn->query($sql) === TRUE) {
-            echo "<p>Background updated successfully!</p>";
+            $message = "Background updated successfully!";
         } else {
-            echo "<p>Error updating background: " . $conn->error . "</p>";
+            $message = "Error updating background: " . $conn->error;
         }
     } else {
-        echo "<p>Sorry, there was an error uploading your file.</p>";
+        $message = "Sorry, there was an error uploading your file.";
     }
 }
 
-// Retrieve current background image
-$sql = "SELECT bg_image FROM bgchanger WHERE id = 1";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove-bg'])) {
+    $sql = "DELETE FROM bgchanger";
+    if ($conn->query($sql) === TRUE) {
+        $message = "Background removed successfully!";
+    } else {
+        $message = "Error removing background: " . $conn->error;
+    }
+}
+
+// Fetch the latest background image
+$sql = "SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1";
 $result = $conn->query($sql);
 $bg_image = "";
+
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $bg_image = $row["bg_image"];
 }
 ?>
 
-<!-- ==================== BACKGROUND SETTINGS ==================== -->
-<div class="details">
-    <div class="cardHeader">
-        <h2>Background Settings</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">Background Settings</h2>
+            <div class="bg-white p-4 rounded shadow-sm">
+                <?php if ($bg_image): ?>
+                    <p class="text-center">Current Background:</p>
+                    <img src="<?php echo $bg_image; ?>" alt="Background Image" class="img-fluid rounded border">
+                <?php endif; ?>
+
+                <form method="post" enctype="multipart/form-data" class="mt-4 text-center">
+                    <label class="form-label">Upload Background Image:</label>
+                    <input type="file" name="bg-image" class="form-control mb-3" required>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+
+                <?php if ($bg_image): ?>
+                    <form method="post" class="mt-3 text-center">
+                        <button type="submit" name="remove-bg" class="btn btn-danger">
+                            Remove Background
+                        </button>
+                    </form>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
-    
-    <?php if ($bg_image): ?>
-        <p>Current Background:</p>
-        <img src="<?php echo $bg_image; ?>" alt="Background Image" width="200">
-    <?php endif; ?>
-    
-    <form method="post" enctype="multipart/form-data">
-        <label>Upload Background Image:</label>
-        <input type="file" name="bg-image" required>
-        <button type="submit">Upload</button>
-    </form>
 </div>
 
 <?php include 'footer.php'; ?>

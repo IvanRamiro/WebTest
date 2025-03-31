@@ -1,3 +1,25 @@
+<?php
+include 'db.php';
+
+// Fetch the latest uploaded background image
+$sql = "SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1"; 
+$result = $conn->query($sql);
+
+$bg_image = ""; // Default empty value
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    if (!empty($row["bg_image"])) { 
+        $bg_image = "ADMIN DASHBOARD/" . $row["bg_image"]; // Add folder name
+    }
+}
+
+// DEBUG: Print the full image path
+echo "<p style='color:red; text-align:center;'>Debug Image Path: $bg_image</p>";
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +84,10 @@
 </header>
 
 <!-- Hero Section -->
-<section>
+<section class="hero"
+    style="height: 500px; display: flex; align-items: center; justify-content: center; color: white;
+    background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
