@@ -97,11 +97,13 @@ if ($result->num_rows > 0) {
                 <?php endif; ?>
 
                 <div class="upload-container">
-                    <label class="form-label fw-semibold">Upload Background Image:</label>
-                    <input type="file" name="bg-image" class="form-control mb-3" required>
-                    <div class="btn-container">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </div>
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        <label class="form-label fw-semibold">Upload Background Image:</label>
+                        <input type="file" name="bg-image" class="form-control mb-3" required>
+                        <div class="btn-container">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
                 </div>
 
                 <?php if ($bg_image): ?>

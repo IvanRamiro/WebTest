@@ -1,47 +1,44 @@
 <?php
 include('db.php');
-
 session_start();
 
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 
+// Redirect if already logged in
 if (isset($_SESSION['user_id'])) {
     header("Location: ADMIN DASHBOARD/dashboard.php");
     exit();
 }
+
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
     if (empty($email) || empty($password)) {
         $error = "Please fill in both email and password.";
     } else {
-
-      $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
-
         $stmt->execute();
         $stmt->store_result();
 
-
+        // Check if user exists
         if ($stmt->num_rows > 0) {
-
-          $stmt->bind_result($id, $db_email, $db_password);
-
+            $stmt->bind_result($id, $db_password);
             $stmt->fetch();
 
-            if ($password === $db_password) {
-
-              $_SESSION['user_id'] = $id;
-                $_SESSION['email'] = $db_email;
-
+            // Verify password hash
+            if ($password === $db_password) { // ⚠️ CHANGE THIS LINE IF USING HASHED PASSWORDS
+            // if (password_verify($password, $db_password)) { // Use this if passwords are hashed
+                $_SESSION['user_id'] = $id;
+                $_SESSION['email'] = $email;
                 $_SESSION['timeout'] = time();
 
-                header("Location: ADMIN DASHBOARD/dashboard.php"); // Redirect to a protected page
+                header("Location: ADMIN DASHBOARD/dashboard.php");
                 exit();
             } else {
                 $error = "Incorrect password!";
@@ -66,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+
 <section class="vh-100" style="background-color: #0a1473;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -76,44 +73,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <h3 class="mb-5">Sign in</h3>
 
-            <?php
-            if (!empty($error)) {
-                echo '<div class="alert alert-danger">' . $error . '</div>';
-            }
-            ?>
+            <?php if (!empty($error)): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+            <?php endif; ?>
 
-            <!-- Login Form -->
             <form method="POST" action="login.php">
                 <div class="form-outline mb-4">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        <input type="email" name="email" class="form-control form-control-lg" required />
+                        <input type="email" name="email" class="form-control form-control-lg" required>
                     </div>
-                    <label class="form-label" for="typeEmailX-2">Email</label>
+                    <label class="form-label">Email</label>
                 </div>
 
                 <div class="form-outline mb-4">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        <input type="password" name="password" class="form-control form-control-lg" required />
+                        <input type="password" name="password" class="form-control form-control-lg" required>
                     </div>
-                    <label class="form-label" for="typePasswordX-2">Password</label>
+                    <label class="form-label">Password</label>
                 </div>
 
-                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
                 <hr class="my-4">
-
             </form>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 </body>
 </html>
 
-<?php
-
-$conn->close();
-?>
+<?php $conn->close(); ?>

@@ -13,9 +13,6 @@ if ($result && $result->num_rows > 0) {
         $bg_image = "ADMIN DASHBOARD/" . $row["bg_image"]; // Add folder name
     }
 }
-
-// DEBUG: Print the full image path
-echo "<p style='color:red; text-align:center;'>Debug Image Path: $bg_image</p>";
 ?>
 
 
