@@ -1,1251 +1,290 @@
-/* ===========================
-   Header Section
-=========================== */
-.top-bar {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    width: 40px; /* Adjusted size for smaller logo */
-    height: auto;
-    margin-right: 10px;
-}
-
-.brand-name {
-    font-size: 20px;
-    font-weight: bold;
-    color: red !important;
-}
-
-nav p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-a.text-white:hover,
-p.fs-7 a:hover,
-a.btn-danger:hover {
-    color: red !important;
-}
-.main_paragraph {
-    color: black;
-}
-.mvl_loan {
-    color: black;
-}
-
-/* Responsive Header */
-@media (max-width: 768px) {
-    .top-bar .logo {
-        justify-content: center;
-    }
-
-    .top-bar nav {
-        text-align: center;
-        padding-top: 10px;
-    }
-
-    .top-bar .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* Responsive adjustments for header */
-@media (max-width: 768px) {
-    .top-bar .brand-name {
-        font-size: 1.2rem;
-    }
-    .top-bar ul {
-        gap: 2rem;
-    }
-    .top-bar .btn {
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-    }
-}
-
-/* ===========================
-   Main Section
-=========================== */
-.main-section {
-    padding: 60px 20px; /* Spacing for better layout */
-    background-color: #ffffff; /* White background for contrast */
-    text-align: center;
-}
-
-.main-section h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66; /* Dark blue color */
-    margin-bottom: 20px;
-}
-
-.main-section p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.main-section .btn {
-    font-size: 16px;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.main-section .btn-primary {
-    background-color: #0e1473;
-    color: #fff;
-}
-
-.main-section .btn-primary:hover {
-    background-color: #0c1163; /* Slightly darker blue */
-    transform: scale(1.05); /* Hover effect */
-}
-
-.main-section .btn-primary:focus, .main-section .btn-primary:active {
-    outline: 2px solid #0e1473;
-    transform: scale(1.02); /* Slight shrink on active */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .main-section {
-        padding: 40px 10px;
-    }
-
-    .main-section h2 {
-        font-size: 24px;
-    }
-
-    .main-section p {
-        font-size: 14px;
-    }
-}
-
-/* ===========================
-   Hero Section 2 (Dashboard)
-=========================== */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-}
-
-.hero-section .background-container {
-    width: 100%;
-    height: 100%;
-    background-color: #eaeaea;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    transition: background-size 0.3s ease;
-}
-
-.hero-section h1 {
-    color: white;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.hero-section p {
-    color: white;
-    font-size: 18px;
-    text-align: center;
-}
-
-.hero-section input[type="file"] {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #3b8f7d;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.hero-section input[type="file"]:hover {
-    background-color: #2e6b59;
-}
-
-.hero-section input[type="file"]:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(59, 143, 125, 0.7);
-}
-
-/* Mobile responsiveness for Hero Section */
-@media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 1.5em;
-    }
-
-    .hero-section p {
-        font-size: 16px;
-    }
-}
-
-/* ===========================
-   Navigation States
-=========================== */
-.nav-link {
-    font-size: 16px;
-    font-weight: 500;
-    color: white; /* Default color */
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: red; /* Highlight color on hover */
-}
-
-/* Active State */
-.nav-link.active {
-    color: red; /* Active link color */
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.2); /* Subtle background for active link */
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-/* Inactive State */
-.nav-link.inactive {
-    opacity: 0.7; /* Dimmed for inactive */
-}
-
-.nav-link.inactive:hover {
-    opacity: 1; /* Full opacity on hover */
-    color: red; /* Same hover effect as normal links */
-}
-
-/* ===========================
-   MVL Section
-=========================== */
-.mvl-section {
-    width: 100%;
-    min-height: 400px;
-    padding: 40px 20px;
-    background-color: #f8f8f8; /* Light background for contrast */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mvl-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-width: 900px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%); /* Start off-screen */
-    animation: slideIn 1s ease-out forwards;
-}
-
-.mvl-img img {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.mvl-content {
-    max-width: 400px;
-}
-
-.mvl-content h6 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #dc3545; /* Bootstrap danger color */
-    margin-bottom: 10px;
-}
-
-.mvl-content h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.mvl-content p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.mvl-content .btn {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #0e1473;
-    color: #fff;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.mvl-content .btn:hover {
-    background-color: #0c1163; /* Slightly darker blue */
-    transform: scale(1.05);
-}
-
-/* Animation for Card Entry */
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mvl-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .mvl-img img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .mvl-content h2 {
-        font-size: 20px;
-    }
-}
-
-/* ===========================
-   Loan Requirements Section
-=========================== */
-.loan-requirements {
-    background: #f8f8f8; /* Light background */
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.loan-requirements h6 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #dc3545; /* Danger red color */
-    margin-bottom: 10px;
-}
-
-.loan-requirements h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66; /* Dark blue color */
-    margin-bottom: 30px;
-}
-
-.requirement-item {
-    text-align: center;
-    margin: 0 15px;
-    flex: 1;
-    min-width: 150px;
-}
-
-.requirement-item img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.requirement-item p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .requirement-item img {
-        width: 80px;
-    }
-
-    .loan-requirements h2 {
-        font-size: 24px;
-    }
-}
-
-/* ===========================
-   Eligibility Section
-=========================== */
-.eligibility-section {
-    background-color: #eaeaea;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.eligibility-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.eligibility-box {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    text-align: center;
-}
-
-.eligibility-box img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-.eligibility-box h3 {
-    font-size: 18px;
-    color: #333;
-    margin-top: 10px;
-}
-
-.eligibility-box ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-.eligibility-box ul li {
-    font-size: 14px;
-    color: #555;
-}
-
-/* ===========================
-   Market Vendor Loan Steps Section
-=========================== */
-.market-vendor-loan-steps {
-    background: #f8f8f8;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.market-vendor-loan-steps h4 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #dc3545;
-    margin-bottom: 10px;
-}
-
-.market-vendor-loan-steps h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66;
-    margin-bottom: 30px;
-}
-
-.loan-steps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.loan-step {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1;
-    max-width: 300px;
-    min-width: 250px;
-}
-
-.loan-step img {
-    max-width: 50px;
-    margin-bottom: 15px;
-}
-
-.loan-step h5 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.loan-step p {
-    font-size: 14px;
-    color: #555;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .loan-step {
-        max-width: 100%;
-    }
-}
-
-/* ===========================
-   Testimonial Section
-=========================== */
-.testimonials {
-    background-color: #ffffff;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.testimonials h6 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #dc3545;
-    margin-bottom: 10px;
-}
-
-.testimonials h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66;
-    margin-bottom: 30px;
-}
-
-.video-thumbnail {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.video-thumbnail img {
-    width: 100%;
-    height: auto;
-}
-
-.play-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px 15px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.video-thumbnail:hover .play-overlay {
-    background: rgba(0, 0, 0, 0.8);
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .video-thumbnail {
-        margin-bottom: 20px;
-    }
-
-    .testimonials h2 {
-        font-size: 24px;
-    }
-}
-
-/* ===========================
-   News & Events Section
-=========================== */
-.news-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.news-section h6 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #dc3545; /* Danger red */
-    margin-bottom: 10px;
-}
-
-.news-section h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66; /* Dark blue */
-    margin-bottom: 30px;
-}
-
-.news-card {
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.news-date {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #dc3545; /* Danger red */
-    color: white;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 3px;
-}
-
-.news-card .card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.news-card .card-text {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.news-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.news-link:hover .card-title {
-    color: #dc3545; /* Danger red */
-}
-
-.btn-dark {
-    background-color: #343a40; /* Dark gray */
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-dark:hover {
-    background-color: #23272b; /* Slightly darker gray */
-    transform: scale(1.05); /* Slight hover effect */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .news-card {
-        margin-bottom: 20px;
-    }
-
-    .news-section h2 {
-        font-size: 24px;
-    }
-}
-
-/* ===========================
-   Footer Section
-=========================== */
-footer {
-    background-color: #0A1F66; /* Dark blue background */
-    color: white;
-    padding: 50px 20px;
-}
-
-footer .footer-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer .footer-link:hover {
-    color: red;
-    text-decoration: underline;
-}
-
-/* Footer Social Media Buttons */
-footer .btn-danger {
-    background-color: red;
-    border: none;
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-footer .btn-danger:hover {
-    background-color: #0e1473; /* Blue hover effect */
-    transform: scale(1.1); /* Slight scaling effect */
-}
-
-/* Footer Layout Adjustments */
-footer .row > div {
-    margin-bottom: 20px;
-}
-
-footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Footer responsiveness */
-footer .footer-link {
-    font-size: 0.9rem;
-}
-footer .btn-sm {
-    font-size: 0.8rem;
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    footer .row > div {
-        text-align: center;
-    }
-
-    footer .social-icons {
-        justify-content: center;
-    }
-}
-
-.currency {
-    width: 100%;
-    text-align: center; /* Aligns content inside */
-}
-
-.currency__image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    object-position: top;
-    display: block; /* Removes extra spacing below image */
-}
-
-.loan-application {
-    max-width: 900px;
-    margin: 40px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.highlight {
-    color: #0056b3;
-}
-
-.steps-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.step {
-    flex: 1 1 30%;
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.step img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 18px;
-    color: #d9534f;
-}
-
-p {
-    font-size: 14px;
-    color: #ffffff;
-}
-
-/* Loan Calculator Section */
-.loan-calculator {
-    background: white;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.loan-calculator h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #333;
-}
-
-.loan-calculator .highlight {
-    color: #0056b3;
-}
-
-.calculator-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.slider-box {
-    background: #f5f5f5;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 30%;
-}
-
-.slider-box label {
-    display: block;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.slider-box input {
-    width: 80%;
-}
-
-.slider-box span {
-    display: block;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: red;
-}
-
-.loan-table {
-    width: 60%;
-    margin: 20px auto;
-}
-
-.loan-table table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.loan-table th {
-    background: navy;
-    color: white;
-    padding: 10px;
-}
-
-.loan-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    font-size: 14px;
-}
-
-.loan-table .notice {
-    font-size: 12px;
-    color: #888;
-    margin-top: 10px;
-}
-
-/* Help & Support Section */
-.support-section {
-    background: white;
-    padding: 50px 0;
-}
-
-.support-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1100px;
-    margin: auto;
-    gap: 50px;
-}
-
-/* Left Content - Contact Info */
-.support-info {
-    width: 50%;
-    text-align: left;
-}
-
-h2 {
-    font-size: 24px;
-    font-weight: normal;
-    color: #ffffff;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.contact-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.contact-list img {
-    width: 20px;
-    height: 20px;
-}
-
-.contact-list a {
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: bold;
-}
-
-.service-hours {
-    font-size: 14px;
-    color: #ffffff;
-    margin-top: 20px;
-}
-
-.help-ticket-btn {
-    background: navy;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.help-ticket-btn:hover {
-    background: #003366;
-}
-
-/* Right Content - Image */
-.support-image {
-    width: 50%;
-}
-
-.support-image img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* iReport Complaint Section */
-.report-section {
-    background: white;
-    padding: 50px 0;
-}
-
-.report-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1100px;
-    margin: auto;
-    gap: 50px;
-}
-
-/* Left Content - Complaint Info */
-.report-info {
-    width: 50%;
-    text-align: left;
-}
-
-p {
-    font-size: 16px;
-    color: #ffffff;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.contact-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.contact-list img {
-    width: 20px;
-    height: 20px;
-}
-
-.contact-list a {
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: bold;
-}
-
-.service-hours {
-    font-size: 14px;
-    color: #666;
-    margin-top: 20px;
-}
-
-.report-button {
-    background: navy;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.report-button:hover {
-    background: #003366;
-}
-
-/* Right Content - Image */
-.report-image {
-    width: 50%;
-}
-
-.report-image img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* ========================
+   Variables & Base Styles
+======================== */
+:root {
+  --primary-color: #0e1473;
+  --primary-hover: #0c1163;
+  --accent-color: #dc3545;
+  --text-dark: #212529;
+  --text-medium: #555;
+  --text-light: #6c757d;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --border-radius: 10px;
+}
+
+/* ========================
+   Global Styles
+======================== */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
-/* Section Container */
-.protection-section {
-    background: #f3f3f3;
-    padding: 50px 0;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: var(--text-dark);
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Title */
-h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
-    color: #333;
+h2, h3, h4, h5, h6 {
+  color: #0A1F66;
+  font-weight: bold;
 }
 
-/* Category Grid */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
+p {
+  color: var(--text-medium);
+  line-height: 1.6;
 }
 
-/* Category Cards */
-.category-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+a {
+  transition: var(--transition);
+  text-decoration: none;
 }
 
-.category-card:hover {
-    transform: translateY(-5px);
+a:hover {
+  color: var(--accent-color);
 }
 
-.category-card img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+/* ========================
+   Header Styles
+======================== */
+.top-bar {
+  background-color: var(--bg-light);
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
 }
 
-.category-card p {
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-/* ===========================
-   Contact Section
-=========================== */
-.contact-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
+.logo-img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
 }
 
-.contact-section h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66;
-    margin-bottom: 20px;
+.brand-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--accent-color) !important;
 }
 
-.contact-section p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
+/* ========================
+   Button Styles
+======================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
 }
 
-.map-container iframe {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
-.contact-section form .form-label {
-    font-weight: bold;
-    color: #333;
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(14, 20, 115, 0.3);
 }
 
-.contact-section form .form-control, 
-.contact-section form .form-select {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 
-.contact-section form .btn {
-    font-size: 16px;
-    padding: 12px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
-.contact-section form .btn:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
-}
-
-/* Responsive adjustments for contact form */
-.contact-section form {
-    max-width: 100%;
-}
-.contact-section .form-control, 
-.contact-section .form-select {
-    font-size: 0.9rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 40px 10px;
-    }
-
-    .contact-section h2 {
-        font-size: 24px;
-    }
-
-    .contact-section p {
-        font-size: 14px;
-    }
-}
-
-.find-us-section .text-muted {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: #0b0c5f;
-}
-
-/* ===========================
-   Our Departments Section
-=========================== */
+/* ========================
+   Main Content Sections
+======================== */
+.main-section, 
+.mvl-section,
+.loan-requirements,
+.testimonials,
+.news-section,
+.contact-section,
 .departments-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
+  padding: 4rem 1rem;
 }
 
-.departments-section h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0A1F66;
-    margin-bottom: 30px;
+/* ========================
+   MVL Card Component
+======================== */
+.mvl-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-/* Accordion styles */
-.accordion-button {
-    font-size: 1rem;
-}
-.accordion-body {
-    font-size: 0.9rem;
-}
-
-.accordion-button {
-    font-size: 18px;
-    font-weight: bold;
-    color: #0A1F66;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.mvl-img {
+  flex: 1;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
 }
 
-.accordion-button:hover {
-    background-color: #f1f1f1;
-    transform: scale(1.02);
+.mvl-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.accordion-button:not(.collapsed) {
-    background-color: #dc3545;
-    color: #ffffff;
+.mvl-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.accordion-body {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
-    animation: fadeIn 0.5s ease-in-out;
+/* ========================
+   Loan Requirements Grid
+======================== */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.requirement-item {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.requirement-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================
+   Testimonial & News Cards
+======================== */
+.video-thumbnail, 
+.news-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.video-thumbnail:hover, 
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================
+   Footer Styles
+======================== */
+footer {
+  background-color: #0A1F66;
+  color: white;
+  padding: 50px 20px;
+}
+
+.footer-link {
+  color: white;
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* ========================
+   Responsive Adjustments
+======================== */
+@media (min-width: 992px) {
+  .mvl-card {
+    flex-direction: row;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-section, 
+  .mvl-section,
+  .loan-requirements,
+  .testimonials,
+  .news-section,
+  .contact-section,
+  .departments-section {
+    padding: 3rem 1rem;
+  }
+  
+  .requirements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .top-bar .brand-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+/* ========================
+   Animations
+======================== */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

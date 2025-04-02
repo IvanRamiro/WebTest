@@ -1,11 +1,10 @@
 <?php
 include 'db.php';
 
-// Fetch the latest uploaded background image
 $sql = "SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1"; 
 $result = $conn->query($sql);
 
-$bg_image = ""; // Default empty value
+$bg_image = "";
 
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -14,8 +13,6 @@ if ($result && $result->num_rows > 0) {
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -111,55 +108,57 @@ if ($result && $result->num_rows > 0) {
     </nav>
 </section>
 
-<!-- MVL Section -->
-<section class="mvl-section d-flex flex-column flex-md-row justify-content-center align-items-center text-center text-md-start py-5" aria-labelledby="mvl-heading">
-    <div class="mvl-card d-flex align-items-center flex-wrap">
-        <!-- Image -->
-        <figure class="mvl-img mb-4 mb-md-0 me-md-4">
-            <img src="images/mvl.jpg" alt="Market Vendor Loan Advertisement" class="img-fluid rounded shadow">
-            <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
-        </figure>
-        <!-- Text Content -->
-        <div class="mvl-content">
-            <h6 id="mvl-heading" class="text-danger fw-bold">LEARN MORE ABOUT MVL</h6>
-            <h2 class="fw-bold">Grow your business with <br><span class="text-dark">Market Vendor Loan</span></h2>
-            <p>Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
-            <a href="#" class="btn btn-danger fw-bold" aria-label="Apply online for Market Vendor Loan">APPLY ONLINE</a>
-        </div>
-    </div>
-</section>
-
-<!-- Loan Requirements Section -->
-<section class="loan-requirements text-center py-5" aria-labelledby="loan-requirements-heading">
+<!-- Market Vendor Loan Section -->
+<section class="mvl-section" aria-labelledby="mvl-heading">
     <div class="container">
-        <h6 class="text-danger fw-bold">LOAN REQUIREMENTS</h6>
-        <h2 id="loan-requirements-heading">Who can apply for a <strong>Market Vendor Loan?</strong></h2>
+        <div class="mvl-content-wrapper">
+            <!-- Main Content with Image -->
+            <div class="mvl-main-content">
+                <figure class="mvl-image">
+                    <img src="images/mvl.jpg" alt="Market Vendor Loan Advertisement" class="img-fluid">
+                    <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
+                </figure>
+                
+                <div class="mvl-text-content">
+                    <span class="section-subtitle">LEARN MORE ABOUT MVL</span>
+                    <h2 id="mvl-heading">Grow your business with <span>Market Vendor Loan</span></h2>
+                    <p class="mvl-description">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
+                    <a href="#" class="btn btn-primary" aria-label="Apply online for Market Vendor Loan">APPLY ONLINE</a>
+                </div>
+            </div>
 
-        <!-- Flexbox for Requirements -->
-        <div class="row mt-4 g-4"> <!-- Added gutter -->
-            <article class="col-6 col-md-3 mb-3">
-                <img src="images/adult.png" alt="Age Requirement: 18 to 75 Years of Age" class="img-fluid mb-2">
-                <p class="text-black">18 to 75 <br> Years of Age</p> <!-- Changed text color to black -->
-            </article>
-            <article class="col-6 col-md-3 mb-3">
-                <img src="images/market.png" alt="Requirement: Store or Market Stall Owner" class="img-fluid mb-2">
-                <p class="text-black">A Store or <br> Market Stall Owner</p> <!-- Changed text color to black -->
-            </article>
-            <article class="col-6 col-md-3 mb-3">
-                <img src="images/house.png" alt="Requirement: Permanent Resident" class="img-fluid mb-2">
-                <p class="text-black">A Permanent <br> Resident</p> <!-- Changed text color to black -->
-            </article>
-            <article class="col-6 col-md-3 mb-3">
-                <img src="images/responsibility.png" alt="Requirement: Responsible Borrower" class="img-fluid mb-2">
-                <p class="text-black">A Responsible <br> Borrower</p> <!-- Changed text color to black -->
-            </article>
-        </div>
+            <!-- Loan Requirements -->
+            <div class="mvl-requirements">
+                <span class="section-subtitle">LOAN REQUIREMENTS</span>
+                <h2>Who can apply for a <strong>Market Vendor Loan?</strong></h2>
 
-        <!-- Eligibility Section -->
-        <p class="mt-4">Want to know if you're eligible for <strong>Market Vendor Loan?</strong></p>
-        <div class="d-flex justify-content-center gap-3 mt-3">
-            <button class="btn btn-primary" aria-label="Affordability and Suitability Assessment">Affordability & Suitability Assessment</button>
-            <button class="btn btn-primary" aria-label="Review Your Assessment Result">Review Your Assessment Result</button>
+                <div class="requirements-grid">
+                    <article class="requirement-item">
+                        <img src="images/adult.png" alt="Age Requirement: 18 to 75 Years of Age" class="requirement-icon">
+                        <p>18 to 75 <br> Years of Age</p>
+                    </article>
+                    <article class="requirement-item">
+                        <img src="images/market.png" alt="Requirement: Store or Market Stall Owner" class="requirement-icon">
+                        <p>A Store or <br> Market Stall Owner</p>
+                    </article>
+                    <article class="requirement-item">
+                        <img src="images/house.png" alt="Requirement: Permanent Resident" class="requirement-icon">
+                        <p>A Permanent <br> Resident</p>
+                    </article>
+                    <article class="requirement-item">
+                        <img src="images/responsibility.png" alt="Requirement: Responsible Borrower" class="requirement-icon">
+                        <p>A Responsible <br> Borrower</p>
+                    </article>
+                </div>
+
+                <div class="eligibility-cta">
+                    <p>Want to know if you're eligible for <strong>Market Vendor Loan?</strong></p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-outline" aria-label="Affordability and Suitability Assessment">Affordability & Suitability Assessment</a>
+                        <a href="#" class="btn btn-outline" aria-label="Review Your Assessment Result">Review Your Assessment Result</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -367,7 +366,7 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 
         <!-- Call to Action -->
         <p class="mt-3">Want to know more about our <strong>Latest Updates?</strong></p>
-        <a href="https://example.com/news" class="btn btn-dark">
+        <a href="news-events.php" class="btn btn-dark">
             <i class="fas fa-arrow-right"></i> GO TO NEWS & EVENTS
         </a>
     </div>

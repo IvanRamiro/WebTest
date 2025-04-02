@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ✅ Navbar Toggle for Mobile
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarNav = document.querySelector("#navbarNav");
     if (navbarToggler && navbarNav) {
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Highlight Active Navigation Link
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach(link => {
         link.addEventListener("click", function () {
@@ -18,14 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Allow Enter Key to Trigger Click on Nav Links
     navLinks.forEach(link => {
         link.addEventListener("keydown", e => {
             if (e.key === "Enter") link.click();
         });
     });
 
-    // ✅ Smooth Scrolling for Internal Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -36,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Footer Position Adjustment
     const footer = document.getElementById("footer");
     function adjustFooter() {
         if (footer) {
@@ -46,20 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
     adjustFooter();
     window.addEventListener("resize", debounce(adjustFooter, 100));
 
-    // ✅ Footer Visibility on Scroll
     function toggleFooter() {
         if (footer) {
             footer.classList.toggle("show-footer", window.scrollY > 500);
         }
     }
 
-    // ✅ Button Hover Effects
     document.querySelectorAll(".btn-primary").forEach(button => {
         button.addEventListener("mouseover", () => button.classList.add("hover-effect"));
         button.addEventListener("mouseout", () => button.classList.remove("hover-effect"));
     });
 
-    // ✅ Scroll Reveal Effect for News Section
     const section = document.getElementById("news-events");
     function revealOnScroll() {
         if (section && section.getBoundingClientRect().top < window.innerHeight - 100) {
@@ -67,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Debounce Function for Scroll Events
     function debounce(func, wait = 20) {
         let timeout;
         return function (...args) {
@@ -76,13 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    // ✅ Attach Scroll Event Listeners
     window.addEventListener("scroll", debounce(() => {
         revealOnScroll();
         toggleFooter();
     }, 100));
 
-    // ✅ Add Event Card Dynamically
     function addEvent() {
         const row = document.querySelector(".news-section .row");
         if (row) {
@@ -107,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addEventButton.addEventListener("click", addEvent);
     }
 
-    // ✅ Form Submission Handlers
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
@@ -122,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Thank you for reaching out! We will get back to you soon.");
     });
 
-    // ✅ Form Validation
     document.getElementById('contactForm').addEventListener('submit', function (e) {
         const fullName = document.getElementById('fullName').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -134,14 +121,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Animation for "Find Us" Icons
     const findUsIcons = document.querySelectorAll(".find-us i");
     findUsIcons.forEach(icon => {
         icon.addEventListener("mouseover", () => icon.classList.add("fa-bounce"));
         icon.addEventListener("mouseout", () => icon.classList.remove("fa-bounce"));
     });
 
-    // ✅ Smooth Scroll to "Our Departments" Section
     const departmentsLink = document.querySelector('a[href="#departments"]');
     if (departmentsLink) {
         departmentsLink.addEventListener("click", function (e) {
