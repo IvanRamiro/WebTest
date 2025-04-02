@@ -225,91 +225,50 @@ if ($result && $result->num_rows > 0) {
     </div>
 </section>
 
+
+<?php
+require 'ADMIN DASHBOARD/config.php';
+
+// Fetch testimonials from the database
+$result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
+
+// Define categories
+$categories = ['General', 'Premium', 'VIP'];
+?>
+
 <!-- Testimonials Section -->
 <section class="testimonials container text-center py-5" aria-labelledby="testimonials-heading">
     <div class="container">
         <h6 class="text-danger">OUR TESTIMONIALS</h6>
         <h2 id="testimonials-heading">What Our <strong>Customers Say About Us</strong></h2>
         
-        <div class="row mt-4">
-            <!-- Testimonial 1 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-1-heading">
-                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
-                    <div class="video-thumbnail shadow-sm rounded">
-                        <img src="Images/Extra Rice.PNG" alt="Testimonial Video 1" class="img-fluid rounded">
-                        <div class="play-overlay">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                    <h3 id="testimonial-1-heading" class="visually-hidden">Testimonial Video 1</h3>
-                </a>
-            </article>
+        <?php foreach ($categories as $category): ?>
+            <h3 class="mt-4"> <?= $category; ?> Testimonials</h3>
+            <div class="row mt-2">
+                <?php
+                $stmt = $conn->prepare("SELECT * FROM Testimonials WHERE category = ? ORDER BY created_at DESC");
+                $stmt->bind_param("s", $category);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                while ($row = $result->fetch_assoc()): ?>
+                    <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-<?= $row['id']; ?>-heading">
+                        <a href="<?= htmlspecialchars($row['video_url']); ?>" target="_blank" class="video-link">
+                            <div class="video-thumbnail shadow-sm rounded">
+                                <img src="<?= htmlspecialchars($row['thumbnail_path']); ?>" alt="Testimonial Video" class="img-fluid rounded">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            </div>
+                            <h3 id="testimonial-<?= $row['id']; ?>-heading" class="visually-hidden">Testimonial Video</h3>
+                        </a>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
 
-            <!-- Testimonial 2 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-2-heading">
-                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
-                    <div class="video-thumbnail shadow-sm rounded">
-                        <img src="Images/Extra Rice.PNG" alt="Testimonial Video 2" class="img-fluid rounded">
-                        <div class="play-overlay">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                    <h3 id="testimonial-2-heading" class="visually-hidden">Testimonial Video 2</h3>
-                </a>
-            </article>
-
-            <!-- Testimonial 3 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-3-heading">
-                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
-                    <div class="video-thumbnail shadow-sm rounded">
-                        <img src="Images/Extra Rice.PNG" alt="Testimonial Video 3" class="img-fluid rounded">
-                        <div class="play-overlay">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                    <h3 id="testimonial-3-heading" class="visually-hidden">Testimonial Video 3</h3>
-                </a>
-            </article>
-
-            <!-- Testimonial 4 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-4-heading">
-                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
-                    <div class="video-thumbnail shadow-sm rounded">
-                        <img src="Images/Ah yung solo leveling.jpg" alt="Testimonial Video 4" class="img-fluid rounded">
-                        <div class="play-overlay">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                    <h3 id="testimonial-4-heading" class="visually-hidden">Testimonial Video 4</h3>
-                </a>
-            </article>
-
-            <!-- Testimonial 5 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-5-heading">
-                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
-                    <div class="video-thumbnail shadow-sm rounded">
-                        <img src="Images/Ah yung solo leveling.jpg" alt="Testimonial Video 5" class="img-fluid rounded">
-                        <div class="play-overlay">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                    <h3 id="testimonial-5-heading" class="visually-hidden">Testimonial Video 5</h3>
-                </a>
-            </article>
-
-            <!-- Testimonial 6 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-6-heading">
-                <a href="https://www.youtube.com/watch?v=IrHTT2IEKpE" target="_blank" class="video-link">
-                    <div class="video-thumbnail shadow-sm rounded">
-                        <img src="Images/Ah yung solo leveling.jpg" alt="Testimonial Video 6" class="img-fluid rounded">
-                        <div class="play-overlay">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                    <h3 id="testimonial-6-heading" class="visually-hidden">Testimonial Video 6</h3>
-                </a>
-            </article>
-        </div>
+<?php $conn->close(); ?>
 
         <!-- Call to Action -->
         <p class="mt-3">See what our Nanays & Tatays have to say about <strong>Market Vendor Loan</strong></p>
