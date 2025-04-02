@@ -229,11 +229,8 @@ if ($result && $result->num_rows > 0) {
 <?php
 require 'ADMIN DASHBOARD/config.php';
 
-// Fetch testimonials from the database
+// Fetch all testimonials from the database
 $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
-
-// Define categories
-$categories = ['General', 'Premium', 'VIP'];
 ?>
 
 <!-- Testimonials Section -->
@@ -242,38 +239,31 @@ $categories = ['General', 'Premium', 'VIP'];
         <h6 class="text-danger">OUR TESTIMONIALS</h6>
         <h2 id="testimonials-heading">What Our <strong>Customers Say About Us</strong></h2>
         
-        <?php foreach ($categories as $category): ?>
-            <h3 class="mt-4"> <?= $category; ?> Testimonials</h3>
-            <div class="row mt-2">
-                <?php
-                $stmt = $conn->prepare("SELECT * FROM Testimonials WHERE category = ? ORDER BY created_at DESC");
-                $stmt->bind_param("s", $category);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                while ($row = $result->fetch_assoc()): ?>
-                    <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-<?= $row['id']; ?>-heading">
-                        <a href="<?= htmlspecialchars($row['video_url']); ?>" target="_blank" class="video-link">
-                            <div class="video-thumbnail shadow-sm rounded">
-                                <img src="<?= htmlspecialchars($row['thumbnail_path']); ?>" alt="Testimonial Video" class="img-fluid rounded">
-                                <div class="play-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
+        <div class="row mt-4">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-<?= $row['id']; ?>-heading">
+                    <a href="<?= htmlspecialchars($row['video_url']); ?>" target="_blank" class="video-link">
+                        <div class="video-thumbnail shadow-sm rounded">
+                            <img src="<?= htmlspecialchars($row['thumbnail_path']); ?>" alt="Testimonial Video" class="img-fluid rounded">
+                            <div class="play-overlay">
+                                <i class="fas fa-play-circle"></i>
                             </div>
-                            <h3 id="testimonial-<?= $row['id']; ?>-heading" class="visually-hidden">Testimonial Video</h3>
-                        </a>
-                    </article>
-                <?php endwhile; ?>
-            </div>
-        <?php endforeach; ?>
+                        </div>
+                        <h3 id="testimonial-<?= $row['id']; ?>-heading" class="visually-hidden">Testimonial Video</h3>
+                    </a>
+                </article>
+            <?php endwhile; ?>
+        </div>
     </div>
 </section>
 
 <?php $conn->close(); ?>
 
-        <!-- Call to Action -->
-        <p class="mt-3">See what our Nanays & Tatays have to say about <strong>Market Vendor Loan</strong></p>
-        <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn custom-btn">
-            <i class="fab fa-youtube"></i> OUR YOUTUBE CHANNEL
+        <<!-- Call to Action -->
+        <div class="text-center mt-3">
+            <p class="mb-3">See what our Nanays & Tatays have to say about <strong>Market Vendor Loan</strong></p>
+                <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn custom-btn">
+            <i   i class="fab fa-youtube"></i> OUR YOUTUBE CHANNEL
         </a>
     </div>
 </section>

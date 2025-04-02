@@ -2,8 +2,8 @@
 include 'header.php'; 
 require 'config.php'; // Database connection file
 
-// Define categories
-$categories = ['General', 'Premium', 'VIP'];
+// Define categories (now only General)
+$categories = ['General'];
 $editing = false;
 $current_testimonial = null;
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $video_url = $_POST['video_url'];
     $thumbnail_path = $_POST['thumbnail_path'];
-    $category = $_POST['category'];
+    $category = 'General'; // Force all testimonials to be General
     $id = $_POST['id'] ?? null;
 
     if ($id) {
@@ -311,7 +311,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     font-size: 1rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .testimonial-table {
         display: block;
@@ -324,122 +323,106 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 }
 </style>
 
-    <div class="details">
-        <!-- Form Section -->
-        <div class="form-container">
-            <h2><?= $editing ? 'Edit Testimonial' : 'Add New Testimonial' ?></h2>
-            
-            <?php if (isset($_SESSION['message'])): ?>
-                <div class="message success"><?= $_SESSION['message'] ?></div>
-                <?php unset($_SESSION['message']); ?>
-            <?php endif; ?>
-            
-            <?php if (isset($error)): ?>
-                <div class="message error"><?= $error ?></div>
-            <?php endif; ?>
+<div class="details">
+    <!-- Form Section -->
+    <div class="form-container">
+        <h2><?= $editing ? 'Edit Testimonial' : 'Add New Testimonial' ?></h2>
+        
+        <?php if (isset($_SESSION['message'])): ?>
+            <div class="message success"><?= $_SESSION['message'] ?></div>
+            <?php unset($_SESSION['message']); ?>
+        <?php endif; ?>
+        
+        <?php if (isset($error)): ?>
+            <div class="message error"><?= $error ?></div>
+        <?php endif; ?>
 
-            <form action="testimonial.php" method="POST">
-                <?php if ($editing): ?>
-                    <input type="hidden" name="id" value="<?= $current_testimonial['id'] ?>">
-                <?php endif; ?>
-                
-                <div class="input-group">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" 
-                           value="<?= $editing ? htmlspecialchars($current_testimonial['title']) : '' ?>" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="category">Category</label>
-                    <select id="category" name="category" required>
-                        <?php foreach ($categories as $cat): ?>
-                            <option value="<?= $cat ?>" 
-                                <?= $editing && $current_testimonial['category'] == $cat ? 'selected' : '' ?>>
-                                <?= $cat ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                
-                <div class="input-group">
-                    <label for="video_url">Video URL</label>
-                    <input type="url" id="video_url" name="video_url" 
-                           value="<?= $editing ? htmlspecialchars($current_testimonial['video_url']) : '' ?>" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="thumbnail_path">Thumbnail Path</label>
-                    <div class="upload-group">
-                        <input type="text" id="thumbnail_path" name="thumbnail_path" 
-                               value="<?= $editing ? htmlspecialchars($current_testimonial['thumbnail_path']) : '' ?>" required>
-                        <button type="button" class="upload-btn" id="upload-thumbnail">
-                            <i class="fas fa-upload"></i> Upload
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="form-actions">
-                    <?php if ($editing): ?>
-                        <a href="testimonial.php" class="btn btn-secondary">Cancel</a>
-                    <?php endif; ?>
-                    <button type="submit" class="btn btn-primary">
-                        <?= $editing ? 'Update Testimonial' : 'Add Testimonial' ?>
+        <form action="testimonial.php" method="POST">
+            <?php if ($editing): ?>
+                <input type="hidden" name="id" value="<?= $current_testimonial['id'] ?>">
+            <?php endif; ?>
+            
+            <div class="input-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" 
+                       value="<?= $editing ? htmlspecialchars($current_testimonial['title']) : '' ?>" required>
+            </div>
+            
+            <!-- Category field is now hidden since we only have General -->
+            <input type="hidden" name="category" value="General">
+            
+            <div class="input-group">
+                <label for="video_url">Video URL</label>
+                <input type="url" id="video_url" name="video_url" 
+                       value="<?= $editing ? htmlspecialchars($current_testimonial['video_url']) : '' ?>" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="thumbnail_path">Thumbnail Path</label>
+                <div class="upload-group">
+                    <input type="text" id="thumbnail_path" name="thumbnail_path" 
+                           value="<?= $editing ? htmlspecialchars($current_testimonial['thumbnail_path']) : '' ?>" required>
+                    <button type="button" class="upload-btn" id="upload-thumbnail">
+                        <i class="fas fa-upload"></i> Upload
                     </button>
                 </div>
-            </form>
-        </div>
-
-        <!-- Testimonials List -->
-        <div class="recentOrders">
-            <div class="cardHeader">
-                <h2>Manage Testimonials</h2>
             </div>
+            
+            <div class="form-actions">
+                <?php if ($editing): ?>
+                    <a href="testimonial.php" class="btn btn-secondary">Cancel</a>
+                <?php endif; ?>
+                <button type="submit" class="btn btn-primary">
+                    <?= $editing ? 'Update Testimonial' : 'Add Testimonial' ?>
+                </button>
+            </div>
+        </form>
+    </div>
 
-            <?php if ($testimonials->num_rows > 0): ?>
-                <table class="testimonial-table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Video URL</th>
-                            <th>Date Added</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($row = $testimonials->fetch_assoc()): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($row['title']) ?></td>
-                                <td>
-                                    <span class="status-badge status-<?= strtolower($row['category']) ?>">
-                                        <?= htmlspecialchars($row['category']) ?>
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="<?= htmlspecialchars($row['video_url']) ?>" target="_blank">
-                                        View Video
-                                    </a>
-                                </td>
-                                <td><?= date('M j, Y', strtotime($row['created_at'])) ?></td>
-                                <td>
-                                    <a href="testimonial.php?edit=<?= $row['id'] ?>" class="action-btn edit-btn">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                    <a href="testimonial.php?delete=<?= $row['id'] ?>" class="action-btn delete-btn" 
-                                       onclick="return confirm('Are you sure you want to delete this testimonial?')">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <div class="empty-state">
-                    <p>No testimonials found. Add your first testimonial using the form above.</p>
-                </div>
-            <?php endif; ?>
+    <!-- Testimonials List -->
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Manage Testimonials</h2>
         </div>
+
+        <?php if ($testimonials->num_rows > 0): ?>
+            <table class="testimonial-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Video URL</th>
+                        <th>Date Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $testimonials->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['title']) ?></td>
+                            <td>
+                                <a href="<?= htmlspecialchars($row['video_url']) ?>" target="_blank">
+                                    View Video
+                                </a>
+                            </td>
+                            <td><?= date('M j, Y', strtotime($row['created_at'])) ?></td>
+                            <td>
+                                <a href="testimonial.php?edit=<?= $row['id'] ?>" class="action-btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="testimonial.php?delete=<?= $row['id'] ?>" class="action-btn delete-btn" 
+                                   onclick="return confirm('Are you sure you want to delete this testimonial?')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <div class="empty-state">
+                <p>No testimonials found. Add your first testimonial using the form above.</p>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 
