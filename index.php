@@ -377,7 +377,6 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 <footer class="bg-dark text-white py-5" role="contentinfo">
     <div class="container">
         <div class="row">
-            <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
                     <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
@@ -387,7 +386,6 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
                 <p>Certificate of Authority No. 2617</p>
                 <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
                 
-                <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
                     <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
@@ -398,7 +396,6 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
                 <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
             </div>
 
-            <!-- Middle Section: Menu & Quick Links -->
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">

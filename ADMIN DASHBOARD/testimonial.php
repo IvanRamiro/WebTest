@@ -427,11 +427,8 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 </div>
 
 <script>
-    // Thumbnail upload functionality
     document.getElementById('upload-thumbnail').addEventListener('click', function() {
-        // This would be replaced with actual file upload logic
         alert('File upload functionality would be implemented here');
-        // After upload, you would set the thumbnail_path input value to the uploaded file path
     });
 </script>
 
