@@ -9,17 +9,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
     $bg_image = "ADMIN DASHBOARD/" . $bg_row['bg_image'];
 }
 
-// Get MVL image (from new website_images table)
 $mvl_image = "";
 $mvl_result = $conn->query("SELECT image_path FROM website_images 
                           WHERE image_type = 'mvl' AND is_active = 1 
                           ORDER BY upload_time DESC LIMIT 1");
 if ($mvl_result && $mvl_result->num_rows > 0) {
     $mvl_row = $mvl_result->fetch_assoc();
-    $mvl_image = $mvl_row['image_path'];
+    $mvl_image = "ADMIN DASHBOARD/" . $mvl_row['image_path'];
 }
 
-// Get loan requirement images (from new website_images table)
 $loan_images = [
     'adult' => '',
     'market' => '',
@@ -28,14 +26,24 @@ $loan_images = [
 ];
 
 foreach ($loan_images as $type => $value) {
-    $loan_result = $conn->query("SELECT image_path FROM website_images 
-                               WHERE image_type = 'loan_requirement' 
-                               AND image_subtype = '$type'
-                               AND is_active = 1 
-                               ORDER BY upload_time DESC LIMIT 1");
-    if ($loan_result && $loan_result->num_rows > 0) {
-        $loan_row = $loan_result->fetch_assoc();
-        $loan_images[$type] = $loan_row['image_path'];
+    $sql = "SELECT image_path FROM website_images 
+            WHERE image_type = 'loan_requirement' 
+            AND image_subtype = '$type'
+            AND is_active = 1 
+            ORDER BY upload_time DESC LIMIT 1";
+    
+    $result = $conn->query($sql);
+    
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loan_images[$type] = "ADMIN DASHBOARD/" . $row['image_path'];
+        
+        // Debugging - check if file exists
+        if (!file_exists($loan_images[$type])) {
+            error_log("File not found: " . $loan_images[$type]);
+        }
+    } else {
+        error_log("No image found in DB for type: $type");
     }
 }
 ?>
@@ -145,9 +153,9 @@ foreach ($loan_images as $type => $value) {
                 <?php if (!empty($mvl_image)): ?>
                 <div class="mvl-card bg-white p-4 rounded-3 shadow-sm h-100">
                     <figure class="mvl-image mb-4">
-                        <img src="<?php echo $mvl_image; ?>" 
-                             alt="Market Vendor Loan Advertisement" 
-                             class="img-fluid rounded-3 w-100">
+                    <img src="<?php echo $mvl_image; ?>" 
+                        alt="Market Vendor Loan Advertisement" 
+                        class="img-fluid rounded-3 w-100">
                         <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
                     </figure>
                     
@@ -165,77 +173,91 @@ foreach ($loan_images as $type => $value) {
 
             <!-- Loan Requirements -->
             <div class="col-lg-6">
-                <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
-                    <span class="text-danger fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
-                    <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Market Vendor Loan?</strong></h2>
+    <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
+        <span class="text-danger fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
+        <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Market Vendor Loan?</strong></h2>
 
-                    <div class="requirements-grid">
-                        <div class="row g-3">
-                            <!-- Age Requirement -->
-                            <?php if (!empty($loan_images['adult'])): ?>
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <img src="<?php echo $loan_images['adult']; ?>" 
-                                         alt="Age Requirement: 18 to 75 Years" 
-                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <p class="mb-0 fw-medium">18 to 75 <br> Years of Age</p>
-                                </article>
+        <div class="requirements-grid">
+            <div class="row g-3">
+                <!-- Age Requirement -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3">
+                        <?php if (!empty($loan_images['adult']) && file_exists($loan_images['adult'])): ?>
+                            <img src="<?php echo $loan_images['adult']; ?>" 
+                                 alt="Age Requirement: 18 to 75 Years" 
+                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
+                        <?php else: ?>
+                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-user fa-2x text-muted"></i>
                             </div>
-                            <?php endif; ?>
-                            
-                            <!-- Store Owner Requirement -->
-                            <?php if (!empty($loan_images['market'])): ?>
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <img src="<?php echo $loan_images['market']; ?>" 
-                                         alt="Requirement: Store or Market Stall Owner" 
-                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <p class="mb-0 fw-medium">A Store or <br> Market Stall Owner</p>
-                                </article>
+                        <?php endif; ?>
+                        <p class="mb-0 fw-medium">18 to 75 <br> Years of Age</p>
+                    </article>
+                </div>
+                
+                <!-- Store Owner Requirement -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3">
+                        <?php if (!empty($loan_images['market']) && file_exists($loan_images['market'])): ?>
+                            <img src="<?php echo $loan_images['market']; ?>" 
+                                 alt="Requirement: Store or Market Stall Owner" 
+                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
+                        <?php else: ?>
+                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-store fa-2x text-muted"></i>
                             </div>
-                            <?php endif; ?>
-                            
-                            <!-- Resident Requirement -->
-                            <?php if (!empty($loan_images['house'])): ?>
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <img src="<?php echo $loan_images['house']; ?>" 
-                                         alt="Requirement: Permanent Resident" 
-                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <p class="mb-0 fw-medium">A Permanent <br> Resident</p>
-                                </article>
+                        <?php endif; ?>
+                        <p class="mb-0 fw-medium">A Store or <br> Market Stall Owner</p>
+                    </article>
+                </div>
+                
+                <!-- Resident Requirement -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3">
+                        <?php if (!empty($loan_images['house']) && file_exists($loan_images['house'])): ?>
+                            <img src="<?php echo $loan_images['house']; ?>" 
+                                 alt="Requirement: Permanent Resident" 
+                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
+                        <?php else: ?>
+                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-home fa-2x text-muted"></i>
                             </div>
-                            <?php endif; ?>
-                            
-                            <!-- Responsible Borrower -->
-                            <?php if (!empty($loan_images['responsibility'])): ?>
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <img src="<?php echo $loan_images['responsibility']; ?>" 
-                                         alt="Requirement: Responsible Borrower" 
-                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <p class="mb-0 fw-medium">A Responsible <br> Borrower</p>
-                                </article>
+                        <?php endif; ?>
+                        <p class="mb-0 fw-medium">A Permanent <br> Resident</p>
+                    </article>
+                </div>
+                
+                <!-- Responsible Borrower -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3">
+                        <?php if (!empty($loan_images['responsibility']) && file_exists($loan_images['responsibility'])): ?>
+                            <img src="<?php echo $loan_images['responsibility']; ?>" 
+                                 alt="Requirement: Responsible Borrower" 
+                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
+                        <?php else: ?>
+                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-handshake fa-2x text-muted"></i>
                             </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <div class="eligibility-cta mt-4 pt-3 border-top">
-                        <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Market Vendor Loan?</strong></p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Affordability and Suitability Assessment">
-                                Affordability & Suitability Assessment
-                            </a>
-                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Review Your Assessment Result">
-                                Review Your Assessment Result
-                            </a>
-                        </div>
-                    </div>
+                        <?php endif; ?>
+                        <p class="mb-0 fw-medium">A Responsible <br> Borrower</p>
+                    </article>
                 </div>
             </div>
         </div>
+
+        <div class="eligibility-cta mt-4 pt-3 border-top">
+            <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Market Vendor Loan?</strong></p>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Affordability and Suitability Assessment">
+                    Affordability & Suitability Assessment
+                </a>
+                <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Review Your Assessment Result">
+                    Review Your Assessment Result
+                </a>
+            </div>
+        </div>
     </div>
+</div>
 </section>
 
 <?php
