@@ -1,7 +1,6 @@
 <?php
 include 'db.php';
 
-// Get background image (from existing bgchanger table)
 $bg_image = "";
 $bg_result = $conn->query("SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1");
 if ($bg_result && $bg_result->num_rows > 0) {
@@ -38,7 +37,6 @@ foreach ($loan_images as $type => $value) {
         $row = $result->fetch_assoc();
         $loan_images[$type] = "ADMIN DASHBOARD/" . $row['image_path'];
         
-        // Debugging - check if file exists
         if (!file_exists($loan_images[$type])) {
             error_log("File not found: " . $loan_images[$type]);
         }
@@ -69,7 +67,6 @@ foreach ($loan_images as $type => $value) {
     
 <!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
-    <!-- Your existing header content remains exactly the same -->
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->

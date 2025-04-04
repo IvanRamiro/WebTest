@@ -8,36 +8,7 @@ if (!is_dir($target_dir)) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_FILES['bg-image'])) {
-        $filename = 'bg_' . uniqid() . '.' . pathinfo($_FILES['bg-image']['name'], PATHINFO_EXTENSION);
-        $target_file = $target_dir . $filename;
-        
-        if (uploadImage($_FILES['bg-image'], $target_file)) {
-            $conn->query("INSERT INTO bgchanger (bg_image) VALUES ('$target_file')");
-        }
-    }
-    
-    if (isset($_FILES['mvl-image'])) {
-        $filename = 'mvl_' . uniqid() . '.' . pathinfo($_FILES['mvl-image']['name'], PATHINFO_EXTENSION);
-        $target_file = $target_dir . $filename;
-        
-        if (uploadImage($_FILES['mvl-image'], $target_file)) {
-            $conn->query("INSERT INTO website_images (image_type, image_path) VALUES ('mvl', '$target_file')");
-        }
-    }
-    
-    foreach (['adult', 'market', 'house', 'responsibility'] as $type) {
-        if (isset($_FILES["loan-$type-image"])) {
-            $filename = 'loan_' . $type . '_' . uniqid() . '.' . 
-                        pathinfo($_FILES["loan-$type-image"]['name'], PATHINFO_EXTENSION);
-            $target_file = $target_dir . $filename;
-            
-            if (uploadImage($_FILES["loan-$type-image"], $target_file)) {
-                $conn->query("INSERT INTO website_images (image_type, image_path) VALUES ('loan_requirement', '$type', '$target_file')");
-            }
-        }
-    }
-
+    // Handle delete operations first
     if (isset($_POST['remove-bg'])) {
         $conn->query("DELETE FROM bgchanger");
     }
@@ -48,13 +19,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     foreach (['adult', 'market', 'house', 'responsibility'] as $type) {
         if (isset($_POST["remove-loan-$type"])) {
-            $conn->query("DELETE FROM website_images WHERE image_type = 'loan_requirement' AND image_path LIKE '%$type%'");
+            $conn->query("DELETE FROM website_images 
+                         WHERE image_type = 'loan_requirement' 
+                         AND image_subtype = '$type'");
+            continue; // Skip file processing for delete operations
+        }
+    }
+
+    // Then handle file uploads if they exist
+    if (isset($_FILES['bg-image']) && !empty($_FILES['bg-image']['tmp_name'])) {
+        $filename = 'bg_' . uniqid() . '.' . pathinfo($_FILES['bg-image']['name'], PATHINFO_EXTENSION);
+        $target_file = $target_dir . $filename;
+        
+        if (uploadImage($_FILES['bg-image'], $target_file)) {
+            $conn->query("INSERT INTO bgchanger (bg_image) VALUES ('$target_file')");
+        }
+    }
+    
+    // Similar checks for other file uploads...
+    if (isset($_FILES['mvl-image']) && !empty($_FILES['mvl-image']['tmp_name'])) {
+        $filename = 'mvl_' . uniqid() . '.' . pathinfo($_FILES['mvl-image']['name'], PATHINFO_EXTENSION);
+        $target_file = $target_dir . $filename;
+        
+        if (uploadImage($_FILES['mvl-image'], $target_file)) {
+            $conn->query("INSERT INTO website_images (image_type, image_path) VALUES ('mvl', '$target_file')");
+        }
+    }
+    
+    foreach (['adult', 'market', 'house', 'responsibility'] as $type) {
+        $fieldName = "loan-$type-image";
+        if (isset($_FILES[$fieldName]) && !empty($_FILES[$fieldName]['tmp_name'])) {
+            $filename = 'loan_' . $type . '_' . uniqid() . '.' . 
+                        pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
+            $target_file = $target_dir . $filename;
+            
+            if (uploadImage($_FILES[$fieldName], $target_file)) {
+                $conn->query("INSERT INTO website_images 
+                            (image_type, image_subtype, image_path) 
+                            VALUES ('loan_requirement', '$type', '$target_file')");
+            }
+        }
+    }
+
+        if (isset($_POST['remove-bg'])) {
+            $conn->query("DELETE FROM bgchanger");
+    }
+    
+    if (isset($_POST['remove-mvl'])) {
+        $conn->query("DELETE FROM website_images WHERE image_type = 'mvl'");
+    }
+    
+    foreach (['adult', 'market', 'house', 'responsibility'] as $type) {
+        if (isset($_POST["remove-loan-$type"])) {
+            // Delete from database using exact type matching
+            $conn->query("DELETE FROM website_images 
+                         WHERE image_type = 'loan_requirement' 
+                         AND image_subtype = '$type'");
         }
     }
 }
 
 function uploadImage($file, $target_file) {
     global $message;
+    
+    // Check if file is actually uploaded
+    if (empty($file['tmp_name'])) {
+        $message = "No file was uploaded.";
+        return false;
+    }
     
     $check = getimagesize($file["tmp_name"]);
     if ($check === false) {
