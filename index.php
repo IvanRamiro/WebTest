@@ -67,6 +67,7 @@ foreach ($loan_images as $type => $value) {
     
 <!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
+    <!-- Your existing header content remains exactly the same -->
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
@@ -112,7 +113,6 @@ foreach ($loan_images as $type => $value) {
 <!-- Hero Section -->
 <section class="hero"
     style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
         <!-- Your existing navbar content remains exactly the same -->
         <div class="container">
@@ -143,20 +143,20 @@ foreach ($loan_images as $type => $value) {
 
  <!-- Market Vendor Loan Section -->
 <section class="mvl-section py-5" aria-labelledby="mvl-heading">
-    <div class="container">
-        <div class="row g-4">
+    <div class="container px-lg-4 px-md-3 px-sm-2">
+        <div class="row g-4 mx-0">
             <!-- MVL Promo Content -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 px-3">
                 <?php if (!empty($mvl_image)): ?>
                 <div class="mvl-card bg-white p-4 rounded-3 shadow-sm h-100">
-                    <figure class="mvl-image mb-4">
-                    <img src="<?php echo $mvl_image; ?>" 
-                        alt="Market Vendor Loan Advertisement" 
-                        class="img-fluid rounded-3 w-100">
+                    <figure class="mvl-image mb-4 mx-0">
+                        <img src="<?php echo $mvl_image; ?>" 
+                            alt="Market Vendor Loan Advertisement" 
+                            class="img-fluid rounded-3 w-100">
                         <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
                     </figure>
                     
-                    <div class="mvl-text-content">
+                    <div class="mvl-text-content px-2">
                         <span class="text-danger fw-bold small d-block mb-2">LEARN MORE ABOUT MVL</span>
                         <h2 id="mvl-heading" class="fw-bold mb-3">Grow your business with <span class="text-primary">Market Vendor Loan</span></h2>
                         <p class="text-muted mb-4">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
@@ -299,7 +299,7 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 
 <!-- Number Speak Section -->
 <section id="number-speak" class="number-speak-section py-5 text-center bg-light" aria-labelledby="number-speak-heading">
-    <div class="container">
+    <section class="container">
         <h2 id="number-speak-heading" class="fw-bold">Our Journey in Numbers</h2>
         <div class="row mt-5">
             <!-- Number 1 -->
@@ -324,15 +324,6 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
                 </div>
             </div>
         </div>
-
-        <!-- Image -->
-        <div class="mt-5">
-            <figure>
-                <img src="Images/JOURNEY.jpg" alt="Our Journey Image" class="img-fluid rounded shadow">
-                <figcaption class="visually-hidden">Our Journey with QCREDIT</figcaption>
-            </figure>
-        </div>
-    </div>
 </section>
 
 <!-- News & Events Section -->
@@ -404,73 +395,73 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5" role="contentinfo">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="d-flex align-items-center mb-3">
-                    <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
+    <div class="container-fluid px-0">  <!-- Changed to container-fluid and px-0 -->
+        <div class="container">  <!-- Inner container for content -->
+            <div class="row">
+                <!-- Left Section: Company Info -->
+                <div class="col-md-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
+                        <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
+                    </div>
+                    <p>SEC Reg. No. CS201738217</p>
+                    <p>Certificate of Authority No. 2617</p>
+                    <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
+                    <!-- Social Media Icons -->
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
                 </div>
-                <p>SEC Reg. No. CS201738217</p>
-                <p>Certificate of Authority No. 2617</p>
-                <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
                 
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                <!-- Middle Section: Menu & Quick Links -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.php" class="footer-link">Home</a></li>
+                        <li><a href="loans.php" class="footer-link">Loans</a></li>
+                        <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
+                        <li><a href="consumer-protection.php" class="footer-link">Consumer Protection</a></li>
+                        <li><a href="about-us.php" class="footer-link">About Us</a></li>
+                        <li><a href="careers.php" class="footer-link">Careers</a></li>
+                        <li><a href="news-events.php" class="footer-link">News and Events</a></li>
+                        <li><a href="contact-us.php" class="footer-link">Contact Us</a></li>
+                    </ul>
+                    <h5 class="fw-bold mt-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about-mvl.php" class="footer-link">About MVL</a></li>
+                        <li><a href="apply-online.php" class="footer-link">Apply Online</a></li>
+                        <li><a href="affordability-assessment.php" class="footer-link">Affordability Assessment</a></li>
+                        <li><a href="accepted-ids.php" class="footer-link">Accepted IDs</a></li>
+                        <li><a href="loan-calculator.php" class="footer-link">Loan Calculator</a></li>
+                        <li><a href="faqs.php" class="footer-link">FAQs</a></li>
+                        <li><a href="find-us.php" class="footer-link">Find Us</a></li>
+                        <li><a href="data-privacy.php" class="footer-link">Data Privacy Notice</a></li>
+                        <li><a href="sitemap.php" class="footer-link">Site Map</a></li>
+                    </ul>
                 </div>
-
-                <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
+                
+                <!-- Right Section: Contact Info -->
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt text-danger"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
+                    <p><i class="fas fa-phone text-danger"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
+                    <p><i class="fas fa-envelope text-danger"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
+                    <p><i class="fas fa-user text-danger"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
+                    <p><i class="fas fa-exclamation-circle text-danger"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
+                </div>
             </div>
-
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold">Menu</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
-                    <li><a href="#" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
-                    <li><a href="#" class="footer-link">About Us</a></li>
-                    <li><a href="#" class="footer-link">Careers</a></li>
-                    <li><a href="#" class="footer-link">News and Events</a></li>
-                    <li><a href="#" class="footer-link">Contact Us</a></li>
-                </ul>
-
-                <h5 class="fw-bold mt-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">About MVL</a></li>
-                    <li><a href="#" class="footer-link">Apply Online</a></li>
-                    <li><a href="#" class="footer-link">Affordability Assessment</a></li>
-                    <li><a href="#" class="footer-link">Accepted IDs</a></li>
-                    <li><a href="#" class="footer-link">Loan Calculator</a></li>
-                    <li><a href="#" class="footer-link">FAQs</a></li>
-                    <li><a href="#" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Find Us</a></li>
-                    <li><a href="#" class="footer-link">Data Privacy Notice</a></li>
-                    <li><a href="#" class="footer-link">Site Map</a></li>
-                </ul>
+            
+            <!-- Bottom Section -->
+            <div class="text-center mt-4">
+                <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
+                <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
             </div>
-
-            <!-- Right Section: Contact Info -->
-            <div class="col-md-4">
-                <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-danger"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
-                <p><i class="fas fa-phone text-danger"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
-                <p><i class="fas fa-envelope text-danger"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
-                <p><i class="fas fa-user text-danger"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
-                <p><i class="fas fa-exclamation-circle text-danger"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
-            </div>
-        </div>
-
-        <!-- Bottom Section -->
-        <div class="text-center mt-4">
-            <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
         </div>
     </div>
 </footer>
-
 </body>
 </html>
