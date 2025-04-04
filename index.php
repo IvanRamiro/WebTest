@@ -1,15 +1,41 @@
 <?php
 include 'db.php';
 
-$sql = "SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1"; 
-$result = $conn->query($sql);
-
+// Get background image (from existing bgchanger table)
 $bg_image = "";
+$bg_result = $conn->query("SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1");
+if ($bg_result && $bg_result->num_rows > 0) {
+    $bg_row = $bg_result->fetch_assoc();
+    $bg_image = "ADMIN DASHBOARD/" . $bg_row['bg_image'];
+}
 
-if ($result && $result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    if (!empty($row["bg_image"])) { 
-        $bg_image = "ADMIN DASHBOARD/" . $row["bg_image"]; // Add folder name
+// Get MVL image (from new website_images table)
+$mvl_image = "";
+$mvl_result = $conn->query("SELECT image_path FROM website_images 
+                          WHERE image_type = 'mvl' AND is_active = 1 
+                          ORDER BY upload_time DESC LIMIT 1");
+if ($mvl_result && $mvl_result->num_rows > 0) {
+    $mvl_row = $mvl_result->fetch_assoc();
+    $mvl_image = $mvl_row['image_path'];
+}
+
+// Get loan requirement images (from new website_images table)
+$loan_images = [
+    'adult' => '',
+    'market' => '',
+    'house' => '',
+    'responsibility' => ''
+];
+
+foreach ($loan_images as $type => $value) {
+    $loan_result = $conn->query("SELECT image_path FROM website_images 
+                               WHERE image_type = 'loan_requirement' 
+                               AND image_subtype = '$type'
+                               AND is_active = 1 
+                               ORDER BY upload_time DESC LIMIT 1");
+    if ($loan_result && $loan_result->num_rows > 0) {
+        $loan_row = $loan_result->fetch_assoc();
+        $loan_images[$type] = $loan_row['image_path'];
     }
 }
 ?>
@@ -35,6 +61,7 @@ if ($result && $result->num_rows > 0) {
     
 <!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
+    <!-- Your existing header content remains exactly the same -->
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
@@ -82,6 +109,7 @@ if ($result && $result->num_rows > 0) {
     style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <!-- Your existing navbar content remains exactly the same -->
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,114 +136,100 @@ if ($result && $result->num_rows > 0) {
     </nav>
 </section>
 
-<!-- Market Vendor Loan Section -->
-<section class="mvl-section" aria-labelledby="mvl-heading">
+ <!-- Market Vendor Loan Section -->
+<section class="mvl-section py-5" aria-labelledby="mvl-heading">
     <div class="container">
-        <div class="mvl-content-wrapper">
-            <!-- Main Content with Image -->
-            <div class="mvl-main-content">
-                <figure class="mvl-image">
-                    <img src="images/mvl.jpg" alt="Market Vendor Loan Advertisement" class="img-fluid">
-                    <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
-                </figure>
-                
-                <div class="mvl-text-content">
-                    <span class="section-subtitle">LEARN MORE ABOUT MVL</span>
-                    <h2 id="mvl-heading">Grow your business with <span>Market Vendor Loan</span></h2>
-                    <p class="mvl-description">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
-                    <a href="#" class="btn btn-primary" aria-label="Apply online for Market Vendor Loan">APPLY ONLINE</a>
+        <div class="row g-4">
+            <!-- MVL Promo Content -->
+            <div class="col-lg-6">
+                <?php if (!empty($mvl_image)): ?>
+                <div class="mvl-card bg-white p-4 rounded-3 shadow-sm h-100">
+                    <figure class="mvl-image mb-4">
+                        <img src="<?php echo $mvl_image; ?>" 
+                             alt="Market Vendor Loan Advertisement" 
+                             class="img-fluid rounded-3 w-100">
+                        <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
+                    </figure>
+                    
+                    <div class="mvl-text-content">
+                        <span class="text-danger fw-bold small d-block mb-2">LEARN MORE ABOUT MVL</span>
+                        <h2 id="mvl-heading" class="fw-bold mb-3">Grow your business with <span class="text-primary">Market Vendor Loan</span></h2>
+                        <p class="text-muted mb-4">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
+                        <a href="#" class="btn btn-danger px-4 py-2 fw-bold" aria-label="Apply online for Market Vendor Loan">
+                            APPLY ONLINE <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
                 </div>
+                <?php endif; ?>
             </div>
 
             <!-- Loan Requirements -->
-            <div class="mvl-requirements">
-                <span class="section-subtitle">LOAN REQUIREMENTS</span>
-                <h2>Who can apply for a <strong>Market Vendor Loan?</strong></h2>
+            <div class="col-lg-6">
+                <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
+                    <span class="text-danger fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
+                    <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Market Vendor Loan?</strong></h2>
 
-                <div class="requirements-grid">
-                    <article class="requirement-item">
-                        <img src="images/adult.png" alt="Age Requirement: 18 to 75 Years of Age" class="requirement-icon">
-                        <p>18 to 75 <br> Years of Age</p>
-                    </article>
-                    <article class="requirement-item">
-                        <img src="images/market.png" alt="Requirement: Store or Market Stall Owner" class="requirement-icon">
-                        <p>A Store or <br> Market Stall Owner</p>
-                    </article>
-                    <article class="requirement-item">
-                        <img src="images/house.png" alt="Requirement: Permanent Resident" class="requirement-icon">
-                        <p>A Permanent <br> Resident</p>
-                    </article>
-                    <article class="requirement-item">
-                        <img src="images/responsibility.png" alt="Requirement: Responsible Borrower" class="requirement-icon">
-                        <p>A Responsible <br> Borrower</p>
-                    </article>
-                </div>
-
-                <div class="eligibility-cta">
-                    <p>Want to know if you're eligible for <strong>Market Vendor Loan?</strong></p>
-                    <div class="cta-buttons">
-                        <a href="#" class="btn btn-outline" aria-label="Affordability and Suitability Assessment">Affordability & Suitability Assessment</a>
-                        <a href="#" class="btn btn-outline" aria-label="Review Your Assessment Result">Review Your Assessment Result</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Market Vendor Loan Steps Section -->
-<section class="container my-5" aria-labelledby="mvl-steps-heading">
-    <div class="container">
-        <div class="row">
-            <!-- Left side text content -->
-            <div class="col-md-6 d-flex flex-column justify-content-center text-center text-md-start">
-                <h4 class="text-danger fw-bold">NO HASSLE. FAST AND EASY.</h4>
-                <h2 id="mvl-steps-heading" class="fw-bold">
-                    How does <span class="text-primary">Market Vendor Loan</span> work?
-                </h2>
-                <p class="text-black">
-                    Borrow up to <strong>₱200,000</strong> without collateral or co-maker.
-                    Market Vendor Loan (MVL) is perfect for small to medium-scale businesses looking 
-                    to finance short-term needs, whether it's equipment or additional capital.
-                </p>
-                <a href="#" class="btn custom-btn mt-3" aria-label="Learn More About Market Vendor Loan">
-                    <i class="fas fa-info-circle"></i> Learn More About MVL
-                </a>
-            </div>
-
-            <!-- Right side steps -->
-            <div class="col-md-6">
-                <div class="row g-3">
-                    <!-- Step 1 -->
-                    <div class="col-6">
-                        <div class="step-box text-center p-3 border rounded">
-                            <div class="step-label">STEP 1</div>
-                            <h5><i class="fas fa-file-signature"></i> APPLY</h5>
-                            <p class="mvl_loan">Apply online or submit an accomplished MVL Application Form to any QCredit branch near you.</p>
+                    <div class="requirements-grid">
+                        <div class="row g-3">
+                            <!-- Age Requirement -->
+                            <?php if (!empty($loan_images['adult'])): ?>
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <img src="<?php echo $loan_images['adult']; ?>" 
+                                         alt="Age Requirement: 18 to 75 Years" 
+                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <p class="mb-0 fw-medium">18 to 75 <br> Years of Age</p>
+                                </article>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <!-- Store Owner Requirement -->
+                            <?php if (!empty($loan_images['market'])): ?>
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <img src="<?php echo $loan_images['market']; ?>" 
+                                         alt="Requirement: Store or Market Stall Owner" 
+                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <p class="mb-0 fw-medium">A Store or <br> Market Stall Owner</p>
+                                </article>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <!-- Resident Requirement -->
+                            <?php if (!empty($loan_images['house'])): ?>
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <img src="<?php echo $loan_images['house']; ?>" 
+                                         alt="Requirement: Permanent Resident" 
+                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <p class="mb-0 fw-medium">A Permanent <br> Resident</p>
+                                </article>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <!-- Responsible Borrower -->
+                            <?php if (!empty($loan_images['responsibility'])): ?>
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <img src="<?php echo $loan_images['responsibility']; ?>" 
+                                         alt="Requirement: Responsible Borrower" 
+                                         class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <p class="mb-0 fw-medium">A Responsible <br> Borrower</p>
+                                </article>
+                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
-                    <!-- Step 2 -->
-                    <div class="col-6">
-                        <div class="step-box text-center p-3 border rounded">
-                            <div class="step-label">STEP 2</div>
-                            <h5><i class="fas fa-mobile-alt"></i> REGISTER</h5>
-                            <p class="mvl_loan">Subscribe your mobile number to QCredit e-Cash service through text messaging.</p>
-                        </div>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="col-6">
-                        <div class="step-box text-center p-3 border rounded">
-                            <div class="step-label">STEP 3</div>
-                            <h5><i class="fas fa-comment-sms"></i> REQUEST</h5>
-                            <p class="mvl_loan">Send loan request by texting the right command using your registered mobile number.</p>
-                        </div>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="col-6">
-                        <div class="step-box text-center p-3 border rounded">
-                            <div class="step-label">STEP 4</div>
-                            <h5><i class="fas fa-wallet"></i> RECEIVE</h5>
-                            <p class="mvl_loan">Get your loan from the branch where you applied or withdraw it from your BDO Cash Card.</p>
+
+                    <div class="eligibility-cta mt-4 pt-3 border-top">
+                        <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Market Vendor Loan?</strong></p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Affordability and Suitability Assessment">
+                                Affordability & Suitability Assessment
+                            </a>
+                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Review Your Assessment Result">
+                                Review Your Assessment Result
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -223,11 +237,9 @@ if ($result && $result->num_rows > 0) {
         </div>
     </div>
 </section>
-
 
 <?php
 require 'ADMIN DASHBOARD/config.php';
-
 // Fetch all testimonials from the database
 $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 ?>
@@ -260,7 +272,6 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 
         <<!-- Call to Action -->
         <div class="text-center mt-3">
-            <p class="mb-3">See what our Nanays & Tatays have to say about <strong>Market Vendor Loan</strong></p>
                 <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn custom-btn">
             <i   i class="fab fa-youtube"></i> OUR YOUTUBE CHANNEL
         </a>
@@ -441,5 +452,6 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
         </div>
     </div>
 </footer>
+
 </body>
 </html>

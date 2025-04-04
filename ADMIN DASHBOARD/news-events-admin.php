@@ -5,7 +5,6 @@ require 'config.php';
 $editing = false;
 $current_event = null;
 
-// Check if editing existing event
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $stmt = $conn->prepare("SELECT * FROM newsevents WHERE id = ?");
@@ -17,7 +16,6 @@ if (isset($_GET['edit'])) {
     $stmt->close();
 }
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -26,21 +24,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $is_featured = isset($_POST['is_featured']) ? 1 : 0;
     $id = $_POST['id'] ?? null;
 
-    // Handle file upload
-    $image_path = $current_event['image_path'] ?? ''; // Keep existing image if not changed
+    $image_path = $current_event['image_path'] ?? '';
     
     if (isset($_FILES['event_image']) && $_FILES['event_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'images-news-events/'; // Your news-events images folder
+        $uploadDir = 'images-news-events/';
         $fileName = uniqid() . '_' . basename($_FILES['event_image']['name']);
         $targetPath = $uploadDir . $fileName;
         
-        // Check if image file is a actual image
         $check = getimagesize($_FILES['event_image']['tmp_name']);
         if ($check !== false) {
             if (move_uploaded_file($_FILES['event_image']['tmp_name'], $targetPath)) {
                 $image_path = $targetPath;
                 
-                // Delete old image if editing and image was changed
                 if ($editing && !empty($current_event['image_path']) && file_exists($current_event['image_path'])) {
                     unlink($current_event['image_path']);
                 }
