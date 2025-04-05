@@ -90,33 +90,48 @@ $past_events = $conn->query("SELECT * FROM NewsEvents
 </head>
 <body>
     <!-- Header Section -->
-    <header class="top-bar bg-light py-2 border-bottom">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                    <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
-                    <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
-                </div>
-                <nav class="col-12 col-md-7 mb-3 mb-md-0">
-                    <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
-                        <li>
-                            <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
-                                <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                                <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
-                            </p>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="col-12 col-md-2 text-center text-md-end">
-                    <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
-                </div>
+     <header>
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Logo Section -->
+            <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
+                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
+            </div>
+
+            <!-- Contact & Links -->
+            <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
+                <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
+                    <li>
+                        <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
+                            <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
+                            <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
+                            <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
+                            <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Loan Inquiry Button -->
+            <div class="col-12 col-md-2 text-center text-md-end">
+                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50">

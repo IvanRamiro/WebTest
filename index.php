@@ -66,8 +66,7 @@ foreach ($loan_images as $type => $value) {
 <body>
     
 <!-- Header Section -->
-<header class="top-bar bg-light py-2 border-bottom" role="banner">
-    <!-- Your existing header content remains exactly the same -->
+<header>
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->

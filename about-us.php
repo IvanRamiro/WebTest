@@ -19,36 +19,35 @@
 </head>
 <body>
     
-<!-- Header Section -->
-<header class="top-bar bg-light py-2 border-bottom shadow-sm" role="banner">
+    <!-- Header Section -->
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
-            <div class="col-12 col-md-3 d-flex align-items-center">
-                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2">
-                <span class="brand-name fw-bold text-danger">QCREDIT</span>
+            <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
+                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
             </div>
 
             <!-- Contact & Links -->
-            <nav class="col-12 col-md-7" aria-label="Main Contact Links">
+            <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
-                        <p class="mb-0 text-center text-md-start text-black"><strong>Trunkline</strong><br>
+                        <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
                             <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
                         </p>
                     </li>
                     <li>
-                        <p class="mb-0 text-center text-md-start text-black"><strong>Help & Support</strong><br>
+                        <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
                             <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
                         </p>
                     </li>
                     <li>
-                        <p class="mb-0 text-center text-md-start text-black"><strong>Hiring</strong><br>
+                        <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
                             <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
                         </p>
                     </li>
                     <li>
-                        <p class="mb-0 text-center text-md-start text-black"><strong>Complaints</strong><br>
+                        <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
                             <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
                         </p>
                     </li>
@@ -126,15 +125,6 @@
         </div>
     </div>
 </section>
-
-<!-- Brochure Section -->
-<!-- <section class="brochure-section py-5">
-    <div class="container text-center">
-        <h2>DOWNLOAD <strong>OUR BROCHURE</strong></h2>
-        <p class="text-black">Learn more about QCREDIT and our services by downloading our brochure.</p>
-        <a href="brochure.pdf" download class="btn btn-primary" aria-label="Download Brochure">DOWNLOAD NOW</a>
-    </div>
-</section> -->
 
 <!-- Mission & Vision Section -->
 <section class="mission-vision-section py-5 bg-light">

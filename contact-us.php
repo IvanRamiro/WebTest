@@ -18,8 +18,8 @@
 <body>
     
 <!-- Header Section -->
-<header class="top-bar bg-light py-2 border-bottom" role="banner">
-    <div class="container">
+<header>
+        <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">

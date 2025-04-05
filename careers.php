@@ -18,7 +18,7 @@
 <body>
     
 <!-- Header Section -->
-<header class="top-bar bg-light py-2 border-bottom" role="banner">
+<header>
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
