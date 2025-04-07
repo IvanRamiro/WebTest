@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCREDIT</title>
-    <meta name="description" content="QCREDIT - Delivering financial access to everyone. Learn about our loans, services, and how we empower small businesses.">
-    <meta name="keywords" content="QCREDIT, loans, financial access, small businesses, market vendor loan">
+    <title>Contact Us | QCREDIT</title>
+    <meta name="description" content="Contact QCREDIT for loans, financial services, or support. Find our offices, departments, and contact information.">
+    <meta name="keywords" content="QCREDIT contact, loan inquiry, financial support, customer service">
     <meta name="author" content="QCREDIT Corp.">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -18,9 +18,9 @@
 <body>
     
 <!-- Header Section -->
-<header>
-        <div class="container">
-        <div class="row align-items-center">
+<header class="bg-white shadow-sm">
+    <div class="container">
+        <div class="row align-items-center py-2">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
@@ -32,314 +32,346 @@
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
+                            <a href="tel:(02)5310-2796" class="text-decoration-none">(02) 5310-2796 loc. 5100</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
+                            <a href="mailto:wecare@qcreditcorp.net" class="text-decoration-none">wecare@qcreditcorp.net</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
-                            <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                            <a href="mailto:hiring@qcreditcorp.net" class="text-decoration-none">hiring@qcreditcorp.net</a>
                         </p>
                     </li>
                 </ul>
             </nav>
 
-            <!-- Loan Inquiry Button -->
+            <!-- Login Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold">Login</a>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Hero Section -->
-<section>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-        <div class="container">
-            <!-- Collapsible Navigation -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav text-center">
-                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
-                </ul>
-            </div>
-            <!-- Search Form (Responsive) -->
-            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-            </form>
+<!-- Navigation Section -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="loans.php">Loans</a></li>
+                <li class="nav-item"><a class="nav-link" href="help-support.php">Help & Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="consumer-protection.php">Consumer Protection</a></li>
+                <li class="nav-item"><a class="nav-link" href="about-us.php">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="careers.php">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="news-events.php">News & Events</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contact-us.php">Contact Us</a></li>
+            </ul>
         </div>
-    </nav>
-</section>
+        <form class="d-none d-lg-flex ms-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</nav>
 
+<!-- Main Content Container -->
+<main class="container my-5">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="fw-bold display-5">Contact <span class="text-danger">QCREDIT</span></h1>
+            <p class="lead">We're here to help. Reach out to us through any of the following channels.</p>
+        </div>
+    </div>
+
+    <!-- Contact Options Section -->
+    <div class="row g-4">
+        <!-- Contact Form Column -->
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h2 class="card-title fw-bold mb-4">Send Us a Message</h2>
+                    <form action="send-mail.php" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-select" id="subject" name="subject">
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Loan Application">Loan Application</option>
+                                <option value="Customer Support">Customer Support</option>
+                                <option value="Complaint">Complaint</option>
+                                <option value="Career Inquiry">Career Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100 py-2">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info Column -->
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h2 class="card-title fw-bold mb-4">Our Offices</h2>
+                    
+                    <!-- Map -->
+                    <div class="map-container mb-4 rounded overflow-hidden">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1930.123456789!2d121.027724!3d14.553888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9f123456789%3A0x123456789abcdef!2sMakati%20City!5e0!3m2!1sen!2sph!4v1234567890" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            aria-label="QCREDIT Makati Office Location">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Office Locations -->
+                    <div class="office-info mb-4">
+                        <h3 class="h5 fw-bold"><i class="fas fa-building text-danger me-2"></i> Makati Head Office</h3>
+                        <p class="ms-4">
+                            2602 Antel Corporate Center, 121 Valero Street,<br>
+                            Salcedo Village, Bel-air, Makati City, 1227<br>
+                            <strong>Tel:</strong> <a href="tel:(02)5310-2796" class="text-decoration-none">(02) 5310-2796 loc. 5100</a>
+                        </p>
+                    </div>
+                    
+                    <div class="office-info">
+                        <h3 class="h5 fw-bold"><i class="fas fa-map-marker-alt text-danger me-2"></i> CDO Sub Office</h3>
+                        <p class="ms-4">
+                            1267 Bolonsiri Road, Camaman-an,<br>
+                            Cagayan de Oro City 9000<br>
+                            <strong>Tel:</strong> <a href="tel:(088)327-9462" class="text-decoration-none">(088) 327-9462 loc. 5100</a>
+                        </p>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <!-- Quick Contacts -->
+                    <div class="quick-contacts">
+                        <h3 class="h5 fw-bold mb-3">Quick Contacts</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-envelope text-danger me-2"></i>
+                                <strong>General:</strong> <a href="mailto:wecare@qcreditcorp.net" class="text-decoration-none">wecare@qcreditcorp.net</a>
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-user-tie text-danger me-2"></i>
+                                <strong>Hiring:</strong> <a href="mailto:hiring@qcreditcorp.net" class="text-decoration-none">hiring@qcreditcorp.net</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+                                <strong>Complaints:</strong> <a href="mailto:ireport@qcreditcorp.net" class="text-decoration-none">ireport@qcreditcorp.net</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-
-<!-- Contact Section -->
-<section class="contact-section py-5">
-    <div class="container">
-        <div class="row">
-            <!-- Map Section -->
-            <div class="col-md-6">
-                <h2 class="fw-bold mb-4">Stay <span class="text-danger">Connected</span></h2>
-                <p>We appreciate your feedback. Contact us using the form, phone, or office address below. Let’s stay connected.</p>
-                <div class="map-container mb-4">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1930.123456789!2d121.027724!3d14.553888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9f123456789%3A0x123456789abcdef!2sMakati%20City!5e0!3m2!1sen!2sph!4v1234567890" 
-                        width="100%" 
-                        height="300" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                <p><strong>MAKATI HEAD OFFICE</strong><br>
-                    2602 Antel Corporate Center, 121 Valero Street, Salcedo Village, Bel-air, Makati City, 1227<br>
-                    Tel. No.: <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
-                </p>
-                <p><strong>CDO SUB OFFICE</strong><br>
-                    1267 Bolonsiri Road, Camaman-an, Cagayan de Oro City 9000<br>
-                    Tel. No.: <a href="tel:(088)327-9462">(088) 327-9462 loc. 5100</a>
-                </p>
-            </div>
-
-            <!-- Contact Form Section -->
-            <div class="col-md-6">
-                <h2 class="fw-bold mb-4">Send Us <span class="text-danger">Message</span></h2>
-                <form id="contactForm" method="POST" action="process-contact.php">
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+    <!-- Departments Section -->
+    <section class="mt-5">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="card-title fw-bold mb-4 text-center">Our <span class="text-danger">Departments</span></h2>
+                <div class="row g-4">
+                    <!-- Department Cards -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-danger">
+                                    <i class="fas fa-shield-alt me-2"></i>Consumer Protection
+                                </h3>
+                                <ul class="list-unstyled mt-3">
+                                    <li><strong>Hotline:</strong> (02) 5310-2796</li>
+                                    <li><strong>Extensions:</strong> 7019, 5557</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-danger">
+                                    <i class="fas fa-users me-2"></i>Human Resources
+                                </h3>
+                                <ul class="list-unstyled mt-3">
+                                    <li><strong>Email:</strong> hiring@qcreditcorp.net</li>
+                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5101</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="contactNumber" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control" id="contactNumber" name="contactNumber" required>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-danger">
+                                    <i class="fas fa-credit-card me-2"></i>Cash Card Department
+                                </h3>
+                                <ul class="list-unstyled mt-3">
+                                    <li><strong>Email:</strong> cashcard@qcreditcorp.net</li>
+                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5102</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
-                        <select class="form-select" id="subject" name="subject" required>
-                            <option value="Inquiry">Inquiry</option>
-                            <option value="Feedback">Feedback</option>
-                            <option value="Complaint">Complaint</option>
-                        </select>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-danger">
+                                    <i class="fas fa-gavel me-2"></i>Legal Department
+                                </h3>
+                                <ul class="list-unstyled mt-3">
+                                    <li><strong>Email:</strong> legal@qcreditcorp.net</li>
+                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5103</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-danger">
+                                    <i class="fas fa-search-dollar me-2"></i>Audit Department
+                                </h3>
+                                <ul class="list-unstyled mt-3">
+                                    <li><strong>Email:</strong> audit@qcreditcorp.net</li>
+                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5104</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-danger w-100">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Find Us Section -->
-<section class="find-us-section py-5 bg-light">
-    <div class="container">
-        <h2 class="fw-bold text-center mb-4">Find <span class="text-danger">Us</span></h2>
-        <div class="row text-center">
-            <div class="col-md-6 mb-4">
-                <div class="icon mb-3">
-                    <i class="fas fa-building fa-3x text-danger"></i>
-                </div>
-                <p>Our head office is located in the heart of Makati - the country's premier financial district.</p>
-                <p><strong>2602 Antel Corporate Center, 121 Valero Street, Salcedo Village, Makati City 1227</strong></p>
-            </div>
-            <div class="col-md-6">
-                <div class="icon mb-3">
-                    <i class="fas fa-map-marker-alt fa-3x text-danger"></i>
-                </div>
-                <p>QCREDIT has more than 70 branches nationwide. Use our Branch Locator to contact or visit the QCREDIT branch most convenient to you.</p>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            <p class="text-muted">We are committed to providing excellent service and ensuring accessibility for all our customers. Visit us today!</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- Our Departments Section -->
-<section class="departments-section py-5">
-    <div class="container">
-        <h2 class="fw-bold text-center mb-4">Our <span class="text-danger">Departments</span></h2>
-        <div class="accordion" id="departmentsAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Consumer Protection
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#departmentsAccordion">
-                    <div class="accordion-body">
-                        <p><strong>Hotline:</strong> (02) 5310-2796</p>
-                        <p><strong>Local/Extension:</strong> 7019, 5557</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Human Resources
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#departmentsAccordion">
-                    <div class="accordion-body">
-                        <p><strong>Email:</strong> hiring@qcreditcorp.net</p>
-                        <p><strong>Phone:</strong> (02) 5310-2796 loc. 5101</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Cash Card Department
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#departmentsAccordion">
-                    <div class="accordion-body">
-                        <p><strong>Email:</strong> cashcard@qcreditcorp.net</p>
-                        <p><strong>Phone:</strong> (02) 5310-2796 loc. 5102</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Legal Department
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#departmentsAccordion">
-                    <div class="accordion-body">
-                        <p><strong>Email:</strong> legal@qcreditcorp.net</p>
-                        <p><strong>Phone:</strong> (02) 5310-2796 loc. 5103</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Audit Department
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#departmentsAccordion">
-                    <div class="accordion-body">
-                        <p><strong>Email:</strong> audit@qcreditcorp.net</p>
-                        <p><strong>Phone:</strong> (02) 5310-2796 loc. 5104</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingSix">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        Collection Unit
-                    </button>
-                </h2>
-                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#departmentsAccordion">
-                    <div class="accordion-body">
-                        <p><strong>Email:</strong> collection@qcreditcorp.net</p>
-                        <p><strong>Phone:</strong> (02) 5310-2796 loc. 5105</p>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-danger">
+                                    <i class="fas fa-phone-volume me-2"></i>Collection Unit
+                                </h3>
+                                <ul class="list-unstyled mt-3">
+                                    <li><strong>Email:</strong> collection@qcreditcorp.net</li>
+                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5105</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    
+    <!-- Branch Network Section -->
+    <section class="mt-5">
+        <div class="card shadow-sm bg-danger text-white">
+            <div class="card-body p-4 text-center">
+                <h2 class="card-title fw-bold mb-3">Nationwide Branch Network</h2>
+                <p class="lead mb-4">QCREDIT has more than 70 branches across the Philippines. Visit the branch most convenient for you.</p>
+                <a href="branch-locator.php" class="btn btn-light text-danger fw-bold px-4">Find a Branch Near You</a>
+            </div>
+        </div>
+    </section>
+</main>
 
 <!-- Footer Section -->
-<footer class="bg-dark text-white py-5" role="contentinfo">
+<footer class="bg-dark text-white pt-5 pb-3">
     <div class="container">
-        <div class="row">
-            <!-- Left Section: Company Info -->
-            <div class="col-md-4 mb-4">
+        <div class="row g-4">
+            <!-- Company Info -->
+            <div class="col-lg-4">
                 <div class="d-flex align-items-center mb-3">
                     <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
+                    <span class="fw-bold fs-5">QCREDIT CORP.</span>
                 </div>
-                <p>SEC Reg. No. CS201738217</p>
-                <p>Certificate of Authority No. 2617</p>
+                <p>SEC Reg. No. CS201738217<br>
+                Certificate of Authority No. 2617</p>
                 <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
                 
-                <!-- Social Media Icons -->
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                <div class="social-icons mb-3">
+                    <a href="#" class="text-white me-2" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-white me-2" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
+                    <a href="#" class="text-white me-2" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    <a href="#" class="text-white" aria-label="TikTok"><i class="fab fa-tiktok fa-lg"></i></a>
                 </div>
-
-                <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
+                
+                <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="img-fluid" width="150">
             </div>
-
-            <!-- Middle Section: Menu & Quick Links -->
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold">Menu</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
-                    <li><a href="#" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
-                    <li><a href="#" class="footer-link">About Us</a></li>
-                    <li><a href="#" class="footer-link">Careers</a></li>
-                    <li><a href="#" class="footer-link">News and Events</a></li>
-                    <li><a href="#" class="footer-link">Contact Us</a></li>
-                </ul>
-
-                <h5 class="fw-bold mt-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">About MVL</a></li>
-                    <li><a href="#" class="footer-link">Apply Online</a></li>
-                    <li><a href="#" class="footer-link">Affordability Assessment</a></li>
-                    <li><a href="#" class="footer-link">Accepted IDs</a></li>
-                    <li><a href="#" class="footer-link">Loan Calculator</a></li>
-                    <li><a href="#" class="footer-link">FAQs</a></li>
-                    <li><a href="#" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Find Us</a></li>
-                    <li><a href="#" class="footer-link">Data Privacy Notice</a></li>
-                    <li><a href="#" class="footer-link">Site Map</a></li>
-                </ul>
+            
+            <!-- Quick Links -->
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-3">Menu</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.php" class="text-white text-decoration-none">Home</a></li>
+                            <li class="mb-2"><a href="loans.php" class="text-white text-decoration-none">Loans</a></li>
+                            <li class="mb-2"><a href="help-support.php" class="text-white text-decoration-none">Help & Support</a></li>
+                            <li class="mb-2"><a href="consumer-protection.php" class="text-white text-decoration-none">Consumer Protection</a></li>
+                            <li class="mb-2"><a href="about-us.php" class="text-white text-decoration-none">About Us</a></li>
+                            <li><a href="careers.php" class="text-white text-decoration-none">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-3">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Apply Online</a></li>
+                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Loan Calculator</a></li>
+                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Branch Locator</a></li>
+                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Data Privacy Notice</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <!-- Right Section: Contact Info -->
-            <div class="col-md-4">
-                <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-danger"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
-                <p><i class="fas fa-phone text-danger"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
-                <p><i class="fas fa-envelope text-danger"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
-                <p><i class="fas fa-user text-danger"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
-                <p><i class="fas fa-exclamation-circle text-danger"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
+            
+            <!-- Contact Info -->
+            <div class="col-lg-4">
+                <h5 class="fw-bold mb-3">Contact Information</h5>
+                <address>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Makati City 1227</p>
+                    <p><i class="fas fa-phone me-2"></i> (02) 5310-2796 loc. 5100</p>
+                    <p><i class="fas fa-envelope me-2"></i> wecare@qcreditcorp.net</p>
+                    <p><i class="fas fa-user me-2"></i> hiring@qcreditcorp.net</p>
+                    <p><i class="fas fa-exclamation-circle me-2"></i> ireport@qcreditcorp.net</p>
+                </address>
             </div>
         </div>
-
-        <!-- Bottom Section -->
-        <div class="text-center mt-4">
+        
+        <hr class="my-4">
+        
+        <!-- Copyright -->
+        <div class="text-center">
             <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
             <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
         </div>
     </div>
 </footer>
+
 </body>
 </html>
