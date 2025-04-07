@@ -72,69 +72,23 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleFooter();
     }, 100));
 
-    function addEvent() {
-        const row = document.querySelector(".news-section .row");
-        if (row) {
-            const newCard = document.createElement("div");
-            newCard.className = "col-12 col-sm-6 col-md-4 col-lg-3";
-            newCard.innerHTML = `
-                <div class="card h-100">
-                    <img src="Images/DefaultCat.jpg" class="card-img-top" alt="New Event">
-                    <div class="card-body">
-                        <h5 class="card-title">New Event</h5>
-                        <p class="card-text">Description of the new event...</p>
-                        <a href="#" class="btn btn-danger">Read More</a>
-                    </div>
-                </div>
-            `;
-            row.insertBefore(newCard, row.lastElementChild);
-        }
-    }
-
     const addEventButton = document.querySelector(".btn-outline-danger");
     if (addEventButton) {
         addEventButton.addEventListener("click", addEvent);
     }
 
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("Thank you for your message! We will get back to you shortly.");
-            contactForm.reset();
-        });
-    }
-
-    document.querySelector(".stay-connected form").addEventListener("submit", function (e) {
+    document.getElementById('helpTicketForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert("Thank you for reaching out! We will get back to you soon.");
+        
+        // Here you would typically send the form data to your server
+        // For demonstration, we'll just show an alert
+        alert('Thank you for submitting your help ticket. Our team will get back to you soon.');
+        
+        // Close the modal
+        var modal = bootstrap.Modal.getInstance(document.getElementById('helpTicketModal'));
+        modal.hide();
+        
+        // Reset the form
+        this.reset();
     });
-
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const contactNumber = document.getElementById('contactNumber').value.trim();
-
-        if (!fullName || !email || !contactNumber) {
-            e.preventDefault();
-            alert('Please fill out all required fields.');
-        }
-    });
-
-    const findUsIcons = document.querySelectorAll(".find-us i");
-    findUsIcons.forEach(icon => {
-        icon.addEventListener("mouseover", () => icon.classList.add("fa-bounce"));
-        icon.addEventListener("mouseout", () => icon.classList.remove("fa-bounce"));
-    });
-
-    const departmentsLink = document.querySelector('a[href="#departments"]');
-    if (departmentsLink) {
-        departmentsLink.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(".departments-section");
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    }
 });

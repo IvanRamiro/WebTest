@@ -210,7 +210,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 </section>
 
 <!-- Footer Section -->
-<footer class="bg-dark text-white py-5" role="contentinfo">
+<footer class="bg-dark text-white py-5">
     <div class="container">
         <div class="row">
             <!-- Left Section: Company Info -->
@@ -238,14 +238,14 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="index.php" class="footer-link">Home</a></li>
                     <li><a href="#" class="footer-link">Loans</a></li>
-                    <li><a href="#" class="footer-link">Help & Support</a></li>
+                    <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
                     <li><a href="#" class="footer-link">Consumer Protection</a></li>
-                    <li><a href="#" class="footer-link">About Us</a></li>
-                    <li><a href="#" class="footer-link">Careers</a></li>
-                    <li><a href="#" class="footer-link">News and Events</a></li>
-                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                    <li><a href="about-us.php" class="footer-link">About Us</a></li>
+                    <li><a href="careers.php" class="footer-link">Careers</a></li>
+                    <li><a href="news-events.php" class="footer-link">News and Events</a></li>
+                    <li><a href="contact-us.php" class="footer-link">Contact Us</a></li>
                 </ul>
 
                 <h5 class="fw-bold mt-3">Quick Links</h5>
@@ -256,7 +256,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <li><a href="#" class="footer-link">Accepted IDs</a></li>
                     <li><a href="#" class="footer-link">Loan Calculator</a></li>
                     <li><a href="#" class="footer-link">FAQs</a></li>
-                    <li><a href="#" class="footer-link">Help & Support</a></li>
+                    <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
                     <li><a href="#" class="footer-link">Find Us</a></li>
                     <li><a href="#" class="footer-link">Data Privacy Notice</a></li>
                     <li><a href="#" class="footer-link">Site Map</a></li>
@@ -266,20 +266,21 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Right Section: Contact Info -->
             <div class="col-md-4">
                 <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-danger"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
-                <p><i class="fas fa-phone text-danger"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
-                <p><i class="fas fa-envelope text-danger"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
-                <p><i class="fas fa-user text-danger"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
-                <p><i class="fas fa-exclamation-circle text-danger"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
+                <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
+                <p><i class="fas fa-phone text-danger me-2"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
+                <p><i class="fas fa-envelope text-danger me-2"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
+                <p><i class="fas fa-user text-danger me-2"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
+                <p><i class="fas fa-exclamation-circle text-danger me-2"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
             </div>
         </div>
 
         <!-- Bottom Section -->
-        <div class="text-center mt-4">
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
             <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
             <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
         </div>
     </div>
 </footer>
+
 </body>
 </html>
