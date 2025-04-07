@@ -66,7 +66,7 @@ foreach ($loan_images as $type => $value) {
 <body>
     
 <!-- Header Section -->
-<header>
+<header class="top-bar bg-light py-2 border-bottom" role="banner">
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
@@ -122,9 +122,7 @@ foreach ($loan_images as $type => $value) {
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
@@ -423,11 +421,11 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
                         <h5 class="fw-bold mb-3">Menu</h5>
                         <ul class="list-unstyled">
                             <li class="mb-2"><a href="index.php" class="text-white text-decoration-none">Home</a></li>
-                            <li class="mb-2"><a href="loans.php" class="text-white text-decoration-none">Loans</a></li>
                             <li class="mb-2"><a href="help-support.php" class="text-white text-decoration-none">Help & Support</a></li>
-                            <li class="mb-2"><a href="consumer-protection.php" class="text-white text-decoration-none">Consumer Protection</a></li>
                             <li class="mb-2"><a href="about-us.php" class="text-white text-decoration-none">About Us</a></li>
                             <li><a href="careers.php" class="text-white text-decoration-none">Careers</a></li>
+                            <li class="mb-2"><a href="news-events.php" class="text-white text-decoration-none">News & Events</a></li>
+                            <li class="mb-2"><a href="contact-us.php" class="text-white text-decoration-none">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6">

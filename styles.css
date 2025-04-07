@@ -424,28 +424,6 @@ h2 {
 /* ========================
    Footer Styles
 ======================== */
-footer {
-  background: linear-gradient(135deg, #0a0f3d, var(--primary-color));
-  color: var(--white);
-  position: relative;
-  width: 100%;
-}
-
-footer::before {
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-size: 200% 100%;
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .footer-link {
   color: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;

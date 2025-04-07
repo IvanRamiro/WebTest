@@ -1,6 +1,14 @@
 <?php
 require 'ADMIN DASHBOARD/config.php';
 
+include 'db.php';
+
+$bg_image = "";
+$bg_result = $conn->query("SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1");
+if ($bg_result && $bg_result->num_rows > 0) {
+    $bg_row = $bg_result->fetch_assoc();
+    $bg_image = "ADMIN DASHBOARD/" . $bg_row['bg_image'];
+}
 // Fetch featured events (max 3)
 $featured_events = $conn->query("SELECT * FROM NewsEvents 
     WHERE is_featured = 1 
@@ -89,8 +97,9 @@ $past_events = $conn->query("SELECT * FROM NewsEvents
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-     <header>
+    
+<!-- Header Section -->
+<header class="top-bar bg-light py-2 border-bottom" role="banner">
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
@@ -133,24 +142,36 @@ $past_events = $conn->query("SELECT * FROM NewsEvents
     </div>
 </header>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50">
+<!-- Hero Section -->
+<section class="hero"
+    style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <!-- Your existing navbar content remains exactly the same -->
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <!-- Collapsible Navigation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
                 </ul>
             </div>
+            <!-- Search Form (Responsive) -->
+            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+            </form>
         </div>
     </nav>
+</section>
+
+
 
     <!-- News & Events Content -->
     <section class="py-5 bg-light">

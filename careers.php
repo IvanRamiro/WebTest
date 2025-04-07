@@ -1,3 +1,14 @@
+<?php
+include 'db.php';
+
+$bg_image = "";
+$bg_result = $conn->query("SELECT bg_image FROM bgchanger ORDER BY id DESC LIMIT 1");
+if ($bg_result && $bg_result->num_rows > 0) {
+    $bg_row = $bg_result->fetch_assoc();
+    $bg_image = "ADMIN DASHBOARD/" . $bg_row['bg_image'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +29,7 @@
 <body>
     
 <!-- Header Section -->
-<header>
+<header class="top-bar bg-light py-2 border-bottom" role="banner">
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
@@ -62,8 +73,10 @@
 </header>
 
 <!-- Hero Section -->
-<section>
+<section class="hero"
+    style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+        <!-- Your existing navbar content remains exactly the same -->
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,9 +85,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="loans.php">Loans</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="consumer-protection.php">Consumer Protection</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
@@ -89,6 +100,7 @@
         </div>
     </nav>
 </section>
+
 
     
 <!-- Careers Section -->
