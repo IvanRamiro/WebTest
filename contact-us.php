@@ -45,12 +45,17 @@
                             <a href="mailto:hiring@qcreditcorp.net" class="text-decoration-none">hiring@qcreditcorp.net</a>
                         </p>
                     </li>
+                    <li>
+                        <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
+                            <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                        </p>
+                    </li>
                 </ul>
             </nav>
 
-            <!-- Login Button -->
+            <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold">Login</a>
+                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
     </div>

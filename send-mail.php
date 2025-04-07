@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
+    $subject = $_POST['subject'];
 
     $mail = new PHPMailer(true);
 
@@ -22,10 +23,11 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
         $mail ->setFrom("mocaaoa69@gmaail.com","Moca");
         $mail->addAddress("sonatavann@gmail.com", "Evan");
 
-        $mail->Subject = "Contact Us Form Submission";
+        $mail->Subject = $subject;
         $mail->Body = "Name: $name\n".
-                        "Email: $email\n".
-                       "Message: $message";
+                      "Email: $email\n".
+                      "Subject: $subject\n".
+                      "Message: $message";
 
         if ($mail->send()) {
             echo "Message sent successfully!";
@@ -33,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
             echo "Message could not be sent: ". $mail->ErrorInfo;
         }
     
-} catch (Exception $e) {
+    } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+    }
 }
 ?>
