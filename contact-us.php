@@ -29,9 +29,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <body>
     
 <!-- Header Section -->
-<header class="bg-white shadow-sm">
+<header class="top-bar bg-light py-2 border-bottom" role="banner">
     <div class="container">
-        <div class="row align-items-center py-2">
+        <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
@@ -43,17 +43,17 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
-                            <a href="tel:(02)5310-2796" class="text-decoration-none">(02) 5310-2796 loc. 5100</a>
+                            <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:wecare@qcreditcorp.net" class="text-decoration-none">wecare@qcreditcorp.net</a>
+                            <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
-                            <a href="mailto:hiring@qcreditcorp.net" class="text-decoration-none">hiring@qcreditcorp.net</a>
+                            <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
                         </p>
                     </li>
                     <li>
@@ -303,17 +303,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Branch Network Section -->
-    <section class="mt-5">
-        <div class="card shadow-sm bg-danger text-white">
-            <div class="card-body p-4 text-center">
-                <h2 class="card-title fw-bold mb-3">Nationwide Branch Network</h2>
-                <p class="lead mb-4">QCREDIT has more than 70 branches across the Philippines. Visit the branch most convenient for you.</p>
-                <a href="branch-locator.php" class="btn btn-light text-danger fw-bold px-4">Find a Branch Near You</a>
             </div>
         </div>
     </section>
