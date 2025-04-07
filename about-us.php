@@ -104,154 +104,300 @@ if ($bg_result && $bg_result->num_rows > 0) {
 </section>
 
 
-<!-- About Us Main Content -->
-<section class="about-section py-5 bg-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2>ABOUT <strong>QCREDIT</strong></h2>
-                <p class="text-black">QCREDIT Corp. is a trusted lending company in the Philippines, dedicated to empowering small and medium-sized businesses through accessible financial solutions.</p>
-                <p class="text-black">With a strong presence nationwide, we aim to uplift the lives of Filipino entrepreneurs by providing the necessary financial support to grow their businesses.</p>
-                <p class="text-black">Our mission is to be a lending company with a heart, delivering exceptional service and fostering long-term relationships with our customers.</p>
-                <a href="contact-us.php" class="btn btn-primary" aria-label="Contact Us">CONTACT US</a>
-            </div>
-            <div class="col-md-6">
-                <img src="Images/ABSOLUTE.jpg" alt="About QCREDIT" class="img-fluid rounded shadow">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Our Services Section -->
-<section class="our-services-section py-5 bg-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="Images/ABSOLUTE.jpg" alt="Our Services" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-lg-6">
-                <h2>OUR <strong>SERVICES</strong></h2>
-                <p class="text-black">Market Vendor Loan (MVL) remains QCREDIT’s flagship service, serving over half a million customers. With MVL, QCREDIT empowers small enterprises to achieve financial freedom.</p>
-                <p class="text-black">In partnership with BDO Unibank Inc., QCREDIT offers BDO Cash Cards, providing customers with secure ATM access without requiring a deposit account.</p>
-                <a href="loans.php" class="btn btn-primary" aria-label="Learn More About Our Services">LEARN MORE</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Mission & Vision Section -->
-<section class="mission-vision-section py-5 bg-light">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-4">
-                <h3><i class="fas fa-bullseye text-danger"></i> MISSION</h3>
-                <p class="text-black">To provide speedy and accessible collateral-free loans to small and medium enterprises, improving the quality of life for every Filipino.</p>
-            </div>
-            <div class="col-md-4">
-                <h3><i class="fas fa-eye text-danger"></i> VISION</h3>
-                <p class="text-black">To be a leading lending company in the Philippines, exemplifying a "lending company with a heart" in all business dealings.</p>
-            </div>
-            <div class="col-md-4">
-                <h3><i class="fas fa-users text-danger"></i> OUR PEOPLE</h3>
-                <p class="text-black">Our employees are the foundation of our success, delivering the best service with passion and energy.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Our Values Section -->
-<section class="our-values-section py-5 bg-light">
-    <div class="container text-center">
-        <h2><i class="fas fa-heart text-danger"></i> OUR <strong>VALUES</strong></h2>
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <h5><i class="fas fa-balance-scale text-danger"></i> Integrity</h5>
-                <p class="text-black">We uphold transparency and fairness in all our dealings.</p>
-            </div>
-            <div class="col-md-4">
-                <h5><i class="fas fa-user-friends text-danger"></i> Customer Focus</h5>
-                <p class="text-black">Our customers are at the heart of everything we do.</p>
-            </div>
-            <div class="col-md-4">
-                <h5><i class="fas fa-lightbulb text-danger"></i> Innovation</h5>
-                <p class="text-black">We continuously improve to meet the evolving needs of our clients.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer Section -->
-<footer class="bg-dark text-white py-5">
-    <div class="container">
-        <div class="row">
-            <!-- Left Section: Company Info -->
-            <div class="col-md-4 mb-4">
-                <div class="d-flex align-items-center mb-3">
-                    <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
+   <!-- Main Content -->
+   <main id="main-content">
+        <!-- About QCREDIT Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="Images/ABSOLUTE.jpg" alt="QCREDIT Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold text-danger mb-4">About <span class="text-dark">QCREDIT</span></h2>
+                        <p class="lead">QCREDIT Corp. is a trusted lending company in the Philippines, dedicated to empowering small and medium-sized businesses through accessible financial solutions.</p>
+                        <p>With a strong presence nationwide, we aim to uplift the lives of Filipino entrepreneurs by providing the necessary financial support to grow their businesses. Our mission is to be a lending company with a heart, delivering exceptional service and fostering long-term relationships with our customers.</p>
+                        <div class="d-flex gap-3 mt-4">
+                            <a href="contact-us.php" class="btn btn-danger px-4 py-2">Contact Us</a>
+                            <a href="careers.php" class="btn btn-outline-danger px-4 py-2">Join Our Team</a>
+                        </div>
+                    </div>
                 </div>
-                <p>SEC Reg. No. CS201738217</p>
-                <p>Certificate of Authority No. 2617</p>
-                <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
-                
-                <!-- Social Media Icons -->
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold">Our <span class="text-danger">Story</span></h2>
+                    <div class="divider mx-auto bg-danger"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon-box bg-danger text-white mb-4 mx-auto">
+                                    <i class="fas fa-rocket fa-2x"></i>
+                                </div>
+                                <h3 class="h4">Our Beginnings</h3>
+                                <p>Founded in [Year], QCREDIT started with a vision to provide financial access to underserved market vendors and small business owners.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon-box bg-danger text-white mb-4 mx-auto">
+                                    <i class="fas fa-chart-line fa-2x"></i>
+                                </div>
+                                <h3 class="h4">Growth & Expansion</h3>
+                                <p>Through strategic partnerships and customer-focused services, we've expanded our reach to serve communities across the Philippines.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="icon-box bg-danger text-white mb-4 mx-auto">
+                                    <i class="fas fa-bullseye fa-2x"></i>
+                                </div>
+                                <h3 class="h4">Future Vision</h3>
+                                <p>We continue to innovate our services to meet the evolving needs of Filipino entrepreneurs in the digital economy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold">Our <span class="text-danger">Purpose</span></h2>
+                    <div class="divider mx-auto bg-danger"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-danger border-2 text-center">
+                            <div class="card-body p-4">
+                                <i class="fas fa-bullseye text-danger fa-3x mb-3"></i>
+                                <h3 class="h4">Mission</h3>
+                                <p>To provide speedy and accessible collateral-free loans to small and medium enterprises, improving the quality of life for every Filipino.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-danger border-2 text-center">
+                            <div class="card-body p-4">
+                                <i class="fas fa-eye text-danger fa-3x mb-3"></i>
+                                <h3 class="h4">Vision</h3>
+                                <p>To be a leading lending company in the Philippines, exemplifying a "lending company with a heart" in all business dealings.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-danger border-2 text-center">
+                            <div class="card-body p-4">
+                                <i class="fas fa-users text-danger fa-3x mb-3"></i>
+                                <h3 class="h4">Our People</h3>
+                                <p>Our employees are the foundation of our success, delivering the best service with passion and energy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Services Section
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                        <img src="Images/services-image.jpg" alt="QCREDIT Services" class="img-fluid rounded shadow-lg animate__animated animate__fadeInRight">
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <h2 class="display-5 fw-bold text-danger mb-4">Our <span class="text-dark">Services</span></h2>
+                        <div class="service-item mb-4">
+                            <h3 class="h4"><i class="fas fa-store text-danger me-2"></i> Market Vendor Loan (MVL)</h3>
+                            <p>Our flagship service, serving over half a million customers. With MVL, QCREDIT empowers small enterprises to achieve financial freedom.</p>
+                        </div>
+                        <div class="service-item mb-4">
+                            <h3 class="h4"><i class="fas fa-credit-card text-danger me-2"></i> BDO Cash Cards</h3>
+                            <p>In partnership with BDO Unibank Inc., we offer BDO Cash Cards, providing customers with secure ATM access without requiring a deposit account.</p>
+                        </div>
+                        <a href="loans.php" class="btn btn-danger px-4 py-2 mt-2">Explore Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section> //-->
+
+          <!-- Our Values Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold">Our <span class="text-danger">Core Values</span></h2>
+                    <div class="divider mx-auto bg-danger"></div>
+                    <p class="lead mx-auto" style="max-width: 700px;">These principles guide everything we do at QCREDIT and define how we serve our customers and communities.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm hover-shadow">
+                            <div class="card-body p-4 text-center">
+                                <div class="value-icon bg-danger text-white mb-3 mx-auto">
+                                    <i class="fas fa-balance-scale fa-2x"></i>
+                                </div>
+                                <h3 class="h4">Integrity</h3>
+                                <p>We uphold transparency and fairness in all our dealings, building trust with every transaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm hover-shadow">
+                            <div class="card-body p-4 text-center">
+                                <div class="value-icon bg-danger text-white mb-3 mx-auto">
+                                    <i class="fas fa-user-friends fa-2x"></i>
+                                </div>
+                                <h3 class="h4">Customer Focus</h3>
+                                <p>Our customers are at the heart of everything we do. We listen, understand, and deliver solutions that meet their needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm hover-shadow">
+                            <div class="card-body p-4 text-center">
+                                <div class="value-icon bg-danger text-white mb-3 mx-auto">
+                                    <i class="fas fa-lightbulb fa-2x"></i>
+                                </div>
+                                <h3 class="h4">Innovation</h3>
+                                <p>We continuously improve our services and processes to meet the evolving needs of our clients in a changing world.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-5 bg-danger text-white">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-md-3">
+                        <div class="display-4 fw-bold">500K+</div>
+                        <p class="mb-0">Customers Served</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="display-4 fw-bold">100+</div>
+                        <p class="mb-0">Branches Nationwide</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="display-4 fw-bold">1K+</div>
+                        <p class="mb-0">Employees</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="display-4 fw-bold">10+</div>
+                        <p class="mb-0">Years of Service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 bg-white">
+            <div class="container text-center">
+                <h2 class="display-5 fw-bold mb-4">Ready to Grow Your Business?</h2>
+                <p class="lead mb-4">Discover how QCREDIT can help you achieve your entrepreneurial dreams.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="loans.php" class="btn btn-danger btn-lg px-4">Apply for a Loan</a>
+                    <a href="contact-us.php" class="btn btn-outline-danger btn-lg px-4">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
+                        <span class="fs-5 fw-bold">QCREDIT CORP.</span>
+                    </div>
+                    <p>SEC Reg. No. CS201738217</p>
+                    <p>Certificate of Authority No. 2617</p>
+                    <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
+                    
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white me-2" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-2" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" class="text-white me-2" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-white" aria-label="TikTok"><i class="fab fa-tiktok fa-lg"></i></a>
+                    </div>
+
+                    <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
                 </div>
 
-                <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
+                <!-- Quick Links -->
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Quick Links</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="index.php" class="text-white-50">Home</a></li>
+                                <li class="mb-2"><a href="loans.php" class="text-white-50">Loans</a></li>
+                                <li class="mb-2"><a href="help-support.php" class="text-white-50">Help & Support</a></li>
+                                <li class="mb-2"><a href="#" class="text-white-50">Consumer Protection</a></li>
+                                <li class="mb-2"><a href="about-us.php" class="text-white-50">About Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="careers.php" class="text-white-50">Careers</a></li>
+                                <li class="mb-2"><a href="news-events.php" class="text-white-50">News & Events</a></li>
+                                <li class="mb-2"><a href="contact-us.php" class="text-white-50">Contact Us</a></li>
+                                <li class="mb-2"><a href="#" class="text-white-50">FAQs</a></li>
+                                <li class="mb-2"><a href="#" class="text-white-50">Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Contact Us</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                            <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone text-danger me-2"></i>
+                            <strong>Trunkline:</strong> <a href="tel:(02)5310-2796" class="text-white-50">(02) 5310-2796 loc. 5100</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope text-danger me-2"></i>
+                            <strong>Help & Support:</strong> <a href="mailto:wecare@qcreditcorp.net" class="text-white-50">wecare@qcreditcorp.net</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-user text-danger me-2"></i>
+                            <strong>Hiring:</strong> <a href="mailto:hiring@qcreditcorp.net" class="text-white-50">hiring@qcreditcorp.net</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-exclamation-circle text-danger me-2"></i>
+                            <strong>Complaint:</strong> <a href="mailto:ireport@qcreditcorp.net" class="text-white-50">ireport@qcreditcorp.net</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Middle Section: Menu & Quick Links -->
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold">Menu</h5>
-                <ul class="list-unstyled">
-                    <li><a href="index.php" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
-                    <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
-                    <li><a href="about-us.php" class="footer-link">About Us</a></li>
-                    <li><a href="careers.php" class="footer-link">Careers</a></li>
-                    <li><a href="news-events.php" class="footer-link">News and Events</a></li>
-                    <li><a href="contact-us.php" class="footer-link">Contact Us</a></li>
-                </ul>
-
-                <h5 class="fw-bold mt-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">About MVL</a></li>
-                    <li><a href="#" class="footer-link">Apply Online</a></li>
-                    <li><a href="#" class="footer-link">Affordability Assessment</a></li>
-                    <li><a href="#" class="footer-link">Accepted IDs</a></li>
-                    <li><a href="#" class="footer-link">Loan Calculator</a></li>
-                    <li><a href="#" class="footer-link">FAQs</a></li>
-                    <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Find Us</a></li>
-                    <li><a href="#" class="footer-link">Data Privacy Notice</a></li>
-                    <li><a href="#" class="footer-link">Site Map</a></li>
-                </ul>
-            </div>
-
-            <!-- Right Section: Contact Info -->
-            <div class="col-md-4">
-                <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
-                <p><i class="fas fa-phone text-danger me-2"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
-                <p><i class="fas fa-envelope text-danger me-2"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
-                <p><i class="fas fa-user text-danger me-2"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
-                <p><i class="fas fa-exclamation-circle text-danger me-2"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
+            <div class="border-top border-secondary mt-4 pt-3 text-center text-white-50">
+                <p class="mb-1">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
+                <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
             </div>
         </div>
-
-        <!-- Bottom Section -->
-        <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 </body>
 </html>
