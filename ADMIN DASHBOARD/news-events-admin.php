@@ -27,20 +27,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $image_path = $current_event['image_path'] ?? '';
     
     if (isset($_FILES['event_image']) && $_FILES['event_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'images-news-events/';
+        $uploadDir = 'Images-news-events/'; // Relative to admin dashboard folder
+        if (!file_exists($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
         $fileName = uniqid() . '_' . basename($_FILES['event_image']['name']);
         $targetPath = $uploadDir . $fileName;
         
         $check = getimagesize($_FILES['event_image']['tmp_name']);
         if ($check !== false) {
-            if (move_uploaded_file($_FILES['event_image']['tmp_name'], $targetPath)) {
-                $image_path = $targetPath;
-                
-                if ($editing && !empty($current_event['image_path']) && file_exists($current_event['image_path'])) {
-                    unlink($current_event['image_path']);
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if (in_array($check['mime'], $allowedTypes)) {
+                if (move_uploaded_file($_FILES['event_image']['tmp_name'], $targetPath)) {
+                    $image_path = $targetPath;
+                    
+                    if ($editing && !empty($current_event['image_path']) && file_exists($current_event['image_path'])) {
+                        unlink($current_event['image_path']);
+                    }
+                } else {
+                    $error = "Sorry, there was an error uploading your file.";
                 }
             } else {
-                $error = "Sorry, there was an error uploading your file.";
+                $error = "Only JPG, PNG, GIF & WEBP files are allowed.";
             }
         } else {
             $error = "File is not an image.";
@@ -49,11 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!isset($error)) {
         if ($id) {
-            // Update existing event
-            $stmt = $conn->prepare("UPDATE newsevents SET title=?, description=?, event_date=?, location=?, image_path=?, is_featured=? WHERE id=?");
+            $stmt = $conn->prepare("UPDATE newsevents SET title=?, description=?, event_date=?, location=?, image_path=?, is_featured=?, updated_at=NOW() WHERE id=?");
             $stmt->bind_param("sssssii", $title, $description, $event_date, $location, $image_path, $is_featured, $id);
         } else {
-            // Insert new event
             $stmt = $conn->prepare("INSERT INTO newsevents (title, description, event_date, location, image_path, is_featured) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("sssssi", $title, $description, $event_date, $location, $image_path, $is_featured);
         }
@@ -70,11 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Handle deletion
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     
-    // First get the image path to delete the file
     $stmt = $conn->prepare("SELECT image_path FROM newsevents WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -82,12 +86,10 @@ if (isset($_GET['delete'])) {
     $event = $result->fetch_assoc();
     $stmt->close();
     
-    // Delete the record
     $stmt = $conn->prepare("DELETE FROM newsevents WHERE id = ?");
     $stmt->bind_param("i", $id);
     
     if ($stmt->execute()) {
-        // Delete the associated image file if it exists
         if (!empty($event['image_path']) && file_exists($event['image_path'])) {
             unlink($event['image_path']);
         }
@@ -102,20 +104,17 @@ if (isset($_GET['delete'])) {
     $stmt->close();
 }
 
-// Fetch all events with status
 $events = $conn->query("SELECT *, 
                        CASE 
                            WHEN event_date > CURDATE() THEN 'upcoming'
                            WHEN event_date = CURDATE() THEN 'current'
                            ELSE 'past'
                        END AS status
-                       FROM NewsEvents 
+                       FROM newsevents 
                        ORDER BY is_featured DESC, event_date DESC");
 ?>
 
-
 <style>
-/* ==================== ENHANCED ADMIN STYLES ==================== */
 .form-container {
     background: white;
     border-radius: 10px;
@@ -209,7 +208,6 @@ $events = $conn->query("SELECT *,
     background: #e9ecef;
 }
 
-/* ==================== TABLE STYLES ==================== */
 .recentOrders {
     background: white;
     border-radius: 10px;
@@ -320,7 +318,6 @@ $events = $conn->query("SELECT *,
     font-size: 14px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .testimonial-table {
         display: block;
@@ -331,10 +328,35 @@ $events = $conn->query("SELECT *,
         margin-bottom: 5px;
     }
 }
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+    height: auto;
+}
+
+.current-image {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.current-image p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
 </style>
 
 <div class="details">
-    <!-- Form Section -->
     <div class="form-container">
         <h2><?= $editing ? 'Edit Event' : 'Add New Event' ?></h2>
         
@@ -378,13 +400,12 @@ $events = $conn->query("SELECT *,
             </div>
             
             <div class="input-group">
-                <label for="event_image">Event Image</label>
+                <label for="event_image">Event Image (Recommended: 800x450px)</label>
                 <input type="file" id="event_image" name="event_image" accept="image/*">
                 <?php if ($editing && !empty($current_event['image_path'])): ?>
-                    <div class="current-image" style="margin-top: 10px;">
+                    <div class="current-image">
                         <p>Current Image:</p>
-                        <img src="<?= htmlspecialchars($current_event['image_path']) ?>" style="max-width: 200px; max-height: 150px;">
-                        <input type="hidden" name="existing_image" value="<?= htmlspecialchars($current_event['image_path']) ?>">
+                        <img src="<?= htmlspecialchars($current_event['image_path']) ?>" style="max-width: 200px; max-height: 150px; display: block;">
                     </div>
                 <?php endif; ?>
             </div>
@@ -394,7 +415,7 @@ $events = $conn->query("SELECT *,
                     <input type="checkbox" name="is_featured" value="1" <?= 
                         $editing && $current_event['is_featured'] ? 'checked' : '' 
                     ?>> 
-                    <span>Featured Event</span>
+                    <span>Mark as Featured Event</span>
                 </label>
             </div>
             
@@ -409,7 +430,6 @@ $events = $conn->query("SELECT *,
         </form>
     </div>
 
-    <!-- Events List -->
     <div class="recentOrders">
         <div class="cardHeader">
             <h2>Manage Events</h2>
@@ -437,7 +457,7 @@ $events = $conn->query("SELECT *,
                                 <td><?= htmlspecialchars($row['location']) ?></td>
                                 <td>
                                     <?php if (!empty($row['image_path'])): ?>
-                                        <img src="<?= htmlspecialchars($row['image_path']) ?>" style="max-width: 80px; max-height: 60px;">
+                                        <img src="<?= htmlspecialchars($row['image_path']) ?>" style="max-width: 80px; max-height: 60px; border-radius: 4px;">
                                     <?php else: ?>
                                         <span>-</span>
                                     <?php endif; ?>

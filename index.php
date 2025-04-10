@@ -24,6 +24,25 @@ $loan_images = [
     'responsibility' => ''
 ];
 
+$loan_texts = [];
+$result = $conn->query("SELECT * FROM loan_requirement_texts");
+while ($row = $result->fetch_assoc()) {
+    $loan_texts[$row['requirement_type']] = $row;
+}
+
+$default_texts = [
+    'adult' => ['line1' => '18 to 75', 'line2' => 'Years of Age'],
+    'market' => ['line1' => 'A Store or', 'line2' => 'Market Stall Owner'],
+    'house' => ['line1' => 'A Permanent', 'line2' => 'Resident'],
+    'responsibility' => ['line1' => 'A Responsible', 'line2' => 'Borrower']
+];
+
+foreach ($default_texts as $type => $text) {
+    if (!isset($loan_texts[$type])) {
+        $loan_texts[$type] = $text;
+    }
+}
+
 foreach ($loan_images as $type => $value) {
     $sql = "SELECT image_path FROM website_images 
             WHERE image_type = 'loan_requirement' 
@@ -110,10 +129,8 @@ foreach ($loan_images as $type => $value) {
 </header>
 
 <!-- Hero Section -->
-<section class="hero"
-    style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-        <!-- Your existing navbar content remains exactly the same -->
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,7 +155,7 @@ foreach ($loan_images as $type => $value) {
     </nav>
 </section>
 
- <!-- Market Vendor Loan Section -->
+<!-- Market Vendor Loan Section -->
 <section class="mvl-section py-5" aria-labelledby="mvl-heading">
     <div class="container px-lg-4 px-md-3 px-sm-2">
         <div class="row g-4 mx-0">
@@ -167,91 +184,93 @@ foreach ($loan_images as $type => $value) {
 
             <!-- Loan Requirements -->
             <div class="col-lg-6">
-    <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
-        <span class="text-danger fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
-        <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Market Vendor Loan?</strong></h2>
+                <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
+                    <span class="text-danger fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
+                    <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Market Vendor Loan?</strong></h2>
 
-        <div class="requirements-grid">
-            <div class="row g-3">
-                <!-- Age Requirement -->
-                <div class="col-6 col-md-3">
-                    <article class="requirement-item text-center p-3">
-                        <?php if (!empty($loan_images['adult']) && file_exists($loan_images['adult'])): ?>
-                            <img src="<?php echo $loan_images['adult']; ?>" 
-                                 alt="Age Requirement: 18 to 75 Years" 
-                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
-                        <?php else: ?>
-                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-user fa-2x text-muted"></i>
+                    <div class="requirements-grid">
+                        <div class="row g-3">
+                            <!-- Age Requirement -->
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <?php if (!empty($loan_images['adult']) && file_exists($loan_images['adult'])): ?>
+                                        <img src="<?php echo $loan_images['adult']; ?>" 
+                                             alt="Age Requirement: <?php echo $loan_texts['adult']['line1'].' '.$loan_texts['adult']['line2']; ?>" 
+                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <?php else: ?>
+                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-user fa-2x text-muted"></i>
+                                        </div>
+                                    <?php endif; ?>
+                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['adult']['line1']; ?><br><?php echo $loan_texts['adult']['line2']; ?></p>
+                                </article>
                             </div>
-                        <?php endif; ?>
-                        <p class="mb-0 fw-medium">18 to 75 <br> Years of Age</p>
-                    </article>
-                </div>
-                
-                <!-- Store Owner Requirement -->
-                <div class="col-6 col-md-3">
-                    <article class="requirement-item text-center p-3">
-                        <?php if (!empty($loan_images['market']) && file_exists($loan_images['market'])): ?>
-                            <img src="<?php echo $loan_images['market']; ?>" 
-                                 alt="Requirement: Store or Market Stall Owner" 
-                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
-                        <?php else: ?>
-                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-store fa-2x text-muted"></i>
+                            
+                            <!-- Store Owner Requirement -->
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <?php if (!empty($loan_images['market']) && file_exists($loan_images['market'])): ?>
+                                        <img src="<?php echo $loan_images['market']; ?>" 
+                                             alt="Requirement: <?php echo $loan_texts['market']['line1'].' '.$loan_texts['market']['line2']; ?>" 
+                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <?php else: ?>
+                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-store fa-2x text-muted"></i>
+                                        </div>
+                                    <?php endif; ?>
+                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['market']['line1']; ?><br><?php echo $loan_texts['market']['line2']; ?></p>
+                                </article>
                             </div>
-                        <?php endif; ?>
-                        <p class="mb-0 fw-medium">A Store or <br> Market Stall Owner</p>
-                    </article>
-                </div>
-                
-                <!-- Resident Requirement -->
-                <div class="col-6 col-md-3">
-                    <article class="requirement-item text-center p-3">
-                        <?php if (!empty($loan_images['house']) && file_exists($loan_images['house'])): ?>
-                            <img src="<?php echo $loan_images['house']; ?>" 
-                                 alt="Requirement: Permanent Resident" 
-                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
-                        <?php else: ?>
-                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-home fa-2x text-muted"></i>
+                            
+                            <!-- Resident Requirement -->
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <?php if (!empty($loan_images['house']) && file_exists($loan_images['house'])): ?>
+                                        <img src="<?php echo $loan_images['house']; ?>" 
+                                             alt="Requirement: <?php echo $loan_texts['house']['line1'].' '.$loan_texts['house']['line2']; ?>" 
+                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <?php else: ?>
+                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-home fa-2x text-muted"></i>
+                                        </div>
+                                    <?php endif; ?>
+                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['house']['line1']; ?><br><?php echo $loan_texts['house']['line2']; ?></p>
+                                </article>
                             </div>
-                        <?php endif; ?>
-                        <p class="mb-0 fw-medium">A Permanent <br> Resident</p>
-                    </article>
-                </div>
-                
-                <!-- Responsible Borrower -->
-                <div class="col-6 col-md-3">
-                    <article class="requirement-item text-center p-3">
-                        <?php if (!empty($loan_images['responsibility']) && file_exists($loan_images['responsibility'])): ?>
-                            <img src="<?php echo $loan_images['responsibility']; ?>" 
-                                 alt="Requirement: Responsible Borrower" 
-                                 class="img-fluid mb-3" style="height: 60px; width: auto;">
-                        <?php else: ?>
-                            <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-handshake fa-2x text-muted"></i>
+                            
+                            <!-- Responsible Borrower -->
+                            <div class="col-6 col-md-3">
+                                <article class="requirement-item text-center p-3">
+                                    <?php if (!empty($loan_images['responsibility']) && file_exists($loan_images['responsibility'])): ?>
+                                        <img src="<?php echo $loan_images['responsibility']; ?>" 
+                                             alt="Requirement: <?php echo $loan_texts['responsibility']['line1'].' '.$loan_texts['responsibility']['line2']; ?>" 
+                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
+                                    <?php else: ?>
+                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-handshake fa-2x text-muted"></i>
+                                        </div>
+                                    <?php endif; ?>
+                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['responsibility']['line1']; ?><br><?php echo $loan_texts['responsibility']['line2']; ?></p>
+                                </article>
                             </div>
-                        <?php endif; ?>
-                        <p class="mb-0 fw-medium">A Responsible <br> Borrower</p>
-                    </article>
-                </div>
-            </div>
-        </div>
+                        </div>
+                    </div>
 
-        <div class="eligibility-cta mt-4 pt-3 border-top">
-            <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Market Vendor Loan?</strong></p>
-            <div class="d-flex flex-wrap gap-2">
-                <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Affordability and Suitability Assessment">
-                    Affordability & Suitability Assessment
-                </a>
-                <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Review Your Assessment Result">
-                    Review Your Assessment Result
-                </a>
+                    <div class="eligibility-cta mt-4 pt-3 border-top">
+                        <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Market Vendor Loan?</strong></p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Affordability and Suitability Assessment">
+                                Affordability & Suitability Assessment
+                            </a>
+                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Review Your Assessment Result">
+                                Review Your Assessment Result
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 
 <?php
@@ -284,19 +303,16 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
     </div>
 </section>
 
-<?php $conn->close(); ?>
-
-        <<!-- Call to Action -->
-        <div class="text-center mt-3">
-                <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn custom-btn">
-            <i   i class="fab fa-youtube"></i> OUR YOUTUBE CHANNEL
-        </a>
-    </div>
+<!-- Call to Action -->
+<section class="container text-center py-4">
+    <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn btn-danger">
+        <i class="fab fa-youtube me-2"></i> OUR YOUTUBE CHANNEL
+    </a>
 </section>
 
 <!-- Number Speak Section -->
 <section id="number-speak" class="number-speak-section py-5 text-center bg-light" aria-labelledby="number-speak-heading">
-    <section class="container">
+    <div class="container">
         <h2 id="number-speak-heading" class="fw-bold">Our Journey in Numbers</h2>
         <div class="row mt-5">
             <!-- Number 1 -->
@@ -321,6 +337,7 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <!-- News & Events Section -->
@@ -330,62 +347,64 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
         <h2 id="news-events-heading">Our Latest <strong>Updates</strong> in QCredit Corp.</h2>
 
         <div class="row mt-4">
-            <!-- News Item 1 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news1-title">
-                <a href="https://www.inquirer.net/" target="_blank" class="news-link">
-                    <div class="card news-card shadow-sm">
-                        <div class="position-relative">
-                            <img src="Images/ABSOLUTE.jpg" class="card-img-top" alt="QCredit Corp. Recognized as Top Producer">
-                            <span class="badge news-date">DEC 11</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 id="news1-title" class="card-title">QCredit Corp. Recognized as Top Producer by La Jolla Hotel and Beach Resort</h5>
-                            <p class="card-text">On December 7, 2024, QCredit Corp. was honored as one of the Top Producers...</p>
-                            <button class="btn btn-primary">READ MORE</button>
-                        </div>
-                    </div>
-                </a>
-            </article>
-
-            <!-- News Item 2 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news2-title">
-                <a href="https://www.inquirer.net/" target="_blank" class="news-link">
-                    <div class="card news-card shadow-sm">
-                        <div class="position-relative">
-                            <img src="Images/ABSOLUTE.jpg" class="card-img-top" alt="QCredit Grants Scholarships to 543 Students">
-                            <span class="badge news-date">OCT 31</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 id="news2-title" class="card-title">QCredit Grants Scholarships & Educational Assistance to 543 Students</h5>
-                            <p class="card-text">In a remarkable demonstration of its commitment to Corporate Social Responsibility...</p>
-                            <button class="btn btn-primary">READ MORE</button>
-                        </div>
-                    </div>
-                </a>
-            </article>
-
-            <!-- News Item 3 -->
-            <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news3-title">
-                <a href="https://www.inquirer.net/" target="_blank" class="news-link">
-                    <div class="card news-card shadow-sm">
-                        <div class="position-relative">
-                            <img src="Images/ABSOLUTE.jpg" class="card-img-top" alt="QCredit Corp. Launches Pilot Run">
-                            <span class="badge news-date">OCT 01</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 id="news3-title" class="card-title">QCredit Corp. Launches Pilot Run of Ka-Partner Mo sa Pag-asenso Program</h5>
-                            <p class="card-text">In a bold move to enhance customer outreach and support local businesses, QCredit Corp...</p>
-                            <button class="btn btn-primary">READ MORE</button>
-                        </div>
-                    </div>
-                </a>
-            </article>
+            <?php
+            // Fetch only featured events (max 3)
+            $featured_query = "SELECT * FROM newsevents WHERE is_featured = 1 ORDER BY event_date DESC LIMIT 3";
+            $featured_result = $conn->query($featured_query);
+            
+            if ($featured_result && $featured_result->num_rows > 0) {
+                $count = 1;
+                while ($row = $featured_result->fetch_assoc()) {
+                    $date_badge = date("M j", strtotime($row['event_date']));
+                    $short_desc = strlen($row['description']) > 100 ? 
+                        substr($row['description'], 0, 100) . "..." : $row['description'];
+                    ?>
+                    <!-- News Item -->
+                    <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news<?php echo $count; ?>-title">
+                        <a href="event-details.php?id=<?php echo $row['id']; ?>" class="news-link">
+                            <div class="card news-card shadow-sm">
+                                <div class="position-relative">
+                                    <?php if (!empty($row['image_path'])): ?>
+                                        <img src="ADMIN DASHBOARD/<?php echo htmlspecialchars($row['image_path']); ?>" 
+                                             class="card-img-top" 
+                                             alt="<?php echo htmlspecialchars($row['title']); ?>"
+                                             style="height: 200px; object-fit: cover;">
+                                    <?php else: ?>
+                                        <img src="Images/default-event.jpg" 
+                                             class="card-img-top" 
+                                             alt="Default Event Image"
+                                             style="height: 200px; object-fit: cover;">
+                                    <?php endif; ?>
+                                    <span class="badge news-date"><?php echo $date_badge; ?></span>
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Featured</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 id="news<?php echo $count; ?>-title" class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
+                                    <p class="card-text"><?php echo htmlspecialchars($short_desc); ?></p>
+                                    <?php if (!empty($row['location'])): ?>
+                                        <p class="text-muted small mb-3">
+                                            <i class="fas fa-map-marker-alt"></i> 
+                                            <?php echo htmlspecialchars($row['location']); ?>
+                                        </p>
+                                    <?php endif; ?>
+                                    <a href="event-details.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">READ MORE</a>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <?php
+                    $count++;
+                }
+            } else {
+                echo '<div class="col-12"><div class="alert alert-info">No featured events at the moment. Check our <a href="news-events.php">News & Events</a> page for updates.</div></div>';
+            }
+            ?>
         </div>
 
         <!-- Call to Action -->
         <p class="mt-3">Want to know more about our <strong>Latest Updates?</strong></p>
         <a href="news-events.php" class="btn btn-dark">
-            <i class="fas fa-arrow-right"></i> GO TO NEWS & EVENTS
+            <i class="fas fa-arrow-right me-2"></i> GO TO NEWS & EVENTS
         </a>
     </div>
 </section>
