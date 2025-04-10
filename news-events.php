@@ -446,10 +446,9 @@ $past_events = $conn->query("SELECT *,
                                     <?php endif; ?>
                                     <p class="card-text"><?= substr(htmlspecialchars($event['description']), 0, 100) ?>...</p>
                                     <div class="d-flex justify-content-between">
-                                        <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-danger">Read More</a>
                                         <?php if (!empty($event['external_url'])): ?>
                                             <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-danger">
-                                                External Link <i class="fas fa-external-link-alt"></i>
+                                            Read More <i class="fas fa-external-link-alt"></i>
                                             </a>
                                         <?php endif; ?>
                                     </div>

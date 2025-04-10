@@ -300,7 +300,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     </div>
 </section>
 
-<!-- Call to Action -->
 <section class="container text-center py-4">
     <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn btn-danger">
         <i class="fab fa-youtube me-2"></i> OUR YOUTUBE CHANNEL
@@ -312,21 +311,21 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     <div class="container">
         <h2 id="number-speak-heading" class="fw-bold">Our Journey in Numbers</h2>
         <div class="row mt-5">
-            <!-- Number 1 -->
+
             <div class="col-md-4">
                 <div class="number-box">
                     <h3 class="display-4 fw-bold text-primary" data-target="2027">0</h3>
                     <p>Started</p>
                 </div>
             </div>
-            <!-- Number 2 -->
+
             <div class="col-md-4">
                 <div class="number-box">
                     <h3 class="display-4 fw-bold text-primary" data-target="79">0</h3>
                     <p>Branches</p>
                 </div>
             </div>
-            <!-- Number 3 -->
+
             <div class="col-md-4">
                 <div class="number-box">
                     <h3 class="display-4 fw-bold text-primary" data-target="800">0</h3>
@@ -345,11 +344,11 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
         <div class="row mt-4">
             <?php
-            // Fetch only featured events (max 3)
+
             $featured_query = "SELECT id, title, description, event_date, location, thumbnail, external_url, is_featured 
                              FROM newsevents 
                              WHERE is_featured = 1 
-                             ORDER BY event_date DESC LIMIT 3";
+                             ORDER BY event_date DESC LIMIT 6";
             $featured_result = $conn->query($featured_query);
             
             if ($featured_result && $featured_result->num_rows > 0) {
@@ -411,7 +410,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
             ?>
         </div>
 
-        <!-- Call to Action -->
         <p class="mt-3">Want to know more about our <strong>Latest Updates?</strong></p>
         <a href="news-events.php" class="btn btn-dark">
             <i class="fas fa-arrow-right me-2"></i> GO TO NEWS & EVENTS
