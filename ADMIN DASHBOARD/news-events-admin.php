@@ -21,13 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
     $event_date = $_POST['event_date'];
     $location = $_POST['location'];
+    $external_url = $_POST['external_url'] ?? '';
     $is_featured = isset($_POST['is_featured']) ? 1 : 0;
     $id = $_POST['id'] ?? null;
 
-    $image_path = $current_event['image_path'] ?? '';
+    $thumbnail = $current_event['thumbnail'] ?? '';
     
     if (isset($_FILES['event_image']) && $_FILES['event_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'Images-news-events/'; // Relative to admin dashboard folder
+        $uploadDir = 'Images-news-events/';
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
@@ -39,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
             if (in_array($check['mime'], $allowedTypes)) {
                 if (move_uploaded_file($_FILES['event_image']['tmp_name'], $targetPath)) {
-                    $image_path = $targetPath;
+                    $thumbnail = $targetPath;
                     
-                    if ($editing && !empty($current_event['image_path']) && file_exists($current_event['image_path'])) {
-                        unlink($current_event['image_path']);
+                    if ($editing && !empty($current_event['thumbnail']) && file_exists($current_event['thumbnail'])) {
+                        unlink($current_event['thumbnail']);
                     }
                 } else {
                     $error = "Sorry, there was an error uploading your file.";
@@ -57,11 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!isset($error)) {
         if ($id) {
-            $stmt = $conn->prepare("UPDATE newsevents SET title=?, description=?, event_date=?, location=?, image_path=?, is_featured=?, updated_at=NOW() WHERE id=?");
-            $stmt->bind_param("sssssii", $title, $description, $event_date, $location, $image_path, $is_featured, $id);
+            $stmt = $conn->prepare("UPDATE newsevents SET title=?, description=?, event_date=?, location=?, thumbnail=?, external_url=?, is_featured=?, updated_at=NOW() WHERE id=?");
+            $stmt->bind_param("ssssssii", $title, $description, $event_date, $location, $thumbnail, $external_url, $is_featured, $id);
         } else {
-            $stmt = $conn->prepare("INSERT INTO newsevents (title, description, event_date, location, image_path, is_featured) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssi", $title, $description, $event_date, $location, $image_path, $is_featured);
+            $stmt = $conn->prepare("INSERT INTO newsevents (title, description, event_date, location, thumbnail, external_url, is_featured) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssi", $title, $description, $event_date, $location, $thumbnail, $external_url, $is_featured);
         }
         
         if ($stmt->execute()) {
@@ -79,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     
-    $stmt = $conn->prepare("SELECT image_path FROM newsevents WHERE id = ?");
+    $stmt = $conn->prepare("SELECT thumbnail FROM newsevents WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -90,8 +91,8 @@ if (isset($_GET['delete'])) {
     $stmt->bind_param("i", $id);
     
     if ($stmt->execute()) {
-        if (!empty($event['image_path']) && file_exists($event['image_path'])) {
-            unlink($event['image_path']);
+        if (!empty($event['thumbnail']) && file_exists($event['thumbnail'])) {
+            unlink($event['thumbnail']);
         }
         
         $_SESSION['message'] = "Event deleted successfully!";
@@ -400,12 +401,19 @@ $events = $conn->query("SELECT *,
             </div>
             
             <div class="input-group">
-                <label for="event_image">Event Image (Recommended: 800x450px)</label>
+                <label for="external_url">External URL (Optional)</label>
+                <input type="url" id="external_url" name="external_url" 
+                       value="<?= $editing ? htmlspecialchars($current_event['external_url']) : '' ?>"
+                       placeholder="https://example.com/event-link">
+            </div>
+            
+            <div class="input-group">
+                <label for="event_image">Event Thumbnail (Recommended: 800x450px)</label>
                 <input type="file" id="event_image" name="event_image" accept="image/*">
-                <?php if ($editing && !empty($current_event['image_path'])): ?>
+                <?php if ($editing && !empty($current_event['thumbnail'])): ?>
                     <div class="current-image">
-                        <p>Current Image:</p>
-                        <img src="<?= htmlspecialchars($current_event['image_path']) ?>" style="max-width: 200px; max-height: 150px; display: block;">
+                        <p>Current Thumbnail:</p>
+                        <img src="<?= htmlspecialchars($current_event['thumbnail']) ?>" style="max-width: 200px; max-height: 150px; display: block;">
                     </div>
                 <?php endif; ?>
             </div>
@@ -443,7 +451,8 @@ $events = $conn->query("SELECT *,
                             <th>Title</th>
                             <th>Date</th>
                             <th>Location</th>
-                            <th>Image</th>
+                            <th>Thumbnail</th>
+                            <th>External Link</th>
                             <th>Status</th>
                             <th>Featured</th>
                             <th>Actions</th>
@@ -456,8 +465,17 @@ $events = $conn->query("SELECT *,
                                 <td><?= date('M j, Y', strtotime($row['event_date'])) ?></td>
                                 <td><?= htmlspecialchars($row['location']) ?></td>
                                 <td>
-                                    <?php if (!empty($row['image_path'])): ?>
-                                        <img src="<?= htmlspecialchars($row['image_path']) ?>" style="max-width: 80px; max-height: 60px; border-radius: 4px;">
+                                    <?php if (!empty($row['thumbnail'])): ?>
+                                        <img src="<?= htmlspecialchars($row['thumbnail']) ?>" style="max-width: 80px; max-height: 60px; border-radius: 4px;">
+                                    <?php else: ?>
+                                        <span>-</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($row['external_url'])): ?>
+                                        <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" style="word-break: break-all;">
+                                            View Link
+                                        </a>
                                     <?php else: ?>
                                         <span>-</span>
                                     <?php endif; ?>

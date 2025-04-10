@@ -63,6 +63,9 @@ foreach ($loan_images as $type => $value) {
         error_log("No image found in DB for type: $type");
     }
 }
+
+// Fetch testimonials
+$testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 ?>
 
 <!DOCTYPE html>
@@ -273,12 +276,6 @@ foreach ($loan_images as $type => $value) {
     </div>
 </section>
 
-<?php
-require 'ADMIN DASHBOARD/config.php';
-// Fetch all testimonials from the database
-$result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
-?>
-
 <!-- Testimonials Section -->
 <section class="testimonials container text-center py-5" aria-labelledby="testimonials-heading">
     <div class="container">
@@ -286,7 +283,7 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
         <h2 id="testimonials-heading">What Our <strong>Customers Say About Us</strong></h2>
         
         <div class="row mt-4">
-            <?php while ($row = $result->fetch_assoc()): ?>
+            <?php while ($row = $testimonials->fetch_assoc()): ?>
                 <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-<?= $row['id']; ?>-heading">
                     <a href="<?= htmlspecialchars($row['video_url']); ?>" target="_blank" class="video-link">
                         <div class="video-thumbnail shadow-sm rounded">
@@ -349,51 +346,64 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
         <div class="row mt-4">
             <?php
             // Fetch only featured events (max 3)
-            $featured_query = "SELECT * FROM newsevents WHERE is_featured = 1 ORDER BY event_date DESC LIMIT 3";
+            $featured_query = "SELECT id, title, description, event_date, location, thumbnail, external_url, is_featured 
+                             FROM newsevents 
+                             WHERE is_featured = 1 
+                             ORDER BY event_date DESC LIMIT 3";
             $featured_result = $conn->query($featured_query);
             
             if ($featured_result && $featured_result->num_rows > 0) {
-                $count = 1;
                 while ($row = $featured_result->fetch_assoc()) {
                     $date_badge = date("M j", strtotime($row['event_date']));
                     $short_desc = strlen($row['description']) > 100 ? 
                         substr($row['description'], 0, 100) . "..." : $row['description'];
                     ?>
                     <!-- News Item -->
-                    <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news<?php echo $count; ?>-title">
-                        <a href="event-details.php?id=<?php echo $row['id']; ?>" class="news-link">
-                            <div class="card news-card shadow-sm">
-                                <div class="position-relative">
-                                    <?php if (!empty($row['image_path'])): ?>
-                                        <img src="ADMIN DASHBOARD/<?php echo htmlspecialchars($row['image_path']); ?>" 
-                                             class="card-img-top" 
-                                             alt="<?php echo htmlspecialchars($row['title']); ?>"
-                                             style="height: 200px; object-fit: cover;">
-                                    <?php else: ?>
-                                        <img src="Images/default-event.jpg" 
-                                             class="card-img-top" 
-                                             alt="Default Event Image"
-                                             style="height: 200px; object-fit: cover;">
+                    <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news-<?= $row['id']; ?>-title">
+                        <div class="card news-card shadow-sm h-100">
+                            <div class="position-relative">
+                                <?php if (!empty($row['thumbnail'])): ?>
+                                    <img src="ADMIN DASHBOARD/<?= htmlspecialchars($row['thumbnail']); ?>" 
+                                         class="card-img-top" 
+                                         alt="<?= htmlspecialchars($row['title']); ?>"
+                                         style="height: 200px; object-fit: cover;">
+                                <?php else: ?>
+                                    <img src="Images/default-event.jpg" 
+                                         class="card-img-top" 
+                                         alt="Default Event Image"
+                                         style="height: 200px; object-fit: cover;">
+                                <?php endif; ?>
+                                <span class="badge news-date"><?= $date_badge; ?></span>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 id="news-<?= $row['id']; ?>-title" class="card-title">
+                                    <?= htmlspecialchars($row['title']) ?>
+                                    <?php if (!empty($row['external_url'])): ?>
+                                        <span class="external-link-indicator" title="Has external link">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </span>
                                     <?php endif; ?>
-                                    <span class="badge news-date"><?php echo $date_badge; ?></span>
-                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Featured</span>
-                                </div>
-                                <div class="card-body">
-                                    <h5 id="news<?php echo $count; ?>-title" class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
-                                    <p class="card-text"><?php echo htmlspecialchars($short_desc); ?></p>
-                                    <?php if (!empty($row['location'])): ?>
-                                        <p class="text-muted small mb-3">
-                                            <i class="fas fa-map-marker-alt"></i> 
-                                            <?php echo htmlspecialchars($row['location']); ?>
-                                        </p>
+                                </h5>
+                                <p class="card-text"><?= htmlspecialchars($short_desc) ?></p>
+                                <?php if (!empty($row['location'])): ?>
+                                    <p class="text-muted small mb-3">
+                                        <i class="fas fa-map-marker-alt"></i> 
+                                        <?= htmlspecialchars($row['location']) ?>
+                                    </p>
+                                <?php endif; ?>
+                                <div class="mt-auto">
+                                    <a href="event-details.php?id=<?= $row['id'] ?>" class="btn btn-primary">READ MORE</a>
+                                    <?php if (!empty($row['external_url'])): ?>
+                                        <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" class="btn btn-outline-secondary ms-2">
+                                            External Link <i class="fas fa-external-link-alt"></i>
+                                        </a>
                                     <?php endif; ?>
-                                    <a href="event-details.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">READ MORE</a>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </article>
                     <?php
-                    $count++;
                 }
             } else {
                 echo '<div class="col-12"><div class="alert alert-info">No featured events at the moment. Check our <a href="news-events.php">News & Events</a> page for updates.</div></div>';
@@ -484,3 +494,4 @@ $result = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
 
 </body>
 </html>
+<?php $conn->close(); ?>

@@ -12,14 +12,14 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
 // Fetch events with proper image paths
 $featured_events = $conn->query("SELECT *, 
-    CONCAT('ADMIN DASHBOARD/Images-news-events/', SUBSTRING_INDEX(image_path, '/', -1)) as corrected_image_path
+    CONCAT('ADMIN DASHBOARD/', thumbnail) as image_path
     FROM NewsEvents 
     WHERE is_featured = 1 
     ORDER BY event_date DESC 
     LIMIT 3");
 
 $upcoming_events = $conn->query("SELECT *, 
-    CONCAT('ADMIN DASHBOARD/Images-news-events/', SUBSTRING_INDEX(image_path, '/', -1)) as corrected_image_path
+    CONCAT('ADMIN DASHBOARD/', thumbnail) as image_path
     FROM NewsEvents 
     WHERE event_date >= CURDATE() 
     AND event_date <= DATE_ADD(CURDATE(), INTERVAL 30 DAY)
@@ -28,7 +28,7 @@ $upcoming_events = $conn->query("SELECT *,
     LIMIT 6");
 
 $past_events = $conn->query("SELECT *, 
-    CONCAT('ADMIN DASHBOARD/Images-news-events/', SUBSTRING_INDEX(image_path, '/', -1)) as corrected_image_path
+    CONCAT('ADMIN DASHBOARD/', thumbnail) as image_path
     FROM NewsEvents 
     WHERE event_date < CURDATE()
     AND is_featured = 0
@@ -285,25 +285,35 @@ $past_events = $conn->query("SELECT *,
                 font-size: 1.8rem;
             }
         }
-            .event-img-container {
+        
+        .event-img-container {
             height: 220px;
             overflow: hidden;
             position: relative;
         }
         
-            .event-img {
+        .event-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
         
-            .no-image {
+        .no-image {
             background: #f8f9fa;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #6c757d;
+        }
+        
+        /* External link indicator */
+        .external-link-indicator {
+            display: inline-flex;
+            align-items: center;
+            color: #6c757d;
+            font-size: 0.8rem;
+            margin-left: 5px;
         }
     </style>
 </head>
@@ -404,8 +414,8 @@ $past_events = $conn->query("SELECT *,
                             <div class="card event-card h-100 shadow-sm">
                                 <div class="position-relative">
                                     <div class="event-img-container">
-                                        <?php if (!empty($event['corrected_image_path']) && file_exists($event['corrected_image_path'])): ?>
-                                            <img src="<?= htmlspecialchars($event['corrected_image_path']) ?>" 
+                                        <?php if (!empty($event['image_path']) && file_exists($event['image_path'])): ?>
+                                            <img src="<?= htmlspecialchars($event['image_path']) ?>" 
                                                  alt="<?= htmlspecialchars($event['title']) ?>" 
                                                  class="event-img">
                                         <?php else: ?>
@@ -421,7 +431,13 @@ $past_events = $conn->query("SELECT *,
                                         <i class="far fa-calendar-alt"></i>
                                         <?= date('F j, Y', strtotime($event['event_date'])) ?>
                                     </div>
-                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?></h4>
+                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?>
+                                        <?php if (!empty($event['external_url'])): ?>
+                                            <span class="external-link-indicator" title="Has external link">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </h4>
                                     <?php if (!empty($event['location'])): ?>
                                         <div class="location-info">
                                             <i class="fas fa-map-marker-alt"></i>
@@ -429,7 +445,14 @@ $past_events = $conn->query("SELECT *,
                                         </div>
                                     <?php endif; ?>
                                     <p class="card-text"><?= substr(htmlspecialchars($event['description']), 0, 100) ?>...</p>
-                                    <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-danger">Read More</a>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-danger">Read More</a>
+                                        <?php if (!empty($event['external_url'])): ?>
+                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-danger">
+                                                External Link <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -454,8 +477,8 @@ $past_events = $conn->query("SELECT *,
                         <div class="col-md-6 col-lg-4">
                             <div class="card event-card h-100 shadow-sm">
                                 <div class="event-img-container">
-                                    <?php if (!empty($event['corrected_image_path']) && file_exists($event['corrected_image_path'])): ?>
-                                        <img src="<?= htmlspecialchars($event['corrected_image_path']) ?>" 
+                                    <?php if (!empty($event['image_path']) && file_exists($event['image_path'])): ?>
+                                        <img src="<?= htmlspecialchars($event['image_path']) ?>" 
                                              alt="<?= htmlspecialchars($event['title']) ?>" 
                                              class="event-img">
                                     <?php else: ?>
@@ -469,14 +492,27 @@ $past_events = $conn->query("SELECT *,
                                         <i class="far fa-calendar-alt"></i>
                                         <?= date('F j, Y', strtotime($event['event_date'])) ?>
                                     </div>
-                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?></h4>
+                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?>
+                                        <?php if (!empty($event['external_url'])): ?>
+                                            <span class="external-link-indicator" title="Has external link">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </h4>
                                     <?php if (!empty($event['location'])): ?>
                                         <div class="location-info">
                                             <i class="fas fa-map-marker-alt"></i>
                                             <?= htmlspecialchars($event['location']) ?>
                                         </div>
                                     <?php endif; ?>
-                                    <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-outline-danger">View Details</a>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-outline-danger">View Details</a>
+                                        <?php if (!empty($event['external_url'])): ?>
+                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-secondary">
+                                                Link <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -500,8 +536,8 @@ $past_events = $conn->query("SELECT *,
                         <div class="col-md-6 col-lg-4">
                             <div class="card event-card h-100 shadow-sm">
                                 <div class="event-img-container">
-                                    <?php if (!empty($event['corrected_image_path']) && file_exists($event['corrected_image_path'])): ?>
-                                        <img src="<?= htmlspecialchars($event['corrected_image_path']) ?>" 
+                                    <?php if (!empty($event['image_path']) && file_exists($event['image_path'])): ?>
+                                        <img src="<?= htmlspecialchars($event['image_path']) ?>" 
                                              alt="<?= htmlspecialchars($event['title']) ?>" 
                                              class="event-img">
                                     <?php else: ?>
@@ -515,8 +551,21 @@ $past_events = $conn->query("SELECT *,
                                         <i class="far fa-calendar-alt"></i>
                                         <?= date('F j, Y', strtotime($event['event_date'])) ?>
                                     </div>
-                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?></h4>
-                                    <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-outline-danger">View Recap</a>
+                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?>
+                                        <?php if (!empty($event['external_url'])): ?>
+                                            <span class="external-link-indicator" title="Has external link">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </h4>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-outline-danger">View Recap</a>
+                                        <?php if (!empty($event['external_url'])): ?>
+                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-secondary">
+                                                Link <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
