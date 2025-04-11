@@ -113,8 +113,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                         <p>With a nationwide presence, we aim to provide immediate financial assistance when you need it most. Our mission is to offer hassle-free cash solutions with transparent terms and exceptional customer service.</p>
                         <div class="d-flex gap-3 mt-4">
                             <a href="contact-us.php" class="btn btn-danger px-4 py-2">Contact Us</a>
-                            <a href="careers.php" class="btn btn-outline-danger px-4 py-2">Join Our Team</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -317,9 +315,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">
                     <li><a href="index.php" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
                     <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
                     <li><a href="about-us.php" class="footer-link">About Us</a></li>
                     <li><a href="apply.php" class="footer-link">Apply</a></li>
                     <li><a href="news-events.php" class="footer-link">News and Events</a></li>

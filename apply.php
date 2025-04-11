@@ -662,9 +662,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">
                     <li><a href="index.php" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
                     <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
                     <li><a href="about-us.php" class="footer-link">About Us</a></li>
                     <li><a href="apply.php" class="footer-link">Apply</a></li>
                     <li><a href="news-events.php" class="footer-link">News and Events</a></li>

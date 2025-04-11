@@ -220,7 +220,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                             <li>Upload scanned documents</li>
                                             <li>E-sign application</li>
                                         </ol>
-                                        <a href="#" class="btn btn-danger mt-2">Apply Online</a>
+                                        <a href="apply.php" class="btn btn-danger mt-2">Apply Online</a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -232,7 +232,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                             <li>Submit physical documents</li>
                                             <li>Get instant acknowledgement</li>
                                         </ol>
-                                        <a href="#" class="btn btn-outline-danger mt-2">Find Branches</a>
+                                        <a href="contact-us.php" class="btn btn-outline-danger mt-2">Find Branches</a>
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +397,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <p class="mb-0">Join thousands of satisfied customers who trusted FAST CASH for their financial needs.</p>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <a href="#" class="btn btn-light btn-lg px-4 py-2 rounded-pill">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="apply.php" class="btn btn-light btn-lg px-4 py-2 rounded-pill">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -434,9 +434,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">
                     <li><a href="index.php" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
                     <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
                     <li><a href="about-us.php" class="footer-link">About Us</a></li>
                     <li><a href="apply.php" class="footer-link">Apply</a></li>
                     <li><a href="news-events.php" class="footer-link">News and Events</a></li>

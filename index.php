@@ -448,9 +448,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled">
                     <li><a href="index.php" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Loans</a></li>
                     <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
-                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
                     <li><a href="about-us.php" class="footer-link">About Us</a></li>
                     <li><a href="apply.php" class="footer-link">Apply</a></li>
                     <li><a href="news-events.php" class="footer-link">News and Events</a></li>
@@ -495,7 +493,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE"></script>
 <script async defer src="https://www.instagram.com/embed.js"></script>
 <script>
-// Generic oEmbed loader
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.oembed-container').forEach(container => {
         const url = container.dataset.url;

@@ -108,13 +108,63 @@ if ($stmt->execute()) {
 
         $mail->isHTML(true);
         $mail->Subject = "Loan Application Received";
-        $mail->Body    = "
+        $mail->Body = "
             <p>Dear $firstName,</p>
-            <p>Thank you for applying for a loan with <strong>FAST CASH</strong>. Your application has been received and is under review.</p>
-            <p>We will contact you shortly after verification.</p>
-            <br>
-            <p>Regards,<br><strong>FAST CASH Team</strong></p>
-        ";
+            <p>Thank you for applying for a loan with <strong>FAST CASH</strong>. Below is a summary of your submitted application:</p>
+
+            <h3>Personal Information</h3>
+        <ul>
+            <li><strong>Name:</strong> $firstName $middleName $lastName</li>
+            <li><strong>Birth Date:</strong> $birthDate</li>
+            <li><strong>Civil Status:</strong> $civilStatus</li>
+            <li><strong>Email:</strong> $email</li>
+            <li><strong>Mobile:</strong> $mobile</li>
+        </ul>
+
+            <h3>Address</h3>
+        <ul>
+            <li><strong>Current Address:</strong> $currentAddress</li>
+            <li><strong>Permanent Address:</strong> $permanentAddress</li>
+            <li><strong>Same as Current:</strong> " . ($sameAsCurrent ? "Yes" : "No") . "</li>
+            <li><strong>City:</strong> $city</li>
+            <li><strong>Province:</strong> $province</li>
+            <li><strong>ZIP Code:</strong> $zipCode</li>
+        </ul>
+
+            <h3>Employment Information</h3>
+        <ul>
+            <li><strong>Status:</strong> $employmentStatus</li>
+            <li><strong>Monthly Income:</strong> ₱" . number_format($monthlyIncome, 2) . "</li>
+            <li><strong>Employer:</strong> $employerName</li>
+            <li><strong>Position:</strong> $jobPosition</li>
+            <li><strong>Work Duration:</strong> $workDuration</li>
+            <li><strong>Work Address:</strong> $workAddress</li>
+        </ul>
+
+            <h3>Loan Information</h3>
+        <ul>
+            <li><strong>Amount:</strong> ₱" . number_format($loanAmount, 2) . "</li>
+            <li><strong>Purpose:</strong> $loanPurpose</li>
+            <li><strong>Term:</strong> $loanTerm months</li>
+            <li><strong>Payment Method:</strong> $paymentMethod</li>
+        </ul>
+
+            <h3>Uploads</h3>
+        <ul>
+            <li><strong>Valid ID 1:</strong> $validId1</li>
+            <li><strong>Valid ID 2:</strong> $validId2</li>
+            <li><strong>Proof of Income:</strong> $proofOfIncome</li>
+            <li><strong>Proof of Billing:</strong> $proofOfBilling</li>
+        </ul>
+
+            <h3>Consent</h3>
+        <ul>
+            <li><strong>Agreed to Terms:</strong> " . ($agreeTerms ? "Yes" : "No") . "</li>
+            <li><strong>Allow Marketing:</strong> " . ($allowMarketing ? "Yes" : "No") . "</li>
+        </ul>
+
+        <br><p>We will contact you shortly after verification.</p>
+        <p>Regards,<br><strong>FAST CASH Team</strong></p>";
 
         $mail->send();
     } catch (Exception $e) {
