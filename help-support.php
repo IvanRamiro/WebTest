@@ -14,19 +14,17 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help & Support | QCREDIT</title>
-    <meta name="description" content="Get help with your QCREDIT account, loans, and services. Contact our customer support team for assistance.">
-    <meta name="keywords" content="QCREDIT help, customer support, loan assistance, contact QCREDIT">
-    <meta name="author" content="QCREDIT Corp.">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>QCREDIT</title>
+    <meta name="description" content="QCREDIT - Delivering financial access to everyone...">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=1.1"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body>  
     
 <!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
@@ -72,9 +70,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
     </div>
 </header>
 
-
 <!-- Hero Section -->
-<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center/cover;">
+<section class="hero" style="height: 500px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<?php echo $bg_image; ?>') no-repeat center center/cover;">
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
@@ -102,238 +100,313 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <!-- Hero Content -->
     <div class="container h-100 d-flex align-items-center">
         <div class="row justify-content-center w-100">
-            <div class="col-lg-8 text-center">
-                <h1 class="display-4 fw-bold text-white mb-4">How can we help you today?</h1>
-                <div class="search-box mx-auto" style="max-width: 600px;">
-                    <form class="d-flex">
-                        <input class="form-control form-control-lg rounded-start-pill" type="search" placeholder="Search help articles..." aria-label="Search help">
-                        <button class="btn btn-danger rounded-end-pill px-4" type="submit">Search</button>
-                    </form>
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">Your Loan Journey Starts Here</h1>
+                <p class="lead text-white mb-5">Get the financial support you need in just 6 simple steps</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#loan-process" class="btn btn-danger btn-lg px-4 py-2 rounded-pill">
+                        <i class="fas fa-list-ol me-2"></i> View Loan Steps
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
+                        <i class="fas fa-calculator me-2"></i> Calculate Loan
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Main Content -->
-<main class="help-content py-5">
+<!-- Loan Process Timeline -->
+<section id="loan-process" class="py-5 bg-white">
     <div class="container">
-        <!-- Help Categories -->
-        <section class="help-categories mb-5">
-            <h2 class="text-center mb-4">Browse Help Topics</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-danger bg-opacity-10 text-danger rounded-circle mx-auto mb-3">
-                                <i class="fas fa-file-invoice-dollar fs-3"></i>
-                            </div>
-                            <h3 class="h5">Loan Applications</h3>
-                            <p class="text-muted">Learn how to apply for loans and check requirements</p>
-                            <a href="#" class="btn btn-link text-danger stretched-link">View Articles <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-danger mb-3">How to Get Your QCREDIT Loan</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="lead">Follow this straightforward process to access funds quickly and securely. Our average approval time is just 24-48 hours for complete applications.</p>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-3">
-                                <i class="fas fa-money-bill-wave fs-3"></i>
-                            </div>
-                            <h3 class="h5">Payments</h3>
-                            <p class="text-muted">Payment methods, schedules, and troubleshooting</p>
-                            <a href="#" class="btn btn-link text-primary stretched-link">View Articles <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
+            </div>
+        </div>
+
+        <!-- Timeline Structure -->
+        <div class="loan-timeline">
+            <!-- Step 1 -->
+            <div class="timeline-step">
+                <div class="timeline-marker">
+                    <div class="timeline-number">1</div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-3">
-                                <i class="fas fa-user-shield fs-3"></i>
-                            </div>
-                            <h3 class="h5">Account Security</h3>
-                            <p class="text-muted">Protect your account and personal information</p>
-                            <a href="#" class="btn btn-link text-success stretched-link">View Articles <i class="fas fa-arrow-right ms-1"></i></a>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="h4 mb-0">Eligibility Check</h3>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-3">
-                                <i class="fas fa-question-circle fs-3"></i>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="text-danger">Basic Requirements</h4>
+                                    <ul class="list-icon">
+                                        <li><i class="fas fa-check-circle text-danger"></i> Filipino citizen, 21-65 years old</li>
+                                        <li><i class="fas fa-check-circle text-danger"></i> Minimum monthly income: ₱10,000</li>
+                                        <li><i class="fas fa-check-circle text-danger"></i> At least 6 months with current employer/business</li>
+                                        <li><i class="fas fa-check-circle text-danger"></i> No active bankruptcies</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <button class="btn btn-sm btn-outline-danger">Check Eligibility</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center d-none d-md-block">
+                                    <img src="Images/logo.jpg" alt="Eligibility Check" class="img-fluid" style="max-height: 150px;">
+                                </div>
                             </div>
-                            <h3 class="h5">FAQs</h3>
-                            <p class="text-muted">Answers to frequently asked questions</p>
-                            <a href="#" class="btn btn-link text-warning stretched-link">View Articles <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-info bg-opacity-10 text-info rounded-circle mx-auto mb-3">
-                                <i class="fas fa-calculator fs-3"></i>
-                            </div>
-                            <h3 class="h5">Loan Calculator</h3>
-                            <p class="text-muted">Estimate your payments and loan amounts</p>
-                            <a href="#" class="btn btn-link text-info stretched-link">View Articles <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-purple bg-opacity-10 text-purple rounded-circle mx-auto mb-3">
-                                <i class="fas fa-exclamation-triangle fs-3"></i>
-                            </div>
-                            <h3 class="h5">Report Issues</h3>
-                            <p class="text-muted">Report problems or submit complaints</p>
-                            <a href="#" class="btn btn-link text-purple stretched-link">View Articles <i class="fas fa-arrow-right ms-1"></i></a>
+                        <div class="card-footer bg-light">
+                            <small><i class="fas fa-clock text-danger me-1"></i> Time required: 2 minutes</small>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Popular Articles -->
-        <section class="popular-articles mb-5">
-            <h2 class="text-center mb-4">Popular Help Articles</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h5">How to apply for a Market Vendor Loan</h3>
-                            <p class="text-muted">Step-by-step guide to applying for our most popular loan product.</p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">Read Article</a>
-                        </div>
-                    </div>
+            <!-- Step 2 -->
+            <div class="timeline-step">
+                <div class="timeline-marker">
+                    <div class="timeline-number">2</div>
                 </div>
-                <div class="col-md-6">
+                <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h5">Accepted payment methods</h3>
-                            <p class="text-muted">Learn about all the different ways you can make payments.</p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">Read Article</a>
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="h4 mb-0">Document Preparation</h3>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
-                            <h3 class="h5">Understanding your loan terms</h3>
-                            <p class="text-muted">Explanation of interest rates, payment schedules, and fees.</p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">Read Article</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h5">What to do if you can't make a payment</h3>
-                            <p class="text-muted">Options available if you're having difficulty with repayment.</p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">Read Article</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="text-danger"><i class="fas fa-id-card me-2"></i> Required IDs</h4>
+                                    <ul>
+                                        <li>Primary: Passport, Driver's License, UMID</li>
+                                        <li>Secondary: SSS ID, PhilHealth ID, TIN</li>
+                                        <li>2 copies of each ID</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="text-danger"><i class="fas fa-file-alt me-2"></i> Financial Proof</h4>
+                                    <ul>
+                                        <li>Latest 3 months payslips</li>
+                                        <li>Bank statements</li>
+                                        <li>ITR (for self-employed)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="alert alert-warning mt-3">
+                                <i class="fas fa-exclamation-triangle me-2"></i> Original documents may be required for verification
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Contact Options -->
-        <section class="contact-options bg-light rounded-3 p-5 mb-5">
+            <!-- Step 3 -->
+            <div class="timeline-step">
+                <div class="timeline-marker">
+                    <div class="timeline-number">3</div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="h4 mb-0">Application Submission</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="p-4 border rounded text-center h-100">
+                                        <i class="fas fa-laptop-house text-danger mb-3" style="font-size: 2.5rem;"></i>
+                                        <h4>Online Application</h4>
+                                        <ol class="text-start ps-3">
+                                            <li>Complete digital form</li>
+                                            <li>Upload scanned documents</li>
+                                            <li>E-sign application</li>
+                                        </ol>
+                                        <a href="#" class="btn btn-danger mt-2">Apply Online</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 border rounded text-center h-100">
+                                        <i class="fas fa-store text-danger mb-3" style="font-size: 2.5rem;"></i>
+                                        <h4>Branch Application</h4>
+                                        <ol class="text-start ps-3">
+                                            <li>Visit nearest QCREDIT branch</li>
+                                            <li>Submit physical documents</li>
+                                            <li>Get instant acknowledgement</li>
+                                        </ol>
+                                        <a href="#" class="btn btn-outline-danger mt-2">Find Branches</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-step">
+                <div class="timeline-marker">
+                    <div class="timeline-number">4</div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="h4 mb-0">Verification Process</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="process-steps">
+                                <div class="process-step completed">
+                                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                                    <p class="step-label">Initial Review</p>
+                                </div>
+                                <div class="process-step active">
+                                    <div class="step-icon">2</div>
+                                    <p class="step-label">Document Check</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">3</div>
+                                    <p class="step-label">Background Check</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">4</div>
+                                    <p class="step-label">Final Approval</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="text-danger">What to Expect:</h5>
+                                <ul class="list-icon">
+                                    <li><i class="fas fa-phone text-danger"></i> Possible verification call within 24 hours</li>
+                                    <li><i class="fas fa-envelope text-danger"></i> Email updates at each stage</li>
+                                    <li><i class="fas fa-user-clock text-danger"></i> Typical processing: 1-2 business days</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="timeline-step">
+                <div class="timeline-marker">
+                    <div class="timeline-number">5</div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="h4 mb-0">Loan Approval</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="approval-box bg-success bg-opacity-10 p-4 rounded border border-success mb-3">
+                                        <h4 class="text-success"><i class="fas fa-check-circle me-2"></i> Congratulations!</h4>
+                                        <p>Your loan has been approved with these terms:</p>
+                                        <div class="loan-terms">
+                                            <div class="term-item">
+                                                <span>Loan Amount</span>
+                                                <strong>₱50,000</strong>
+                                            </div>
+                                            <div class="term-item">
+                                                <span>Interest Rate</span>
+                                                <strong>3.5% monthly</strong>
+                                            </div>
+                                            <div class="term-item">
+                                                <span>Term</span>
+                                                <strong>12 months</strong>
+                                            </div>
+                                            <div class="term-item">
+                                                <span>Monthly Payment</span>
+                                                <strong>₱4,958.33</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="text-danger mb-3">Next Steps</h4>
+                                    <ol class="list-group list-group-numbered">
+                                        <li class="list-group-item border-0">Review loan agreement</li>
+                                        <li class="list-group-item border-0">Sign documents</li>
+                                        <li class="list-group-item border-0">Choose disbursement method</li>
+                                        <li class="list-group-item border-0">Confirm acceptance</li>
+                                    </ol>
+                                    <div class="mt-3">
+                                        <button class="btn btn-danger">View Full Contract</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="timeline-step">
+                <div class="timeline-marker">
+                    <div class="timeline-number">6</div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="h4 mb-0">Fund Disbursement</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="disbursement-method text-center p-3 h-100">
+                                        <div class="icon-container bg-danger bg-opacity-10 rounded-circle p-4 mb-3 mx-auto">
+                                            <i class="fas fa-university text-danger" style="font-size: 2rem;"></i>
+                                        </div>
+                                        <h5>Bank Transfer</h5>
+                                        <p>Direct to your account (1-2 business days)</p>
+                                        <small class="text-muted">No additional fees</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="disbursement-method text-center p-3 h-100">
+                                        <div class="icon-container bg-danger bg-opacity-10 rounded-circle p-4 mb-3 mx-auto">
+                                            <i class="fas fa-money-bill-wave text-danger" style="font-size: 2rem;"></i>
+                                        </div>
+                                        <h5>Cash Pickup</h5>
+                                        <p>Available at our branches (same day)</p>
+                                        <small class="text-muted">With valid ID required</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="disbursement-method text-center p-3 h-100">
+                                        <div class="icon-container bg-danger bg-opacity-10 rounded-circle p-4 mb-3 mx-auto">
+                                            <i class="fas fa-mobile-alt text-danger" style="font-size: 2rem;"></i>
+                                        </div>
+                                        <h5>E-Wallet</h5>
+                                        <p>GCash or PayMaya (within 24 hours)</p>
+                                        <small class="text-muted">2% service fee applies</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle me-2"></i> <strong>Note:</strong> First-time borrowers may receive funds within 3 business days after approval.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section bg-danger text-white rounded-3 p-5 mt-5 shadow">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="mb-3">Still need help?</h2>
-                    <p class="lead">Our customer care team is ready to assist you with any questions or concerns.</p>
-                    <div class="d-flex flex-wrap gap-3 mt-4">
-                        <a href="tel:09177918872" class="btn btn-outline-primary">
-                            <i class="fas fa-phone me-2"></i> Call Us
-                        </a>
-                        <a href="mailto:wecare@qcreditcorp.net" class="btn btn-outline-danger">
-                            <i class="fas fa-envelope me-2"></i> Email Us
-                        </a>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#helpTicketModal">
-                            <i class="fas fa-ticket-alt me-2"></i> Submit Help Ticket
-                        </button>
-                    </div>
+                <div class="col-md-8">
+                    <h3 class="mb-3">Ready to Start Your Loan Application?</h3>
+                    <p class="mb-0">Join thousands of satisfied customers who trusted QCREDIT for their financial needs.</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="Images/ABSOLUTE.jpg" alt="Customer Support Team" class="img-fluid rounded-3 shadow">
+                <div class="col-md-4 text-md-end">
+                    <a href="#" class="btn btn-light btn-lg px-4 py-2 rounded-pill">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Service Hours -->
-        <div class="alert alert-info text-center">
-            <i class="fas fa-clock me-2"></i> <strong>Customer Care Hours:</strong> Monday to Saturday, 8:00 AM to 5:00 PM
-        </div>
-    </div>
-</main>
-
-<!-- Help Ticket Modal -->
-<div class="modal fade" id="helpTicketModal" tabindex="-1" aria-labelledby="helpTicketModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title" id="helpTicketModalLabel">Submit Help Ticket</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="helpTicketForm">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label for="fullName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="loanAccount" class="form-label">Loan Account Number (if applicable)</label>
-                            <input type="text" class="form-control" id="loanAccount">
-                        </div>
-                        <div class="col-12">
-                            <label for="issueType" class="form-label">Issue Type</label>
-                            <select class="form-select" id="issueType" required>
-                                <option value="" selected disabled>Select issue type</option>
-                                <option value="loan-application">Loan Application</option>
-                                <option value="payment-issue">Payment Issue</option>
-                                <option value="account-access">Account Access</option>
-                                <option value="loan-terms">Loan Terms Question</option>
-                                <option value="complaint">Complaint</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label for="message" class="form-label">Describe your issue</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                        </div>
-                        <div class="col-12">
-                            <label for="attachments" class="form-label">Attachments (if any)</label>
-                            <input class="form-control" type="file" id="attachments" multiple>
-                            <div class="form-text">You can upload screenshots or documents that might help us understand your issue better.</div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" form="helpTicketForm" class="btn btn-danger">Submit Ticket</button>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5">
