@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root"; // Change if needed
 $pass = "";
-$dbname = "qcredit_db"; // Change to your DB name
+$dbname = "fastcash_db"; // Change to your DB name
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 

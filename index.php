@@ -176,7 +176,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                         <span class="text-primary fw-bold small d-block mb-2">LEARN MORE ABOUT OUR LOANS</span>
                         <h2 id="mvl-heading" class="fw-bold mb-3">Grow your business with <span class="text-primary">Fast Cash Loans</span></h2>
                         <p class="text-muted mb-4">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
-                        <a href="#" class="btn btn-primary px-4 py-2 fw-bold" aria-label="Apply online for Fast Cash Loan">
+                        <a href="apply.php" class="btn btn-primary px-4 py-2 fw-bold" aria-label="Apply online for Fast Cash Loan">
                             APPLY ONLINE <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                     </div>

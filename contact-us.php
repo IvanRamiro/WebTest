@@ -14,8 +14,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCREDIT</title>
-    <meta name="description" content="QCREDIT - Delivering financial access to everyone...">
+    <title>FAST CASH</title>
+    <meta name="description" content="FAST CASH - Delivering financial access to everyone...">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=1.1"> 
@@ -105,7 +105,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <!-- Page Header -->
     <div class="row mb-5">
         <div class="col-12 text-center">
-            <h1 class="fw-bold display-5">Contact <span class="text-danger">QCREDIT</span></h1>
+            <h1 class="fw-bold display-5">Contact <span class="text-danger">FAST CASH</span></h1>
             <p class="lead">We're here to help. Reach out to us through any of the following channels.</p>
         </div>
     </div>
@@ -155,24 +155,24 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <!-- Map -->
                     <div class="map-container mb-4 rounded overflow-hidden">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1930.123456789!2d121.027724!3d14.553888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9f123456789%3A0x123456789abcdef!2sMakati%20City!5e0!3m2!1sen!2sph!4v1234567890" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.123456789012!2d120.987654321!3d14.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b123456789ab%3A0x1234567890abcdef!2sGudlyf%20Property%20Corp.%2C%20Grace%20Westpark%2C%20Caloocan%20City!5e0!3m2!1sen!2sph!4v1234567890" 
                             width="100%" 
                             height="250" 
                             style="border:0;" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade"
-                            aria-label="QCREDIT Makati Office Location">
+                            aria-label="FAST CASH Caloocan Office Location">
                         </iframe>
                     </div>
                     
                     <!-- Office Locations -->
                     <div class="office-info mb-4">
-                        <h3 class="h5 fw-bold"><i class="fas fa-building text-danger me-2"></i> Makati Head Office</h3>
+                        <h3 class="h5 fw-bold"><i class="fas fa-building text-danger me-2"></i> Caloocan Head Office</h3>
                         <p class="ms-4">
-                            2602 Antel Corporate Center, 121 Valero Street,<br>
-                            Salcedo Village, Bel-air, Makati City, 1227<br>
-                            <strong>Tel:</strong> <a href="tel:(02)5310-2796" class="text-decoration-none">(02) 5310-2796 loc. 5100</a>
+                            Gudlyf Property Corp., Grace Westpark<br>
+                            Caloocan City, Metro Manila<br>
+                            <strong>Tel:</strong> <a href="tel:(02)1234-5678" class="text-decoration-none">(02) 1234-5678</a>
                         </p>
                     </div>
                     
@@ -181,7 +181,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                         <p class="ms-4">
                             1267 Bolonsiri Road, Camaman-an,<br>
                             Cagayan de Oro City 9000<br>
-                            <strong>Tel:</strong> <a href="tel:(088)327-9462" class="text-decoration-none">(088) 327-9462 loc. 5100</a>
+                            <strong>Tel:</strong> <a href="tel:(088)327-9462" class="text-decoration-none">(088) 327-9462</a>
                         </p>
                     </div>
                     
@@ -193,15 +193,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <i class="fas fa-envelope text-danger me-2"></i>
-                                <strong>General:</strong> <a href="mailto:wecare@qcreditcorp.net" class="text-decoration-none">wecare@qcreditcorp.net</a>
+                                <strong>General:</strong> <a href="mailto:wecare@fastcash.com" class="text-decoration-none">wecare@fastcash.com</a>
                             </li>
                             <li class="mb-2">
                                 <i class="fas fa-user-tie text-danger me-2"></i>
-                                <strong>Hiring:</strong> <a href="mailto:hiring@qcreditcorp.net" class="text-decoration-none">hiring@qcreditcorp.net</a>
+                                <strong>Hiring:</strong> <a href="mailto:hiring@fastcash.com" class="text-decoration-none">hiring@fastcash.com</a>
                             </li>
                             <li>
                                 <i class="fas fa-exclamation-triangle text-danger me-2"></i>
-                                <strong>Complaints:</strong> <a href="mailto:ireport@qcreditcorp.net" class="text-decoration-none">ireport@qcreditcorp.net</a>
+                                <strong>Complaints:</strong> <a href="mailto:complaints@fastcash.com" class="text-decoration-none">complaints@fastcash.com</a>
                             </li>
                         </ul>
                     </div>
@@ -224,7 +224,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-shield-alt me-2"></i>Consumer Protection
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Hotline:</strong> (02) 5310-2796</li>
+                                    <li><strong>Hotline:</strong> (02) 1234-5678</li>
                                     <li><strong>Extensions:</strong> 7019, 5557</li>
                                 </ul>
                             </div>
@@ -238,8 +238,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-users me-2"></i>Human Resources
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> hiring@qcreditcorp.net</li>
-                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5101</li>
+                                    <li><strong>Email:</strong> hiring@fastcash.com</li>
+                                    <li><strong>Phone:</strong> (02) 1234-5678 loc. 5101</li>
                                 </ul>
                             </div>
                         </div>
@@ -252,8 +252,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-credit-card me-2"></i>Cash Card Department
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> cashcard@qcreditcorp.net</li>
-                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5102</li>
+                                    <li><strong>Email:</strong> cashcard@fastcash.com</li>
+                                    <li><strong>Phone:</strong> (02) 1234-5678 loc. 5102</li>
                                 </ul>
                             </div>
                         </div>
@@ -266,8 +266,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-gavel me-2"></i>Legal Department
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> legal@qcreditcorp.net</li>
-                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5103</li>
+                                    <li><strong>Email:</strong> legal@fastcash.com</li>
+                                    <li><strong>Phone:</strong> (02) 1234-5678 loc. 5103</li>
                                 </ul>
                             </div>
                         </div>
@@ -280,8 +280,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-search-dollar me-2"></i>Audit Department
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> audit@qcreditcorp.net</li>
-                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5104</li>
+                                    <li><strong>Email:</strong> audit@fastcash.com</li>
+                                    <li><strong>Phone:</strong> (02) 1234-5678 loc. 5104</li>
                                 </ul>
                             </div>
                         </div>
@@ -294,8 +294,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-phone-volume me-2"></i>Collection Unit
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> collection@qcreditcorp.net</li>
-                                    <li><strong>Phone:</strong> (02) 5310-2796 loc. 5105</li>
+                                    <li><strong>Email:</strong> collection@fastcash.com</li>
+                                    <li><strong>Phone:</strong> (02) 1234-5678 loc. 5105</li>
                                 </ul>
                             </div>
                         </div>
@@ -363,7 +363,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Right Section: Contact Info -->
             <div class="col-md-4">
                 <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
+                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> Gudlyf Property Corp., Grace Westpark, Caloocan City</p>
                 <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
                 <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
                 <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>

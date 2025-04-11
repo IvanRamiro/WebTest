@@ -107,13 +107,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <a href="#loan-process" class="btn btn-danger btn-lg px-4 py-2 rounded-pill">
                         <i class="fas fa-list-ol me-2"></i> View Loan Steps
                     </a>
-                    <a href="#" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-                        <i class="fas fa-calculator me-2"></i> Calculate Loan
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <!-- Loan Process Timeline -->
