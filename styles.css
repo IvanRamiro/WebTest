@@ -42,10 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
   font-size: 2.5rem;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text-dark);
   display: inline-block;
 }
 
@@ -71,16 +68,7 @@ h2 {
   position: relative;
 }
 
-.brand-name::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 40px;
-  height: 4px;
-  background: var(--accent-color);
-  border-radius: 2px;
-}
+/* Removed the ::after pseudo-element that created the underline */
 
 /* ========================
   Buttons
@@ -403,133 +391,133 @@ h2 {
   }
 }
 
-    .loan-timeline {
-        position: relative;
-        padding-left: 50px;
-    }
-    .timeline-step {
-        position: relative;
-        margin-bottom: 30px;
-    }
-    .timeline-marker {
-        position: absolute;
-        left: -50px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #dc3545;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        z-index: 2;
-    }
-    .timeline-content {
-        position: relative;
-        padding-bottom: 20px;
-    }
-    .timeline-content:before {
-        content: '';
-        position: absolute;
-        left: -30px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: #dc3545;
-    }
-    .list-icon {
-        list-style: none;
-        padding-left: 0;
-    }
-    .list-icon li {
-        padding-left: 1.5em;
-        position: relative;
-        margin-bottom: 0.5em;
-    }
-    .list-icon li i {
-        position: absolute;
-        left: 0;
-        top: 0.2em;
-    }
-    .loan-terms {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    .term-item {
-        background: rgba(255,255,255,0.8);
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .term-item span {
-        display: block;
-        font-size: 0.8em;
-        color: #6c757d;
-    }
-    .term-item strong {
-        font-size: 1.1em;
-        color: #212529;
-    }
-    .process-steps {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0;
-    }
-    .process-step {
-        text-align: center;
-        flex: 1;
-        position: relative;
-    }
-    .process-step:not(:last-child):after {
-        content: '';
-        position: absolute;
-        top: 15px;
-        left: 50%;
-        right: -50%;
-        height: 2px;
-        background: #dee2e6;
-        z-index: 1;
-    }
-    .step-icon {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: #dee2e6;
-        color: #6c757d;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 10px;
-        position: relative;
-        z-index: 2;
-    }
-    .process-step.active .step-icon {
-        background: #dc3545;
-        color: white;
-    }
-    .process-step.completed .step-icon {
-        background: #28a745;
-        color: white;
-    }
-    .step-label {
-        font-size: 0.8rem;
-        margin-bottom: 0;
-    }
-    .disbursement-method {
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-    .disbursement-method:hover {
-        border-color: #dc3545;
-        transform: translateY(-5px);
-    }
-    .icon-container {
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.loan-timeline {
+    position: relative;
+    padding-left: 50px;
+}
+.timeline-step {
+    position: relative;
+    margin-bottom: 30px;
+}
+.timeline-marker {
+    position: absolute;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #dc3545;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 2;
+}
+.timeline-content {
+    position: relative;
+    padding-bottom: 20px;
+}
+.timeline-content:before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dc3545;
+}
+.list-icon {
+    list-style: none;
+    padding-left: 0;
+}
+.list-icon li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+.list-icon li i {
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+}
+.loan-terms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+.term-item {
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+.term-item span {
+    display: block;
+    font-size: 0.8em;
+    color: #6c757d;
+}
+.term-item strong {
+    font-size: 1.1em;
+    color: #212529;
+}
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.process-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+.process-step:not(:last-child):after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    right: -50%;
+    height: 2px;
+    background: #dee2e6;
+    z-index: 1;
+}
+.step-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #dee2e6;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: 2;
+}
+.process-step.active .step-icon {
+    background: #dc3545;
+    color: white;
+}
+.process-step.completed .step-icon {
+    background: #28a745;
+    color: white;
+}
+.step-label {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+.disbursement-method {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.disbursement-method:hover {
+    border-color: #dc3545;
+    transform: translateY(-5px);
+}
+.icon-container {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

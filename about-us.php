@@ -84,7 +84,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="apply.php">Apply</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
                 </ul>
@@ -280,7 +280,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <h2 class="display-5 fw-bold mb-4">Need Cash Fast?</h2>
                 <p class="lead mb-4">Discover how FAST CASH can provide the financial solution you need.</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="loans.php" class="btn btn-danger btn-lg px-4">Apply Now</a>
+                    <a href="apply.php" class="btn btn-danger btn-lg px-4">Apply Now</a>
                     <a href="contact-us.php" class="btn btn-outline-danger btn-lg px-4">Contact Us</a>
                 </div>
             </div>
@@ -321,7 +321,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
                     <li><a href="#" class="footer-link">Consumer Protection</a></li>
                     <li><a href="about-us.php" class="footer-link">About Us</a></li>
-                    <li><a href="careers.php" class="footer-link">Careers</a></li>
+                    <li><a href="apply.php" class="footer-link">Apply</a></li>
                     <li><a href="news-events.php" class="footer-link">News and Events</a></li>
                     <li><a href="contact-us.php" class="footer-link">Contact Us</a></li>
                 </ul>

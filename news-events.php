@@ -328,15 +328,15 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav text-center">
-                <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="careers.php">Careers</a></li>
-                <li class="nav-item"><a class="nav-link active text-white" href="news-events.php">News and Events</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
-            </ul>
-        </div>
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="apply.php">Apply</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
+                </ul>
+            </div>
         <!-- Search Form (Responsive) -->
         <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -497,7 +497,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
                     <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
                     <li><a href="#" class="footer-link">Consumer Protection</a></li>
                     <li><a href="about-us.php" class="footer-link">About Us</a></li>
-                    <li><a href="careers.php" class="footer-link">Careers</a></li>
+                    <li><a href="apply.php" class="footer-link">Apply</a></li>
                     <li><a href="news-events.php" class="footer-link">News and Events</a></li>
                     <li><a href="contact-us.php" class="footer-link">Contact Us</a></li>
                 </ul>
