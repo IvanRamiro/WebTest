@@ -52,7 +52,7 @@ $past_events = $conn->query("SELECT *,
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+
     <style>
         /* Enhanced Event Card Styles */
         .event-card {
@@ -331,31 +331,31 @@ $past_events = $conn->query("SELECT *,
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
+                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
             </div>
 
             <!-- Contact & Links -->
             <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
+                        <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
+                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
+                            <a href="mailto:support@fastcash.com">support@fastcash.com</a>
                         </p>
                     </li>
                     <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
-                            <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
+                        <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
+                            <a href="mailto:careers@fastcash.com">careers@fastcash.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                            <a href="mailto:complaints@fastcash.com">complaints@fastcash.com</a>
                         </p>
                     </li>
                 </ul>
@@ -363,7 +363,7 @@ $past_events = $conn->query("SELECT *,
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
     </div>
@@ -598,19 +598,19 @@ $past_events = $conn->query("SELECT *,
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
+                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>FAST CASH</strong></p>
                 </div>
-                <p>SEC Reg. No. CS201738217</p>
-                <p>Certificate of Authority No. 2617</p>
+                <p>SEC Reg. No. CS202300001</p>
+                <p>Certificate of Authority No. 1234</p>
                 <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
                 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-tiktok"></i></a>
                 </div>
 
                 <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
@@ -632,7 +632,7 @@ $past_events = $conn->query("SELECT *,
 
                 <h5 class="fw-bold mt-3">Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">About MVL</a></li>
+                    <li><a href="#" class="footer-link">About Our Loans</a></li>
                     <li><a href="#" class="footer-link">Apply Online</a></li>
                     <li><a href="#" class="footer-link">Affordability Assessment</a></li>
                     <li><a href="#" class="footer-link">Accepted IDs</a></li>
@@ -648,18 +648,18 @@ $past_events = $conn->query("SELECT *,
             <!-- Right Section: Contact Info -->
             <div class="col-md-4">
                 <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
-                <p><i class="fas fa-phone text-danger me-2"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
-                <p><i class="fas fa-envelope text-danger me-2"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
-                <p><i class="fas fa-user text-danger me-2"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
-                <p><i class="fas fa-exclamation-circle text-danger me-2"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
+                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
+                <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
+                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
+                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
+                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
             </div>
         </div>
 
         <!-- Bottom Section -->
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
+            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
         </div>
     </div>
 </footer>

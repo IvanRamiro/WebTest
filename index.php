@@ -73,15 +73,16 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCREDIT</title>
-    <meta name="description" content="QCREDIT - Delivering financial access to everyone...">
+    <title>FAST CASH</title>
+    <meta name="description" content="FAST CASH - Quick and reliable financial solutions for everyone">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=1.1"> 
+    <link rel="stylesheet" href="styles.css?v=1.2"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -91,31 +92,31 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
+                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
             </div>
 
             <!-- Contact & Links -->
             <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
+                        <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
+                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
+                            <a href="mailto:support@fastcash.com">support@fastcash.com</a>
                         </p>
                     </li>
                     <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
-                            <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
+                        <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
+                            <a href="mailto:careers@fastcash.com">careers@fastcash.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                            <a href="mailto:complaints@fastcash.com">complaints@fastcash.com</a>
                         </p>
                     </li>
                 </ul>
@@ -123,7 +124,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
     </div>
@@ -131,7 +132,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
 <!-- Hero Section -->
 <section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark position-sticky top-0 w-100 z-3" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -172,10 +173,10 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                     </figure>
                     
                     <div class="mvl-text-content px-2">
-                        <span class="text-danger fw-bold small d-block mb-2">LEARN MORE ABOUT MVL</span>
-                        <h2 id="mvl-heading" class="fw-bold mb-3">Grow your business with <span class="text-primary">Market Vendor Loan</span></h2>
+                        <span class="text-primary fw-bold small d-block mb-2">LEARN MORE ABOUT OUR LOANS</span>
+                        <h2 id="mvl-heading" class="fw-bold mb-3">Grow your business with <span class="text-primary">Fast Cash Loans</span></h2>
                         <p class="text-muted mb-4">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
-                        <a href="#" class="btn btn-danger px-4 py-2 fw-bold" aria-label="Apply online for Market Vendor Loan">
+                        <a href="#" class="btn btn-primary px-4 py-2 fw-bold" aria-label="Apply online for Fast Cash Loan">
                             APPLY ONLINE <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                     </div>
@@ -186,8 +187,8 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
             <!-- Loan Requirements -->
             <div class="col-lg-6">
                 <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
-                    <span class="text-danger fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
-                    <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Market Vendor Loan?</strong></h2>
+                    <span class="text-primary fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
+                    <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">Fast Cash Loan?</strong></h2>
 
                     <div class="requirements-grid">
                         <div class="row g-3">
@@ -258,12 +259,12 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                     </div>
 
                     <div class="eligibility-cta mt-4 pt-3 border-top">
-                        <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Market Vendor Loan?</strong></p>
+                        <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">Fast Cash Loan?</strong></p>
                         <div class="d-flex flex-wrap gap-2">
-                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Affordability and Suitability Assessment">
+                            <a href="#" class="btn btn-outline-primary flex-grow-1" aria-label="Affordability and Suitability Assessment">
                                 Affordability & Suitability Assessment
                             </a>
-                            <a href="#" class="btn btn-outline-danger flex-grow-1" aria-label="Review Your Assessment Result">
+                            <a href="#" class="btn btn-outline-primary flex-grow-1" aria-label="Review Your Assessment Result">
                                 Review Your Assessment Result
                             </a>
                         </div>
@@ -277,7 +278,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 <!-- Testimonials Section -->
 <section class="testimonials container text-center py-5" aria-labelledby="testimonials-heading">
     <div class="container">
-        <h6 class="text-danger">OUR TESTIMONIALS</h6>
+        <h6 class="text-primary">OUR TESTIMONIALS</h6>
         <h2 id="testimonials-heading">What Our <strong>Customers Say About Us</strong></h2>
         
         <div class="row mt-4">
@@ -299,7 +300,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 </section>
 
 <section class="container text-center py-4">
-    <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn btn-danger">
+    <a href="https://youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn btn-primary">
         <i class="fab fa-youtube me-2"></i> OUR YOUTUBE CHANNEL
     </a>
 </section>
@@ -312,21 +313,21 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
             <div class="col-md-4">
                 <div class="number-box">
-                    <h3 class="display-4 fw-bold text-primary" data-target="2027">0</h3>
+                    <h3 class="display-4 fw-bold text-primary" data-target="2023">0</h3>
                     <p>Started</p>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="number-box">
-                    <h3 class="display-4 fw-bold text-primary" data-target="79">0</h3>
+                    <h3 class="display-4 fw-bold text-primary" data-target="50">0</h3>
                     <p>Branches</p>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="number-box">
-                    <h3 class="display-4 fw-bold text-primary" data-target="800">0</h3>
+                    <h3 class="display-4 fw-bold text-primary" data-target="500">0</h3>
                     <p>Active Employees</p>
                 </div>
             </div>
@@ -337,12 +338,11 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 <!-- News & Events Section -->
 <section id="news-events" class="news-section py-5" aria-labelledby="news-events-heading">
     <div class="container text-center">
-        <h6 class="text-danger">NEWS & EVENTS</h6>
-        <h2 id="news-events-heading">Our Latest <strong>Updates</strong> in QCredit Corp.</h2>
+        <h6 class="text-primary">NEWS & EVENTS</h6>
+        <h2 id="news-events-heading">Our Latest <strong>Updates</strong> in Fast Cash</h2>
 
         <div class="row mt-4">
             <?php
-
             $featured_query = "SELECT id, title, description, event_date, location, thumbnail, external_url, is_featured 
                              FROM newsevents 
                              WHERE is_featured = 1 
@@ -371,7 +371,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                                          style="height: 200px; object-fit: cover;">
                                 <?php endif; ?>
                                 <span class="badge news-date"><?= $date_badge; ?></span>
-                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Featured</span>
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-2">Featured</span>
                             </div>
                             <div class="card-body d-flex flex-column">
                                 <h5 id="news-<?= $row['id']; ?>-title" class="card-title">
@@ -422,19 +422,19 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>QCREDIT CORP.</strong></p>
+                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>FAST CASH</strong></p>
                 </div>
-                <p>SEC Reg. No. CS201738217</p>
-                <p>Certificate of Authority No. 2617</p>
+                <p>SEC Reg. No. CS202300001</p>
+                <p>Certificate of Authority No. 1234</p>
                 <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
                 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-tiktok"></i></a>
                 </div>
 
                 <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
@@ -456,7 +456,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
                 <h5 class="fw-bold mt-3">Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">About MVL</a></li>
+                    <li><a href="#" class="footer-link">About Our Loans</a></li>
                     <li><a href="#" class="footer-link">Apply Online</a></li>
                     <li><a href="#" class="footer-link">Affordability Assessment</a></li>
                     <li><a href="#" class="footer-link">Accepted IDs</a></li>
@@ -472,18 +472,18 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
             <!-- Right Section: Contact Info -->
             <div class="col-md-4">
                 <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines</p>
-                <p><i class="fas fa-phone text-danger me-2"></i> <strong>Trunkline:</strong> (02) 5310-2796 loc. 5100</p>
-                <p><i class="fas fa-envelope text-danger me-2"></i> <strong>Help & Support:</strong> wecare@qcreditcorp.net</p>
-                <p><i class="fas fa-user text-danger me-2"></i> <strong>Hiring:</strong> hiring@qcreditcorp.net</p>
-                <p><i class="fas fa-exclamation-circle text-danger me-2"></i> <strong>Complaint:</strong> ireport@qcreditcorp.net</p>
+                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
+                <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
+                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
+                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
+                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
             </div>
         </div>
 
         <!-- Bottom Section -->
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
+            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
         </div>
     </div>
 </footer>

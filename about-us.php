@@ -26,37 +26,37 @@ if ($bg_result && $bg_result->num_rows > 0) {
 </head>
 <body>
     
-    <!-- Header Section -->
+<!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/logo.jpg" alt="QCREDIT Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-danger fs-5">QCREDIT</span>
+                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
             </div>
 
             <!-- Contact & Links -->
             <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Trunkline</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 5310-2796 loc. 5100</a>
+                        <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
+                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:wecare@qcreditcorp.net">wecare@qcreditcorp.net</a>
+                            <a href="mailto:support@fastcash.com">support@fastcash.com</a>
                         </p>
                     </li>
                     <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Hiring</strong><br>
-                            <a href="mailto:hiring@qcreditcorp.net">hiring@qcreditcorp.net</a>
+                        <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
+                            <a href="mailto:careers@fastcash.com">careers@fastcash.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:ireport@qcreditcorp.net">ireport@qcreditcorp.net</a>
+                            <a href="mailto:complaints@fastcash.com">complaints@fastcash.com</a>
                         </p>
                     </li>
                 </ul>
@@ -64,7 +64,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-danger text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
             </div>
         </div>
     </div>
@@ -312,88 +312,78 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-dark text-white pt-5">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Company Info -->
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="Images/logo.jpg" alt="QCREDIT Logo" height="40" class="me-2">
-                        <span class="fs-5 fw-bold">QCREDIT CORP.</span>
-                    </div>
-                    <p>SEC Reg. No. CS201738217</p>
-                    <p>Certificate of Authority No. 2617</p>
-                    <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
-                    
-                    <div class="social-icons mt-3">
-                        <a href="#" class="text-white me-2" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="text-white me-2" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
-                        <a href="#" class="text-white me-2" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
-                        <a href="#" class="text-white" aria-label="TikTok"><i class="fab fa-tiktok fa-lg"></i></a>
-                    </div>
-
-                    <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
+<!-- Footer Section -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Section: Company Info -->
+            <div class="col-md-4 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>FAST CASH</strong></p>
+                </div>
+                <p>SEC Reg. No. CS202300001</p>
+                <p>Certificate of Authority No. 1234</p>
+                <p>Please study the terms and conditions in the disclosure statement before proceeding with your loan transaction.</p>
+                
+                <!-- Social Media Icons -->
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-tiktok"></i></a>
                 </div>
 
-                <!-- Quick Links -->
-                <div class="col-lg-4">
-                    <h3 class="h5 mb-3">Quick Links</h3>
-                    <div class="row">
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="index.php" class="text-white-50">Home</a></li>
-                                <li class="mb-2"><a href="loans.php" class="text-white-50">Loans</a></li>
-                                <li class="mb-2"><a href="help-support.php" class="text-white-50">Help & Support</a></li>
-                                <li class="mb-2"><a href="#" class="text-white-50">Consumer Protection</a></li>
-                                <li class="mb-2"><a href="about-us.php" class="text-white-50">About Us</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="careers.php" class="text-white-50">Careers</a></li>
-                                <li class="mb-2"><a href="news-events.php" class="text-white-50">News & Events</a></li>
-                                <li class="mb-2"><a href="contact-us.php" class="text-white-50">Contact Us</a></li>
-                                <li class="mb-2"><a href="#" class="text-white-50">FAQs</a></li>
-                                <li class="mb-2"><a href="#" class="text-white-50">Site Map</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="col-lg-4">
-                    <h3 class="h5 mb-3">Contact Us</h3>
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <i class="fas fa-map-marker-alt text-danger me-2"></i>
-                            <strong>Main Office:</strong> 2602 Antel 2000 Corporate Center, 121 Valero Street, Salcedo Village, Barangay Bel-air, Makati City 1227, Philippines
-                        </li>
-                        <li class="mb-3">
-                            <i class="fas fa-phone text-danger me-2"></i>
-                            <strong>Trunkline:</strong> <a href="tel:(02)5310-2796" class="text-white-50">(02) 5310-2796 loc. 5100</a>
-                        </li>
-                        <li class="mb-3">
-                            <i class="fas fa-envelope text-danger me-2"></i>
-                            <strong>Help & Support:</strong> <a href="mailto:wecare@qcreditcorp.net" class="text-white-50">wecare@qcreditcorp.net</a>
-                        </li>
-                        <li class="mb-3">
-                            <i class="fas fa-user text-danger me-2"></i>
-                            <strong>Hiring:</strong> <a href="mailto:hiring@qcreditcorp.net" class="text-white-50">hiring@qcreditcorp.net</a>
-                        </li>
-                        <li class="mb-3">
-                            <i class="fas fa-exclamation-circle text-danger me-2"></i>
-                            <strong>Complaint:</strong> <a href="mailto:ireport@qcreditcorp.net" class="text-white-50">ireport@qcreditcorp.net</a>
-                        </li>
-                    </ul>
-                </div>
+                <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
             </div>
 
-            <div class="border-top border-secondary mt-4 pt-3 text-center text-white-50">
-                <p class="mb-1">&copy; 2025 QCREDIT CORP. ALL RIGHTS RESERVED.</p>
-                <p class="mb-0">WEBSITE BY WEB DESIGN PHILIPPINES</p>
+            <!-- Middle Section: Menu & Quick Links -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Menu</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.php" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">Loans</a></li>
+                    <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
+                    <li><a href="#" class="footer-link">Consumer Protection</a></li>
+                    <li><a href="about-us.php" class="footer-link">About Us</a></li>
+                    <li><a href="careers.php" class="footer-link">Careers</a></li>
+                    <li><a href="news-events.php" class="footer-link">News and Events</a></li>
+                    <li><a href="contact-us.php" class="footer-link">Contact Us</a></li>
+                </ul>
+
+                <h5 class="fw-bold mt-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="footer-link">About Our Loans</a></li>
+                    <li><a href="#" class="footer-link">Apply Online</a></li>
+                    <li><a href="#" class="footer-link">Affordability Assessment</a></li>
+                    <li><a href="#" class="footer-link">Accepted IDs</a></li>
+                    <li><a href="#" class="footer-link">Loan Calculator</a></li>
+                    <li><a href="#" class="footer-link">FAQs</a></li>
+                    <li><a href="help-support.php" class="footer-link">Help & Support</a></li>
+                    <li><a href="#" class="footer-link">Find Us</a></li>
+                    <li><a href="#" class="footer-link">Data Privacy Notice</a></li>
+                    <li><a href="#" class="footer-link">Site Map</a></li>
+                </ul>
+            </div>
+
+            <!-- Right Section: Contact Info -->
+            <div class="col-md-4">
+                <h5 class="fw-bold">Contact Us</h5>
+                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
+                <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
+                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
+                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
+                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
             </div>
         </div>
-    </footer>
+
+        <!-- Bottom Section -->
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
