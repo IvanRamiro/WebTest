@@ -14,8 +14,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCREDIT</title>
-    <meta name="description" content="QCREDIT - Delivering financial access to everyone...">
+    <title>FAST CASH</title>
+    <meta name="description" content="FAST CASH - Quick and reliable financial solutions">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=1.1"> 
@@ -41,7 +41,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
+                            <a href="tel:(02)1234-5678">(02) 1234-5678</a>
                         </p>
                     </li>
                     <li>
@@ -74,7 +74,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <section class="hero"
     style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-        <!-- Your existing navbar content remains exactly the same -->
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,20 +98,19 @@ if ($bg_result && $bg_result->num_rows > 0) {
     </nav>
 </section>
 
-
    <!-- Main Content -->
    <main id="main-content">
-        <!-- About QCREDIT Section -->
+        <!-- About FAST CASH Section -->
         <section class="py-5 bg-white">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <img src="Images/ABSOLUTE.jpg" alt="QCREDIT Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
+                        <img src="Images/ABSOLUTE.jpg" alt="FAST CASH Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
                     </div>
                     <div class="col-lg-6">
-                        <h2 class="display-5 fw-bold text-danger mb-4">About <span class="text-dark">QCREDIT</span></h2>
-                        <p class="lead">QCREDIT Corp. is a trusted lending company in the Philippines, dedicated to empowering small and medium-sized businesses through accessible financial solutions.</p>
-                        <p>With a strong presence nationwide, we aim to uplift the lives of Filipino entrepreneurs by providing the necessary financial support to grow their businesses. Our mission is to be a lending company with a heart, delivering exceptional service and fostering long-term relationships with our customers.</p>
+                        <h2 class="display-5 fw-bold text-danger mb-4">About <span class="text-dark">FAST CASH</span></h2>
+                        <p class="lead">FAST CASH is a premier financial service provider in the Philippines, dedicated to delivering quick and reliable cash solutions to individuals and small businesses.</p>
+                        <p>With a nationwide presence, we aim to provide immediate financial assistance when you need it most. Our mission is to offer hassle-free cash solutions with transparent terms and exceptional customer service.</p>
                         <div class="d-flex gap-3 mt-4">
                             <a href="contact-us.php" class="btn btn-danger px-4 py-2">Contact Us</a>
                             <a href="careers.php" class="btn btn-outline-danger px-4 py-2">Join Our Team</a>
@@ -137,7 +135,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-rocket fa-2x"></i>
                                 </div>
                                 <h3 class="h4">Our Beginnings</h3>
-                                <p>Founded in [Year], QCREDIT started with a vision to provide financial access to underserved market vendors and small business owners.</p>
+                                <p>Founded in 2015, FAST CASH began with a simple goal: to provide quick financial solutions to Filipinos in urgent need of cash.</p>
                             </div>
                         </div>
                     </div>
@@ -148,7 +146,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-chart-line fa-2x"></i>
                                 </div>
                                 <h3 class="h4">Growth & Expansion</h3>
-                                <p>Through strategic partnerships and customer-focused services, we've expanded our reach to serve communities across the Philippines.</p>
+                                <p>Through our commitment to fast service and fair terms, we've expanded to serve customers across the Philippines.</p>
                             </div>
                         </div>
                     </div>
@@ -159,7 +157,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-bullseye fa-2x"></i>
                                 </div>
                                 <h3 class="h4">Future Vision</h3>
-                                <p>We continue to innovate our services to meet the evolving needs of Filipino entrepreneurs in the digital economy.</p>
+                                <p>We continue to innovate to provide even faster cash solutions through digital platforms while maintaining personal service.</p>
                             </div>
                         </div>
                     </div>
@@ -180,7 +178,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             <div class="card-body p-4">
                                 <i class="fas fa-bullseye text-danger fa-3x mb-3"></i>
                                 <h3 class="h4">Mission</h3>
-                                <p>To provide speedy and accessible collateral-free loans to small and medium enterprises, improving the quality of life for every Filipino.</p>
+                                <p>To provide immediate cash solutions with minimal requirements and maximum convenience for our customers.</p>
                             </div>
                         </div>
                     </div>
@@ -189,7 +187,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             <div class="card-body p-4">
                                 <i class="fas fa-eye text-danger fa-3x mb-3"></i>
                                 <h3 class="h4">Vision</h3>
-                                <p>To be a leading lending company in the Philippines, exemplifying a "lending company with a heart" in all business dealings.</p>
+                                <p>To be the most trusted quick cash provider in the Philippines, known for our speed, reliability, and customer care.</p>
                             </div>
                         </div>
                     </div>
@@ -198,7 +196,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             <div class="card-body p-4">
                                 <i class="fas fa-users text-danger fa-3x mb-3"></i>
                                 <h3 class="h4">Our People</h3>
-                                <p>Our employees are the foundation of our success, delivering the best service with passion and energy.</p>
+                                <p>Our team is committed to providing friendly, professional service with every transaction.</p>
                             </div>
                         </div>
                     </div>
@@ -206,36 +204,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
             </div>
         </section>
 
-        <!-- Our Services Section
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-                        <img src="Images/services-image.jpg" alt="QCREDIT Services" class="img-fluid rounded shadow-lg animate__animated animate__fadeInRight">
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <h2 class="display-5 fw-bold text-danger mb-4">Our <span class="text-dark">Services</span></h2>
-                        <div class="service-item mb-4">
-                            <h3 class="h4"><i class="fas fa-store text-danger me-2"></i> Market Vendor Loan (MVL)</h3>
-                            <p>Our flagship service, serving over half a million customers. With MVL, QCREDIT empowers small enterprises to achieve financial freedom.</p>
-                        </div>
-                        <div class="service-item mb-4">
-                            <h3 class="h4"><i class="fas fa-credit-card text-danger me-2"></i> BDO Cash Cards</h3>
-                            <p>In partnership with BDO Unibank Inc., we offer BDO Cash Cards, providing customers with secure ATM access without requiring a deposit account.</p>
-                        </div>
-                        <a href="loans.php" class="btn btn-danger px-4 py-2 mt-2">Explore Our Services</a>
-                    </div>
-                </div>
-            </div>
-        </section> //-->
-
-          <!-- Our Values Section -->
+        <!-- Our Values Section -->
         <section class="py-5 bg-white">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="display-5 fw-bold">Our <span class="text-danger">Core Values</span></h2>
                     <div class="divider mx-auto bg-danger"></div>
-                    <p class="lead mx-auto" style="max-width: 700px;">These principles guide everything we do at QCREDIT and define how we serve our customers and communities.</p>
+                    <p class="lead mx-auto" style="max-width: 700px;">These principles guide everything we do at FAST CASH and define how we serve our customers.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-md-4">
@@ -245,7 +220,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-balance-scale fa-2x"></i>
                                 </div>
                                 <h3 class="h4">Integrity</h3>
-                                <p>We uphold transparency and fairness in all our dealings, building trust with every transaction.</p>
+                                <p>We conduct all transactions with honesty and transparency, ensuring fair terms for our customers.</p>
                             </div>
                         </div>
                     </div>
@@ -256,7 +231,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <i class="fas fa-user-friends fa-2x"></i>
                                 </div>
                                 <h3 class="h4">Customer Focus</h3>
-                                <p>Our customers are at the heart of everything we do. We listen, understand, and deliver solutions that meet their needs.</p>
+                                <p>We prioritize our customers' needs, providing solutions tailored to their specific situations.</p>
                             </div>
                         </div>
                     </div>
@@ -266,8 +241,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 <div class="value-icon bg-danger text-white mb-3 mx-auto">
                                     <i class="fas fa-lightbulb fa-2x"></i>
                                 </div>
-                                <h3 class="h4">Innovation</h3>
-                                <p>We continuously improve our services and processes to meet the evolving needs of our clients in a changing world.</p>
+                                <h3 class="h4">Speed</h3>
+                                <p>We continuously streamline our processes to deliver the fastest cash solutions possible.</p>
                             </div>
                         </div>
                     </div>
@@ -280,19 +255,19 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <div class="container">
                 <div class="row g-4 text-center">
                     <div class="col-md-3">
-                        <div class="display-4 fw-bold">500K+</div>
+                        <div class="display-4 fw-bold">250K+</div>
                         <p class="mb-0">Customers Served</p>
                     </div>
                     <div class="col-md-3">
-                        <div class="display-4 fw-bold">100+</div>
+                        <div class="display-4 fw-bold">50+</div>
                         <p class="mb-0">Branches Nationwide</p>
                     </div>
                     <div class="col-md-3">
-                        <div class="display-4 fw-bold">1K+</div>
+                        <div class="display-4 fw-bold">500+</div>
                         <p class="mb-0">Employees</p>
                     </div>
                     <div class="col-md-3">
-                        <div class="display-4 fw-bold">10+</div>
+                        <div class="display-4 fw-bold">8+</div>
                         <p class="mb-0">Years of Service</p>
                     </div>
                 </div>
@@ -302,10 +277,10 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <!-- CTA Section -->
         <section class="py-5 bg-white">
             <div class="container text-center">
-                <h2 class="display-5 fw-bold mb-4">Ready to Grow Your Business?</h2>
-                <p class="lead mb-4">Discover how QCREDIT can help you achieve your entrepreneurial dreams.</p>
+                <h2 class="display-5 fw-bold mb-4">Need Cash Fast?</h2>
+                <p class="lead mb-4">Discover how FAST CASH can provide the financial solution you need.</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="loans.php" class="btn btn-danger btn-lg px-4">Apply for a Loan</a>
+                    <a href="loans.php" class="btn btn-danger btn-lg px-4">Apply Now</a>
                     <a href="contact-us.php" class="btn btn-outline-danger btn-lg px-4">Contact Us</a>
                 </div>
             </div>
