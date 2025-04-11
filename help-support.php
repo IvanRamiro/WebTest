@@ -14,8 +14,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCREDIT</title>
-    <meta name="description" content="QCREDIT - Delivering financial access to everyone...">
+    <title>FAST CASH</title>
+    <meta name="description" content="FAST CASH - Delivering financial access to everyone...">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=1.1"> 
@@ -101,7 +101,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <div class="container h-100 d-flex align-items-center">
         <div class="row justify-content-center w-100">
             <div class="col-lg-10 text-center">
-                <h1 class="display-3 fw-bold text-white mb-4">Your Loan Journey Starts Here</h1>
+                <h1 class="display-3 fw-bold text-white mb-4">Your FAST CASH Loan Journey Starts Here</h1>
                 <p class="lead text-white mb-5">Get the financial support you need in just 6 simple steps</p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
                     <a href="#loan-process" class="btn btn-danger btn-lg px-4 py-2 rounded-pill">
@@ -120,7 +120,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <section id="loan-process" class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold text-danger mb-3">How to Get Your QCREDIT Loan</h2>
+            <h2 class="display-5 fw-bold text-danger mb-3">How to Get Your FAST CASH Loan</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <p class="lead">Follow this straightforward process to access funds quickly and securely. Our average approval time is just 24-48 hours for complete applications.</p>
@@ -155,7 +155,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center d-none d-md-block">
-                                    <img src="Images/logo.jpg" alt="Eligibility Check" class="img-fluid" style="max-height: 150px;">
+                                    <img src="Images/Logo.png" alt="Eligibility Check" class="img-fluid" style="max-height: 150px;">
                                 </div>
                             </div>
                         </div>
@@ -230,9 +230,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 <div class="col-md-6">
                                     <div class="p-4 border rounded text-center h-100">
                                         <i class="fas fa-store text-danger mb-3" style="font-size: 2.5rem;"></i>
-                                        <h4>Branch Application</h4>
+                                        <h4>FAST CASH Branch Application</h4>
                                         <ol class="text-start ps-3">
-                                            <li>Visit nearest QCREDIT branch</li>
+                                            <li>Visit nearest FAST CASH branch</li>
                                             <li>Submit physical documents</li>
                                             <li>Get instant acknowledgement</li>
                                         </ol>
@@ -302,7 +302,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 <div class="col-md-6">
                                     <div class="approval-box bg-success bg-opacity-10 p-4 rounded border border-success mb-3">
                                         <h4 class="text-success"><i class="fas fa-check-circle me-2"></i> Congratulations!</h4>
-                                        <p>Your loan has been approved with these terms:</p>
+                                        <p>Your FAST CASH loan has been approved with these terms:</p>
                                         <div class="loan-terms">
                                             <div class="term-item">
                                                 <span>Loan Amount</span>
@@ -369,7 +369,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                             <i class="fas fa-money-bill-wave text-danger" style="font-size: 2rem;"></i>
                                         </div>
                                         <h5>Cash Pickup</h5>
-                                        <p>Available at our branches (same day)</p>
+                                        <p>Available at FAST CASH branches (same day)</p>
                                         <small class="text-muted">With valid ID required</small>
                                     </div>
                                 </div>
@@ -397,8 +397,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="cta-section bg-danger text-white rounded-3 p-5 mt-5 shadow">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h3 class="mb-3">Ready to Start Your Loan Application?</h3>
-                    <p class="mb-0">Join thousands of satisfied customers who trusted QCREDIT for their financial needs.</p>
+                    <h3 class="mb-3">Ready to Start Your FAST CASH Loan Application?</h3>
+                    <p class="mb-0">Join thousands of satisfied customers who trusted FAST CASH for their financial needs.</p>
                 </div>
                 <div class="col-md-4 text-md-end">
                     <a href="#" class="btn btn-light btn-lg px-4 py-2 rounded-pill">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
@@ -415,7 +415,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
+                    <img src="Images/Logo.png" alt="FAST CASH Logo" height="40" class="me-2">
                     <p class="mb-0"><strong>FAST CASH</strong></p>
                 </div>
                 <p>SEC Reg. No. CS202300001</p>
@@ -480,7 +480,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </div>
     </div>
 </footer>
-
 
 </body>
 </html>

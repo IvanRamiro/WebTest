@@ -10,29 +10,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
     $bg_image = "ADMIN DASHBOARD/" . $bg_row['bg_image'];
 }
 
-// Fetch events with proper image paths
-$featured_events = $conn->query("SELECT *, 
-    CONCAT('ADMIN DASHBOARD/', thumbnail) as image_path
-    FROM NewsEvents 
+// Fetch events without thumbnail and location
+$featured_events = $conn->query("SELECT * FROM NewsEvents 
     WHERE is_featured = 1 
-    ORDER BY event_date DESC 
+    ORDER BY created_at DESC 
     LIMIT 3");
 
-$upcoming_events = $conn->query("SELECT *, 
-    CONCAT('ADMIN DASHBOARD/', thumbnail) as image_path
-    FROM NewsEvents 
-    WHERE event_date >= CURDATE() 
-    AND event_date <= DATE_ADD(CURDATE(), INTERVAL 30 DAY)
-    AND is_featured = 0
-    ORDER BY event_date ASC 
-    LIMIT 6");
-
-$past_events = $conn->query("SELECT *, 
-    CONCAT('ADMIN DASHBOARD/', thumbnail) as image_path
-    FROM NewsEvents 
-    WHERE event_date < CURDATE()
-    AND is_featured = 0
-    ORDER BY event_date DESC 
+$recent_events = $conn->query("SELECT * FROM NewsEvents 
+    WHERE is_featured = 0
+    ORDER BY created_at DESC 
     LIMIT 6");
 ?>
 
@@ -74,17 +60,15 @@ $past_events = $conn->query("SELECT *,
             height: 220px;
             overflow: hidden;
             position: relative;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .event-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .event-card:hover .event-img {
-            transform: scale(1.1);
+        .event-icon {
+            font-size: 3rem;
+            color: #dc3545;
         }
         
         .featured-badge {
@@ -189,18 +173,6 @@ $past_events = $conn->query("SELECT *,
             transform: translateY(-2px);
         }
         
-        .location-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: #666;
-        }
-        
-        .location-info i {
-            margin-right: 8px;
-            color: #dc3545;
-        }
-        
         /* Empty State */
         .empty-state {
             text-align: center;
@@ -269,6 +241,15 @@ $past_events = $conn->query("SELECT *,
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
+        /* External link indicator */
+        .external-link-indicator {
+            display: inline-flex;
+            align-items: center;
+            color: #6c757d;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+        
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .hero {
@@ -290,36 +271,6 @@ $past_events = $conn->query("SELECT *,
             .section-title h2 {
                 font-size: 1.8rem;
             }
-        }
-        
-        .event-img-container {
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .event-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .no-image {
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-        }
-        
-        /* External link indicator */
-        .external-link-indicator {
-            display: inline-flex;
-            align-items: center;
-            color: #6c757d;
-            font-size: 0.8rem;
-            margin-left: 5px;
         }
     </style>
 </head>
@@ -412,59 +363,48 @@ $past_events = $conn->query("SELECT *,
 
         <!-- Featured Events -->
         <?php if ($featured_events->num_rows > 0): ?>
-            <div class="mb-5">
-                <h3 class="mb-4">Featured Events</h3>
-                <div class="row g-4">
-                    <?php while ($event = $featured_events->fetch_assoc()): ?>
-                        <div class="col-md-4">
-                            <div class="card event-card h-100 shadow-sm">
-                                <div class="position-relative">
-                                    <div class="event-img-container">
-                                        <?php if (!empty($event['image_path']) && file_exists($event['image_path'])): ?>
-                                            <img src="<?= htmlspecialchars($event['image_path']) ?>" 
-                                                 alt="<?= htmlspecialchars($event['title']) ?>" 
-                                                 class="event-img">
-                                        <?php else: ?>
-                                            <div class="event-img no-image">
-                                                <i class="fas fa-calendar-alt fa-3x"></i>
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <span class="featured-badge">Featured</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="event-date mb-2">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <?= date('F j, Y', strtotime($event['event_date'])) ?>
-                                    </div>
-                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?>
-                                        <?php if (!empty($event['external_url'])): ?>
-                                            <span class="external-link-indicator" title="Has external link">
-                                                <i class="fas fa-external-link-alt"></i>
-                                            </span>
-                                        <?php endif; ?>
-                                    </h4>
-                                    <?php if (!empty($event['location'])): ?>
-                                        <div class="location-info">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <?= htmlspecialchars($event['location']) ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    <p class="card-text"><?= substr(htmlspecialchars($event['description']), 0, 100) ?>...</p>
-                                    <div class="d-flex justify-content-between">
-                                        <?php if (!empty($event['external_url'])): ?>
-                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-danger">
-                                            Read More <i class="fas fa-external-link-alt"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
+    <div class="mb-5">
+        <h3 class="mb-4">Featured Events</h3>
+        <div class="row g-4">
+            <?php while ($event = $featured_events->fetch_assoc()): ?>
+                <div class="col-md-4">
+                    <div class="card event-card h-100 shadow-sm">
+                        <?php if (!empty($event['external_url'])): ?>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <?php
+                                // Check if URL is from a supported platform
+                                $url = $event['external_url'];
+                                if (preg_match('/facebook\.com|fb\.watch/i', $url)) {
+                                    // Facebook embed
+                                    echo '<div class="fb-post" data-href="'.htmlspecialchars($url).'" data-width="500" data-show-text="true"></div>';
+                                } elseif (preg_match('/twitter\.com|t\.co/i', $url)) {
+                                    // Twitter embed
+                                    echo '<blockquote class="twitter-tweet"><a href="'.htmlspecialchars($url).'"></a></blockquote>';
+                                } elseif (preg_match('/instagram\.com/i', $url)) {
+                                    // Instagram embed
+                                    echo '<blockquote class="instagram-media" data-instgrm-permalink="'.htmlspecialchars($url).'" data-instgrm-version="13"></blockquote>';
+                                } elseif (preg_match('/youtube\.com|youtu\.be/i', $url)) {
+                                    // YouTube embed
+                                    preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|youtu\.be\/)([^"&?\/\s]{11})/i', $url, $matches);
+                                    $video_id = $matches[1] ?? '';
+                                    echo '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/'.$video_id.'" frameborder="0" allowfullscreen></iframe>';
+                                } else {
+                                    // Generic oEmbed for other sites (WordPress, etc.)
+                                    echo '<div class="oembed-container" data-url="'.htmlspecialchars($url).'"></div>';
+                                }
+                                ?>
                             </div>
+                        <?php endif; ?>
+                        <div class="card-body">
+                            <h4 class="card-title"><?= htmlspecialchars($event['title']) ?></h4>
+                            <p class="card-text"><?= substr(htmlspecialchars($event['description']), 0, 100) ?>...</p>
                         </div>
-                    <?php endwhile; ?>
+                    </div>
                 </div>
-            </div>
-        <?php else: ?>
+            <?php endwhile; ?>
+        </div>
+    </div>
+<?php else: ?>
             <div class="empty-state">
                 <i class="far fa-calendar-star"></i>
                 <h4>No Featured Events</h4>
@@ -473,29 +413,21 @@ $past_events = $conn->query("SELECT *,
             </div>
         <?php endif; ?>
 
-        <!-- Upcoming Events -->
-        <?php if ($upcoming_events->num_rows > 0): ?>
+        <!-- Recent Events -->
+        <?php if ($recent_events->num_rows > 0): ?>
             <div class="mb-5">
-                <h3 class="mb-4">Upcoming Events</h3>
+                <h3 class="mb-4">Recent Updates</h3>
                 <div class="row g-4">
-                    <?php while ($event = $upcoming_events->fetch_assoc()): ?>
+                    <?php while ($event = $recent_events->fetch_assoc()): ?>
                         <div class="col-md-6 col-lg-4">
                             <div class="card event-card h-100 shadow-sm">
                                 <div class="event-img-container">
-                                    <?php if (!empty($event['image_path']) && file_exists($event['image_path'])): ?>
-                                        <img src="<?= htmlspecialchars($event['image_path']) ?>" 
-                                             alt="<?= htmlspecialchars($event['title']) ?>" 
-                                             class="event-img">
-                                    <?php else: ?>
-                                        <div class="event-img no-image">
-                                            <i class="fas fa-calendar-alt fa-3x"></i>
-                                        </div>
-                                    <?php endif; ?>
+                                    <i class="fas fa-newspaper event-icon"></i>
                                 </div>
                                 <div class="card-body">
                                     <div class="event-date mb-2">
                                         <i class="far fa-calendar-alt"></i>
-                                        <?= date('F j, Y', strtotime($event['event_date'])) ?>
+                                        <?= date('F j, Y', strtotime($event['created_at'])) ?>
                                     </div>
                                     <h4 class="card-title"><?= htmlspecialchars($event['title']) ?>
                                         <?php if (!empty($event['external_url'])): ?>
@@ -504,17 +436,10 @@ $past_events = $conn->query("SELECT *,
                                             </span>
                                         <?php endif; ?>
                                     </h4>
-                                    <?php if (!empty($event['location'])): ?>
-                                        <div class="location-info">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <?= htmlspecialchars($event['location']) ?>
-                                        </div>
-                                    <?php endif; ?>
                                     <div class="d-flex justify-content-between">
-                                        <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-outline-danger">View Details</a>
                                         <?php if (!empty($event['external_url'])): ?>
-                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-secondary">
-                                                Link <i class="fas fa-external-link-alt"></i>
+                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-danger">
+                                                Read More <i class="fas fa-external-link-alt"></i>
                                             </a>
                                         <?php endif; ?>
                                     </div>
@@ -527,61 +452,8 @@ $past_events = $conn->query("SELECT *,
         <?php else: ?>
             <div class="empty-state">
                 <i class="far fa-calendar-plus"></i>
-                <h4>No Upcoming Events</h4>
-                <p>There are currently no upcoming events scheduled. Check back later for updates.</p>
-            </div>
-        <?php endif; ?>
-
-        <!-- Past Events -->
-        <?php if ($past_events->num_rows > 0): ?>
-            <div class="mb-5">
-                <h3 class="mb-4">Past Events</h3>
-                <div class="row g-4">
-                    <?php while ($event = $past_events->fetch_assoc()): ?>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card event-card h-100 shadow-sm">
-                                <div class="event-img-container">
-                                    <?php if (!empty($event['image_path']) && file_exists($event['image_path'])): ?>
-                                        <img src="<?= htmlspecialchars($event['image_path']) ?>" 
-                                             alt="<?= htmlspecialchars($event['title']) ?>" 
-                                             class="event-img">
-                                    <?php else: ?>
-                                        <div class="event-img no-image">
-                                            <i class="fas fa-calendar-alt fa-3x"></i>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="card-body">
-                                    <div class="event-date mb-2">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <?= date('F j, Y', strtotime($event['event_date'])) ?>
-                                    </div>
-                                    <h4 class="card-title"><?= htmlspecialchars($event['title']) ?>
-                                        <?php if (!empty($event['external_url'])): ?>
-                                            <span class="external-link-indicator" title="Has external link">
-                                                <i class="fas fa-external-link-alt"></i>
-                                            </span>
-                                        <?php endif; ?>
-                                    </h4>
-                                    <div class="d-flex justify-content-between">
-                                        <a href="event-details.php?id=<?= $event['id'] ?>" class="btn btn-outline-danger">View Recap</a>
-                                        <?php if (!empty($event['external_url'])): ?>
-                                            <a href="<?= htmlspecialchars($event['external_url']) ?>" target="_blank" class="btn btn-outline-secondary">
-                                                Link <i class="fas fa-external-link-alt"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
-            </div>
-        <?php else: ?>
-            <div class="empty-state">
-                <i class="far fa-calendar-check"></i>
-                <h4>No Past Events</h4>
-                <p>There are currently no past events to display.</p>
+                <h4>No Recent Events</h4>
+                <p>There are currently no recent updates. Check back later for news.</p>
             </div>
         <?php endif; ?>
     </div>
@@ -663,6 +535,30 @@ $past_events = $conn->query("SELECT *,
         </div>
     </div>
 </footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE"></script>
+<script async defer src="https://www.instagram.com/embed.js"></script>
+<script>
+// Generic oEmbed loader
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.oembed-container').forEach(container => {
+        const url = container.dataset.url;
+        fetch(`https://noembed.com/embed?url=${encodeURIComponent(url)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.html) {
+                    container.innerHTML = data.html;
+                } else {
+                    container.innerHTML = `<a href="${url}" target="_blank">View Content</a>`;
+                }
+            })
+            .catch(() => {
+                container.innerHTML = `<a href="${url}" target="_blank">View Content</a>`;
+            });
+    });
+});
+</script>
 
 </body>
 </html>

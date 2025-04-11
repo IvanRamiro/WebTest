@@ -343,15 +343,15 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
         <div class="row mt-4">
             <?php
-            $featured_query = "SELECT id, title, description, event_date, location, thumbnail, external_url, is_featured 
+            $featured_query = "SELECT id, title, description, created_at, external_url, is_featured 
                              FROM newsevents 
                              WHERE is_featured = 1 
-                             ORDER BY event_date DESC LIMIT 6";
+                             ORDER BY created_at DESC LIMIT 6";
             $featured_result = $conn->query($featured_query);
             
             if ($featured_result && $featured_result->num_rows > 0) {
                 while ($row = $featured_result->fetch_assoc()) {
-                    $date_badge = date("M j", strtotime($row['event_date']));
+                    $date_badge = date("M j", strtotime($row['created_at']));
                     $short_desc = strlen($row['description']) > 100 ? 
                         substr($row['description'], 0, 100) . "..." : $row['description'];
                     ?>
@@ -359,41 +359,44 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                     <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="news-<?= $row['id']; ?>-title">
                         <div class="card news-card shadow-sm h-100">
                             <div class="position-relative">
-                                <?php if (!empty($row['thumbnail'])): ?>
-                                    <img src="ADMIN DASHBOARD/<?= htmlspecialchars($row['thumbnail']); ?>" 
-                                         class="card-img-top" 
-                                         alt="<?= htmlspecialchars($row['title']); ?>"
-                                         style="height: 200px; object-fit: cover;">
+                                <?php if (!empty($row['external_url'])): ?>
+                                    <div class="embed-container" style="height: 200px; overflow: hidden;">
+                                        <?php
+                                        $url = $row['external_url'];
+                                        if (preg_match('/facebook\.com|fb\.watch/i', $url)) {
+                                            echo '<div class="fb-post" data-href="'.htmlspecialchars($url).'" data-width="500" data-show-text="true"></div>';
+                                        } elseif (preg_match('/twitter\.com|t\.co/i', $url)) {
+                                            echo '<blockquote class="twitter-tweet"><a href="'.htmlspecialchars($url).'"></a></blockquote>';
+                                        } elseif (preg_match('/instagram\.com/i', $url)) {
+                                            echo '<blockquote class="instagram-media" data-instgrm-permalink="'.htmlspecialchars($url).'" data-instgrm-version="13"></blockquote>';
+                                        } elseif (preg_match('/youtube\.com|youtu\.be/i', $url)) {
+                                            preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|youtu\.be\/)([^"&?\/\s]{11})/i', $url, $matches);
+                                            $video_id = $matches[1] ?? '';
+                                            echo '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/'.$video_id.'" frameborder="0" allowfullscreen style="width:100%;height:100%;"></iframe>';
+                                        } else {
+                                            echo '<div class="oembed-container" data-url="'.htmlspecialchars($url).'" style="width:100%;height:100%;"></div>';
+                                        }
+                                        ?>
+                                    </div>
                                 <?php else: ?>
-                                    <img src="Images/default-event.jpg" 
-                                         class="card-img-top" 
-                                         alt="Default Event Image"
-                                         style="height: 200px; object-fit: cover;">
+                                    <div class="no-embed-placeholder" style="height: 200px; display: flex; align-items: center; justify-content: center; background: #f8f9fa;">
+                                        <i class="fas fa-newspaper fa-3x text-muted"></i>
+                                    </div>
                                 <?php endif; ?>
                                 <span class="badge news-date"><?= $date_badge; ?></span>
-                                <span class="badge bg-primary position-absolute top-0 end-0 m-2">Featured</span>
+                                <?php if ($row['is_featured']): ?>
+                                    <span class="badge bg-primary position-absolute top-0 end-0 m-2">Featured</span>
+                                <?php endif; ?>
                             </div>
                             <div class="card-body d-flex flex-column">
                                 <h5 id="news-<?= $row['id']; ?>-title" class="card-title">
                                     <?= htmlspecialchars($row['title']) ?>
-                                    <?php if (!empty($row['external_url'])): ?>
-                                        <span class="external-link-indicator" title="Has external link">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </span>
-                                    <?php endif; ?>
                                 </h5>
                                 <p class="card-text"><?= htmlspecialchars($short_desc) ?></p>
-                                <?php if (!empty($row['location'])): ?>
-                                    <p class="text-muted small mb-3">
-                                        <i class="fas fa-map-marker-alt"></i> 
-                                        <?= htmlspecialchars($row['location']) ?>
-                                    </p>
-                                <?php endif; ?>
                                 <div class="mt-auto">
-                                    <a href="event-details.php?id=<?= $row['id'] ?>" class="btn btn-primary">READ MORE</a>
                                     <?php if (!empty($row['external_url'])): ?>
-                                        <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" class="btn btn-outline-secondary ms-2">
-                                            External Link <i class="fas fa-external-link-alt"></i>
+                                        <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" class="btn btn-primary">
+                                            View Content <i class="fas fa-external-link-alt"></i>
                                         </a>
                                     <?php endif; ?>
                                 </div>
@@ -488,6 +491,29 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     </div>
 </footer>
 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE"></script>
+<script async defer src="https://www.instagram.com/embed.js"></script>
+<script>
+// Generic oEmbed loader
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.oembed-container').forEach(container => {
+        const url = container.dataset.url;
+        fetch(`https://noembed.com/embed?url=${encodeURIComponent(url)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.html) {
+                    container.innerHTML = data.html;
+                } else {
+                    container.innerHTML = `<a href="${url}" target="_blank" class="btn btn-primary">View Content</a>`;
+                }
+            })
+            .catch(() => {
+                container.innerHTML = `<a href="${url}" target="_blank" class="btn btn-primary">View Content</a>`;
+            });
+    });
+});
+</script>
 </body>
 </html>
 <?php $conn->close(); ?>

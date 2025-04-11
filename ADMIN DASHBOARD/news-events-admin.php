@@ -19,50 +19,17 @@ if (isset($_GET['edit'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $event_date = $_POST['event_date'];
-    $location = $_POST['location'];
     $external_url = $_POST['external_url'] ?? '';
     $is_featured = isset($_POST['is_featured']) ? 1 : 0;
     $id = $_POST['id'] ?? null;
 
-    $thumbnail = $current_event['thumbnail'] ?? '';
-    
-    if (isset($_FILES['event_image']) && $_FILES['event_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'Images-news-events/';
-        if (!file_exists($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
-        $fileName = uniqid() . '_' . basename($_FILES['event_image']['name']);
-        $targetPath = $uploadDir . $fileName;
-        
-        $check = getimagesize($_FILES['event_image']['tmp_name']);
-        if ($check !== false) {
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-            if (in_array($check['mime'], $allowedTypes)) {
-                if (move_uploaded_file($_FILES['event_image']['tmp_name'], $targetPath)) {
-                    $thumbnail = $targetPath;
-                    
-                    if ($editing && !empty($current_event['thumbnail']) && file_exists($current_event['thumbnail'])) {
-                        unlink($current_event['thumbnail']);
-                    }
-                } else {
-                    $error = "Sorry, there was an error uploading your file.";
-                }
-            } else {
-                $error = "Only JPG, PNG, GIF & WEBP files are allowed.";
-            }
-        } else {
-            $error = "File is not an image.";
-        }
-    }
-
     if (!isset($error)) {
         if ($id) {
-            $stmt = $conn->prepare("UPDATE newsevents SET title=?, description=?, event_date=?, location=?, thumbnail=?, external_url=?, is_featured=?, updated_at=NOW() WHERE id=?");
-            $stmt->bind_param("ssssssii", $title, $description, $event_date, $location, $thumbnail, $external_url, $is_featured, $id);
+            $stmt = $conn->prepare("UPDATE newsevents SET title=?, description=?, external_url=?, is_featured=?, updated_at=NOW() WHERE id=?");
+            $stmt->bind_param("sssii", $title, $description, $external_url, $is_featured, $id);
         } else {
-            $stmt = $conn->prepare("INSERT INTO newsevents (title, description, event_date, location, thumbnail, external_url, is_featured) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssssi", $title, $description, $event_date, $location, $thumbnail, $external_url, $is_featured);
+            $stmt = $conn->prepare("INSERT INTO newsevents (title, description, external_url, is_featured) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("sssi", $title, $description, $external_url, $is_featured);
         }
         
         if ($stmt->execute()) {
@@ -80,21 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     
-    $stmt = $conn->prepare("SELECT thumbnail FROM newsevents WHERE id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $event = $result->fetch_assoc();
-    $stmt->close();
-    
     $stmt = $conn->prepare("DELETE FROM newsevents WHERE id = ?");
     $stmt->bind_param("i", $id);
     
     if ($stmt->execute()) {
-        if (!empty($event['thumbnail']) && file_exists($event['thumbnail'])) {
-            unlink($event['thumbnail']);
-        }
-        
         $_SESSION['message'] = "Event deleted successfully!";
         header("Location: news-events-admin.php");
         exit();
@@ -105,14 +61,7 @@ if (isset($_GET['delete'])) {
     $stmt->close();
 }
 
-$events = $conn->query("SELECT *, 
-                       CASE 
-                           WHEN event_date > CURDATE() THEN 'upcoming'
-                           WHEN event_date = CURDATE() THEN 'current'
-                           ELSE 'past'
-                       END AS status
-                       FROM newsevents 
-                       ORDER BY is_featured DESC, event_date DESC");
+$events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, created_at DESC");
 ?>
 
 <style>
@@ -153,24 +102,6 @@ $events = $conn->query("SELECT *,
     border-color: #3498db;
     box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
     outline: none;
-}
-
-.upload-group {
-    display: flex;
-    gap: 10px;
-}
-
-.upload-btn {
-    background: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 0 15px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.upload-btn:hover {
-    background: #e9ecef;
 }
 
 .form-actions {
@@ -240,29 +171,6 @@ $events = $conn->query("SELECT *,
 
 .testimonial-table tr:hover td {
     background-color: #f9f9f9;
-}
-
-.status-badge {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.upcoming {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.current {
-    background-color: #cce5ff;
-    color: #004085;
-}
-
-.past {
-    background-color: #e2e3e5;
-    color: #383d41;
 }
 
 .featured {
@@ -341,20 +249,6 @@ $events = $conn->query("SELECT *,
     width: auto;
     height: auto;
 }
-
-.current-image {
-    margin-top: 15px;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    border: 1px solid #eee;
-}
-
-.current-image p {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #555;
-}
 </style>
 
 <div class="details">
@@ -370,7 +264,7 @@ $events = $conn->query("SELECT *,
             <div class="alert alert-danger"><?= $error ?></div>
         <?php endif; ?>
 
-        <form action="news-events-admin.php" method="POST" enctype="multipart/form-data">
+        <form action="news-events-admin.php" method="POST">
             <?php if ($editing): ?>
                 <input type="hidden" name="id" value="<?= $current_event['id'] ?>">
             <?php endif; ?>
@@ -389,33 +283,10 @@ $events = $conn->query("SELECT *,
             </div>
             
             <div class="input-group">
-                <label for="event_date">Event Date</label>
-                <input type="date" id="event_date" name="event_date" 
-                       value="<?= $editing ? htmlspecialchars($current_event['event_date']) : '' ?>" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="location">Location</label>
-                <input type="text" id="location" name="location" 
-                       value="<?= $editing ? htmlspecialchars($current_event['location']) : '' ?>">
-            </div>
-            
-            <div class="input-group">
-                <label for="external_url">External URL (Optional)</label>
+                <label for="external_url">External URL</label>
                 <input type="url" id="external_url" name="external_url" 
                        value="<?= $editing ? htmlspecialchars($current_event['external_url']) : '' ?>"
-                       placeholder="https://example.com/event-link">
-            </div>
-            
-            <div class="input-group">
-                <label for="event_image">Event Thumbnail (Recommended: 800x450px)</label>
-                <input type="file" id="event_image" name="event_image" accept="image/*">
-                <?php if ($editing && !empty($current_event['thumbnail'])): ?>
-                    <div class="current-image">
-                        <p>Current Thumbnail:</p>
-                        <img src="<?= htmlspecialchars($current_event['thumbnail']) ?>" style="max-width: 200px; max-height: 150px; display: block;">
-                    </div>
-                <?php endif; ?>
+                       placeholder="https://example.com/event-link" required>
             </div>
             
             <div class="input-group">
@@ -449,11 +320,9 @@ $events = $conn->query("SELECT *,
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Thumbnail</th>
+                            <th>Description</th>
                             <th>External Link</th>
-                            <th>Status</th>
+                            <th>Created At</th>
                             <th>Featured</th>
                             <th>Actions</th>
                         </tr>
@@ -462,15 +331,7 @@ $events = $conn->query("SELECT *,
                         <?php while ($row = $events->fetch_assoc()): ?>
                             <tr>
                                 <td><?= htmlspecialchars($row['title']) ?></td>
-                                <td><?= date('M j, Y', strtotime($row['event_date'])) ?></td>
-                                <td><?= htmlspecialchars($row['location']) ?></td>
-                                <td>
-                                    <?php if (!empty($row['thumbnail'])): ?>
-                                        <img src="<?= htmlspecialchars($row['thumbnail']) ?>" style="max-width: 80px; max-height: 60px; border-radius: 4px;">
-                                    <?php else: ?>
-                                        <span>-</span>
-                                    <?php endif; ?>
-                                </td>
+                                <td><?= htmlspecialchars(substr($row['description'], 0, 100)) . (strlen($row['description']) > 100 ? '...' : '') ?></td>
                                 <td>
                                     <?php if (!empty($row['external_url'])): ?>
                                         <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" style="word-break: break-all;">
@@ -480,14 +341,10 @@ $events = $conn->query("SELECT *,
                                         <span>-</span>
                                     <?php endif; ?>
                                 </td>
-                                <td>
-                                    <span class="status-badge <?= $row['status'] ?>">
-                                        <?= ucfirst($row['status']) ?>
-                                    </span>
-                                </td>
+                                <td><?= date('M j, Y', strtotime($row['created_at'])) ?></td>
                                 <td>
                                     <?php if ($row['is_featured']): ?>
-                                        <span class="status-badge featured">Featured</span>
+                                        <span class="featured">Featured</span>
                                     <?php else: ?>
                                         <span>-</span>
                                     <?php endif; ?>
