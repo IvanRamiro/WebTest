@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Dashboard |FAST CASH</title>
+    <title>Admin Dashboard | FAST CASH</title>
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Optional: Add some icon styling if needed */
+        .navigation ul li .icon {
+            min-width: 30px;
+            display: inline-flex;
+            justify-content: center;
+        }
+    </style>
 </head>
-
 
 <!-- ==================== NAVIGATION BAR ==================== -->
 <div class="container">
@@ -16,18 +23,18 @@
         <ul>
             <li class="logo">
                 <a href="dashboard.php">
-                    <span class="icon   "><i class="fa-solid fa-circle-user"></i></span>
+                    <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
                     <span class="title">FAST CASH</span>
                 </a>
             </li>
-            <li><a href="Admin.php"><span class="icon"><i class="fa-regular fa-folder"></i></span> <span class="title">Dashboard</span></a></li>
-            <li><a href="customer.php"><span class="icon"><i class="fa-solid fa-person"></i></span> <span class="title">Customer</span></a></li>
-            <li><a href="inventory.php"><span class="icon"><i class="fa-solid fa-truck-moving"></i></span> <span class="title">Inventory</span></a></li>
-            <li><a href="news-events-admin.php"><span class="icon"><i class="fa-regular fa-calendar-days"></i></span> <span class="title">News & Events</span></a></li>
-            <li><a href="background.php"><span class="icon"><i class="fa-regular fa-images"></i></span> <span class="title">Background</span></a></li>
-            <li><a href="testimonial.php"><span class="icon"><i class="fa-regular fa-images"></i></span> <span class="title">Testimonials</span></a></li>
-            <li><a href="settings.php"><span class="icon"><i class="fa-solid fa-cogs"></i></span> <span class="title">Settings</span></a></li>
-            <li><a href="logout.php"><span class="icon"><i class="fa-solid fa-sign-out-alt"></i></span> <span class="title">Logout</span></a></li>
+            <li><a href="dashboard.php"><span class="icon"><i class="fa-solid fa-gauge-high"></i></span> <span class="title">Dashboard</span></a></li>
+            <li><a href="customer.php"><span class="icon"><i class="fa-solid fa-users"></i></span> <span class="title">Customer</span></a></li>
+            <li><a href="inventory.php"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> <span class="title">Inventory</span></a></li>
+            <li><a href="news-events-admin.php"><span class="icon"><i class="fa-solid fa-newspaper"></i></span> <span class="title">News & Events</span></a></li>
+            <li><a href="background.php"><span class="icon"><i class="fa-solid fa-photo-film"></i></span> <span class="title">Background</span></a></li>
+            <li><a href="testimonial.php"><span class="icon"><i class="fa-solid fa-comment-dots"></i></span> <span class="title">Testimonials</span></a></li>
+            <li><a href="settings.php"><span class="icon"><i class="fa-solid fa-sliders"></i></span> <span class="title">Settings</span></a></li>
+            <li><a href="logout.php"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span> <span class="title">Logout</span></a></li>
         </ul>
     </div>
 </div>
@@ -44,6 +51,6 @@
             </label>
         </div>
         <div class="user">
-            <img src="../Images/logo.jpg" alt="User">
+            <img src="../Images/Logo.png" alt="User">
         </div>
     </div>
