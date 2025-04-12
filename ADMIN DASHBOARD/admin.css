@@ -1,5 +1,32 @@
-/* =================== Google Fonts ================== */
+/* =================== GLOBAL STYLES ================== */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+    /* Color Variables */
+    --blue: #017afc;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+
+    /* Spacing Variables */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    
+    /* Font Variables */
+    --font-sm: 0.9rem;
+    --font-md: 1.1rem;
+    --font-lg: 1.4rem;
+    
+    /* Animation Variables */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Other Variables */
+    --radius: 12px;
+}
 
 * {
     font-family: "Ubuntu", sans-serif;
@@ -8,35 +35,28 @@
     box-sizing: border-box;
 }
 
-:root {
-    --blue: #0a1473;
-    --white: #fff;
-    --gray: #f5f5f5;
-    --black1: #222;
-    --black2: #999;
-
-}
-
 body {
     min-height: 100vh;
     overflow: hidden;
-
+    font-size: clamp(14px, 2vw, 18px);
 }
 
 .container {
     position: relative;
     width: 100%;
-
 }
-/* =================== Navigation ================== */
+
+/* =================== LAYOUT COMPONENTS ================== */
+
+/* Navigation Sidebar */
 .navigation {
     position: fixed;
     width: 300px;
     height: 100%;
     background: var(--blue);
-    border-left: 10px solid red(var(--blue));
-    transition: 0.5s;
+    transition: width var(--transition-slow), transform var(--transition-slow);
     overflow: hidden;
+    z-index: 1000;
 }
 
 .navigation.active {
@@ -48,18 +68,23 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .navigation ul li {
     position: relative;
     width: 100%;
     list-style: none;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    transition: background-color var(--transition-medium), transform var(--transition-fast);
 }
 
-.navigation ul li:hover,
-.navigation ul li.hovered {
+.navigation ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.navigation ul li.active {
     background-color: var(--white);
 }
 
@@ -70,17 +95,17 @@ body {
 
 .navigation ul li a {
     position: relative;
-    display: block;
-    width: 100%;
     display: flex;
+    width: 100%;
     text-decoration: none;
     color: var(--white);
-    padding-left: 15px; /* Moved text slightly to the right */
-    font-size: 1.1rem; /* Increased font size */
+    padding-left: 15px;
+    font-size: var(--font-md);
+    align-items: center;
+    transition: color var(--transition-medium);
 }
 
-.navigation ul li:hover a,
-.navigation ul li.hovered a {
+.navigation ul li.active a {
     color: var(--blue);
 }
 
@@ -90,8 +115,7 @@ body {
     min-width: 60px;
     height: 60px;
     text-align: center;
-    line-height: 75px;
-    font-size: 20px;
+    line-height: 60px;
 }
 
 .navigation ul li a .icon i {
@@ -101,53 +125,39 @@ body {
 .navigation ul li a .title {
     position: relative;
     display: block;
-    padding: 0 15px; /* Adjusted text position */
+    padding: 0 15px;
     height: 60px;
     line-height: 60px;
     text-align: start;
     white-space: nowrap;
-    font-size: 1.1rem; /* Increased font size */
 }
 
-/* =================== Curve Outside dashboard ================== */
-.navigation ul li:hover a::before,
-.navigation ul li.hovered a::before{
-    content: '';
-    position: absolute;
-    right: 0;
-    top: -50px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border-radius: 50%;
-    box-shadow: 35px 35px 0 10px var(--white);
-    pointer-events: none;
-
+/* Overlay */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    transition: opacity var(--transition-medium);
 }
 
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: -50px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border-radius: 50%;
-    box-shadow: 35px -35px 0 10px var(--white);
-    pointer-events: none;
+.navigation.active ~ .nav-overlay {
+    display: block;
+    animation: fadeIn var(--transition-medium) forwards;
 }
 
-/* =================== Main ================== */
-
+/* Main Content Area */
 .main {
     position: absolute;
     width: calc(100% - 300px);
     left: 300px;
     min-height: 100vh;
     background: var(--white);
-    transition: 0.5s;
+    transition: width var(--transition-slow), left var(--transition-slow);
 }
 
 .main.active {
@@ -155,6 +165,7 @@ body {
     left: 80px;
 }
 
+/* Top Bar */
 .topbar {
     width: 100%;
     height: 60px;
@@ -164,7 +175,7 @@ body {
     padding: 0 10px;
 }
 
-.toggle{
+.toggle {
     position: relative;
     width: 60px;
     height: 60px;
@@ -173,9 +184,14 @@ body {
     align-items: center;
     font-size: 2.5rem;
     cursor: pointer;
+    transition: transform var(--transition-fast);
 }
 
-.search{
+.toggle:active {
+    transform: scale(0.95);
+}
+
+.search {
     position: relative;
     width: 400px;
     margin: 0 10px;
@@ -195,6 +211,12 @@ body {
     font-size: 18px;
     outline: none;
     border: 1px solid var(--black2);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search label input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(1, 122, 252, 0.2);
 }
 
 .search label i {
@@ -202,6 +224,11 @@ body {
     top: 0;
     left: 10px;
     font-size: 1.2rem;
+    transition: color var(--transition-fast);
+}
+
+.search label input:focus + i {
+    color: var(--blue);
 }
 
 .user {
@@ -211,7 +238,13 @@ body {
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    transition: transform var(--transition-fast);
 }
+
+.user:hover {
+    transform: scale(1.1);
+}
+
 .user img {
     position: absolute;
     top: 0;
@@ -219,85 +252,88 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
 }
 
-/* =================== Cards ================== */
+/* =================== COMPONENTS ================== */
 
+/* Cards */
 .cardBox {
     position: relative;
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 30px;
 }
 
-.cardBox .card {
+.card {
     position: relative;
     background: var(--white);
     padding: 30px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
-    cursor: pointer;    
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-medium);
+    animation: fadeIn var(--transition-slow) both;
 }
 
-.cardBox .card .numbers {
+.card:hover {
+    background: var(--blue);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card .numbers {
     position: relative;
     font-weight: 500;
     font-size: 1.5rem;
     color: var(--blue);
-
+    transition: color var(--transition-medium);
 }
 
-.cardBox .card .cardName {
+.card .cardName {
     color: var(--black1);
-    font-size: 1.1rem;
+    font-size: var(--font-md);
     margin-top: 5px;
+    transition: color var(--transition-medium);
 }
 
-.cardBox .card .iconBx {
+.card .iconBx {
     font-size: 1.5rem;
     color: var(--blue);
+    transition: color var(--transition-medium);
 }
 
-.cardBox .card:hover {
-    background: var(--blue);
-}
-
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
+.card:hover .numbers,
+.card:hover .cardName,
+.card:hover .iconBx {
     color: var(--white);
 }
 
-/* =================== Item Details ================== */
-
+/* Tables */
 .details {
     position: relative;
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Fixed typo */
+    grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
-    overflow-x: auto; /* Ensures scrolling if content overflows */
 }
 
-.details .itemOrders {
+.itemOrders, .recentCustomers {
     position: relative;
     display: grid;
     min-height: 500px;
     background: var(--white);
     padding: 20px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
-    overflow-x: auto; /* Allows horizontal scrolling if needed */
-    white-space: nowrap; /* Prevents text from wrapping */
+    animation: slideIn var(--transition-slow) both;
 }
 
-.details .cardHeader {
+.cardHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -308,317 +344,194 @@ body {
     color: var(--blue);
 }
 
-.cardHeader .btn {
-    position: relative;
-    padding: 5px 10px;
-    background: var(--blue);
-    text-decoration: none;
-    color: var(--white);
-    border-radius: 6px;
-}
-
-/* Table Styles */
-.details table {
-    width: 100%; /* Ensures the table fits within its container */
-    max-width: 100%;
+table {
+    width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-    table-layout: auto;
-    overflow-x: auto;
 }
 
-.details table thead td {
-    font-weight: 600;
-}
-
-.details .itemOrders table tr {
+table tr {
     color: var(--black1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
 }
 
-.details .itemOrders table tr:last-child {
+table tr:last-child {
     border-bottom: none;
 }
 
-.details .itemOrders table tbody tr:hover {
+table tr:hover {
     background: var(--blue);
     color: var(--white);
 }
 
-.details .itemOrders table tr td {
+table td {
     padding: 10px;
 }
 
-.details .itemOrders table tr td:last-child {
+table td:last-child {
     text-align: end;
 }
 
-.details .itemOrders table tr td:nth-child(2) {
+table td:nth-child(2) {
     text-align: end;
 }
 
-.details .itemOrders table tr td:nth-child(3) {
+table td:nth-child(3) {
     text-align: center;
 }
 
 /* Status Labels */
-.status.delivered {
+.status {
     padding: 2px 4px;
-    background: #8de02b;
-    color: var(--white);
     border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
-}
-
-.status.pending {
-    padding: 2px 4px;
-    background: #e9b10a;
     color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
+    transition: all var(--transition-fast);
 }
 
-.status.return {
-    padding: 2px 4px;
-    background: #f00;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-}
+.status.delivered { background: #8de02b; }
+.status.pending { background: #e9b10a; }
+.status.return { background: #f00; }
+.status.inProgress { background: #1795ce; }
 
-.status.inProgress {
-    padding: 2px 4px;
-    background: #1795ce;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* Add Item Button */
-.addItem {
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
     background: var(--blue);
     color: var(--white);
-    padding: 5px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* Edit & Delete Buttons */
-.editBtn, .deleteBtn {
-    padding: 4px 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    margin: 2px;
-    border-radius: 4px;
-}
-
-/* Edit Button */
-.editBtn {
-    background: #e9b10a;
-    color: var(--white);
-}
-
-/* Delete Button */
-.deleteBtn {
-    background: #f00;
-    color: var(--white);
-}
-
-/* ========== Styled Buttons ========== */
-button {
-    padding: 12px 18px;
-    border: none;
+    text-decoration: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s ease-in-out;
     font-weight: bold;
+    transition: all var(--transition-fast), transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 10px rgba(1, 122, 252, 0.3);
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 15px rgba(1, 122, 252, 0.4);
 }
 
 .addItem {
     background: #28a745;
-    color: white;
     box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
 }
 
 .editBtn {
-    background: #ffc107;
-    color: black;
-    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #212529;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.editBtn:hover {
+    background: linear-gradient(135deg, #e0a800, #d39e00);
+    box-shadow: 0 6px 16px rgba(255, 193, 7, 0.5);
+    transform: translateY(-2px);
 }
 
 .deleteBtn {
-    background: #dc3545;
-    color: white;
-    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
-}
-
-/* Hover Effects */
-button:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-}
-
-/* ========== Improve Inventory Table ========== */
-.inventoryContainer {
-    width: 85%;
-    margin: auto;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.inventoryContainer h2 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-/* Table Styling */
-table {
-    width: 100%;
-    background: white;
-    border-collapse: collapse;
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-table thead {
-    background: #007bff;
-    color: white;
-    font-size: 18px;
+.deleteBtn:hover {
+    background: linear-gradient(135deg, #c82333, #bd2130);
+    box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
+    transform: translateY(-2px);
 }
 
-table th, table td {
-    padding: 14px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
 
-table tbody tr:hover {
-    background: #e9f5ff;
-    transition: 0.3s ease-in-out;
-}
-
-/* ========== Add Item & Edit Form Styling ========== */
+/* Forms */
 #addForm, #editForm {
     width: 50%;
     margin: auto;
     background: white;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
-    transition: all 0.3s ease-in-out;
-    animation: slideIn 0.5s ease-in-out;
+    animation: slideIn var(--transition-slow) both;
 }
 
-#addForm input, #editForm input {
+#addForm input, 
+#editForm input {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
-    transition: border 0.3s ease-in-out;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-#addForm input:focus, #editForm input:focus {
+#addForm input:focus, 
+#editForm input:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
-/* ========== Animations ========== */
+/* =================== ANIMATIONS ================== */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
 }
 
-.recentCustomers {
-    position: relative;
-    display: grid;
-    min-height: 500px;
-    padding: 20px;
-    background: var(--white);
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
 }
 
-.recentCustomers .imgBx {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
+/* =================== RESPONSIVE DESIGN ================== */
+@media (max-width: 992px) {
+    .search {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
-.recentCustomers .imgBx img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Fix Hover Effect */
-.recentCustomers table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.recentCustomers table tr {
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.recentCustomers table tr:hover {
-    background: var(--blue);
-    color: var(--white);
-    cursor: pointer;
-}
-
-.recentCustomers table tr td {
-    padding: 12px 10px;
-}
-
-.recentCustomers table tr td h4 {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.2rem;
-}
-
-.recentCustomers table tr td h4 span {
-    font-size: 14px;
-    color: var(--black1);
-}
-
-/* Ensure text color changes on hover */
-.recentCustomers table tr:hover h4 span {
-    color: var(--white);
-}
-
-/* =================== Responsive Design ================== */ 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .navigation {
         left: -300px;
-        overflow-y: auto;
     }
     .navigation.active {
         width: 300px;
@@ -627,46 +540,22 @@ table tbody tr:hover {
     .main {
         width: 100%;
         left: 0;
-        overflow-y: auto;
-    }
-    .main.active {
-        width: 300px;
-        left: 0;
     }
     .cardBox {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 768px) {
     .details {
         grid-template-columns: 1fr;
-        overflow-x: auto;
-    }
-    .recentOrders {
-        overflow-x: auto;
-    }
-    .status.inProgress {
-        white-space: nowrap;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
     .cardBox {
         grid-template-columns: 1fr;
-    }
-    .cardHeader h2 {
-        font-size: 20px;
-    }
-    .user {
-        min-width: 40px;
     }
     .navigation {
         width: 100%;
         left: -100%;
-        z-index: 1000;
-        overflow-y: auto;
-        height: 100vh;
     }
     .navigation.active {
         width: 100%;
@@ -675,14 +564,19 @@ table tbody tr:hover {
     .toggle {
         z-index: 10001;
     }
-    .main {
-        overflow-y: auto;
-        height: 100vh;
-    }
     .main.active .toggle {
         color: #fff;
         position: fixed;
         right: 0;
-        left: initial;
+    }
+    #addForm, #editForm {
+        width: 90%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 }

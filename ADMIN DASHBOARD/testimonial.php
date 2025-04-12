@@ -1,13 +1,11 @@
 <?php
 include 'header.php'; 
-require 'config.php'; // Database connection file
+require 'config.php';
 
-// Define categories (now only General)
 $categories = ['General'];
 $editing = false;
 $current_testimonial = null;
 
-// Check if editing existing testimonial
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $stmt = $conn->prepare("SELECT * FROM Testimonials WHERE id = ?");
@@ -24,11 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $video_url = $_POST['video_url'];
     $thumbnail_path = $_POST['thumbnail_path'];
-    $category = 'General'; // Force all testimonials to be General
+    $category = 'General';
     $id = $_POST['id'] ?? null;
 
     if ($id) {
-        // Update existing testimonial
         $stmt = $conn->prepare("UPDATE Testimonials SET title = ?, video_url = ?, thumbnail_path = ?, category = ? WHERE id = ?");
         $stmt->bind_param("ssssi", $title, $video_url, $thumbnail_path, $category, $id);
     } else {

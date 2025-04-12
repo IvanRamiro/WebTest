@@ -40,7 +40,6 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 <body>
 
     <style>
-        /* Enhanced Event Card Styles */
         .event-card {
             transition: transform 0.3s, box-shadow 0.3s;
             height: 100%;
@@ -173,7 +172,6 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             transform: translateY(-2px);
         }
         
-        /* Empty State */
         .empty-state {
             text-align: center;
             padding: 50px 20px;
@@ -199,7 +197,6 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             margin: 0 auto 20px;
         }
         
-        /* Hero Section Enhancements */
         .hero {
             height: 400px;
             background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;
@@ -241,7 +238,6 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
-        /* External link indicator */
         .external-link-indicator {
             display: inline-flex;
             align-items: center;
@@ -250,7 +246,6 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             margin-left: 5px;
         }
         
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .hero {
                 height: 300px;

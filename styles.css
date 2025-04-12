@@ -1,8 +1,8 @@
 :root {
   --primary-color: #017afc;
   --primary-hover: #76bef9;
-  --accent-color: #ff4757;
-  --accent-hover: #e84118;
+  --accent-color: #cc0000;
+  --accent-hover: #ff6b6b;
   --text-dark: #2f3542;
   --text-medium: #57606f;
   --text-light: #a4b0be;
@@ -68,8 +68,6 @@ h2 {
   position: relative;
 }
 
-/* Removed the ::after pseudo-element that created the underline */
-
 /* ========================
   Buttons
 ======================== */
@@ -112,13 +110,13 @@ h2 {
 .btn-primary {
   background-color: var(--accent-color);
   color: var(--white);
-  box-shadow: 0 4px 20px rgba(255, 71, 87, 0.35);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
 }
 
 .btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(255, 71, 87, 0.5);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.5);
 }
 
 .btn-outline-danger {
@@ -405,7 +403,7 @@ h2 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #dc3545;
+    background: #017afc;
     color: white;
     display: flex;
     align-items: center;
@@ -424,7 +422,7 @@ h2 {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #dc3545;
+    background: #017afc;
 }
 .list-icon {
     list-style: none;
@@ -494,7 +492,7 @@ h2 {
     z-index: 2;
 }
 .process-step.active .step-icon {
-    background: #dc3545;
+    background: #017afc;
     color: white;
 }
 .process-step.completed .step-icon {
@@ -511,7 +509,7 @@ h2 {
     transition: all 0.3s ease;
 }
 .disbursement-method:hover {
-    border-color: #dc3545;
+    border-color: #017afc;
     transform: translateY(-5px);
 }
 .icon-container {

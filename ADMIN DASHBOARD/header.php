@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMIN DASHBOARD</title>
-
-    <!-- ==================== STYLES ==================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Dashboard |FAST CASH</title>
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
+
 
 <!-- ==================== NAVIGATION BAR ==================== -->
 <div class="container">
@@ -18,7 +17,7 @@
             <li class="logo">
                 <a href="dashboard.php">
                     <span class="icon   "><i class="fa-solid fa-circle-user"></i></span>
-                    <span class="title">QCREDIT</span>
+                    <span class="title">FAST CASH</span>
                 </a>
             </li>
             <li><a href="Admin.php"><span class="icon"><i class="fa-regular fa-folder"></i></span> <span class="title">Dashboard</span></a></li>
