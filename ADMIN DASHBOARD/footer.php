@@ -1,5 +1,5 @@
     <!-- ==================== SCRIPTS ==================== -->
     <script src="dashboard.js"></script>
-</div> <!-- Closing main div -->
+</div>
 </body>
 </html>

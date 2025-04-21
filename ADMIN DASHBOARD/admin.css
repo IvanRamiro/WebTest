@@ -150,6 +150,7 @@ body {
     animation: fadeIn var(--transition-medium) forwards;
 }
 
+
 /* Main Content Area */
 .main {
     position: absolute;
