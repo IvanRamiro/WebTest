@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li><a href="dashboard.php"><span class="icon"><i class="fa-solid fa-gauge-high"></i></span> <span class="title">Dashboard</span></a></li>
-            <li><a href="customer.php"><span class="icon"><i class="fa-solid fa-users"></i></span> <span class="title">Customer</span></a></li>
+            <li><a href="loan_dashboard.php"><span class="icon"><i class="fa-solid fa-users"></i></span> <span class="title">Loan Dashboard</span></a></li>
             <li><a href="inventory.php"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> <span class="title">Inventory</span></a></li>
             <li><a href="news-events-admin.php"><span class="icon"><i class="fa-solid fa-newspaper"></i></span> <span class="title">News & Events</span></a></li>
             <li><a href="background.php"><span class="icon"><i class="fa-solid fa-photo-film"></i></span> <span class="title">Background</span></a></li>

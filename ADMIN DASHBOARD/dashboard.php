@@ -6,31 +6,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOAN MANAGEMENT DASHBOARD</title>
-
-    <!-- ==================== STYLES ==================== -->
+    
+    <!-- ==================== STYLES & SCRIPTS ==================== -->
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
-        /* Enhanced Card Styles */
+        /* Main Dashboard Layout */
         .dashboard-container {
-            padding: 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
+        /* Stat Card Styles */
         .stat-card {
             background: white;
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
         }
         
         .stat-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
         
         .card-header {
@@ -38,6 +47,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            z-index: 2;
         }
         
         .card-icon {
@@ -54,7 +64,8 @@
         .card-value {
             font-size: 28px;
             font-weight: 700;
-            margin: 10px 0;
+            margin: 5px 0;
+            z-index: 2;
         }
         
         .card-title {
@@ -62,14 +73,37 @@
             color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
+            z-index: 2;
         }
         
         .card-footer {
-            margin-top: 15px;
+            margin-top: auto;
             font-size: 12px;
             color: #888;
             display: flex;
             align-items: center;
+            z-index: 2;
+        }
+        
+        /* Chart Integration in Loans Issued Card */
+        .loans-issued {
+            position: relative;
+            grid-column: span 2;
+            height: 300px;
+        }
+        
+        .loans-issued .chart-container {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            height: 150px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .loans-issued:hover .chart-container {
+            opacity: 1;
         }
         
         /* Card-specific colors */
@@ -96,23 +130,45 @@
         
         .delinquent { border-left: 4px solid #be2617; }
         .delinquent .card-icon { background: #be2617; }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .loans-issued {
+                grid-column: span 1;
+                height: 250px;
+            }
+            
+            .card-value {
+                font-size: 24px;
+            }
+            
+            .card-title {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ==================== ENHANCED LOAN STATS CARDS ==================== -->
+    <!-- ==================== DASHBOARD CONTAINER ==================== -->
     <div class="dashboard-container">
-        <!-- Total Loans Issued -->
+        
+        <!-- Total Loans Issued (With Chart) -->
         <div class="stat-card loans-issued">
             <div class="card-header">
                 <span class="card-title">Total Loans Issued</span>
-                <div class="card-icon">
-                    <i class="fas fa-file-invoice"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-file-invoice"></i></div>
             </div>
             <div class="card-value">1,024</div>
             <div class="card-footer">
                 <i class="fas fa-calendar-alt mr-2"></i> All time
+            </div>
+            <div class="chart-container">
+                <canvas id="loansChart"></canvas>
             </div>
         </div>
         
@@ -120,9 +176,7 @@
         <div class="stat-card amount-lent">
             <div class="card-header">
                 <span class="card-title">Total Amount Lent</span>
-                <div class="card-icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
             </div>
             <div class="card-value">$248,750</div>
             <div class="card-footer">
@@ -130,55 +184,11 @@
             </div>
         </div>
         
-        <!-- Pending Applications -->
-        <div class="stat-card pending">
-            <div class="card-header">
-                <span class="card-title">Pending Applications</span>
-                <div class="card-icon">
-                    <i class="fas fa-sync-alt"></i>
-                </div>
-            </div>
-            <div class="card-value">87</div>
-            <div class="card-footer">
-                <i class="fas fa-clock mr-2"></i> Awaiting review
-            </div>
-        </div>
-        
-        <!-- Approved Applications -->
-        <div class="stat-card approved">
-            <div class="card-header">
-                <span class="card-title">Approved Applications</span>
-                <div class="card-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-            </div>
-            <div class="card-value">892</div>
-            <div class="card-footer">
-                <i class="fas fa-thumbs-up mr-2"></i> 85% approval rate
-            </div>
-        </div>
-        
-        <!-- Rejected Applications -->
-        <div class="stat-card rejected">
-            <div class="card-header">
-                <span class="card-title">Rejected Applications</span>
-                <div class="card-icon">
-                    <i class="fas fa-times-circle"></i>
-                </div>
-            </div>
-            <div class="card-value">132</div>
-            <div class="card-footer">
-                <i class="fas fa-exclamation-triangle mr-2"></i> 12.6% rejection rate
-            </div>
-        </div>
-        
         <!-- Upcoming Payments -->
         <div class="stat-card upcoming">
             <div class="card-header">
                 <span class="card-title">Upcoming Payments</span>
-                <div class="card-icon">
-                    <i class="fas fa-calendar-week"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-calendar-week"></i></div>
             </div>
             <div class="card-value">56</div>
             <div class="card-footer">
@@ -190,9 +200,7 @@
         <div class="stat-card due-today">
             <div class="card-header">
                 <span class="card-title">Due Today</span>
-                <div class="card-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-clock"></i></div>
             </div>
             <div class="card-value">12</div>
             <div class="card-footer">
@@ -204,9 +212,7 @@
         <div class="stat-card delinquent">
             <div class="card-header">
                 <span class="card-title">Delinquent Loans</span>
-                <div class="card-icon">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
             </div>
             <div class="card-value">23</div>
             <div class="card-footer">
@@ -215,7 +221,75 @@
         </div>
     </div>
 
-    <!-- ==================== SCRIPTS ==================== -->
+    <!-- ==================== CHART SCRIPT ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loansCtx = document.getElementById('loansChart').getContext('2d');
+            const loansChart = new Chart(loansCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Loans Issued',
+                        data: [85, 112, 94, 106, 128, 115, 97],
+                        backgroundColor: 'rgba(78, 115, 223, 0.05)',
+                        borderColor: 'rgba(78, 115, 223, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(78, 115, 223, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgba(78, 115, 223, 1)',
+                        pointHoverBorderColor: '#fff',
+                        pointHitRadius: 10,
+                        pointBorderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: { size: 12 },
+                            bodyFont: { size: 11 },
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Loans: ' + context.parsed.y;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false, drawBorder: false },
+                            ticks: { color: '#858796', font: { size: 10 } }
+                        },
+                        y: {
+                            display: false,
+                            grid: { display: false, drawBorder: false }
+                        }
+                    }
+                }
+            });
+
+            // Animate Cards
+            const cards = document.querySelectorAll('.stat-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+
     <script src="dashboard.js"></script>
 </body>
 </html>
+<?php include 'footer.php'; ?>
