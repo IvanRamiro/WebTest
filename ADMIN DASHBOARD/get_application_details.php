@@ -10,13 +10,63 @@ try {
     $id = $_GET['id'] ?? 0;
     
     $stmt = $pdo->prepare("
-        SELECT * FROM loan_application 
+        SELECT 
+            id,
+            first_name,
+            middle_name,
+            last_name,
+            birth_date,
+            civil_status,
+            email,
+            mobile,
+            current_address,
+            permanent_address,
+            same_as_current,
+            city,
+            province,
+            zip_code,
+            employment_status,
+            monthly_income,
+            employer_name,
+            job_position,
+            work_duration,
+            work_address,
+            loan_amount,
+            loan_purpose,
+            loan_term,
+            payment_method,
+            valid_id_1,
+            valid_id_2,
+            proof_of_income,
+            proof_of_billing,
+            status,
+            DATE_FORMAT(submitted_at, '%Y-%m-%d %H:%i:%s') as submitted_at
+        FROM loan_application 
         WHERE id = ?
     ");
     $stmt->execute([$id]);
     $application = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($application) {
+        // Format the data for better display
+        $application['full_name'] = trim($application['first_name'] . ' ' . 
+                                      ($application['middle_name'] ? $application['middle_name'] . ' ' : '') . 
+                                      $application['last_name']);
+        
+        $application['monthly_income'] = number_format($application['monthly_income'], 2);
+        $application['loan_amount'] = number_format($application['loan_amount'], 2);
+        
+        // Prepare document URLs
+        $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+        $uploadPath = '/uploads/';
+        
+        $application['documents'] = [
+            'valid_id_1' => $application['valid_id_1'] ? $baseUrl . $uploadPath . $application['valid_id_1'] : null,
+            'valid_id_2' => $application['valid_id_2'] ? $baseUrl . $uploadPath . $application['valid_id_2'] : null,
+            'proof_of_income' => $application['proof_of_income'] ? $baseUrl . $uploadPath . $application['proof_of_income'] : null,
+            'proof_of_billing' => $application['proof_of_billing'] ? $baseUrl . $uploadPath . $application['proof_of_billing'] : null
+        ];
+
         echo json_encode([
             'success' => true,
             'data' => $application

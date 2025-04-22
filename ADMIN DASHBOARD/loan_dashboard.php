@@ -205,10 +205,30 @@
             color: var(--rejected);
         }
 
-        /* Application Detail Modal */
+        /* Hidden Modal Styles */
+        .application-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1050;
+            overflow-y: auto;
+        }
+
+        .application-modal.show {
+            display: block;
+        }
+
         .application-modal .modal-content {
             border-radius: 12px;
             overflow: hidden;
+            margin: 2rem auto;
+            max-width: 90%;
+            width: 900px;
+            background: white;
         }
 
         .application-modal .modal-header {
@@ -224,6 +244,8 @@
 
         .application-modal .modal-body {
             padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
         }
 
         .application-modal .form-section {
@@ -250,7 +272,7 @@
             margin-bottom: 1rem;
         }
 
-        .application-modal .document-preview {
+        .document-preview {
             width: 100%;
             height: 200px;
             background-color: #f8f9fa;
@@ -261,12 +283,63 @@
             justify-content: center;
             margin-bottom: 1rem;
             overflow: hidden;
+            position: relative;
         }
 
-        .application-modal .document-preview img {
+        .document-info {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .document-name {
+            margin-top: 10px;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .document-preview img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+        }
+
+        .document-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-footer {
+            padding: 1rem;
+            border-top: 1px solid #eee;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
@@ -282,83 +355,63 @@
                 display: block;
                 overflow-x: auto;
             }
-        }
 
-            .application-modal .modal-body {
-                max-height: 70vh;
-                overflow-y: auto;
-                padding: 20px;
-        }
-
-        @media (max-width: 992px) {
-            .application-modal .modal-dialog {
+            .application-modal .modal-content {
                 max-width: 95%;
-                margin: 10px auto;
-        }
-        
+                margin: 1rem auto;
+            }
+
             .application-modal .modal-body {
-            max-height: 65vh;
-        }
+                padding: 15px;
+                max-height: 65vh;
+            }
+            
+            .application-modal .row > div {
+                margin-bottom: 10px;
+            }
+            
+            .application-modal .info-label {
+                font-size: 14px;
+            }
+            
+            .application-modal .info-value {
+                font-size: 14px;
+            }
+
+            .document-preview {
+                height: 150px;
+            }
         }
 
-            @media (max-width: 768px) {
+        @media (max-width: 576px) {
             .application-modal .modal-body {
-            padding: 15px;
+                max-height: 60vh;
+                padding: 10px;
+            }
+            
+            .application-modal .section-title {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
         }
-        
-        .application-modal .row > div {
-            margin-bottom: 10px;
-        }
-        
-        .application-modal .info-label {
-            font-size: 14px;
-        }
-        
-        .application-modal .info-value {
-            font-size: 14px;
-        }
-    }
 
-    @media (max-width: 576px) {
-        .application-modal .modal-body {
-            max-height: 60vh;
-            padding: 10px;
+        .application-modal .modal-body::-webkit-scrollbar {
+            width: 8px;
         }
-        
-        .application-modal .section-title {
-            font-size: 18px;
-            margin-bottom: 15px;
+
+        .application-modal .modal-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
         }
-        
-        .document-preview {
-            height: 150px;
+
+        .application-modal .modal-body::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
         }
-    }
 
-    .application-modal .modal-body::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .application-modal .modal-body::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    .application-modal .modal-body::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-
-    .application-modal .modal-body::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-
-    @media (max-width: 768px) {
-        .document-preview {
-            height: 120px;
-            margin-bottom: 10px;
+        .application-modal .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
-    }
     </style>
 </head>
 <body>
@@ -497,187 +550,233 @@
     </div>
 </div>
 
-<!-- Application Detail Modal -->
-<div class="modal fade application-modal" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="applicationModalLabel">Loan Application Details</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-section">
-                    <h4 class="section-title">Personal Information</h4>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="info-label">First Name</div>
-                            <div class="info-value" id="detail-firstName"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="info-label">Middle Name</div>
-                            <div class="info-value" id="detail-middleName"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="info-label">Last Name</div>
-                            <div class="info-value" id="detail-lastName"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Date of Birth</div>
-                            <div class="info-value" id="detail-birthDate"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Civil Status</div>
-                            <div class="info-value" id="detail-civilStatus"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Email Address</div>
-                            <div class="info-value" id="detail-email"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Mobile Number</div>
-                            <div class="info-value" id="detail-mobile"></div>
-                        </div>
+<!-- Application Detail Modal (Hidden by default) -->
+<div class="application-modal" id="applicationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="applicationModalLabel">Loan Application Details</h5>
+            <button type="button" class="btn-close" onclick="hideModal()" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-section">
+                <h4 class="section-title">Personal Information</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-label">First Name</div>
+                        <div class="info-value" id="detail-firstName"></div>
                     </div>
-                </div>
-
-                <div class="form-section">
-                    <h4 class="section-title">Address Information</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="info-label">Current Address</div>
-                            <div class="info-value" id="detail-currentAddress"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Permanent Address</div>
-                            <div class="info-value" id="detail-permanentAddress"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="info-label">City/Municipality</div>
-                            <div class="info-value" id="detail-city"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="info-label">Province</div>
-                            <div class="info-value" id="detail-province"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="info-label">ZIP Code</div>
-                            <div class="info-value" id="detail-zipCode"></div>
-                        </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Middle Name</div>
+                        <div class="info-value" id="detail-middleName"></div>
                     </div>
-                </div>
-
-                <div class="form-section">
-                    <h4 class="section-title">Employment Information</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="info-label">Employment Status</div>
-                            <div class="info-value" id="detail-employmentStatus"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Monthly Income (PHP)</div>
-                            <div class="info-value" id="detail-monthlyIncome"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Employer/Business Name</div>
-                            <div class="info-value" id="detail-employerName"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Job Position</div>
-                            <div class="info-value" id="detail-jobPosition"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Duration of Employment/Business</div>
-                            <div class="info-value" id="detail-workDuration"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Work/Business Address</div>
-                            <div class="info-value" id="detail-workAddress"></div>
-                        </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Last Name</div>
+                        <div class="info-value" id="detail-lastName"></div>
                     </div>
-                </div>
-
-                <div class="form-section">
-                    <h4 class="section-title">Loan Details</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="info-label">Loan Amount (PHP)</div>
-                            <div class="info-value" id="detail-loanAmount"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Loan Purpose</div>
-                            <div class="info-value" id="detail-loanPurpose"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Preferred Loan Term</div>
-                            <div class="info-value" id="detail-loanTerm"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Preferred Payment Method</div>
-                            <div class="info-value" id="detail-paymentMethod"></div>
-                        </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Date of Birth</div>
+                        <div class="info-value" id="detail-birthDate"></div>
                     </div>
-                </div>
-
-                <div class="form-section">
-                    <h4 class="section-title">Documents</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="info-label">Primary Valid ID</div>
-                            <div class="document-preview" id="document-validId1">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Secondary Valid ID</div>
-                            <div class="document-preview" id="document-validId2">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Proof of Income</div>
-                            <div class="document-preview" id="document-proofOfIncome">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Proof of Billing</div>
-                            <div class="document-preview" id="document-proofOfBilling">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                            </div>
-                        </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Civil Status</div>
+                        <div class="info-value" id="detail-civilStatus"></div>
                     </div>
-                </div>
-
-                <div class="form-section">
-                    <h4 class="section-title">Application Status</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="info-label">Status</div>
-                            <div class="info-value">
-                                <select class="form-select" id="applicationStatus" onchange="updateApplicationStatus()">
-                                    <option value="pending">Pending</option>
-                                    <option value="approved">Approved</option>
-                                    <option value="rejected">Rejected</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-label">Submitted At</div>
-                            <div class="info-value" id="detail-submittedAt"></div>
-                        </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Email Address</div>
+                        <div class="info-value" id="detail-email"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Mobile Number</div>
+                        <div class="info-value" id="detail-mobile"></div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveStatusBtn" onclick="updateApplicationStatus()">Save Changes</button>
+
+            <div class="form-section">
+                <h4 class="section-title">Address Information</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-label">Current Address</div>
+                        <div class="info-value" id="detail-currentAddress"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Permanent Address</div>
+                        <div class="info-value" id="detail-permanentAddress"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">City/Municipality</div>
+                        <div class="info-value" id="detail-city"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Province</div>
+                        <div class="info-value" id="detail-province"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">ZIP Code</div>
+                        <div class="info-value" id="detail-zipCode"></div>
+                    </div>
+                </div>
             </div>
+
+            <div class="form-section">
+                <h4 class="section-title">Employment Information</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-label">Employment Status</div>
+                        <div class="info-value" id="detail-employmentStatus"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Monthly Income (PHP)</div>
+                        <div class="info-value" id="detail-monthlyIncome"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Employer/Business Name</div>
+                        <div class="info-value" id="detail-employerName"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Job Position</div>
+                        <div class="info-value" id="detail-jobPosition"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Duration of Employment/Business</div>
+                        <div class="info-value" id="detail-workDuration"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Work/Business Address</div>
+                        <div class="info-value" id="detail-workAddress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4 class="section-title">Loan Details</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-label">Loan Amount (PHP)</div>
+                        <div class="info-value" id="detail-loanAmount"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Loan Purpose</div>
+                        <div class="info-value" id="detail-loanPurpose"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Preferred Loan Term</div>
+                        <div class="info-value" id="detail-loanTerm"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Preferred Payment Method</div>
+                        <div class="info-value" id="detail-paymentMethod"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4 class="section-title">Submitted Documents</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="info-label">Primary Valid ID</div>
+                        <div class="document-preview-container">
+                            <div class="document-preview" id="document-valid_id_1">
+                                <div class="document-info">
+                                    <i class="fas fa-file-alt fa-3x text-muted"></i>
+                                    <div class="document-name" id="document-name-valid_id_1">No document submitted</div>
+                                </div>
+                            </div>
+                            <a href="#" id="download-valid_id_1" class="btn btn-sm btn-primary mt-2 w-100" target="_blank" style="display: none;">
+                                <i class="fas fa-download me-1"></i> Download Document
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-label">Secondary Valid ID</div>
+                        <div class="document-preview-container">
+                            <div class="document-preview" id="document-valid_id_2">
+                                <div class="document-info">
+                                    <i class="fas fa-file-alt fa-3x text-muted"></i>
+                                    <div class="document-name" id="document-name-valid_id_2">No document submitted</div>
+                                </div>
+                            </div>
+                            <a href="#" id="download-valid_id_2" class="btn btn-sm btn-primary mt-2 w-100" target="_blank" style="display: none;">
+                                <i class="fas fa-download me-1"></i> Download Document
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-label">Proof of Income</div>
+                        <div class="document-preview-container">
+                            <div class="document-preview" id="document-proof_of_income">
+                                <div class="document-info">
+                                    <i class="fas fa-file-alt fa-3x text-muted"></i>
+                                    <div class="document-name" id="document-name-proof_of_income">No document submitted</div>
+                                </div>
+                            </div>
+                            <a href="#" id="download-proof_of_income" class="btn btn-sm btn-primary mt-2 w-100" target="_blank" style="display: none;">
+                                <i class="fas fa-download me-1"></i> Download Document
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-label">Proof of Billing</div>
+                        <div class="document-preview-container">
+                            <div class="document-preview" id="document-proof_of_billing">
+                                <div class="document-info">
+                                    <i class="fas fa-file-alt fa-3x text-muted"></i>
+                                    <div class="document-name" id="document-name-proof_of_billing">No document submitted</div>
+                                </div>
+                            </div>
+                            <a href="#" id="download-proof_of_billing" class="btn btn-sm btn-primary mt-2 w-100" target="_blank" style="display: none;">
+                                <i class="fas fa-download me-1"></i> Download Document
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4 class="section-title">Application Status</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-label">Status</div>
+                        <div class="info-value">
+                            <select class="form-select" id="applicationStatus" onchange="updateApplicationStatus()">
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-label">Submitted At</div>
+                        <div class="info-value" id="detail-submittedAt"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="hideModal()">Close</button>
+            <button type="button" class="btn btn-primary" id="saveStatusBtn" onclick="updateApplicationStatus()">Save Changes</button>
         </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+    // Modal control functions
+    function showModal() {
+        document.getElementById('applicationModal').classList.add('show');
+    }
+    
+    function hideModal() {
+        document.getElementById('applicationModal').classList.remove('show');
+    }
+    
+    // Close modal when clicking outside the content
+    document.getElementById('applicationModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            hideModal();
+        }
+    });
+
     function updateStatus(selectElement, event) {
         event.stopPropagation();
         const applicationId = selectElement.getAttribute('data-application-id');
@@ -716,75 +815,69 @@
     function showApplicationDetails(applicationId, event) {
         event.stopPropagation();
         
-        // Create a hidden button to trigger the modal
-        const button = document.createElement('button');
-        button.setAttribute('data-application-id', applicationId);
-        button.setAttribute('data-bs-toggle', 'modal');
-        button.setAttribute('data-bs-target', '#applicationModal');
-        button.style.display = 'none';
-        
-        // Add it to the body and click it
-        document.body.appendChild(button);
-        button.click();
-        document.body.removeChild(button);
-    }
-
-    // When modal is shown, fetch the application details
-    document.getElementById('applicationModal').addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const applicationId = button.getAttribute('data-application-id');
-        
-        // Fetch application details via AJAX
         fetch('get_application_details.php?id=' + applicationId)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Populate the modal with data
+                    // Update modal title
                     document.getElementById('applicationModalLabel').textContent = 
                         `Loan Application #${applicationId} - ${data.data.first_name} ${data.data.last_name}`;
                     
+                    // Helper function to safely display text
+                    function safeText(value) {
+                        return value ? value : 'N/A';
+                    }
+
+                    // Helper to format PHP currency or fallback
+                    function formatCurrency(value) {
+                        return value ? `₱${parseFloat(value).toLocaleString()}` : 'N/A';
+                    }
+
                     // Personal Information
-                    document.getElementById('detail-firstName').textContent = data.data.first_name;
-                    document.getElementById('detail-middleName').textContent = data.data.middle_name || 'N/A';
-                    document.getElementById('detail-lastName').textContent = data.data.last_name;
-                    document.getElementById('detail-birthDate').textContent = data.data.birth_date || 'N/A';
-                    document.getElementById('detail-civilStatus').textContent = data.data.civil_status || 'N/A';
-                    document.getElementById('detail-email').textContent = data.data.email || 'N/A';
-                    document.getElementById('detail-mobile').textContent = data.data.mobile || 'N/A';
-                    
+                    document.getElementById('detail-firstName').textContent = safeText(data.data.first_name);
+                    document.getElementById('detail-middleName').textContent = safeText(data.data.middle_name);
+                    document.getElementById('detail-lastName').textContent = safeText(data.data.last_name);
+                    document.getElementById('detail-birthDate').textContent = safeText(data.data.birth_date);
+                    document.getElementById('detail-civilStatus').textContent = safeText(data.data.civil_status);
+                    document.getElementById('detail-email').textContent = safeText(data.data.email);
+                    document.getElementById('detail-mobile').textContent = safeText(data.data.mobile);
+
                     // Address Information
-                    document.getElementById('detail-currentAddress').textContent = data.data.current_address || 'N/A';
-                    document.getElementById('detail-permanentAddress').textContent = data.data.permanent_address || 'N/A';
-                    document.getElementById('detail-city').textContent = data.data.city || 'N/A';
-                    document.getElementById('detail-province').textContent = data.data.province || 'N/A';
-                    document.getElementById('detail-zipCode').textContent = data.data.zip_code || 'N/A';
-                    
+                    document.getElementById('detail-currentAddress').textContent = safeText(data.data.current_address);
+                    document.getElementById('detail-permanentAddress').textContent = safeText(data.data.permanent_address);
+                    document.getElementById('detail-city').textContent = safeText(data.data.city);
+                    document.getElementById('detail-province').textContent = safeText(data.data.province);
+                    document.getElementById('detail-zipCode').textContent = safeText(data.data.zip_code);
+
                     // Employment Information
-                    document.getElementById('detail-employmentStatus').textContent = data.data.employment_status || 'N/A';
-                    document.getElementById('detail-monthlyIncome').textContent = data.data.monthly_income ? '₱' + parseFloat(data.data.monthly_income).toLocaleString() : 'N/A';
-                    document.getElementById('detail-employerName').textContent = data.data.employer_name || 'N/A';
-                    document.getElementById('detail-jobPosition').textContent = data.data.job_position || 'N/A';
-                    document.getElementById('detail-workDuration').textContent = data.data.work_duration || 'N/A';
-                    document.getElementById('detail-workAddress').textContent = data.data.work_address || 'N/A';
-                    
+                    document.getElementById('detail-employmentStatus').textContent = safeText(data.data.employment_status);
+                    document.getElementById('detail-monthlyIncome').textContent = formatCurrency(data.data.monthly_income);
+                    document.getElementById('detail-employerName').textContent = safeText(data.data.employer_name);
+                    document.getElementById('detail-jobPosition').textContent = safeText(data.data.job_position);
+                    document.getElementById('detail-workDuration').textContent = safeText(data.data.work_duration);
+                    document.getElementById('detail-workAddress').textContent = safeText(data.data.work_address);
+
                     // Loan Details
-                    document.getElementById('detail-loanAmount').textContent = data.data.loan_amount ? '₱' + parseFloat(data.data.loan_amount).toLocaleString() : 'N/A';
-                    document.getElementById('detail-loanPurpose').textContent = data.data.loan_purpose || 'N/A';
-                    document.getElementById('detail-loanTerm').textContent = data.data.loan_term || 'N/A';
-                    document.getElementById('detail-paymentMethod').textContent = data.data.payment_method || 'N/A';
-                    
+                    document.getElementById('detail-loanAmount').textContent = formatCurrency(data.data.loan_amount);
+                    document.getElementById('detail-loanPurpose').textContent = safeText(data.data.loan_purpose);
+                    document.getElementById('detail-loanTerm').textContent = safeText(data.data.loan_term);
+                    document.getElementById('detail-paymentMethod').textContent = safeText(data.data.payment_method);
+
                     // Application Info
                     document.getElementById('applicationStatus').value = data.data.status || 'pending';
-                    document.getElementById('detail-submittedAt').textContent = data.data.submitted_at || 'N/A';
-                    
-                    // Load documents if available
-                    loadDocumentPreview('validId1', data.data.valid_id1);
-                    loadDocumentPreview('validId2', data.data.valid_id2);
-                    loadDocumentPreview('proofOfIncome', data.data.proof_of_income);
-                    loadDocumentPreview('proofOfBilling', data.data.proof_of_billing);
+                    document.getElementById('detail-submittedAt').textContent = safeText(data.data.submitted_at);
+
+                    // Load documents
+                    loadDocumentPreview('valid_id_1', data.data.valid_id1);
+                    loadDocumentPreview('valid_id_2', data.data.valid_id2);
+                    loadDocumentPreview('proof_of_income', data.data.proof_of_income);
+                    loadDocumentPreview('proof_of_billing', data.data.proof_of_billing);
                     
                     // Store the current application ID
                     document.getElementById('saveStatusBtn').setAttribute('data-application-id', applicationId);
+                    
+                    // Show the modal
+                    showModal();
                 } else {
                     alert('Error loading application details: ' + data.message);
                 }
@@ -793,29 +886,51 @@
                 console.error('Error:', error);
                 alert('Error loading application details');
             });
-    });
+    }
     
     function loadDocumentPreview(fieldName, filePath) {
         const container = document.getElementById('document-' + fieldName);
+        const nameElement = document.getElementById('document-name-' + fieldName);
+        const downloadLink = document.getElementById('download-' + fieldName);
+
         if (filePath) {
-            // Check if it's an image
-            const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
-            const isImage = imageExtensions.some(ext => filePath.toLowerCase().endsWith(ext));
-            
+            const fileName = filePath.split('/').pop().split('_').slice(1).join('_');
+            nameElement.textContent = fileName;
+            downloadLink.href = 'uploads/' + filePath;
+            downloadLink.style.display = 'block';
+
+            const extension = filePath.split('.').pop().toLowerCase();
+            const isImage = ['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(extension);
+            const isPDF = extension === 'pdf';
+
             if (isImage) {
-                container.innerHTML = `<img src="uploads/${filePath}" alt="${fieldName}">`;
-            } else {
-                // It's a PDF or other document
                 container.innerHTML = `
-                    <div class="text-center">
-                        <i class="fas fa-file-pdf fa-3x text-danger"></i>
-                        <p class="mt-2">PDF Document</p>
-                        <a href="uploads/${filePath}" target="_blank" class="btn btn-sm btn-primary">View</a>
+                    <img src="uploads/${filePath}" alt="${fieldName}" class="img-fluid rounded shadow-sm" style="max-height: 300px; object-fit: contain;">
+                    <div class="document-name">${fileName}</div>
+                `;
+            } else if (isPDF) {
+                container.innerHTML = `
+                    <iframe src="uploads/${filePath}#toolbar=0&navpanes=0" frameborder="0"
+                        class="w-100" style="height: 400px;" allowfullscreen></iframe>
+                    <div class="document-name">${fileName}</div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="document-info text-center">
+                        <i class="fas fa-file-alt fa-3x text-muted"></i>
+                        <div class="document-name">${fileName}</div>
                     </div>
                 `;
             }
         } else {
-            container.innerHTML = '<i class="fas fa-file-alt fa-3x text-muted"></i>';
+            nameElement.textContent = 'No document uploaded';
+            container.innerHTML = `
+                <div class="document-info text-center">
+                    <i class="fas fa-file-alt fa-3x text-muted"></i>
+                    <div class="document-name">No document uploaded</div>
+                </div>
+            `;
+            downloadLink.style.display = 'none';
         }
     }
     
@@ -823,7 +938,7 @@
         const applicationId = document.getElementById('saveStatusBtn').getAttribute('data-application-id');
         const newStatus = document.getElementById('applicationStatus').value;
         
-        fetch('update_application_status.php', {
+        fetch('update_status.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
