@@ -99,14 +99,13 @@
         .rejected { border-top-color: var(--rejected); }
         .rejected .card-icon { background: var(--rejected); }
 
-        .recent-customers {
+        .recent-applications {
             grid-column: 1 / -1;
-            background: #f0f2f5;
+            background: white;
             border-radius: 12px;
             padding: 25px;
             box-shadow: var(--card-shadow);
             margin-top: 20px;
-            border: 1px solid #ddd;
         }
 
         .section-title {
@@ -118,97 +117,39 @@
             border-bottom: 1px solid #eee;
         }
 
-        .customer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .customer-card {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
-            background: white;
-            border-radius: 8px;
-            position: relative;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: var(--card-shadow);
-        }
-
-        .customer-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-
-        .customer-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .customer-avatar img {
+        .applications-table {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            border-collapse: collapse;
+            margin-top: 15px;
         }
 
-        .customer-info h4 {
-            margin: 0;
-            font-size: 16px;
+        .applications-table th {
+            background-color: #f8f9fa;
             color: var(--dark-blue);
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #eee;
         }
 
-        .customer-info p {
-            margin: 5px 0 0;
-            font-size: 14px;
-            color: #666;
+        .applications-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
         }
 
-        .status-dropdown {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        .applications-table tr:hover {
+            background-color:rgb(147, 201, 255);
         }
 
-        .status-select {
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            font-size: 12px;
-            cursor: pointer;
-            background: white;
-        }
-
-        .status-pending {
-            color: var(--pending);
-            border-color: var(--pending);
-        }
-
-        .status-approved {
-            color: var(--approved);
-            border-color: var(--approved);
-        }
-
-        .status-rejected {
-            color: var(--rejected);
-            border-color: var(--rejected);
-        }
-
-        .status-badge {
+        .applications-table .status-badge {
             display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 5px 10px;
+            border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
-            margin-top: 5px;
+            min-width: 80px;
+            text-align: center;
         }
 
         .badge-pending {
@@ -223,6 +164,44 @@
 
         .badge-rejected {
             background-color: rgba(231, 74, 59, 0.2);
+            color: var(--rejected);
+        }
+
+        .applications-table .action-btn {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .applications-table .action-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .applications-table .status-select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .status-select.pending {
+            border-color: var(--pending);
+            color: var(--pending);
+        }
+
+        .status-select.approved {
+            border-color: var(--approved);
+            color: var(--approved);
+        }
+
+        .status-select.rejected {
+            border-color: var(--rejected);
             color: var(--rejected);
         }
 
@@ -298,7 +277,88 @@
             .dashboard-container {
                 grid-template-columns: 1fr;
             }
+            
+            .applications-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
+
+            .application-modal .modal-body {
+                max-height: 70vh;
+                overflow-y: auto;
+                padding: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .application-modal .modal-dialog {
+                max-width: 95%;
+                margin: 10px auto;
+        }
+        
+            .application-modal .modal-body {
+            max-height: 65vh;
+        }
+        }
+
+            @media (max-width: 768px) {
+            .application-modal .modal-body {
+            padding: 15px;
+        }
+        
+        .application-modal .row > div {
+            margin-bottom: 10px;
+        }
+        
+        .application-modal .info-label {
+            font-size: 14px;
+        }
+        
+        .application-modal .info-value {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .application-modal .modal-body {
+            max-height: 60vh;
+            padding: 10px;
+        }
+        
+        .application-modal .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .document-preview {
+            height: 150px;
+        }
+    }
+
+    .application-modal .modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .application-modal .modal-body::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .application-modal .modal-body::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    .application-modal .modal-body::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    @media (max-width: 768px) {
+        .document-preview {
+            height: 120px;
+            margin-bottom: 10px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -374,71 +434,74 @@
         </div>
     </div>
 
-    <div class="recent-customers">
+    <div class="recent-applications">
         <h2 class="section-title">Recent Applications</h2>
-        <div class="customer-grid">
-            <?php
-            try {
-                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        <table class="applications-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Applicant</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Purpose</th>
+                    <th>Date Submitted</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                try {
+                    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $stmt = $pdo->query("
-                    SELECT id, first_name, last_name, city, province, submitted_at, status 
-                    FROM loan_application 
-                    ORDER BY submitted_at DESC 
-                    LIMIT 6
-                ");
+                    $stmt = $pdo->query("
+                        SELECT id, first_name, last_name, loan_amount, loan_purpose, submitted_at, status 
+                        FROM loan_application 
+                        ORDER BY submitted_at DESC 
+                        LIMIT 10
+                    ");
 
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    // Determine status class
-                    $statusClass = '';
-                    $badgeClass = '';
-                    switch(strtolower($row['status'])) {
-                        case 'approved':
-                            $statusClass = 'status-approved';
-                            $badgeClass = 'badge-approved';
-                            break;
-                        case 'rejected':
-                            $statusClass = 'status-rejected';
-                            $badgeClass = 'badge-rejected';
-                            break;
-                        default:
-                            $statusClass = 'status-pending';
-                            $badgeClass = 'badge-pending';
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        // Determine status class
+                        $statusClass = strtolower($row['status']);
+                        $badgeClass = 'badge-' . $statusClass;
+                        
+                        echo '
+                        <tr>
+                            <td>#' . htmlspecialchars($row['id']) . '</td>
+                            <td>' . htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) . '</td>
+                            <td>₱' . number_format($row['loan_amount'], 2) . '</td>
+                            <td>' . htmlspecialchars($row['loan_purpose']) . '</td>
+                            <td>' . htmlspecialchars($row['submitted_at']) . '</td>
+                            <td>
+                                <span class="status-badge ' . $badgeClass . '">' . ucfirst($row['status']) . '</span>
+                            </td>
+                            <td>
+                                <select class="status-select ' . $statusClass . '" data-application-id="' . $row['id'] . '" onchange="updateStatus(this, event)">
+                                    <option value="pending" ' . ($row['status'] == 'pending' ? 'selected' : '') . '>Pending</option>
+                                    <option value="approved" ' . ($row['status'] == 'approved' ? 'selected' : '') . '>Approved</option>
+                                    <option value="rejected" ' . ($row['status'] == 'rejected' ? 'selected' : '') . '>Rejected</option>
+                                </select>
+                                <button class="action-btn" onclick="showApplicationDetails(' . $row['id'] . ', event)">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                            </td>
+                        </tr>';
                     }
-                    
-                    echo '
-                    <div class="customer-card" onclick="showApplicationDetails('.$row['id'].', event)">
-                        <div class="customer-avatar">
-                            <img src="../Images/user_placeholder.png" alt="'.htmlspecialchars($row['first_name']).'">
-                        </div>
-                        <div class="customer-info">
-                            <h4>'.htmlspecialchars($row['first_name'].' '.$row['last_name']).'</h4>
-                            <p>'.htmlspecialchars($row['city']).', '.htmlspecialchars($row['province']).'</p>
-                            <span class="status-badge '.$badgeClass.'">'.ucfirst($row['status']).'</span>
-                        </div>
-                        <div class="status-dropdown">
-                            <select class="status-select '.$statusClass.'" data-application-id="'.$row['id'].'" onchange="updateStatus(this, event)">
-                                <option value="pending" '.($row['status'] == 'pending' ? 'selected' : '').'>Pending</option>
-                                <option value="approved" '.($row['status'] == 'approved' ? 'selected' : '').'>Approved</option>
-                                <option value="rejected" '.($row['status'] == 'rejected' ? 'selected' : '').'>Rejected</option>
-                            </select>
-                        </div>
-                    </div>';
+                } catch(PDOException $e) {
+                    echo '<tr><td colspan="7" class="text-center">Error fetching applications: ' . $e->getMessage() . '</td></tr>';
                 }
-            } catch(PDOException $e) {
-                echo "<div class='error'>Error fetching customers: " . $e->getMessage() . "</div>";
-            }
-            ?>
-        </div>
+                ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
 <!-- Application Detail Modal -->
 <div class="modal fade application-modal" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title" id="applicationModalLabel">Loan Application Details</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -607,27 +670,25 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" id="saveStatusBtn" onclick="updateApplicationStatus()">Save Changes</button>
+                <button type="button" class="btn btn-primary" id="saveStatusBtn" onclick="updateApplicationStatus()">Save Changes</button>
             </div>
         </div>
     </div>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    
     function updateStatus(selectElement, event) {
         event.stopPropagation();
         const applicationId = selectElement.getAttribute('data-application-id');
         const newStatus = selectElement.value;
         
         // Update the class to reflect new status
-        selectElement.className = 'status-select status-' + newStatus;
+        selectElement.className = 'status-select ' + newStatus;
         
-        // Find the status badge in the same card and update it
-        const card = selectElement.closest('.customer-card');
-        const statusBadge = card.querySelector('.status-badge');
+        // Find the status badge in the same row and update it
+        const row = selectElement.closest('tr');
+        const statusBadge = row.querySelector('.status-badge');
         
         // Remove all badge classes and add the new one
         statusBadge.className = 'status-badge badge-' + newStatus;
@@ -653,10 +714,7 @@
     }
 
     function showApplicationDetails(applicationId, event) {
-        // Check if the click was on the status dropdown
-        if (event && (event.target.closest('.status-dropdown') || event.target.closest('.status-select'))) {
-            return; // Don't show modal if clicking on status dropdown
-        }
+        event.stopPropagation();
         
         // Create a hidden button to trigger the modal
         const button = document.createElement('button');
@@ -786,8 +844,6 @@
             alert('Error updating status');
         });
     }
-
-    
 </script>
 
 <?php include 'footer.php'; ?>

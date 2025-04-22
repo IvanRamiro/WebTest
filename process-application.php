@@ -1,16 +1,13 @@
 <?php
-// Database configuration
 $host = "localhost";
 $db = "fastcash_db";
-$user = "root"; // Change if needed
-$pass = "";     // Change if needed
+$user = "root";
+$pass = "";
 
-// PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
-// Create DB connection
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
