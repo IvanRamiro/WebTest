@@ -48,7 +48,6 @@ try {
     $application = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($application) {
-        // Format the data for better display
         $application['full_name'] = trim($application['first_name'] . ' ' . 
                                       ($application['middle_name'] ? $application['middle_name'] . ' ' : '') . 
                                       $application['last_name']);
@@ -56,16 +55,23 @@ try {
         $application['monthly_income'] = number_format($application['monthly_income'], 2);
         $application['loan_amount'] = number_format($application['loan_amount'], 2);
         
-        // Prepare document URLs
         $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-        $uploadPath = '/uploads/';
+        $uploadPath = '/fastcash/uploads/';
         
-        $application['documents'] = [
-            'valid_id_1' => $application['valid_id_1'] ? $baseUrl . $uploadPath . $application['valid_id_1'] : null,
-            'valid_id_2' => $application['valid_id_2'] ? $baseUrl . $uploadPath . $application['valid_id_2'] : null,
-            'proof_of_income' => $application['proof_of_income'] ? $baseUrl . $uploadPath . $application['proof_of_income'] : null,
-            'proof_of_billing' => $application['proof_of_billing'] ? $baseUrl . $uploadPath . $application['proof_of_billing'] : null
-        ];
+        $docFields = ['valid_id_1', 'valid_id_2', 'proof_of_income', 'proof_of_billing'];
+        
+        foreach ($docFields as $field) {
+            if (!empty($application[$field])) {
+                $filename = basename($application[$field]);
+                $application[$field] = [
+                    'url' => $baseUrl . $uploadPath . rawurlencode($filename),
+                    'name' => $filename,
+                    'type' => pathinfo($filename, PATHINFO_EXTENSION)
+                ];
+            } else {
+                $application[$field] = null;
+            }
+        }
 
         echo json_encode([
             'success' => true,

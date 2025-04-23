@@ -474,10 +474,10 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
                 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fab fa-tiktok"></i></a>
                 </div>
 
                 <img src="Images/SEAL.jpg" alt="DPO DPS Certificate" class="mt-3 img-fluid" width="150">
