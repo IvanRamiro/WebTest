@@ -197,47 +197,6 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             margin: 0 auto 20px;
         }
         
-        .hero {
-            height: 400px;
-            background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        
         .external-link-indicator {
             display: inline-flex;
             align-items: center;
@@ -316,13 +275,14 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 </header>
 
 <!-- Hero Section -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-    <div class="container">
-        <!-- Collapsible Navigation -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark position-sticky top-0 w-100 z-3" role="navigation">
+        <div class="container">
+            <!-- Collapsible Navigation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
@@ -332,19 +292,13 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
                     <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
                 </ul>
             </div>
-        <!-- Search Form (Responsive) -->
-        <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
-</nav>
-
-<section class="hero">
-    <div class="hero-content">
-        <h1>News & Events</h1>
-        <p>Stay updated with the latest happenings and announcements from QCREDIT</p>
-    </div>
+            <!-- Search Form (Responsive) -->
+            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
 </section>
 
 

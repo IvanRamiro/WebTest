@@ -57,13 +57,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
                 $application['last_name']
             );
 
-            $application['monthly_income'] = number_format($application['monthly_income'], 2);
-            $application['loan_amount'] = number_format($application['loan_amount'], 2);
+            // Format employment information according to form options
+            $employmentStatusMap = [
+                'Employed' => 'Employed',
+                'Self-Employed' => 'Self-Employed',
+                'OFW' => 'OFW',
+                'Retired' => 'Retired',
+                'Unemployed' => 'Unemployed'
+            ];
+            
+            $application['employment_status_display'] = $employmentStatusMap[$application['employment_status']] ?? 'Not specified';
+            $application['employer_name_display'] = $application['employer_name'] ?: 'N/A';
+            $application['job_position_display'] = $application['job_position'] ?: 'N/A';
+            $application['work_duration_display'] = $application['work_duration'] ?: 'N/A';
+            $application['work_address_display'] = $application['work_address'] ?: 'N/A';
 
+            // Format monetary values
+            $application['monthly_income'] = number_format((float)$application['monthly_income'], 2);
+            $application['loan_amount'] = number_format((float)$application['loan_amount'], 2);
+
+            // Format boolean values
             $application['same_as_current'] = $application['same_as_current'] ? 'Yes' : 'No';
             $application['agree_terms'] = $application['agree_terms'] ? 'Yes' : 'No';
             $application['allow_marketing'] = $application['allow_marketing'] ? 'Yes' : 'No';
 
+            // Handle document URLs
             $docTypes = ['valid_id_1', 'valid_id_2', 'proof_of_income', 'proof_of_billing'];
             foreach ($docTypes as $docType) {
                 if (!empty($application[$docType])) {
@@ -81,7 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
                     $application[$docType . '_url'] = null;
                 }
             }
-            
 
             echo json_encode([
                 'success' => true,

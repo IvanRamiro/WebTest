@@ -510,6 +510,28 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('[data-target]');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 200;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    });
+</script>
+
 </script>
 </body>
 </html>

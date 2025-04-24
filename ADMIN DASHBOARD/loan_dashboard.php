@@ -14,7 +14,7 @@
             --approved: #1cc88a;
             --rejected: #e74a3b;
             --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            --dark-blue: #2c3e50;
+            --dark-blue:rgb(0, 0, 0);
         }
 
         body {
@@ -125,8 +125,8 @@
         }
 
         .applications-table th {
-            background-color: #f8f9fa;
-            color: var(--dark-blue);
+            background-color: rgba(77,35,121,255);
+            color: white;
             font-weight: 600;
             text-align: left;
             padding: 12px 15px;
@@ -140,7 +140,7 @@
         }
 
         .applications-table tr:hover {
-            background-color: #f0f8ff;
+            background-color: rgba(77,35,121,255);
         }
 
         .applications-table .status-badge {
@@ -461,7 +461,6 @@
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Get counts for each status
         $stmt = $pdo->query("SELECT status, COUNT(*) as count FROM loan_application GROUP BY status");
         $statusCounts = ['pending' => 0, 'approved' => 0, 'rejected' => 0];
         
@@ -473,7 +472,6 @@
         $approvedCount = $statusCounts['approved'];
         $rejectedCount = $statusCounts['rejected'];
 
-        // Calculate percentages
         $total = $pendingCount + $approvedCount + $rejectedCount;
         $approvalRate = $total > 0 ? round(($approvedCount / $total) * 100, 1) : 0;
         $rejectionRate = $total > 0 ? round(($rejectedCount / $total) * 100, 1) : 0;
@@ -483,7 +481,7 @@
     }
     ?>
 
-    <!-- Status Cards -->
+    <!-- ========== STATUS CARDS SECTION ========== -->
     <div class="stat-card pending">
         <div class="card-header">
             <span class="card-title">Pending Applications</span>
@@ -523,7 +521,7 @@
         </div>
     </div>
 
-    <!-- Recent Applications Table -->
+    <!-- ========== RECENT APPLICATIONS TABLE ========== -->
     <div class="recent-applications">
         <h2 class="section-title">Recent Applications</h2>
         <table class="applications-table">
@@ -587,7 +585,7 @@
     </div>
 </div>
 
-<!-- Application Detail Modal -->
+<!-- ========== APPLICATION DETAIL MODAL ========== -->
 <div class="application-modal" id="applicationModal" tabindex="-1" aria-hidden="true">
     <div class="modal-content">
         <div class="modal-header">
@@ -595,7 +593,7 @@
             <button type="button" class="btn-close" onclick="hideModal()" aria-label="Close">×</button>
         </div>
         <div class="modal-body">
-            <!-- Personal Information -->
+            <!-- Personal Information Section -->
             <div class="form-section">
                 <h4 class="section-title">Personal Information</h4>
                 <div class="row">
@@ -609,7 +607,7 @@
                 </div>
             </div>
 
-            <!-- Address Information -->
+            <!-- Address Information Section -->
             <div class="form-section">
                 <h4 class="section-title">Address Information</h4>
                 <div class="row">
@@ -621,7 +619,7 @@
                 </div>
             </div>
 
-            <!-- Employment Information -->
+            <!-- Employment Information Section -->
             <div class="form-section">
                 <h4 class="section-title">Employment Information</h4>
                 <div class="row">
@@ -634,7 +632,7 @@
                 </div>
             </div>
 
-            <!-- Loan Details -->
+            <!-- Loan Details Section -->
             <div class="form-section">
                 <h4 class="section-title">Loan Details</h4>
                 <div class="row">
@@ -643,66 +641,67 @@
                     <div class="col-md-6"><div class="info-label">Preferred Loan Term</div><div class="info-value" id="detail-loanTerm"></div></div>
                     <div class="col-md-6"><div class="info-label">Preferred Payment Method</div><div class="info-value" id="detail-paymentMethod"></div></div>
                 </div>
-                
-<!-- Document Images Section -->
-<div class="form-section">
-    <h4 class="section-title">Supporting Documents</h4>
-    <div class="row">
-        <!-- Valid ID 1 -->
-        <div class="col-md-6 document-block" id="valid_id_1-container" style="display: none;">
-            <div class="info-label">Valid ID 1</div>
-            <div class="document-preview">
-                <img id="valid_id_1-img" src="" alt="Valid ID 1" class="img-fluid" style="max-height: 200px;">
             </div>
-            <div class="text-center mt-2">
-                <a id="valid_id_1-download" href="#" class="download-btn" download target="_blank">
-                    <i class="fas fa-download"></i> Download
-                </a>
-            </div>
-        </div>
 
-        <!-- Valid ID 2 -->
-        <div class="col-md-6 document-block" id="valid_id_2-container" style="display: none;">
-            <div class="info-label">Valid ID 2</div>
-            <div class="document-preview">
-                <img id="valid_id_2-img" src="" alt="Valid ID 2" class="img-fluid" style="max-height: 200px;">
-            </div>
-            <div class="text-center mt-2">
-                <a id="valid_id_2-download" href="#" class="download-btn" download target="_blank">
-                    <i class="fas fa-download"></i> Download
-                </a>
-            </div>
-        </div>
+            <!-- Document Images Section -->
+            <div class="form-section">
+                <h4 class="section-title">Supporting Documents</h4>
+                <div class="row">
+                    <!-- Valid ID 1 -->
+                    <div class="col-md-6 document-block" id="valid_id_1-container" style="display: none;">
+                        <div class="info-label">Valid ID 1</div>
+                        <div class="document-preview">
+                            <img id="valid_id_1-img" src="" alt="Valid ID 1" class="img-fluid" style="max-height: 200px;">
+                        </div>
+                        <div class="text-center mt-2">
+                            <a id="valid_id_1-download" href="#" class="download-btn" download target="_blank">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
 
-        <!-- Proof of Income -->
-        <div class="col-md-6 document-block" id="proof_of_income-container" style="display: none;">
-            <div class="info-label">Proof of Income</div>
-            <div class="document-preview">
-                <img id="proof_of_income-img" src="" alt="Proof of Income" class="img-fluid" style="max-height: 200px;">
-            </div>
-            <div class="text-center mt-2">
-                <a id="proof_of_income-download" href="#" class="download-btn" download target="_blank">
-                    <i class="fas fa-download"></i> Download
-                </a>
-            </div>
-        </div>
+                    <!-- Valid ID 2 -->
+                    <div class="col-md-6 document-block" id="valid_id_2-container" style="display: none;">
+                        <div class="info-label">Valid ID 2</div>
+                        <div class="document-preview">
+                            <img id="valid_id_2-img" src="" alt="Valid ID 2" class="img-fluid" style="max-height: 200px;">
+                        </div>
+                        <div class="text-center mt-2">
+                            <a id="valid_id_2-download" href="#" class="download-btn" download target="_blank">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
 
-        <!-- Proof of Billing -->
-        <div class="col-md-6 document-block" id="proof_of_billing-container" style="display: none;">
-            <div class="info-label">Proof of Billing</div>
-            <div class="document-preview">
-                <img id="proof_of_billing-img" src="" alt="Proof of Billing" class="img-fluid" style="max-height: 200px;">
-            </div>
-            <div class="text-center mt-2">
-                <a id="proof_of_billing-download" href="#" class="download-btn" download target="_blank">
-                    <i class="fas fa-download"></i> Download
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+                    <!-- Proof of Income -->
+                    <div class="col-md-6 document-block" id="proof_of_income-container" style="display: none;">
+                        <div class="info-label">Proof of Income</div>
+                        <div class="document-preview">
+                            <img id="proof_of_income-img" src="" alt="Proof of Income" class="img-fluid" style="max-height: 200px;">
+                        </div>
+                        <div class="text-center mt-2">
+                            <a id="proof_of_income-download" href="#" class="download-btn" download target="_blank">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
 
-            <!-- Application Status -->
+                    <!-- Proof of Billing -->
+                    <div class="col-md-6 document-block" id="proof_of_billing-container" style="display: none;">
+                        <div class="info-label">Proof of Billing</div>
+                        <div class="document-preview">
+                            <img id="proof_of_billing-img" src="" alt="Proof of Billing" class="img-fluid" style="max-height: 200px;">
+                        </div>
+                        <div class="text-center mt-2">
+                            <a id="proof_of_billing-download" href="#" class="download-btn" download target="_blank">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Status Section -->
             <div class="form-section">
                 <h4 class="section-title">Application Status</h4>
                 <div class="row">
@@ -722,7 +721,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" onclick="hideModal()">Close</button>
             <button type="button" class="btn btn-primary" id="saveStatusBtn" onclick="updateApplicationStatus()">Save Changes</button>
@@ -730,11 +729,11 @@
     </div>
 </div>  
 
+<!-- ========== JAVASCRIPT FUNCTIONS ========== -->
 <script>
-    // Global variable to store current application ID
     let currentApplicationId = null;
 
-    // Modal functions
+    // ========== MODAL FUNCTIONS ==========
     function showModal() {
         document.getElementById('applicationModal').classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -745,30 +744,26 @@
         document.body.style.overflow = '';
     }
 
-    // Close modal when clicking outside
     document.getElementById('applicationModal').addEventListener('click', function(e) {
         if (e.target === this) hideModal();
     });
 
-    // Close modal with ESC key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') hideModal();
     });
 
-    // Update status in table row
+    // ========== APPLICATION STATUS FUNCTIONS ==========
     function updateStatus(selectElement, event) {
         event.stopPropagation();
         const applicationId = selectElement.getAttribute('data-application-id');
         const newStatus = selectElement.value;
 
-        // Update UI immediately
         selectElement.className = 'status-select ' + newStatus;
         const row = selectElement.closest('tr');
         const statusBadge = row.querySelector('.status-badge');
         statusBadge.className = 'status-badge badge-' + newStatus;
         statusBadge.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
 
-        // Send update to server
         fetch('update_status.php', {
             method: 'POST',
             headers: { 
@@ -792,13 +787,11 @@
         .catch(error => {
             console.error('Error updating status:', error);
             alert('Error updating status: ' + error.message);
-            // Revert UI changes on error
             selectElement.value = selectElement.dataset.previousValue;
         });
     }
 
-    // Show application details in modal
- 
+    // ========== APPLICATION DETAILS FUNCTIONS ==========
     function showApplicationDetails(id) {
     currentApplicationId = id;
     
@@ -808,32 +801,39 @@
             if (response.success && response.data) {
                 const data = response.data;
 
-                // Fill in personal, address, employment, and loan info
+                // Personal Information
                 document.getElementById('detail-firstName').textContent = data.first_name;
-                document.getElementById('detail-middleName').textContent = data.middle_name;
+                document.getElementById('detail-middleName').textContent = data.middle_name || 'N/A';
                 document.getElementById('detail-lastName').textContent = data.last_name;
                 document.getElementById('detail-birthDate').textContent = data.birth_date;
                 document.getElementById('detail-civilStatus').textContent = data.civil_status;
                 document.getElementById('detail-email').textContent = data.email;
                 document.getElementById('detail-mobile').textContent = data.mobile;
+                
+                // Address Information
                 document.getElementById('detail-currentAddress').textContent = data.current_address;
                 document.getElementById('detail-permanentAddress').textContent = data.permanent_address;
                 document.getElementById('detail-city').textContent = data.city;
                 document.getElementById('detail-province').textContent = data.province;
                 document.getElementById('detail-zipCode').textContent = data.zip_code;
-                document.getElementById('detail-employmentStatus').textContent = data.employment_status || 'N/A';
-                document.getElementById('detail-monthlyIncome').textContent = data.monthly_income;
-                document.getElementById('detail-employerName').textContent = data.employer_name || 'N/A';
-                document.getElementById('detail-jobPosition').textContent = data.job_position;
-                document.getElementById('detail-workDuration').textContent = data.work_duration;
-                document.getElementById('detail-workAddress').textContent = data.work_address;
-                document.getElementById('detail-loanAmount').textContent = data.loan_amount;
+                
+                // Employment Information - UPDATED SECTION
+                document.getElementById('detail-employmentStatus').textContent = data.employment_status_display;
+                document.getElementById('detail-monthlyIncome').textContent = '₱' + data.monthly_income;
+                document.getElementById('detail-employerName').textContent = data.employer_name_display;
+                document.getElementById('detail-jobPosition').textContent = data.job_position || 'N/A';
+                document.getElementById('detail-workDuration').textContent = data.work_duration || 'N/A';
+                document.getElementById('detail-workAddress').textContent = data.work_address || 'N/A';
+                
+                // Loan Information
+                document.getElementById('detail-loanAmount').textContent = '₱' + data.loan_amount;
                 document.getElementById('detail-loanPurpose').textContent = data.loan_purpose;
                 document.getElementById('detail-loanTerm').textContent = data.loan_term;
                 document.getElementById('detail-paymentMethod').textContent = data.payment_method;
                 document.getElementById('detail-submittedAt').textContent = data.submitted_at;
                 document.getElementById('applicationStatus').value = data.status;
 
+                // Documents
                 updateDocumentDisplay('valid_id_1', data.valid_id_1_url);
                 updateDocumentDisplay('valid_id_2', data.valid_id_2_url);
                 updateDocumentDisplay('proof_of_income', data.proof_of_income_url);
@@ -850,112 +850,26 @@
         });
 }
 
-function updateDocumentDisplay(docType, fileUrl) {
-    const container = document.getElementById(`${docType}-container`);
-    const imgElement = document.getElementById(`${docType}-img`);
-    const downloadLink = document.getElementById(`${docType}-download`);
+    function updateDocumentDisplay(docType, fileUrl) {
+        const container = document.getElementById(`${docType}-container`);
+        const imgElement = document.getElementById(`${docType}-img`);
+        const downloadLink = document.getElementById(`${docType}-download`);
 
-    if (fileUrl) {
-        container.style.display = 'block';
-        imgElement.src = fileUrl;
-        downloadLink.href = fileUrl;
-        downloadLink.download = fileUrl.split('/').pop();
-        
-        imgElement.onclick = function() {
-            window.open(fileUrl, '_blank');
-        };
-    } else {
-        container.style.display = 'none';
-    }
-}
-
-function handleDocumentDisplay(docType, filePath, fileExists) {
-    const container = document.getElementById(`${docType}-container`);
-    const imgElement = document.getElementById(`${docType}-img`);
-    const downloadLink = document.getElementById(`${docType}-download`);
-
-    if (fileExists && filePath) {
-        container.style.display = 'block';
-        imgElement.src = filePath;
-        downloadLink.href = filePath;
-        downloadLink.download = filePath.split('/').pop();
-        
-        // Add click to enlarge functionality
-        imgElement.onclick = function() {
-            window.open(filePath, '_blank');
-        };
-    } else {
-        container.style.display = 'none';
-    }
-}
-function loadDocumentImages(applicationData) {
-    const docFields = ['valid_id_1', 'valid_id_2', 'proof_of_income', 'proof_of_billing'];
-
-    docFields.forEach(field => {
-        const url = applicationData[field + '_url'];
-        if (url) {
-            // Show container
-            document.getElementById(`${field}-container`).style.display    = 'block';
-
-            // Set image src and download link
-            document.getElementById(`${field}-img`).src = url;
-            document.getElementById(`${field}-download`).href = url;
+        if (fileUrl) {
+            container.style.display = 'block';
+            imgElement.src = fileUrl;
+            downloadLink.href = fileUrl;
+            downloadLink.download = fileUrl.split('/').pop();
+            
+            imgElement.onclick = function() {
+                window.open(fileUrl, '_blank');
+            };
         } else {
-            // Hide if no URL
-            document.getElementById(`${field}-container`).style.display = 'none';
+            container.style.display = 'none';
         }
-    });
-}
-
-
-                // Show modal
-                function showModal() {
-    document.getElementById('applicationModal').classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-function hideModal() {
-    document.getElementById('applicationModal').classList.remove('show');
-    document.body.style.overflow = '';
-}
-
-function updateDocumentDisplay(docType, filePath) {
-    const container = document.getElementById(`${docType}-container`);
-    if (!container) return;
-    
-    if (filePath) {
-        container.style.display = 'block';
-        const img = container.querySelector('img');
-        const downloadLink = container.querySelector('a');
-        
-        // Set the image source
-        img.src = filePath;
-        
-        // Set the download link
-        downloadLink.href = filePath;
-        downloadLink.download = filePath.split('/').pop(); // Set filename for download
-        
-        // Add click handler to open image in new tab
-        img.onclick = () => window.open(filePath, '_blank');
-    } else {
-        container.style.display = 'none';
     }
-}
-fetch('get_application_details.php?id=' + applicationId)
-    .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            const application = result.data;
-            loadDocumentImages(application);
-            // ...you can populate other fields here too...
-        } else {
-            console.error(result.message);
-        }
-    })
-    .catch(error => console.error('Fetch error:', error));
 
-
-    // Update application status from modal
+    // ========== STATUS UPDATE FUNCTION ==========
     function updateApplicationStatus() {
         if (!currentApplicationId) return;
 
@@ -963,7 +877,6 @@ fetch('get_application_details.php?id=' + applicationId)
         const saveBtn = document.getElementById('saveStatusBtn');
         const originalText = saveBtn.innerHTML;
 
-        // Show loading state
         saveBtn.disabled = true;
         saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 

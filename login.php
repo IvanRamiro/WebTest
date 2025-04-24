@@ -6,7 +6,6 @@ header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-// Redirect if already logged in
 if (isset($_SESSION['user_id'])) {
     header("Location: ADMIN DASHBOARD/dashboard.php");
     exit();
@@ -26,14 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $stmt->store_result();
 
-        // Check if user exists
         if ($stmt->num_rows > 0) {
             $stmt->bind_result($id, $db_password);
             $stmt->fetch();
 
-            // Verify password hash
-            if ($password === $db_password) { // ⚠️ CHANGE THIS LINE IF USING HASHED PASSWORDS
-            // if (password_verify($password, $db_password)) { // Use this if passwords are hashed
+            if ($password === $db_password) {
                 $_SESSION['user_id'] = $id;
                 $_SESSION['email'] = $email;
                 $_SESSION['timeout'] = time();
