@@ -73,7 +73,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAST CASH</title>
+    <title>UNLAD PLUS LOAN</title>
     <meta name="description" content="FAST CASH - Quick and reliable financial solutions for everyone">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -92,8 +92,8 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
+                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->
@@ -124,7 +124,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
             </div>
         </div>
     </div>
@@ -132,7 +132,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
 <!-- Hero Section -->
 <section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark position-sticky top-0 w-100 z-3" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,6 +156,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
         </div>
     </nav>
 </section>
+
 
 <!-- Market Vendor Loan Section -->
 <section class="mvl-section py-5" aria-labelledby="mvl-heading">

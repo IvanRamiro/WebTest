@@ -32,8 +32,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
+                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->
@@ -64,17 +64,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
             </div>
         </div>
     </div>
 </header>
 
 <!-- Hero Section -->
-<section class="hero"
-    style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
-        <!-- Your existing navbar content remains exactly the same -->
+<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +96,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </div>
     </nav>
 </section>
-
 
 <!-- Main Content Container -->
 <main class="container my-5">

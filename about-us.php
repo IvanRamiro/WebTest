@@ -32,8 +32,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
+                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->
@@ -41,7 +41,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
-                            <a href="tel:(02)1234-5678">(02) 1234-5678</a>
+                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
                         </p>
                     </li>
                     <li>
@@ -64,16 +64,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
             </div>
         </div>
     </div>
 </header>
 
 <!-- Hero Section -->
-<section class="hero"
-    style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,192 +97,193 @@ if ($bg_result && $bg_result->num_rows > 0) {
     </nav>
 </section>
 
-   <!-- Main Content -->
-   <main id="main-content">
-        <!-- About FAST CASH Section -->
-        <section class="py-5 bg-white">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
-                        <img src="Images/ABSOLUTE.jpg" alt="FAST CASH Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 class="display-5 fw-bold text-danger mb-4">About <span class="text-dark">FAST CASH</span></h2>
-                        <p class="lead">FAST CASH is a premier financial service provider in the Philippines, dedicated to delivering quick and reliable cash solutions to individuals and small businesses.</p>
-                        <p>With a nationwide presence, we aim to provide immediate financial assistance when you need it most. Our mission is to offer hassle-free cash solutions with transparent terms and exceptional customer service.</p>
-                        <div class="d-flex gap-3 mt-4">
-                            <a href="contact-us.php" class="btn btn-danger px-4 py-2">Contact Us</a>
+ <!-- Main Content -->
+<main id="main-content">
+    <!-- About Unlad Plus Loan Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="Images/ABSOLUTE.jpg" alt="Unlad Plus Loan Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4" style="color: var(--main-color);">About <span style="color: var(--secondary-color);">Unlad Plus Loan</span></h2>
+                    <p class="lead">Unlad Plus Loan is a premier financial service provider in the Philippines, dedicated to delivering sustainable loan solutions for personal and business growth.</p>
+                    <p>With a nationwide presence, we aim to provide financial empowerment with flexible terms and exceptional customer service. Our mission is to help Filipinos achieve their dreams through accessible financing.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="contact-us.php" class="btn px-4 py-2" style="background-color: var(--main-color); color: white;">Contact Us</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Our Story Section -->
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="display-5 fw-bold">Our <span class="text-danger">Story</span></h2>
-                    <div class="divider mx-auto bg-danger"></div>
+    <!-- Our Story Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our <span style="color: var(--main-color);">Story</span></h2>
+                <div class="divider mx-auto" style="background-color: var(--main-color);"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box mb-4 mx-auto" style="background-color: var(--main-color); color: white;">
+                                <i class="fas fa-rocket fa-2x"></i>
+                            </div>
+                            <h3 class="h4">Our Beginnings</h3>
+                            <p>Founded in 2018, Unlad Plus Loan began with a vision to provide growth-focused financial solutions to Filipinos.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-box bg-danger text-white mb-4 mx-auto">
-                                    <i class="fas fa-rocket fa-2x"></i>
-                                </div>
-                                <h3 class="h4">Our Beginnings</h3>
-                                <p>Founded in 2015, FAST CASH began with a simple goal: to provide quick financial solutions to Filipinos in urgent need of cash.</p>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box mb-4 mx-auto" style="background-color: var(--main-color); color: white;">
+                                <i class="fas fa-chart-line fa-2x"></i>
                             </div>
+                            <h3 class="h4">Growth & Expansion</h3>
+                            <p>Through our commitment to sustainable lending, we've expanded to serve entrepreneurs across the Philippines.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-box bg-danger text-white mb-4 mx-auto">
-                                    <i class="fas fa-chart-line fa-2x"></i>
-                                </div>
-                                <h3 class="h4">Growth & Expansion</h3>
-                                <p>Through our commitment to fast service and fair terms, we've expanded to serve customers across the Philippines.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box mb-4 mx-auto" style="background-color: var(--main-color); color: white;">
+                                <i class="fas fa-bullseye fa-2x"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-box bg-danger text-white mb-4 mx-auto">
-                                    <i class="fas fa-bullseye fa-2x"></i>
-                                </div>
-                                <h3 class="h4">Future Vision</h3>
-                                <p>We continue to innovate to provide even faster cash solutions through digital platforms while maintaining personal service.</p>
-                            </div>
+                            <h3 class="h4">Future Vision</h3>
+                            <p>We continue to innovate to provide more financial products that support long-term growth and stability.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Mission & Vision Section -->
-        <section class="py-5 bg-white">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="display-5 fw-bold">Our <span class="text-danger">Purpose</span></h2>
-                    <div class="divider mx-auto bg-danger"></div>
+    <!-- Mission & Vision Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our <span style="color: var(--main-color);">Purpose</span></h2>
+                <div class="divider mx-auto" style="background-color: var(--main-color);"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center" style="border: 2px solid var(--main-color);">
+                        <div class="card-body p-4">
+                            <i class="fas fa-bullseye fa-3x mb-3" style="color: var(--main-color);"></i>
+                            <h3 class="h4">Mission</h3>
+                            <p>To provide growth-oriented loan solutions with fair terms and maximum convenience for our clients.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-100 border-danger border-2 text-center">
-                            <div class="card-body p-4">
-                                <i class="fas fa-bullseye text-danger fa-3x mb-3"></i>
-                                <h3 class="h4">Mission</h3>
-                                <p>To provide immediate cash solutions with minimal requirements and maximum convenience for our customers.</p>
-                            </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center" style="border: 2px solid var(--main-color);">
+                        <div class="card-body p-4">
+                            <i class="fas fa-eye fa-3x mb-3" style="color: var(--main-color);"></i>
+                            <h3 class="h4">Vision</h3>
+                            <p>To be the most trusted growth partner in the Philippines, known for our reliability and customer care.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 border-danger border-2 text-center">
-                            <div class="card-body p-4">
-                                <i class="fas fa-eye text-danger fa-3x mb-3"></i>
-                                <h3 class="h4">Vision</h3>
-                                <p>To be the most trusted quick cash provider in the Philippines, known for our speed, reliability, and customer care.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 border-danger border-2 text-center">
-                            <div class="card-body p-4">
-                                <i class="fas fa-users text-danger fa-3x mb-3"></i>
-                                <h3 class="h4">Our People</h3>
-                                <p>Our team is committed to providing friendly, professional service with every transaction.</p>
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center" style="border: 2px solid var(--main-color);">
+                        <div class="card-body p-4">
+                            <i class="fas fa-users fa-3x mb-3" style="color: var(--main-color);"></i>
+                            <h3 class="h4">Our People</h3>
+                            <p>Our team is committed to providing knowledgeable, professional service with every transaction.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Our Values Section -->
-        <section class="py-5 bg-white">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="display-5 fw-bold">Our <span class="text-danger">Core Values</span></h2>
-                    <div class="divider mx-auto bg-danger"></div>
-                    <p class="lead mx-auto" style="max-width: 700px;">These principles guide everything we do at FAST CASH and define how we serve our customers.</p>
+    <!-- Our Values Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our <span style="color: var(--main-color);">Core Values</span></h2>
+                <div class="divider mx-auto" style="background-color: var(--main-color);"></div>
+                <p class="lead mx-auto" style="max-width: 700px;">These principles guide everything we do at Unlad Plus Loan and define how we serve our customers.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow">
+                        <div class="card-body p-4 text-center">
+                            <div class="value-icon mb-3 mx-auto" style="background-color: var(--main-color); color: white;">
+                                <i class="fas fa-balance-scale fa-2x"></i>
+                            </div>
+                            <h3 class="h4">Integrity</h3>
+                            <p>We conduct all transactions with honesty and transparency, ensuring fair terms for our clients.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm hover-shadow">
-                            <div class="card-body p-4 text-center">
-                                <div class="value-icon bg-danger text-white mb-3 mx-auto">
-                                    <i class="fas fa-balance-scale fa-2x"></i>
-                                </div>
-                                <h3 class="h4">Integrity</h3>
-                                <p>We conduct all transactions with honesty and transparency, ensuring fair terms for our customers.</p>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow">
+                        <div class="card-body p-4 text-center">
+                            <div class="value-icon mb-3 mx-auto" style="background-color: var(--main-color); color: white;">
+                                <i class="fas fa-user-friends fa-2x"></i>
                             </div>
+                            <h3 class="h4">Customer Focus</h3>
+                            <p>We prioritize our clients' growth needs, providing solutions tailored to their goals.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm hover-shadow">
-                            <div class="card-body p-4 text-center">
-                                <div class="value-icon bg-danger text-white mb-3 mx-auto">
-                                    <i class="fas fa-user-friends fa-2x"></i>
-                                </div>
-                                <h3 class="h4">Customer Focus</h3>
-                                <p>We prioritize our customers' needs, providing solutions tailored to their specific situations.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow">
+                        <div class="card-body p-4 text-center">
+                            <div class="value-icon mb-3 mx-auto" style="background-color: var(--main-color); color: white;">
+                                <i class="fas fa-lightbulb fa-2x"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm hover-shadow">
-                            <div class="card-body p-4 text-center">
-                                <div class="value-icon bg-danger text-white mb-3 mx-auto">
-                                    <i class="fas fa-lightbulb fa-2x"></i>
-                                </div>
-                                <h3 class="h4">Speed</h3>
-                                <p>We continuously streamline our processes to deliver the fastest cash solutions possible.</p>
-                            </div>
+                            <h3 class="h4">Sustainability</h3>
+                            <p>We promote financial solutions that support long-term growth and stability.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Stats Section -->
-        <section class="py-5 bg-danger text-white">
-            <div class="container">
-                <div class="row g-4 text-center">
-                    <div class="col-md-3">
-                        <div class="display-4 fw-bold">250K+</div>
-                        <p class="mb-0">Customers Served</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="display-4 fw-bold">50+</div>
-                        <p class="mb-0">Branches Nationwide</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="display-4 fw-bold">500+</div>
-                        <p class="mb-0">Employees</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="display-4 fw-bold">8+</div>
-                        <p class="mb-0">Years of Service</p>
-                    </div>
+    <!-- Stats Section -->
+    <section class="py-5 text-white" style="background-color: var(--main-color);">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="display-4 fw-bold">150K+</div>
+                    <p class="mb-0">Clients Empowered</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="display-4 fw-bold">40+</div>
+                    <p class="mb-0">Branches Nationwide</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="display-4 fw-bold">300+</div>
+                    <p class="mb-0">Financial Experts</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="display-4 fw-bold">6+</div>
+                    <p class="mb-0">Years of Service</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section class="py-5 bg-white">
-            <div class="container text-center">
-                <h2 class="display-5 fw-bold mb-4">Need Cash Fast?</h2>
-                <p class="lead mb-4">Discover how FAST CASH can provide the financial solution you need.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="apply.php" class="btn btn-danger btn-lg px-4">Apply Now</a>
-                    <a href="contact-us.php" class="btn btn-outline-danger btn-lg px-4">Contact Us</a>
-                </div>
+    <!-- CTA Section -->
+    <section class="py-5 bg-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">Ready to Grow?</h2>
+            <p class="lead mb-4">Discover how Unlad Plus Loan can support your financial journey.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="apply.php" class="btn btn-lg px-4" style="background-color: var(--main-color); color: white;">Apply Now</a>
+                <a href="contact-us.php" class="btn btn-outline-danger btn-lg px-4" style="border-color: var(--main-color); color: var(--main-color);">Contact Us</a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5">

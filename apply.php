@@ -32,8 +32,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
+                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->
@@ -41,7 +41,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
-                            <a href="tel:(02)1234-5678">(02) 1234-5678</a>
+                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
                         </p>
                     </li>
                     <li>
@@ -62,17 +62,17 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </ul>
             </nav>
 
-            <!-- Login Button -->
+            <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
             </div>
         </div>
     </div>
 </header>
 
 <!-- Hero Section -->
-<section class="hero" style="height: 400px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<?php echo $bg_image; ?>') no-repeat center center/cover;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white active" href="apply.php">Apply</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="apply.php">Apply</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
                 </ul>
@@ -96,23 +96,23 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </div>
     </nav>
     
-    <!-- Hero Content -->
-    <div class="container h-100 d-flex align-items-center">
-        <div class="row justify-content-center w-100">
-            <div class="col-lg-8 text-center">
-                <h1 class="display-4 fw-bold text-white mb-4">Apply for FAST CASH Loan</h1>
-                <p class="lead text-white mb-5">Quick approval process with competitive rates</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="#loan-application" class="btn btn-danger btn-lg px-4 py-2 rounded-pill">
-                        <i class="fas fa-pencil-alt me-2"></i> Start Application
-                    </a>
-                    <a href="#loan-calculator" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-                        <i class="fas fa-calculator me-2"></i> Calculate Loan
-                    </a>
-                </div>
+<!-- Hero Content -->
+<div class="container h-100 d-flex align-items-center">
+    <div class="row justify-content-center w-100">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 fw-bold text-white mb-4">Apply for Unlad Plus Loan</h1>
+            <p class="lead text-white mb-5">Flexible terms with competitive rates for your growth</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#loan-application" class="btn btn-lg px-4 py-2 rounded-pill" style="background-color: var(--secondary-color); color: white;">
+                    <i class="fas fa-pencil-alt me-2"></i> Start Application
+                </a>
+                <a href="#loan-calculator" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
+                    <i class="fas fa-calculator me-2"></i> Calculate Loan
+                </a>
             </div>
         </div>
     </div>
+</div>
 </section>
 
 <!-- Loan Application Section -->
@@ -121,14 +121,14 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="card shadow-sm border-0">
-                    <div class="card-header bg-danger text-white py-3">
+                    <div class="card-header py-3 text-white" style="background-color: var(--main-color);">
                         <h2 class="h4 mb-0 text-center"><i class="fas fa-file-signature me-2"></i> Loan Application Form</h2>
                     </div>
                     <div class="card-body p-4">
                         <form id="loanApplicationForm" action="process-application.php" method="POST" enctype="multipart/form-data">
                             <!-- Personal Information -->
                             <fieldset class="mb-4">
-                                <legend class="fw-bold text-danger border-bottom pb-2">Personal Information</legend>
+                                <legend class="fw-bold border-bottom pb-2" style="color: var(--main-color);">Personal Information</legend>
                                 <div class="row g-3">
                                     <div class="col-md-4">
                                         <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
@@ -169,7 +169,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
                             <!-- Address Information -->
                             <fieldset class="mb-4">
-                                <legend class="fw-bold text-danger border-bottom pb-2">Address Information</legend>
+                                <legend class="fw-bold border-bottom pb-2" style="color: var(--main-color);">Address Information</legend>
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="currentAddress" class="form-label">Current Address <span class="text-danger">*</span></label>
@@ -200,7 +200,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
                             <!-- Employment Information -->
                             <fieldset class="mb-4">
-                                <legend class="fw-bold text-danger border-bottom pb-2">Employment Information</legend>
+                            <legend class="fw-bold border-bottom pb-2" style="color: var(--main-color);">Employment Information</legend>
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="employmentStatus" class="form-label">Employment Status <span class="text-danger">*</span></label>
@@ -238,7 +238,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
                             <!-- Loan Details -->
                             <fieldset class="mb-4">
-                                <legend class="fw-bold text-danger border-bottom pb-2">Loan Details</legend>
+                                <legend class="fw-bold border-bottom pb-2" style="color: var(--main-color);">Loan Details</legend>
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="loanAmount" class="form-label">Loan Amount (PHP) <span class="text-danger">*</span></label>
@@ -284,7 +284,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
                             <!-- Documents Upload -->
                             <fieldset class="mb-4">
-                                <legend class="fw-bold text-danger border-bottom pb-2">Required Documents</legend>
+                            <legend class="fw-bold border-bottom pb-2" style="color: var(--main-color);">Required Documents</legend>
                                 <div class="alert alert-info">
                                     <i class="fas fa-info-circle me-2"></i> Please upload clear copies of the following documents (JPEG, PNG or PDF format)
                                 </div>
@@ -317,20 +317,19 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
                                     <label class="form-check-label" for="agreeTerms">
-                                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a> and <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a> of FAST CASH <span class="text-danger">*</span>
+                                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a> and <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a> of Unlad Plus Loan <span style="color: var(--main-color);">*</span>
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="allowMarketing" name="allowMarketing">
                                     <label class="form-check-label" for="allowMarketing">
-                                        I agree to receive marketing communications from FAST CASH
+                                        I agree to receive marketing communications from Unlad Plus Loan
                                     </label>
                                 </div>
                             </div>
-
                             <!-- Submit Button -->
                             <div class="text-center">
-                                <button type="submit" class="btn btn-danger btn-lg px-5 py-3">
+                                <button type="submit" class="btn btn-lg px-5 py-3" style="background-color: var(--main-color); color: white;">
                                     <i class="fas fa-paper-plane me-2"></i> Submit Application
                                 </button>
                             </div>
@@ -348,8 +347,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card shadow-sm border-0">
-                    <div class="card-header bg-danger text-white py-3">
-                        <h2 class="h4 mb-0 text-center"><i class="fas fa-calculator me-2"></i> FAST CASH Loan Calculator</h2>
+                    <div class="card-header py-3 text-white" style="background-color: var(--main-color);">
+                        <h2 class="h4 mb-0 text-center"><i class="fas fa-calculator me-2"></i> Unlad Plus Loan Calculator</h2>
                     </div>
                     <div class="card-body p-4">
                         <div class="row g-4">
@@ -377,9 +376,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     <label for="calcRate" class="form-label">Interest Rate (%)</label>
                                     <input type="text" class="form-control" id="calcRate" value="3.5" readonly>
                                 </div>
-                                <button id="calculateBtn" class="btn btn-danger w-100">
-                                    <i class="fas fa-calculator me-2"></i> Calculate
-                                </button>
+                                <button id="calculateBtn" class="btn w-100" style="background-color: var(--main-color); color: white;">
+                            <i class="fas fa-calculator me-2"></i> Calculate
+                        </button>
                             </div>
                             <div class="col-md-6">
                                 <div class="results-container p-3 border rounded bg-light">
@@ -421,19 +420,18 @@ if ($bg_result && $bg_result->num_rows > 0) {
     </div>
 </section>
 
-<!-- Why Choose Us Section -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Why Choose <span class="text-danger">FAST CASH</span></h2>
-            <div class="divider mx-auto bg-danger"></div>
-            <p class="lead mx-auto" style="max-width: 700px;">We make borrowing simple, fast, and secure with competitive rates and excellent service</p>
+            <h2 class="display-5 fw-bold">Why Choose <span style="color: var(--main-color);">Unlad Plus Loan</span></h2>
+            <div class="divider mx-auto" style="background-color: var(--main-color);"></div>
+            <p class="lead mx-auto" style="max-width: 700px;">We make borrowing simple and growth-focused with competitive rates and excellent service</p>
         </div>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
-                        <div class="icon-box bg-danger text-white mb-4 mx-auto">
+                        <div class="icon-box mb-4 mx-auto" style="background-color: var(--main-color); color: white;">
                             <i class="fas fa-bolt fa-2x"></i>
                         </div>
                         <h3 class="h4">Fast Approval</h3>
@@ -444,7 +442,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
-                        <div class="icon-box bg-danger text-white mb-4 mx-auto">
+                        <div class="icon-box mb-4 mx-auto" style="background-color: var(--main-color); color: white;">
                             <i class="fas fa-percentage fa-2x"></i>
                         </div>
                         <h3 class="h4">Competitive Rates</h3>
@@ -455,7 +453,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
-                        <div class="icon-box bg-danger text-white mb-4 mx-auto">
+                        <div class="icon-box mb-4 mx-auto" style="background-color: var(--main-color); color: white;">
                             <i class="fas fa-shield-alt fa-2x"></i>
                         </div>
                         <h3 class="h4">Secure Process</h3>
@@ -471,8 +469,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <section class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Frequently Asked <span class="text-danger">Questions</span></h2>
-            <div class="divider mx-auto bg-danger"></div>
+            <h2 class="display-5 fw-bold">Frequently Asked <span style="color: var(--main-color);">Questions</span></h2>
+            <div class="divider mx-auto" style="background-color: var(--main-color);"></div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -480,12 +478,12 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="faqHeading1">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
-                                What are the requirements to apply for a FAST CASH loan?
+                                What are the requirements to apply for a Unlad Plus loan?
                             </button>
                         </h2>
                         <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                To qualify for a FAST CASH loan, you need to be:
+                                To qualify for a  Unlad Plus loan, you need to be:
                                 <ul>
                                     <li>Filipino citizen aged 21-65 years old</li>
                                     <li>With a minimum monthly income of ₱10,000</li>
@@ -518,7 +516,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 You can choose from several disbursement options:
                                 <ul>
                                     <li><strong>Bank Transfer:</strong> Direct to your account (1-2 business days)</li>
-                                    <li><strong>Cash Pickup:</strong> At any FAST CASH branch (same day)</li>
+                                    <li><strong>Cash Pickup:</strong> At any Unlad Plus loan branch (same day)</li>
                                     <li><strong>E-Wallet:</strong> GCash or PayMaya (within 24 hours)</li>
                                 </ul>
                             </div>
@@ -548,9 +546,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
                 <div class="text-center mt-4">
-                    <a href="help-support.php" class="btn btn-outline-danger">View More FAQs</a>
+                    <a href="help-support.php" class="btn btn-outline-danger" style="border-color: var(--main-color); color: var(--main-color);">View More FAQs</a>
                 </div>
             </div>
         </div>
@@ -558,12 +556,12 @@ if ($bg_result && $bg_result->num_rows > 0) {
 </section>
 
 <!-- CTA Section -->
-<section class="py-5 bg-danger text-white">
+<section class="py-5 text-white" style="background-color: var(--main-color);">
     <div class="container text-center">
-        <h2 class="display-5 fw-bold mb-4">Need Cash Fast?</h2>
-        <p class="lead mb-4">Apply now and get funds in as fast as 24 hours!</p>
+        <h2 class="display-5 fw-bold mb-4">Ready to Grow?</h2>
+        <p class="lead mb-4">Apply now and get funds to support your goals!</p>
         <div class="d-flex justify-content-center gap-3">
-            <a href="#loan-application" class="btn btn-light btn-lg px-4">Apply Now</a>
+            <a href="#loan-application" class="btn btn-light btn-lg px-4" style="color: var(--main-color);">Apply Now</a>
             <a href="contact-us.php" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
         </div>
     </div>
@@ -573,14 +571,14 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="termsModalLabel">FAST CASH Terms and Conditions</h5>
+            <div class="modal-header text-white" style="background-color: var(--main-color);">
+                <h5 class="modal-title" id="termsModalLabel">Unlad Plus Loan Terms and Conditions</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Terms content here -->
                 <h6>1. Loan Agreement</h6>
-                <p>By applying for a FAST CASH loan, you agree to the terms and conditions outlined in our loan agreement...</p>
+                <p>By applying for a Unlad Plus loan loan, you agree to the terms and conditions outlined in our loan agreement...</p>
                 
                 <h6>2. Interest Rates and Fees</h6>
                 <p>Interest rates range from 2.5% to 5% monthly depending on loan amount and term...</p>
@@ -592,10 +590,10 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <p>A late payment fee of 5% of the installment amount or ₱500, whichever is higher, will be charged for payments received after the due date...</p>
                 
                 <h6>5. Data Privacy</h6>
-                <p>FAST CASH complies with the Data Privacy Act of 2012. Your personal information will be kept confidential and used only for loan processing purposes...</p>
-            </div>
+                <p>Unlad Plus loan complies with the Data Privacy Act of 2012. Your personal information will be kept confidential and used only for loan processing purposes...</p>
+                </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">I Understand</button>
+                <button type="button" class="btn" style="background-color: var(--main-color); color: white;" data-bs-dismiss="modal">I Understand</button>
             </div>
         </div>
     </div>
@@ -605,8 +603,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="privacyModalLabel">FAST CASH Privacy Policy</h5>
+            <div class="modal-header text-white" style="background-color: var(--main-color);">
+                <h5 class="modal-title" id="privacyModalLabel">Unlad Plus Loan Privacy Policy</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -621,17 +619,18 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <p>We may share your information with credit bureaus and collection agencies as necessary for loan processing and collection...</p>
                 
                 <h6>4. Data Security</h6>
-                <p>FAST CASH implements appropriate security measures to protect your personal information from unauthorized access...</p>
+                <p>Unlad Plus loan implements appropriate security measures to protect your personal information from unauthorized access...</p>
                 
                 <h6>5. Your Rights</h6>
                 <p>You have the right to access, correct, and request deletion of your personal information in our records...</p>
-            </div>
+                </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">I Understand</button>
+                <button type="button" class="btn" style="background-color: var(--main-color); color: white;" data-bs-dismiss="modal">I Understand</button>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5">
     <div class="container">
@@ -639,8 +638,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>FAST CASH</strong></p>
+                    <img src="Images/Logo.png" alt="Unlad Plus loanh Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>UNLAD PLUS LOAN</strong></p>
                 </div>
                 <p>SEC Reg. No. CS202300001</p>
                 <p>Certificate of Authority No. 1234</p>
@@ -697,8 +696,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
         <!-- Bottom Section -->
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
+            <p class="mb-0">&copy; 2025 UNLAD PLUS LOAN. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY UNLAD PLUS LOAN TEAM</p>
         </div>
     </div>
 </footer>

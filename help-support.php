@@ -32,8 +32,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
+                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->
@@ -64,16 +64,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
             </div>
         </div>
     </div>
 </header>
 
 <!-- Hero Section -->
-<section class="hero" style="height: 500px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<?php echo $bg_image; ?>') no-repeat center center/cover;">
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0 w-100 z-3 border-bottom border-white border-opacity-50" role="navigation">
+<section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
+    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,26 +96,27 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </div>
     </nav>
     
-    <!-- Hero Content -->
-    <div class="container h-100 d-flex align-items-center">
-        <div class="row justify-content-center w-100">
-            <div class="col-lg-10 text-center">
-                <h1 class="display-3 fw-bold text-white mb-4">Your FAST CASH Loan Journey Starts Here</h1>
-                <p class="lead text-white mb-5">Get the financial support you need in just 6 simple steps</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="#loan-process" class="btn btn-danger btn-lg px-4 py-2 rounded-pill">
-                        <i class="fas fa-list-ol me-2"></i> View Loan Steps
-                    </a>
-                </div>
+  <!-- Hero Content -->
+<div class="container h-100 d-flex align-items-center">
+    <div class="row justify-content-center w-100">
+        <div class="col-lg-10 text-center">
+            <h1 class="display-3 fw-bold text-white mb-4">Your FAST CASH Loan Journey Starts Here</h1>
+            <p class="lead text-white mb-5">Get the financial support you need in just 6 simple steps</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#loan-process" class="btn btn-lg px-4 py-2 rounded-pill" style="background-color: var(--secondary-color); color: white;">
+                    <i class="fas fa-list-ol me-2"></i> View Loan Steps
+                </a>
             </div>
         </div>
+    </div>
+</div>
 </section>
 
 <!-- Loan Process Timeline -->
 <section id="loan-process" class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold text-danger mb-3">How to Get Your FAST CASH Loan</h2>
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--main-color);">How to Get Your FAST CASH Loan</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <p class="lead">Follow this straightforward process to access funds quickly and securely. Our average approval time is just 24-48 hours for complete applications.</p>
@@ -133,21 +133,21 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
                 <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-danger text-white py-3">
+                        <div class="card-header py-3" style="background-color: var(--main-color); color: white;">
                             <h3 class="h4 mb-0">Eligibility Check</h3>
                         </div>
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="text-danger">Basic Requirements</h4>
+                                    <h4 style="color: var(--main-color);">Basic Requirements</h4>
                                     <ul class="list-icon">
-                                        <li><i class="fas fa-check-circle text-danger"></i> Filipino citizen, 21-65 years old</li>
-                                        <li><i class="fas fa-check-circle text-danger"></i> Minimum monthly income: ₱10,000</li>
-                                        <li><i class="fas fa-check-circle text-danger"></i> At least 6 months with current employer/business</li>
-                                        <li><i class="fas fa-check-circle text-danger"></i> No active bankruptcies</li>
+                                        <li><i class="fas fa-check-circle" style="color: var(--main-color);"></i> Filipino citizen, 21-65 years old</li>
+                                        <li><i class="fas fa-check-circle" style="color: var(--main-color);"></i> Minimum monthly income: ₱10,000</li>
+                                        <li><i class="fas fa-check-circle" style="color: var(--main-color);"></i> At least 6 months with current employer/business</li>
+                                        <li><i class="fas fa-check-circle" style="color: var(--main-color);"></i> No active bankruptcies</li>
                                     </ul>
                                     <div class="mt-3">
-                                        <button class="btn btn-sm btn-outline-danger">Check Eligibility</button>
+                                        <button class="btn btn-sm btn-outline-danger" style="border-color: var(--main-color); color: var(--main-color);">Check Eligibility</button>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center d-none d-md-block">
@@ -156,7 +156,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             </div>
                         </div>
                         <div class="card-footer bg-light">
-                            <small><i class="fas fa-clock text-danger me-1"></i> Time required: 2 minutes</small>
+                            <small><i class="fas fa-clock me-1" style="color: var(--main-color);"></i> Time required: 2 minutes</small>
                         </div>
                     </div>
                 </div>
@@ -169,13 +169,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
                 <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-danger text-white py-3">
+                        <div class="card-header py-3" style="background-color: var(--main-color); color: white;">
                             <h3 class="h4 mb-0">Document Preparation</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4 class="text-danger"><i class="fas fa-id-card me-2"></i> Required IDs</h4>
+                                    <h4 style="color: var(--main-color);"><i class="fas fa-id-card me-2"></i> Required IDs</h4>
                                     <ul>
                                         <li>Primary: Passport, Driver's License, UMID</li>
                                         <li>Secondary: SSS ID, PhilHealth ID, TIN</li>
@@ -183,7 +183,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="text-danger"><i class="fas fa-file-alt me-2"></i> Financial Proof</h4>
+                                    <h4 style="color: var(--main-color);"><i class="fas fa-file-alt me-2"></i> Financial Proof</h4>
                                     <ul>
                                         <li>Latest 3 months payslips</li>
                                         <li>Bank statements</li>
@@ -206,33 +206,33 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
                 <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-danger text-white py-3">
+                        <div class="card-header py-3" style="background-color: var(--main-color); color: white;">
                             <h3 class="h4 mb-0">Application Submission</h3>
                         </div>
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-md-6">
                                     <div class="p-4 border rounded text-center h-100">
-                                        <i class="fas fa-laptop-house text-danger mb-3" style="font-size: 2.5rem;"></i>
+                                        <i class="fas fa-laptop-house mb-3" style="font-size: 2.5rem; color: var(--main-color);"></i>
                                         <h4>Online Application</h4>
                                         <ol class="text-start ps-3">
                                             <li>Complete digital form</li>
                                             <li>Upload scanned documents</li>
                                             <li>E-sign application</li>
                                         </ol>
-                                        <a href="apply.php" class="btn btn-danger mt-2">Apply Online</a>
+                                        <a href="apply.php" class="btn mt-2" style="background-color: var(--main-color); color: white;">Apply Online</a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 border rounded text-center h-100">
-                                        <i class="fas fa-store text-danger mb-3" style="font-size: 2.5rem;"></i>
+                                        <i class="fas fa-store mb-3" style="font-size: 2.5rem; color: var(--main-color);"></i>
                                         <h4>FAST CASH Branch Application</h4>
                                         <ol class="text-start ps-3">
                                             <li>Visit nearest FAST CASH branch</li>
                                             <li>Submit physical documents</li>
                                             <li>Get instant acknowledgement</li>
                                         </ol>
-                                        <a href="contact-us.php" class="btn btn-outline-danger mt-2">Find Branches</a>
+                                        <a href="contact-us.php" class="btn btn-outline-danger mt-2" style="border-color: var(--main-color); color: var(--main-color);">Find Branches</a>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
                 <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-danger text-white py-3">
+                        <div class="card-header py-3" style="background-color: var(--main-color); color: white;">
                             <h3 class="h4 mb-0">Verification Process</h3>
                         </div>
                         <div class="card-body">
@@ -271,11 +271,11 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <h5 class="text-danger">What to Expect:</h5>
+                                <h5 style="color: var(--main-color);">What to Expect:</h5>
                                 <ul class="list-icon">
-                                    <li><i class="fas fa-phone text-danger"></i> Possible verification call within 24 hours</li>
-                                    <li><i class="fas fa-envelope text-danger"></i> Email updates at each stage</li>
-                                    <li><i class="fas fa-user-clock text-danger"></i> Typical processing: 1-2 business days</li>
+                                    <li><i class="fas fa-phone" style="color: var(--main-color);"></i> Possible verification call within 24 hours</li>
+                                    <li><i class="fas fa-envelope" style="color: var(--main-color);"></i> Email updates at each stage</li>
+                                    <li><i class="fas fa-user-clock" style="color: var(--main-color);"></i> Typical processing: 1-2 business days</li>
                                 </ul>
                             </div>
                         </div>
@@ -290,7 +290,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
                 <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-danger text-white py-3">
+                        <div class="card-header py-3" style="background-color: var(--main-color); color: white;">
                             <h3 class="h4 mb-0">Loan Approval</h3>
                         </div>
                         <div class="card-body">
@@ -320,7 +320,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="text-danger mb-3">Next Steps</h4>
+                                    <h4 style="color: var(--main-color);" class="mb-3">Next Steps</h4>
                                     <ol class="list-group list-group-numbered">
                                         <li class="list-group-item border-0">Review loan agreement</li>
                                         <li class="list-group-item border-0">Sign documents</li>
@@ -328,7 +328,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                         <li class="list-group-item border-0">Confirm acceptance</li>
                                     </ol>
                                     <div class="mt-3">
-                                        <button class="btn btn-danger">View Full Contract</button>
+                                        <button class="btn" style="background-color: var(--main-color); color: white;">View Full Contract</button>
                                     </div>
                                 </div>
                             </div>
@@ -344,15 +344,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
                 <div class="timeline-content">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-danger text-white py-3">
+                        <div class="card-header py-3" style="background-color: var(--main-color); color: white;">
                             <h3 class="h4 mb-0">Fund Disbursement</h3>
                         </div>
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-md-4">
                                     <div class="disbursement-method text-center p-3 h-100">
-                                        <div class="icon-container bg-danger bg-opacity-10 rounded-circle p-4 mb-3 mx-auto">
-                                            <i class="fas fa-university text-danger" style="font-size: 2rem;"></i>
+                                        <div class="icon-container rounded-circle p-4 mb-3 mx-auto" style="background-color: rgba(77, 35, 121, 0.1);">
+                                            <i class="fas fa-university" style="font-size: 2rem; color: var(--main-color);"></i>
                                         </div>
                                         <h5>Bank Transfer</h5>
                                         <p>Direct to your account (1-2 business days)</p>
@@ -361,8 +361,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 </div>
                                 <div class="col-md-4">
                                     <div class="disbursement-method text-center p-3 h-100">
-                                        <div class="icon-container bg-danger bg-opacity-10 rounded-circle p-4 mb-3 mx-auto">
-                                            <i class="fas fa-money-bill-wave text-danger" style="font-size: 2rem;"></i>
+                                        <div class="icon-container rounded-circle p-4 mb-3 mx-auto" style="background-color: rgba(77, 35, 121, 0.1);">
+                                            <i class="fas fa-money-bill-wave" style="font-size: 2rem; color: var(--main-color);"></i>
                                         </div>
                                         <h5>Cash Pickup</h5>
                                         <p>Available at FAST CASH branches (same day)</p>
@@ -371,8 +371,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 </div>
                                 <div class="col-md-4">
                                     <div class="disbursement-method text-center p-3 h-100">
-                                        <div class="icon-container bg-danger bg-opacity-10 rounded-circle p-4 mb-3 mx-auto">
-                                            <i class="fas fa-mobile-alt text-danger" style="font-size: 2rem;"></i>
+                                        <div class="icon-container rounded-circle p-4 mb-3 mx-auto" style="background-color: rgba(77, 35, 121, 0.1);">
+                                            <i class="fas fa-mobile-alt" style="font-size: 2rem; color: var(--main-color);"></i>
                                         </div>
                                         <h5>E-Wallet</h5>
                                         <p>GCash or PayMaya (within 24 hours)</p>
@@ -390,14 +390,14 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </div>
 
         <!-- CTA Section -->
-        <div class="cta-section bg-danger text-white rounded-3 p-5 mt-5 shadow">
+        <div class="cta-section rounded-3 p-5 mt-5 shadow" style="background-color: var(--main-color); color: white;">
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <h3 class="mb-3">Ready to Start Your FAST CASH Loan Application?</h3>
                     <p class="mb-0">Join thousands of satisfied customers who trusted FAST CASH for their financial needs.</p>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <a href="apply.php" class="btn btn-light btn-lg px-4 py-2 rounded-pill">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="apply.php" class="btn btn-light btn-lg px-4 py-2 rounded-pill" style="color: var(--main-color);">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>

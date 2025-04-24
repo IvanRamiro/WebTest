@@ -14,7 +14,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 $featured_events = $conn->query("SELECT * FROM NewsEvents 
     WHERE is_featured = 1 
     ORDER BY created_at DESC 
-    LIMIT 3");
+    LIMIT 12");
 
 $recent_events = $conn->query("SELECT * FROM NewsEvents 
     WHERE is_featured = 0
@@ -40,6 +40,13 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 <body>
 
     <style>
+        :root {
+            --main-color: #4d2379;
+            --secondary-color: #ffc301;
+            --text-color: #000;
+            --subheader-color: #fff;
+        }
+        
         .event-card {
             transition: transform 0.3s, box-shadow 0.3s;
             height: 100%;
@@ -67,14 +74,14 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         
         .event-icon {
             font-size: 3rem;
-            color: #dc3545;
+            color: var(--main-color);
         }
         
         .featured-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: #dc3545;
+            background: var(--main-color);
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
@@ -85,7 +92,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         }
         
         .event-date {
-            color: #dc3545;
+            color: var(--main-color);
             font-weight: 600;
             margin-bottom: 10px;
             display: flex;
@@ -102,7 +109,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         }
         
         .section-title h6 {
-            color: #dc3545;
+            color: var(--main-color);
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -121,7 +128,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             position: absolute;
             width: 80px;
             height: 3px;
-            background: #dc3545;
+            background: var(--main-color);
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -144,7 +151,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         }
         
         .btn-danger {
-            background: #dc3545;
+            background: var(--main-color);
             border: none;
             padding: 8px 20px;
             border-radius: 30px;
@@ -153,13 +160,13 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         }
         
         .btn-danger:hover {
-            background: #c82333;
+            background: #3a1a5e;
             transform: translateY(-2px);
         }
         
         .btn-outline-danger {
-            border-color: #dc3545;
-            color: #dc3545;
+            border-color: var(--main-color);
+            color: var(--main-color);
             padding: 8px 20px;
             border-radius: 30px;
             font-weight: 500;
@@ -167,7 +174,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         }
         
         .btn-outline-danger:hover {
-            background: #dc3545;
+            background: var(--main-color);
             color: white;
             transform: translateY(-2px);
         }
@@ -182,7 +189,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
         
         .empty-state i {
             font-size: 50px;
-            color: #dc3545;
+            color: var(--main-color);
             margin-bottom: 20px;
         }
         
@@ -237,7 +244,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <img src="Images/Logo.png" alt="FAST CASH Logo" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">FAST CASH</span>
+                <span class="brand-name fw-bold" style="color: var(--main-color);">FAST CASH</span>
             </div>
 
             <!-- Contact & Links -->
@@ -268,7 +275,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 
             <!-- Loan Inquiry Button -->
             <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn btn-primary text-white px-3 py-1 fw-bold fs-7">Login</a>
+                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
             </div>
         </div>
     </div>
@@ -276,7 +283,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 
 <!-- Hero Section -->
 <section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark position-sticky top-0 w-100 z-3" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
         <div class="container">
             <!-- Collapsible Navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -306,7 +313,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 <section class="py-5 bg-light">
     <div class="container">
         <div class="section-title">
-            <h6 class="text-danger">NEWS & EVENTS</h6>
+            <h6 style="color: var(--main-color);">NEWS & EVENTS</h6>
             <h2>Latest <strong>Updates and Activities</strong></h2>
         </div>
 
@@ -358,7 +365,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
                 <i class="far fa-calendar-star"></i>
                 <h4>No Featured Events</h4>
                 <p>There are currently no featured events. Check back later for updates.</p>
-                <a href="index.php" class="btn btn-danger">Back to Home</a>
+                <a href="index.php" class="btn" style="background-color: var(--main-color); color: white;">Back to Home</a>
             </div>
         <?php endif; ?>
 
@@ -467,11 +474,11 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
             <!-- Right Section: Contact Info -->
             <div class="col-md-4">
                 <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
-                <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
-                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
-                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
-                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
+                <p><i class="fas fa-map-marker-alt" style="color: var(--secondary-color);" class="me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
+                <p><i class="fas fa-phone" style="color: var(--secondary-color);" class="me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
+                <p><i class="fas fa-envelope" style="color: var(--secondary-color);" class="me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
+                <p><i class="fas fa-user" style="color: var(--secondary-color);" class="me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
+                <p><i class="fas fa-exclamation-circle" style="color: var(--secondary-color);" class="me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
             </div>
         </div>
 
@@ -487,7 +494,7 @@ $recent_events = $conn->query("SELECT * FROM NewsEvents
 <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE"></script>
 <script async defer src="https://www.instagram.com/embed.js"></script>
 <script>
-// Generic oEmbed loader
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.oembed-container').forEach(container => {
         const url = container.dataset.url;
