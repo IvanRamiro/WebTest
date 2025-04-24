@@ -1,5 +1,6 @@
 <?php include 'header.php'; ?>
-<?php include 'config.php'; ?>
+<?php include 'config.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -465,7 +466,7 @@
         $statusCounts = ['pending' => 0, 'approved' => 0, 'rejected' => 0];
         
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $statusCounts[$row['status']] = $row['count'];
+            $statusCounts[strtolower($row['status'])] = $row['count'];
         }
 
         $pendingCount = $statusCounts['pending'];
@@ -642,62 +643,64 @@
                     <div class="col-md-6"><div class="info-label">Preferred Loan Term</div><div class="info-value" id="detail-loanTerm"></div></div>
                     <div class="col-md-6"><div class="info-label">Preferred Payment Method</div><div class="info-value" id="detail-paymentMethod"></div></div>
                 </div>
+                
+<!-- Document Images Section -->
+<div class="form-section">
+    <h4 class="section-title">Supporting Documents</h4>
+    <div class="row">
+        <!-- Valid ID 1 -->
+        <div class="col-md-6 document-block" id="valid_id_1-container" style="display: none;">
+            <div class="info-label">Valid ID 1</div>
+            <div class="document-preview">
+                <img id="valid_id_1-img" src="" alt="Valid ID 1" class="img-fluid" style="max-height: 200px;">
             </div>
+            <div class="text-center mt-2">
+                <a id="valid_id_1-download" href="#" class="download-btn" download target="_blank">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </div>
 
-            <!-- Documents Preview -->
-            <div class="form-section">
-                <h4 class="section-title">Submitted Documents</h4>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="info-label">Primary Valid ID</div>
-                        <div class="document-preview" id="document-valid_id_1">
-                            <div class="document-info text-center">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                                <div class="document-name" id="document-name-valid_id_1">No document uploaded</div>
-                            </div>
-                        </div>
-                        <a href="#" id="download-valid_id_1" class="btn btn-primary mt-2 w-100 download-btn" target="_blank" style="display: none;">
-                            <i class="fas fa-download"></i> Download Document
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-label">Secondary Valid ID</div>
-                        <div class="document-preview" id="document-valid_id_2">
-                            <div class="document-info text-center">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                                <div class="document-name" id="document-name-valid_id_2">No document uploaded</div>
-                            </div>
-                        </div>
-                        <a href="#" id="download-valid_id_2" class="btn btn-primary mt-2 w-100 download-btn" target="_blank" style="display: none;">
-                            <i class="fas fa-download"></i> Download Document
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-label">Proof of Income</div>
-                        <div class="document-preview" id="document-proof_of_income">
-                            <div class="document-info text-center">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                                <div class="document-name" id="document-name-proof_of_income">No document uploaded</div>
-                            </div>
-                        </div>
-                        <a href="#" id="download-proof_of_income" class="btn btn-primary mt-2 w-100 download-btn" target="_blank" style="display: none;">
-                            <i class="fas fa-download"></i> Download Document
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-label">Proof of Billing</div>
-                        <div class="document-preview" id="document-proof_of_billing">
-                            <div class="document-info text-center">
-                                <i class="fas fa-file-alt fa-3x text-muted"></i>
-                                <div class="document-name" id="document-name-proof_of_billing">No document uploaded</div>
-                            </div>
-                        </div>
-                        <a href="#" id="download-proof_of_billing" class="btn btn-primary mt-2 w-100 download-btn" target="_blank" style="display: none;">
-                            <i class="fas fa-download"></i> Download Document
-                        </a>
-                    </div>
-                </div>
+        <!-- Valid ID 2 -->
+        <div class="col-md-6 document-block" id="valid_id_2-container" style="display: none;">
+            <div class="info-label">Valid ID 2</div>
+            <div class="document-preview">
+                <img id="valid_id_2-img" src="" alt="Valid ID 2" class="img-fluid" style="max-height: 200px;">
             </div>
+            <div class="text-center mt-2">
+                <a id="valid_id_2-download" href="#" class="download-btn" download target="_blank">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+
+        <!-- Proof of Income -->
+        <div class="col-md-6 document-block" id="proof_of_income-container" style="display: none;">
+            <div class="info-label">Proof of Income</div>
+            <div class="document-preview">
+                <img id="proof_of_income-img" src="" alt="Proof of Income" class="img-fluid" style="max-height: 200px;">
+            </div>
+            <div class="text-center mt-2">
+                <a id="proof_of_income-download" href="#" class="download-btn" download target="_blank">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+
+        <!-- Proof of Billing -->
+        <div class="col-md-6 document-block" id="proof_of_billing-container" style="display: none;">
+            <div class="info-label">Proof of Billing</div>
+            <div class="document-preview">
+                <img id="proof_of_billing-img" src="" alt="Proof of Billing" class="img-fluid" style="max-height: 200px;">
+            </div>
+            <div class="text-center mt-2">
+                <a id="proof_of_billing-download" href="#" class="download-btn" download target="_blank">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
             <!-- Application Status -->
             <div class="form-section">
@@ -719,13 +722,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" onclick="hideModal()">Close</button>
             <button type="button" class="btn btn-primary" id="saveStatusBtn" onclick="updateApplicationStatus()">Save Changes</button>
         </div>
     </div>
-</div>
+</div>  
 
 <script>
     // Global variable to store current application ID
@@ -781,7 +784,6 @@
         })
         .then(data => {
             if (data.success) {
-                // Refresh counts after successful update
                 location.reload();
             } else {
                 throw new Error(data.message || 'Failed to update status');
@@ -796,151 +798,162 @@
     }
 
     // Show application details in modal
-    function showApplicationDetails(applicationId, event) {
-        event.stopPropagation();
-        currentApplicationId = applicationId;
+ 
+    function showApplicationDetails(id) {
+    currentApplicationId = id;
+    
+    fetch(`get_application_details.php?id=${id}`)
+        .then(res => res.json())
+        .then(response => {
+            if (response.success && response.data) {
+                const data = response.data;
 
-        // Show loading state
-        const modalLabel = document.getElementById('applicationModalLabel');
-        modalLabel.textContent = 'Loading application details...';
-        showModal();
+                // Fill in personal, address, employment, and loan info
+                document.getElementById('detail-firstName').textContent = data.first_name;
+                document.getElementById('detail-middleName').textContent = data.middle_name;
+                document.getElementById('detail-lastName').textContent = data.last_name;
+                document.getElementById('detail-birthDate').textContent = data.birth_date;
+                document.getElementById('detail-civilStatus').textContent = data.civil_status;
+                document.getElementById('detail-email').textContent = data.email;
+                document.getElementById('detail-mobile').textContent = data.mobile;
+                document.getElementById('detail-currentAddress').textContent = data.current_address;
+                document.getElementById('detail-permanentAddress').textContent = data.permanent_address;
+                document.getElementById('detail-city').textContent = data.city;
+                document.getElementById('detail-province').textContent = data.province;
+                document.getElementById('detail-zipCode').textContent = data.zip_code;
+                document.getElementById('detail-employmentStatus').textContent = data.employment_status || 'N/A';
+                document.getElementById('detail-monthlyIncome').textContent = data.monthly_income;
+                document.getElementById('detail-employerName').textContent = data.employer_name || 'N/A';
+                document.getElementById('detail-jobPosition').textContent = data.job_position;
+                document.getElementById('detail-workDuration').textContent = data.work_duration;
+                document.getElementById('detail-workAddress').textContent = data.work_address;
+                document.getElementById('detail-loanAmount').textContent = data.loan_amount;
+                document.getElementById('detail-loanPurpose').textContent = data.loan_purpose;
+                document.getElementById('detail-loanTerm').textContent = data.loan_term;
+                document.getElementById('detail-paymentMethod').textContent = data.payment_method;
+                document.getElementById('detail-submittedAt').textContent = data.submitted_at;
+                document.getElementById('applicationStatus').value = data.status;
 
-        fetch('get_application_details.php?id=' + applicationId)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (!data || !data.success) {
-                    throw new Error(data?.message || 'Invalid response format');
-                }
+                updateDocumentDisplay('valid_id_1', data.valid_id_1_url);
+                updateDocumentDisplay('valid_id_2', data.valid_id_2_url);
+                updateDocumentDisplay('proof_of_income', data.proof_of_income_url);
+                updateDocumentDisplay('proof_of_billing', data.proof_of_billing_url);
 
-                const application = data.data;
+                showModal();
+            } else {
+                alert(response.message || 'Failed to load application details.');
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert('An error occurred while fetching application details.');
+        });
+}
 
-                // Update modal title
-                modalLabel.textContent = `Loan Application #${applicationId} - ${application.first_name} ${application.last_name}`;
+function updateDocumentDisplay(docType, fileUrl) {
+    const container = document.getElementById(`${docType}-container`);
+    const imgElement = document.getElementById(`${docType}-img`);
+    const downloadLink = document.getElementById(`${docType}-download`);
 
-                // Helper function to safely display data
-                function displayData(selector, value, prefix = '', suffix = '') {
-                    const element = document.getElementById(selector);
-                    if (element) {
-                        element.textContent = value ? prefix + value + suffix : 'N/A';
-                    }
-                }
-
-                // Personal Information
-                displayData('detail-firstName', application.first_name);
-                displayData('detail-middleName', application.middle_name);
-                displayData('detail-lastName', application.last_name);
-                displayData('detail-birthDate', application.birth_date);
-                displayData('detail-civilStatus', application.civil_status);
-                displayData('detail-email', application.email);
-                displayData('detail-mobile', application.mobile);
-
-                // Address Information
-                displayData('detail-currentAddress', application.current_address);
-                displayData('detail-permanentAddress', application.permanent_address);
-                displayData('detail-city', application.city);
-                displayData('detail-province', application.province);
-                displayData('detail-zipCode', application.zip_code);
-
-                // Employment Information
-                displayData('detail-employmentStatus', application.employment_status);
-                displayData('detail-monthlyIncome', application.monthly_income, '₱', application.monthly_income ? '.00' : '');
-                displayData('detail-employerName', application.employer_name);
-                displayData('detail-jobPosition', application.job_position);
-                displayData('detail-workDuration', application.work_duration);
-                displayData('detail-workAddress', application.work_address);
-
-                // Loan Information
-                displayData('detail-loanAmount', application.loan_amount, '₱', application.loan_amount ? '.00' : '');
-                displayData('detail-loanPurpose', application.loan_purpose);
-                displayData('detail-loanTerm', application.loan_term, '', ' months');
-                displayData('detail-paymentMethod', application.payment_method);
-
-                // Application Metadata
-                if (document.getElementById('applicationStatus')) {
-                    document.getElementById('applicationStatus').value = application.status || 'pending';
-                }
-                displayData('detail-submittedAt', application.submitted_at);
-
-                // Handle document previews
-                const documentTypes = ['valid_id_1', 'valid_id_2', 'proof_of_income', 'proof_of_billing'];
-                documentTypes.forEach(type => {
-                    const container = document.getElementById(`document-${type}`);
-                    const nameElement = document.getElementById(`document-name-${type}`);
-                    const downloadLink = document.getElementById(`download-${type}`);
-
-                    if (application[type] && application[type].url) {
-                        const fileUrl = application[type].url;
-                        const fileName = application[type].name || 'Document';
-                        const fileExt = (application[type].type || '').toLowerCase();
-
-                        // Update name and download link
-                        if (nameElement) nameElement.textContent = fileName;
-                        if (downloadLink) {
-                            downloadLink.href = fileUrl;
-                            downloadLink.style.display = 'block';
-                            downloadLink.setAttribute('download', fileName);
-                        }
-
-                        // Clear previous content
-                        if (container) {
-                            container.innerHTML = '';
-
-                            // Handle different file types
-                            if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(fileExt)) {
-                                // Image preview
-                                const img = document.createElement('img');
-                                img.src = fileUrl;
-                                img.alt = fileName;
-                                img.style.maxWidth = '100%';
-                                img.style.maxHeight = '100%';
-                                img.style.objectFit = 'contain';
-                                img.onclick = () => window.open(fileUrl, '_blank');
-                                container.appendChild(img);
-                            } else if (fileExt === 'pdf') {
-                                // PDF preview (using iframe)
-                                const iframe = document.createElement('iframe');
-                                iframe.src = `${fileUrl}#toolbar=0&navpanes=0`;
-                                iframe.style.width = '100%';
-                                iframe.style.height = '100%';
-                                iframe.style.border = 'none';
-                                container.appendChild(iframe);
-                            } else {
-                                // Generic file preview
-                                const fileInfo = document.createElement('div');
-                                fileInfo.className = 'document-info text-center';
-                                fileInfo.innerHTML = `
-                                    <i class="fas fa-file fa-3x text-muted"></i>
-                                    <div class="document-name">${fileName}</div>
-                                `;
-                                container.appendChild(fileInfo);
-                            }
-                        }
-                    } else {
-                        // No document available
-                        if (nameElement) nameElement.textContent = 'No document uploaded';
-                        if (downloadLink) downloadLink.style.display = 'none';
-                        if (container) {
-                            container.innerHTML = `
-                                <div class="document-info text-center">
-                                    <i class="fas fa-file-alt fa-3x text-muted"></i>
-                                    <div class="document-name">No document uploaded</div>
-                                </div>
-                            `;
-                        }
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error loading application details:', error);
-                modalLabel.textContent = 'Error Loading Application';
-                alert('Error loading application details. Please try again.');
-            });
+    if (fileUrl) {
+        container.style.display = 'block';
+        imgElement.src = fileUrl;
+        downloadLink.href = fileUrl;
+        downloadLink.download = fileUrl.split('/').pop();
+        
+        imgElement.onclick = function() {
+            window.open(fileUrl, '_blank');
+        };
+    } else {
+        container.style.display = 'none';
     }
+}
+
+function handleDocumentDisplay(docType, filePath, fileExists) {
+    const container = document.getElementById(`${docType}-container`);
+    const imgElement = document.getElementById(`${docType}-img`);
+    const downloadLink = document.getElementById(`${docType}-download`);
+
+    if (fileExists && filePath) {
+        container.style.display = 'block';
+        imgElement.src = filePath;
+        downloadLink.href = filePath;
+        downloadLink.download = filePath.split('/').pop();
+        
+        // Add click to enlarge functionality
+        imgElement.onclick = function() {
+            window.open(filePath, '_blank');
+        };
+    } else {
+        container.style.display = 'none';
+    }
+}
+function loadDocumentImages(applicationData) {
+    const docFields = ['valid_id_1', 'valid_id_2', 'proof_of_income', 'proof_of_billing'];
+
+    docFields.forEach(field => {
+        const url = applicationData[field + '_url'];
+        if (url) {
+            // Show container
+            document.getElementById(`${field}-container`).style.display    = 'block';
+
+            // Set image src and download link
+            document.getElementById(`${field}-img`).src = url;
+            document.getElementById(`${field}-download`).href = url;
+        } else {
+            // Hide if no URL
+            document.getElementById(`${field}-container`).style.display = 'none';
+        }
+    });
+}
+
+
+                // Show modal
+                function showModal() {
+    document.getElementById('applicationModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideModal() {
+    document.getElementById('applicationModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function updateDocumentDisplay(docType, filePath) {
+    const container = document.getElementById(`${docType}-container`);
+    if (!container) return;
+    
+    if (filePath) {
+        container.style.display = 'block';
+        const img = container.querySelector('img');
+        const downloadLink = container.querySelector('a');
+        
+        // Set the image source
+        img.src = filePath;
+        
+        // Set the download link
+        downloadLink.href = filePath;
+        downloadLink.download = filePath.split('/').pop(); // Set filename for download
+        
+        // Add click handler to open image in new tab
+        img.onclick = () => window.open(filePath, '_blank');
+    } else {
+        container.style.display = 'none';
+    }
+}
+fetch('get_application_details.php?id=' + applicationId)
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            const application = result.data;
+            loadDocumentImages(application);
+            // ...you can populate other fields here too...
+        } else {
+            console.error(result.message);
+        }
+    })
+    .catch(error => console.error('Fetch error:', error));
+
 
     // Update application status from modal
     function updateApplicationStatus() {

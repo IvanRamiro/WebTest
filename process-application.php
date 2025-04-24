@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$uploadDir = "uploads/";
+$uploadDir = "ImageUpload/";
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
 }
