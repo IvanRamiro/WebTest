@@ -156,6 +156,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                             <option value="Widowed">Widowed</option>
                                         </select>
                                     </div>
+                                    
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
                                         <input type="email" class="form-control" id="email" name="email" required>

@@ -75,7 +75,6 @@ $cidBilling = 'billing_' . uniqid();
 $agreeTerms = isset($_POST['agreeTerms']) ? 1 : 0;
 $allowMarketing = isset($_POST['allowMarketing']) ? 1 : 0;
 
-// Insert to DB
 $stmt = $conn->prepare("INSERT INTO loan_application (
     first_name, middle_name, last_name, birth_date, civil_status, email, mobile,
     current_address, permanent_address, same_as_current, city, province, zip_code,
@@ -85,7 +84,7 @@ $stmt = $conn->prepare("INSERT INTO loan_application (
     agree_terms, allow_marketing
 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-$stmt->bind_param("sssssssssssssdsdssssssssssssi",
+$stmt->bind_param("ssssssssssssssssssssssssssssi",
     $firstName, $middleName, $lastName, $birthDate, $civilStatus, $email, $mobile,
     $currentAddress, $permanentAddress, $sameAsCurrent, $city, $province, $zipCode,
     $employmentStatus, $monthlyIncome, $employerName, $jobPosition, $workDuration, $workAddress,
@@ -145,7 +144,7 @@ if ($stmt->execute()) {
             <ul>
                 <li><strong>Status:</strong> $employmentStatus</li>
                 <li><strong>Monthly Income:</strong> ₱" . number_format($monthlyIncome, 2) . "</li>
-                <li><strong>Employer:</strong> $employerName</li>
+                <li><strong>Employer/Business Name:</strong> $employerName</li>
                 <li><strong>Position:</strong> $jobPosition</li>
                 <li><strong>Work Duration:</strong> $workDuration</li>
                 <li><strong>Work Address:</strong> $workAddress</li>

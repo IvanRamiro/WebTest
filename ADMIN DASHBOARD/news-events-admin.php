@@ -33,18 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         if ($stmt->execute()) {
-            $_SESSION['swal'] = json_encode([
+            $_SESSION['swal'] = [
                 'icon' => 'success',
                 'title' => $id ? 'Event Updated!' : 'Event Added!',
                 'text' => "Your event has been " . ($id ? "updated" : "added") . " successfully.",
                 'showConfirmButton' => false,
                 'timer' => 2000,
                 'timerProgressBar' => true,
-                'position' => 'center',
-                'draggable' => true,
-                'background' => '#f8f9fa',
-                'backdrop' => 'rgba(0,0,0,0.1)'
-            ]);
+                'position' => 'center'
+            ];
             header("Location: news-events-admin.php");
             exit();
         } else {
@@ -62,14 +59,14 @@ if (isset($_GET['delete'])) {
     $stmt->bind_param("i", $id);
     
     if ($stmt->execute()) {
-        $_SESSION['swal'] = json_encode([
+        $_SESSION['swal'] = [
             'icon' => 'success',
             'title' => 'Deleted!',
             'text' => "Event deleted successfully!",
             'position' => 'top-end',
             'timer' => 1500,
             'showConfirmButton' => false
-        ]);
+        ];
         header("Location: news-events-admin.php");
         exit();
     } else {
@@ -187,13 +184,13 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
     vertical-align: middle;
 }
 
-.testimonial-table tr:hover td {
-    background-color: #f9f9f9;
-}
-
 .featured {
     background-color: #fff3cd;
     color: #856404;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .action-btn {
@@ -267,6 +264,17 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
     width: auto;
     height: auto;
 }
+
+.external-link {
+    word-break: break-all;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.external-link:hover {
+    text-decoration: underline;
+}
+
 </style>
 
 <div class="details">
@@ -282,7 +290,7 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
             <div class="alert alert-danger"><?= $error ?></div>
         <?php endif; ?>
 
-        <form action="news-events-admin.php" method="POST">
+        <form action="news-events-admin.php" method="POST" id="eventForm">
             <?php if ($editing): ?>
                 <input type="hidden" name="id" value="<?= $current_event['id'] ?>">
             <?php endif; ?>
@@ -320,7 +328,7 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
                 <?php if ($editing): ?>
                     <a href="news-events-admin.php" class="btn btn-secondary">Cancel</a>
                 <?php endif; ?>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" id="saveBtn">
                     <i class="fas fa-save"></i> <?= $editing ? 'Update' : 'Save' ?>
                 </button>
             </div>
@@ -341,7 +349,7 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
                             <th>Description</th>
                             <th>External Link</th>
                             <th>Created At</th>
-                            <th>Featured</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -349,11 +357,11 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
                         <?php while ($row = $events->fetch_assoc()): ?>
                             <tr>
                                 <td><?= htmlspecialchars($row['title']) ?></td>
-                                <td><?= htmlspecialchars(substr($row['description'], 0, 100)) . (strlen($row['description']) > 100 ? '...' : '') ?></td>
+                                <td class="truncate"><?= htmlspecialchars($row['description']) ?></td>
                                 <td>
                                     <?php if (!empty($row['external_url'])): ?>
-                                        <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" style="word-break: break-all;">
-                                            View Link
+                                        <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" class="external-link">
+                                            <?= htmlspecialchars(parse_url($row['external_url'], PHP_URL_HOST)) ?>
                                         </a>
                                     <?php else: ?>
                                         <span>-</span>
@@ -364,7 +372,7 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
                                     <?php if ($row['is_featured']): ?>
                                         <span class="featured">Featured</span>
                                     <?php else: ?>
-                                        <span>-</span>
+                                        <span>Regular</span>
                                     <?php endif; ?>
                                 </td>
                                 <td>
@@ -372,8 +380,7 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
                                         <a href="news-events-admin.php?edit=<?= $row['id'] ?>" class="action-btn edit-btn">
                                             <i class="fas fa-edit"></i> Edit
                                         </a>
-                                        <a href="news-events-admin.php?delete=<?= $row['id'] ?>" class="action-btn delete-btn" 
-                                           onclick="return confirm('Are you sure you want to delete this event?')">
+                                        <a href="#" class="action-btn delete-btn delete-event" data-id="<?= $row['id'] ?>">
                                             <i class="fas fa-trash"></i> Delete
                                         </a>
                                     </div>
@@ -391,5 +398,93 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
         <?php endif; ?>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Show SweetAlert notifications from PHP
+    <?php if (isset($_SESSION['swal'])): ?>
+        Swal.fire({
+            icon: '<?= $_SESSION['swal']['icon'] ?>',
+            title: '<?= $_SESSION['swal']['title'] ?>',
+            text: '<?= $_SESSION['swal']['text'] ?>',
+            showConfirmButton: <?= $_SESSION['swal']['showConfirmButton'] ?? 'false' ?>,
+            timer: <?= $_SESSION['swal']['timer'] ?? 'null' ?>,
+            timerProgressBar: <?= $_SESSION['swal']['timerProgressBar'] ?? 'false' ?>,
+            position: '<?= $_SESSION['swal']['position'] ?? 'center' ?>'
+        });
+        <?php unset($_SESSION['swal']); ?>
+    <?php endif; ?>
+
+    // Delete confirmation
+    document.querySelectorAll('.delete-event').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const eventId = this.getAttribute('data-id');
+            
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                backdrop: 'rgba(0,0,0,0.4)'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `news-events-admin.php?delete=${eventId}`;
+                }
+            });
+        });
+    });
+
+    // Form submission confirmation
+    document.getElementById('eventForm').addEventListener('submit', function(e) {
+        const form = this;
+        const isEdit = <?= $editing ? 'true' : 'false' ?>;
+        
+        e.preventDefault();
+        
+        Swal.fire({
+            title: isEdit ? 'Update Event?' : 'Add New Event?',
+            text: isEdit ? 'Are you sure you want to update this event?' : 'Are you sure you want to add this new event?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: isEdit ? 'Yes, update it!' : 'Yes, add it!',
+            backdrop: 'rgba(0,0,0,0.4)'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+    });
+
+    // Cancel button confirmation
+    const cancelBtn = document.querySelector('.btn-secondary');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            Swal.fire({
+                title: 'Cancel Editing?',
+                text: 'You have unsaved changes that will be lost.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, cancel!',
+                backdrop: 'rgba(0,0,0,0.4)'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'news-events-admin.php';
+                }
+            });
+        });
+    }
+});
+</script>
 
 <?php include 'footer.php'; ?>

@@ -189,7 +189,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 }
 
 .cardHeader h2 {
-    color: #2c3e50;
     font-size: 1.5rem;
     margin: 0;
 }
