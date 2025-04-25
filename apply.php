@@ -344,81 +344,92 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
 <!-- Loan Calculator Section -->
 <section id="loan-calculator" class="py-5 bg-white">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-sm border-0">
-                    <div class="card-header py-3 text-white" style="background-color: var(--main-color);">
-                        <h2 class="h4 mb-0 text-center"><i class="fas fa-calculator me-2"></i> Unlad Plus Loan Calculator</h2>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="calcAmount" class="form-label">Loan Amount (PHP)</label>
-                                    <input type="range" class="form-range" id="calcAmount" min="5000" max="100000" step="1000" value="25000">
-                                    <div class="d-flex justify-content-between">
-                                        <span>₱5,000</span>
-                                        <span id="amountValue">₱25,000</span>
-                                        <span>₱100,000</span>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="calcTerm" class="form-label">Loan Term</label>
-                                    <select class="form-select" id="calcTerm">
-                                        <option value="3">3 months</option>
-                                        <option value="6">6 months</option>
-                                        <option value="12" selected>12 months</option>
-                                        <option value="18">18 months</option>
-                                        <option value="24">24 months</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="calcRate" class="form-label">Interest Rate (%)</label>
-                                    <input type="text" class="form-control" id="calcRate" value="3.5" readonly>
-                                </div>
-                                <button id="calculateBtn" class="btn w-100" style="background-color: var(--main-color); color: white;">
-                            <i class="fas fa-calculator me-2"></i> Calculate
-                        </button>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="results-container p-3 border rounded bg-light">
-                                    <h5 class="text-center mb-3">Loan Summary</h5>
-                                    <div class="result-item d-flex justify-content-between mb-2">
-                                        <span>Loan Amount:</span>
-                                        <strong id="resultAmount">₱25,000.00</strong>
-                                    </div>
-                                    <div class="result-item d-flex justify-content-between mb-2">
-                                        <span>Interest Rate:</span>
-                                        <strong id="resultRate">3.5% monthly</strong>
-                                    </div>
-                                    <div class="result-item d-flex justify-content-between mb-2">
-                                        <span>Loan Term:</span>
-                                        <strong id="resultTerm">12 months</strong>
-                                    </div>
-                                    <div class="result-item d-flex justify-content-between mb-2">
-                                        <span>Total Interest:</span>
-                                        <strong id="resultInterest">₱10,500.00</strong>
-                                    </div>
-                                    <div class="result-item d-flex justify-content-between mb-2">
-                                        <span>Total Payment:</span>
-                                        <strong id="resultTotal">₱35,500.00</strong>
-                                    </div>
-                                    <div class="result-item d-flex justify-content-between mb-2">
-                                        <span>Monthly Payment:</span>
-                                        <strong id="resultMonthly">₱2,958.33</strong>
-                                    </div>
-                                    <div class="alert alert-info mt-3 mb-0">
-                                        <small><i class="fas fa-info-circle me-2"></i> Rates are subject to change based on credit evaluation</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+          <div class="card-header py-3 text-white" style="background-color: var(--main-color);">
+            <h2 class="h4 mb-0 text-center">
+              <i class="fas fa-calculator me-2"></i> Unlad Plus Loan Calculator
+            </h2>
+          </div>
+          <div class="card-body p-4">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <!-- Loan Amount -->
+                <div class="mb-3">
+                  <label for="calcAmount" class="form-label">Loan Amount (PHP)</label>
+                  <input type="range" class="form-range" id="calcAmount" min="1000" max="500000" step="1" value="25000">
+                  <input type="number" class="form-control mt-2" id="inputAmount" step="0.01" value="25000">
+                  <div class="d-flex justify-content-between mt-1">
+                    <span>₱1,000</span>
+                    <span>₱500,000</span>
+                  </div>
                 </div>
+
+                <!-- Term -->
+                <div class="mb-3">
+                  <label for="calcTerm" class="form-label">Loan Term</label>
+                  <select class="form-select" id="calcTerm">
+                    <option value="3">3 months</option>
+                    <option value="6">6 months</option>
+                    <option value="12" selected>12 months</option>
+                    <option value="18">18 months</option>
+                    <option value="24">24 months</option>
+                  </select>
+                </div>
+
+                <!-- Interest Rate -->
+                <div class="mb-3">
+                  <label for="calcRate" class="form-label">Interest Rate (%)</label>
+                  <input type="number" class="form-control" id="calcRate" step="0.01" value="3.5">
+                </div>
+
+                <!-- Calculate Button -->
+                <button id="calculateBtn" class="btn w-100" style="background-color: var(--main-color); color: white;">
+                  <i class="fas fa-calculator me-2"></i> Calculate
+                </button>
+              </div>
+
+              <!-- Results -->
+              <div class="col-md-6">
+                <div class="results-container p-3 border rounded bg-light">
+                  <h5 class="text-center mb-3">Loan Summary</h5>
+                  <div class="result-item d-flex justify-content-between mb-2">
+                    <span>Loan Amount:</span>
+                    <strong id="resultAmount">₱25,000.00</strong>
+                  </div>
+                  <div class="result-item d-flex justify-content-between mb-2">
+                    <span>Interest Rate:</span>
+                    <strong id="resultRate">3.5% monthly</strong>
+                  </div>
+                  <div class="result-item d-flex justify-content-between mb-2">
+                    <span>Loan Term:</span>
+                    <strong id="resultTerm">12 months</strong>
+                  </div>
+                  <div class="result-item d-flex justify-content-between mb-2">
+                    <span>Total Interest:</span>
+                    <strong id="resultInterest">₱10,500.00</strong>
+                  </div>
+                  <div class="result-item d-flex justify-content-between mb-2">
+                    <span>Total Payment:</span>
+                    <strong id="resultTotal">₱35,500.00</strong>
+                  </div>
+                  <div class="result-item d-flex justify-content-between mb-2">
+                    <span>Monthly Payment:</span>
+                    <strong id="resultMonthly">₱2,958.33</strong>
+                  </div>
+                  <div class="alert alert-info mt-3 mb-0">
+                    <small><i class="fas fa-info-circle me-2"></i> Rates are subject to change based on credit evaluation</small>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="py-5 bg-light">
@@ -631,6 +642,63 @@ if ($bg_result && $bg_result->num_rows > 0) {
         </div>
     </div>
 </div>
+
+<script>
+    const calcAmount = document.getElementById('calcAmount');
+    const inputAmount = document.getElementById('inputAmount');
+    const calcTerm = document.getElementById('calcTerm');
+    const calcRate = document.getElementById('calcRate');
+    const calculateBtn = document.getElementById('calculateBtn');
+
+    const resultAmount = document.getElementById('resultAmount');
+    const resultRate = document.getElementById('resultRate');
+    const resultTerm = document.getElementById('resultTerm');
+    const resultInterest = document.getElementById('resultInterest');
+    const resultTotal = document.getElementById('resultTotal');
+    const resultMonthly = document.getElementById('resultMonthly');
+
+    // Format function for PHP currency
+    const formatCurrency = (num) =>
+      `₱${parseFloat(num).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`;
+
+    // Sync range with number input
+    calcAmount.addEventListener('input', () => {
+      inputAmount.value = calcAmount.value;
+    });
+
+    // Sync number input to range if value is within slider range
+    inputAmount.addEventListener('input', () => {
+      const val = parseFloat(inputAmount.value);
+      if (!isNaN(val) && val >= parseFloat(calcAmount.min) && val <= parseFloat(calcAmount.max)) {
+        calcAmount.value = val;
+      }
+    });
+
+    // Calculate on button click
+    calculateBtn.addEventListener('click', () => {
+      const amount = parseFloat(inputAmount.value);
+      const term = parseInt(calcTerm.value);
+      const rate = parseFloat(calcRate.value);
+
+      if (isNaN(amount) || isNaN(rate) || isNaN(term)) return;
+
+      const monthlyInterest = (rate / 100) * amount;
+      const totalInterest = monthlyInterest * term;
+      const totalPayment = amount + totalInterest;
+      const monthlyPayment = totalPayment / term;
+
+      // Display results
+      resultAmount.textContent = formatCurrency(amount);
+      resultRate.textContent = `${rate}% monthly`;
+      resultTerm.textContent = `${term} months`;
+      resultInterest.textContent = formatCurrency(totalInterest);
+      resultTotal.textContent = formatCurrency(totalPayment);
+      resultMonthly.textContent = formatCurrency(monthlyPayment);
+    });
+  </script>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5">
