@@ -32,7 +32,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
                 <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
@@ -46,17 +46,17 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:support@fastcash.com">support@fastcash.com</a>
+                            <a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
-                            <a href="mailto:careers@fastcash.com">careers@fastcash.com</a>
+                            <a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:complaints@fastcash.com">complaints@fastcash.com</a>
+                            <a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a>
                         </p>
                     </li>
                 </ul>
@@ -102,8 +102,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <!-- Page Header -->
     <div class="row mb-5">
         <div class="col-12 text-center">
-            <h1 class="fw-bold display-5">Contact <span class="text-danger">FAST CASH</span></h1>
-            <p class="lead">We're here to help. Reach out to us through any of the following channels.</p>
+            <h1 class="fw-bold display-5">Contact <span style="color: var(--main-color);">Unlad Plus Loan</span></h1>
+            <p class="lead">We're here to help you grow. Reach out through any of our channels.</p>
         </div>
     </div>
 
@@ -137,7 +137,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             <label for="message" class="form-label">Your Message</label>
                             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-danger w-100 py-2">Send Message</button>
+                        <button type="submit" class="btn w-100 py-2" style="background-color: var(--main-color); color: white;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -159,13 +159,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade"
-                            aria-label="FAST CASH Caloocan Office Location">
+                            aria-label="Unlad Plus Loan Caloocan Office Location">
                         </iframe>
                     </div>
                     
                     <!-- Office Locations -->
                     <div class="office-info mb-4">
-                        <h3 class="h5 fw-bold"><i class="fas fa-building text-danger me-2"></i> Caloocan Head Office</h3>
+                        <h3 class="h5 fw-bold"><i class="fas fa-building me-2" style="color: var(--main-color);"></i> Caloocan Head Office</h3>
                         <p class="ms-4">
                             Gudlyf Property Corp., Grace Westpark<br>
                             Caloocan City, Metro Manila<br>
@@ -174,7 +174,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </div>
                     
                     <div class="office-info">
-                        <h3 class="h5 fw-bold"><i class="fas fa-map-marker-alt text-danger me-2"></i> CDO Sub Office</h3>
+                        <h3 class="h5 fw-bold"><i class="fas fa-map-marker-alt me-2" style="color: var(--main-color);"></i> CDO Sub Office</h3>
                         <p class="ms-4">
                             1267 Bolonsiri Road, Camaman-an,<br>
                             Cagayan de Oro City 9000<br>
@@ -189,16 +189,16 @@ if ($bg_result && $bg_result->num_rows > 0) {
                         <h3 class="h5 fw-bold mb-3">Quick Contacts</h3>
                         <ul class="list-unstyled">
                             <li class="mb-2">
-                                <i class="fas fa-envelope text-danger me-2"></i>
-                                <strong>General:</strong> <a href="mailto:wecare@fastcash.com" class="text-decoration-none">wecare@fastcash.com</a>
+                                <i class="fas fa-envelope me-2" style="color: var(--main-color);"></i>
+                                <strong>General:</strong> <a href="mailto:wecare@unladplusloan.com" class="text-decoration-none">wecare@unladplusloan.com</a>
                             </li>
                             <li class="mb-2">
-                                <i class="fas fa-user-tie text-danger me-2"></i>
-                                <strong>Hiring:</strong> <a href="mailto:hiring@fastcash.com" class="text-decoration-none">hiring@fastcash.com</a>
+                                <i class="fas fa-user-tie me-2" style="color: var(--main-color);"></i>
+                                <strong>Hiring:</strong> <a href="mailto:hiring@unladplusloan.com" class="text-decoration-none">hiring@unladplusloan.com</a>
                             </li>
                             <li>
-                                <i class="fas fa-exclamation-triangle text-danger me-2"></i>
-                                <strong>Complaints:</strong> <a href="mailto:complaints@fastcash.com" class="text-decoration-none">complaints@fastcash.com</a>
+                                <i class="fas fa-exclamation-triangle me-2" style="color: var(--main-color);"></i>
+                                <strong>Complaints:</strong> <a href="mailto:complaints@unladplusloan.com" class="text-decoration-none">complaints@unladplusloan.com</a>
                             </li>
                         </ul>
                     </div>
@@ -211,13 +211,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <section class="mt-5">
         <div class="card shadow-sm">
             <div class="card-body p-4">
-                <h2 class="card-title fw-bold mb-4 text-center">Our <span class="text-danger">Departments</span></h2>
+                <h2 class="card-title fw-bold mb-4 text-center">Our <span style="color: var(--main-color);">Departments</span></h2>
                 <div class="row g-4">
                     <!-- Department Cards -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-danger">
+                        <div class="card h-100" style="border-color: var(--main-color);">
                             <div class="card-body">
-                                <h3 class="h5 fw-bold text-danger">
+                                <h3 class="h5 fw-bold" style="color: var(--main-color);">
                                     <i class="fas fa-shield-alt me-2"></i>Consumer Protection
                                 </h3>
                                 <ul class="list-unstyled mt-3">
@@ -229,13 +229,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-danger">
+                        <div class="card h-100" style="border-color: var(--main-color);">
                             <div class="card-body">
-                                <h3 class="h5 fw-bold text-danger">
+                                <h3 class="h5 fw-bold" style="color: var(--main-color);">
                                     <i class="fas fa-users me-2"></i>Human Resources
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> hiring@fastcash.com</li>
+                                    <li><strong>Email:</strong> hiring@unladplusloan.com</li>
                                     <li><strong>Phone:</strong> (02) 1234-5678 loc. 5101</li>
                                 </ul>
                             </div>
@@ -243,13 +243,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-danger">
+                        <div class="card h-100" style="border-color: var(--main-color);">
                             <div class="card-body">
-                                <h3 class="h5 fw-bold text-danger">
-                                    <i class="fas fa-credit-card me-2"></i>Cash Card Department
+                                <h3 class="h5 fw-bold" style="color: var(--main-color);">
+                                    <i class="fas fa-credit-card me-2"></i>Loan Services
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> cashcard@fastcash.com</li>
+                                    <li><strong>Email:</strong> loans@unladplusloan.com</li>
                                     <li><strong>Phone:</strong> (02) 1234-5678 loc. 5102</li>
                                 </ul>
                             </div>
@@ -257,13 +257,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-danger">
+                        <div class="card h-100" style="border-color: var(--main-color);">
                             <div class="card-body">
-                                <h3 class="h5 fw-bold text-danger">
+                                <h3 class="h5 fw-bold" style="color: var(--main-color);">
                                     <i class="fas fa-gavel me-2"></i>Legal Department
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> legal@fastcash.com</li>
+                                    <li><strong>Email:</strong> legal@unladplusloan.com</li>
                                     <li><strong>Phone:</strong> (02) 1234-5678 loc. 5103</li>
                                 </ul>
                             </div>
@@ -271,13 +271,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-danger">
+                        <div class="card h-100" style="border-color: var(--main-color);">
                             <div class="card-body">
-                                <h3 class="h5 fw-bold text-danger">
+                                <h3 class="h5 fw-bold" style="color: var(--main-color);">
                                     <i class="fas fa-search-dollar me-2"></i>Audit Department
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> audit@fastcash.com</li>
+                                    <li><strong>Email:</strong> audit@unladplusloan.com</li>
                                     <li><strong>Phone:</strong> (02) 1234-5678 loc. 5104</li>
                                 </ul>
                             </div>
@@ -285,13 +285,13 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-danger">
+                        <div class="card h-100" style="border-color: var(--main-color);">
                             <div class="card-body">
-                                <h3 class="h5 fw-bold text-danger">
-                                    <i class="fas fa-phone-volume me-2"></i>Collection Unit
+                                <h3 class="h5 fw-bold" style="color: var(--main-color);">
+                                    <i class="fas fa-phone-volume me-2"></i>Customer Relations
                                 </h3>
                                 <ul class="list-unstyled mt-3">
-                                    <li><strong>Email:</strong> collection@fastcash.com</li>
+                                    <li><strong>Email:</strong> customerservice@unladplusloan.com</li>
                                     <li><strong>Phone:</strong> (02) 1234-5678 loc. 5105</li>
                                 </ul>
                             </div>
@@ -310,8 +310,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>FAST CASH</strong></p>
+                    <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>UNLAD PLUS LOAN</strong></p>
                 </div>
                 <p>SEC Reg. No. CS202300001</p>
                 <p>Certificate of Authority No. 1234</p>
@@ -358,18 +358,18 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Right Section: Contact Info -->
             <div class="col-md-4">
                 <h5 class="fw-bold">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> Gudlyf Property Corp., Grace Westpark, Caloocan City</p>
+                <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
                 <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
-                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
-                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
-                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
+                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@unladplusloan.com</p>
+                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@unladplusloan.com</p>
+                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@unladplusloan.com</p>
             </div>
         </div>
 
         <!-- Bottom Section -->
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
+            <p class="mb-0">&copy; 2025 UNLAD PLUS LOAN. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY UNLAD PLUS LOAN TEAM</p>
         </div>
     </div>
 </footer>

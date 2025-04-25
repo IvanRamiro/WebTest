@@ -14,8 +14,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAST CASH</title>
-    <meta name="description" content="FAST CASH - Delivering financial access to everyone...">
+    <title>UNLAD PLUS LOAN</title>
+    <meta name="description" content="UNLAD PLUS LOAN - Delivering financial access to everyone...">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=1.1"> 
@@ -32,7 +32,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
                 <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
@@ -46,17 +46,17 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:support@fastcash.com">support@fastcash.com</a>
+                            <a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
-                            <a href="mailto:careers@fastcash.com">careers@fastcash.com</a>
+                            <a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:complaints@fastcash.com">complaints@fastcash.com</a>
+                            <a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a>
                         </p>
                     </li>
                 </ul>
@@ -100,7 +100,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <div class="container h-100 d-flex align-items-center">
     <div class="row justify-content-center w-100">
         <div class="col-lg-10 text-center">
-            <h1 class="display-3 fw-bold text-white mb-4">Your FAST CASH Loan Journey Starts Here</h1>
+            <h1 class="display-3 fw-bold text-white mb-4">Your UNLAD PLUS LOAN Loan Journey Starts Here</h1>
             <p class="lead text-white mb-5">Get the financial support you need in just 6 simple steps</p>
             <div class="d-flex flex-wrap justify-content-center gap-3">
                 <a href="#loan-process" class="btn btn-lg px-4 py-2 rounded-pill" style="background-color: var(--secondary-color); color: white;">
@@ -116,7 +116,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <section id="loan-process" class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold mb-3" style="color: var(--main-color);">How to Get Your FAST CASH Loan</h2>
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--main-color);">How to Get Your UNLAD PLUS LOAN Loan</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <p class="lead">Follow this straightforward process to access funds quickly and securely. Our average approval time is just 24-48 hours for complete applications.</p>
@@ -151,7 +151,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center d-none d-md-block">
-                                    <img src="Images/Logo.png" alt="Eligibility Check" class="img-fluid" style="max-height: 150px;">
+                                    <img src="Images/UNLAD.PNG" alt="Eligibility Check" class="img-fluid" style="max-height: 150px;">
                                 </div>
                             </div>
                         </div>
@@ -226,9 +226,9 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 <div class="col-md-6">
                                     <div class="p-4 border rounded text-center h-100">
                                         <i class="fas fa-store mb-3" style="font-size: 2.5rem; color: var(--main-color);"></i>
-                                        <h4>FAST CASH Branch Application</h4>
+                                        <h4>UNLAD PLUS LOAN Branch Application</h4>
                                         <ol class="text-start ps-3">
-                                            <li>Visit nearest FAST CASH branch</li>
+                                            <li>Visit nearest UNLAD PLUS LOAN branch</li>
                                             <li>Submit physical documents</li>
                                             <li>Get instant acknowledgement</li>
                                         </ol>
@@ -298,7 +298,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                 <div class="col-md-6">
                                     <div class="approval-box bg-success bg-opacity-10 p-4 rounded border border-success mb-3">
                                         <h4 class="text-success"><i class="fas fa-check-circle me-2"></i> Congratulations!</h4>
-                                        <p>Your FAST CASH loan has been approved with these terms:</p>
+                                        <p>Your UNLAD PLUS LOAN loan has been approved with these terms:</p>
                                         <div class="loan-terms">
                                             <div class="term-item">
                                                 <span>Loan Amount</span>
@@ -365,7 +365,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                                             <i class="fas fa-money-bill-wave" style="font-size: 2rem; color: var(--main-color);"></i>
                                         </div>
                                         <h5>Cash Pickup</h5>
-                                        <p>Available at FAST CASH branches (same day)</p>
+                                        <p>Available at UNLAD PLUS LOAN branches (same day)</p>
                                         <small class="text-muted">With valid ID required</small>
                                     </div>
                                 </div>
@@ -393,8 +393,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="cta-section rounded-3 p-5 mt-5 shadow" style="background-color: var(--main-color); color: white;">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h3 class="mb-3">Ready to Start Your FAST CASH Loan Application?</h3>
-                    <p class="mb-0">Join thousands of satisfied customers who trusted FAST CASH for their financial needs.</p>
+                    <h3 class="mb-3">Ready to Start Your UNLAD PLUS LOAN Loan Application?</h3>
+                    <p class="mb-0">Join thousands of satisfied customers who trusted UNLAD PLUS LOAN for their financial needs.</p>
                 </div>
                 <div class="col-md-4 text-md-end">
                     <a href="apply.php" class="btn btn-light btn-lg px-4 py-2 rounded-pill" style="color: var(--main-color);">Apply Now <i class="fas fa-arrow-right ms-2"></i></a>
@@ -411,8 +411,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/Logo.png" alt="FAST CASH Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>FAST CASH</strong></p>
+                    <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>UNLAD PLUS LOAN</strong></p>
                 </div>
                 <p>SEC Reg. No. CS202300001</p>
                 <p>Certificate of Authority No. 1234</p>
@@ -461,16 +461,16 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <h5 class="fw-bold">Contact Us</h5>
                 <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
                 <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
-                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
-                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
-                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
+                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@unladplusloan.com</p>
+                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@unladplusloan.com</p>
+                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@unladplusloan.com</p>
             </div>
         </div>
 
         <!-- Bottom Section -->
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
+            <p class="mb-0">&copy; 2025 UNLAD PLUS LOAN. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY UNLAD PLUS LOAN TEAM</p>
         </div>
     </div>
 </footer>

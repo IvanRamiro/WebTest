@@ -33,7 +33,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         if ($stmt->execute()) {
-            $_SESSION['message'] = "Event " . ($id ? "updated" : "added") . " successfully!";
+            $_SESSION['swal'] = json_encode([
+                'icon' => 'success',
+                'title' => $id ? 'Event Updated!' : 'Event Added!',
+                'text' => "Your event has been " . ($id ? "updated" : "added") . " successfully.",
+                'showConfirmButton' => false,
+                'timer' => 2000,
+                'timerProgressBar' => true,
+                'position' => 'center',
+                'draggable' => true,
+                'background' => '#f8f9fa',
+                'backdrop' => 'rgba(0,0,0,0.1)'
+            ]);
             header("Location: news-events-admin.php");
             exit();
         } else {
@@ -51,7 +62,14 @@ if (isset($_GET['delete'])) {
     $stmt->bind_param("i", $id);
     
     if ($stmt->execute()) {
-        $_SESSION['message'] = "Event deleted successfully!";
+        $_SESSION['swal'] = json_encode([
+            'icon' => 'success',
+            'title' => 'Deleted!',
+            'text' => "Event deleted successfully!",
+            'position' => 'top-end',
+            'timer' => 1500,
+            'showConfirmButton' => false
+        ]);
         header("Location: news-events-admin.php");
         exit();
     } else {

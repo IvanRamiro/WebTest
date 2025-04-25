@@ -32,7 +32,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="row align-items-center">
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
-                <img src="Images/Logo.png" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
+                <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
                 <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
             </div>
 
@@ -46,17 +46,17 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:support@fastcash.com">support@fastcash.com</a>
+                            <a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
-                            <a href="mailto:careers@fastcash.com">careers@fastcash.com</a>
+                            <a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a>
                         </p>
                     </li>
                     <li>
                         <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:complaints@fastcash.com">complaints@fastcash.com</a>
+                            <a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a>
                         </p>
                     </li>
                 </ul>
@@ -292,8 +292,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Left Section: Company Info -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="Images/Logo.png" alt="Fast Cash Logo" height="40" class="me-2">
-                    <p class="mb-0"><strong>FAST CASH</strong></p>
+                    <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN Logo" height="40" class="me-2">
+                    <p class="mb-0"><strong>UNLAD PLUS LOAN</strong></p>
                 </div>
                 <p>SEC Reg. No. CS202300001</p>
                 <p>Certificate of Authority No. 1234</p>
@@ -342,16 +342,16 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <h5 class="fw-bold">Contact Us</h5>
                 <p><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Main Office:</strong> 123 Business Center, Makati City, Philippines</p>
                 <p><i class="fas fa-phone text-primary me-2"></i> <strong>Customer Service:</strong> (02) 1234-5678</p>
-                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@fastcash.com</p>
-                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@fastcash.com</p>
-                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@fastcash.com</p>
+                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>Help & Support:</strong> support@unladplusloan.com</p>
+                <p><i class="fas fa-user text-primary me-2"></i> <strong>Careers:</strong> careers@unladplusloan.com</p>
+                <p><i class="fas fa-exclamation-circle text-primary me-2"></i> <strong>Complaints:</strong> complaints@unladplusloan.com</p>
             </div>
         </div>
 
         <!-- Bottom Section -->
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0">&copy; 2025 FAST CASH. ALL RIGHTS RESERVED.</p>
-            <p class="mb-0">WEBSITE BY FAST CASH TEAM</p>
+            <p class="mb-0">&copy; 2025 UNLAD PLUS LOAN. ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">WEBSITE BY UNLAD PLUS LOAN TEAM</p>
         </div>
     </div>
 </footer>
