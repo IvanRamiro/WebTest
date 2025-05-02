@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
+        /* Optional: Add some icon styling if needed */
         .navigation ul li .icon {
             min-width: 30px;
             display: inline-flex;
@@ -28,7 +29,7 @@
             </li>
             <li><a href="dashboard.php"><span class="icon"><i class="fa-solid fa-gauge-high"></i></span> <span class="title">Dashboard</span></a></li>
             <li><a href="loan_dashboard.php"><span class="icon"><i class="fa-solid fa-users"></i></span> <span class="title">Loan Customer</span></a></li>
-            <li><a href="inventory.php"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> <span class="title">Inventory</span></a></li>
+            <li><a href="Loan_Tracking.php"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> <span class="title">Loan Tracking</span></a></li>
             <li><a href="news-events-admin.php"><span class="icon"><i class="fa-solid fa-newspaper"></i></span> <span class="title">News & Events</span></a></li>
             <li><a href="background.php"><span class="icon"><i class="fa-solid fa-photo-film"></i></span> <span class="title">Background</span></a></li>
             <li><a href="testimonial.php"><span class="icon"><i class="fa-solid fa-comment-dots"></i></span> <span class="title">Testimonials</span></a></li>

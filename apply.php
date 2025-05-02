@@ -607,7 +607,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <p>Unlad Plus loan complies with the Data Privacy Act of 2012. Your personal information will be kept confidential and used only for loan processing purposes...</p>
                 </div>
             <div class="modal-footer">
-                <button type="button" class="btn" style
                 <button type="button" class="btn" style="background-color: var(--main-color); color: white;" data-bs-dismiss="modal">I Understand</button>
             </div>
         </div>
