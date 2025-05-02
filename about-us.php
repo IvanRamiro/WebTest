@@ -33,7 +33,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
+                <span class="brand-name fw-bold fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->

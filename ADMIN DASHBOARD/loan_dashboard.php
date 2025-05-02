@@ -451,6 +451,40 @@
             justify-content: center;
             gap: 5px;
         }
+
+        .table-container {
+        max-height: 500px;
+        overflow-y: auto;
+        border-radius: 8px;
+        margin-top: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .table-container::-webkit-scrollbar {
+        width: 10px;
+        height: 8px;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    
+    @media (max-width: 768px) {
+    .table-container::-webkit-scrollbar {
+        width: 0.8em;
+        height: 0.8em;
+    }
+}
     </style>
 </head>
 <body>
@@ -521,9 +555,10 @@
         </div>
     </div>
 
-    <!-- ========== RECENT APPLICATIONS TABLE ========== -->
-    <div class="recent-applications">
-        <h2 class="section-title">Recent Applications</h2>
+ <!-- ========== RECENT APPLICATIONS TABLE ========== -->
+<div class="recent-applications">
+    <h2 class="section-title">Recent Applications</h2>
+    <div class="table-container">
         <table class="applications-table">
             <thead>
                 <tr>

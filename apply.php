@@ -22,6 +22,8 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -33,7 +35,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
             <!-- Logo Section -->
             <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
-                <span class="brand-name fw-bold text-primary fs-5">UNLAD PLUS LOAN</span>
+                <span class="brand-name fw-bold fs-5">UNLAD PLUS LOAN</span>
             </div>
 
             <!-- Contact & Links -->
@@ -605,6 +607,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 <p>Unlad Plus loan complies with the Data Privacy Act of 2012. Your personal information will be kept confidential and used only for loan processing purposes...</p>
                 </div>
             <div class="modal-footer">
+                <button type="button" class="btn" style
                 <button type="button" class="btn" style="background-color: var(--main-color); color: white;" data-bs-dismiss="modal">I Understand</button>
             </div>
         </div>
@@ -644,6 +647,51 @@ if ($bg_result && $bg_result->num_rows > 0) {
 </div>
 
 <script>
+    // Form submission with SweetAlert
+    document.getElementById('loanApplicationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        if (!this.checkValidity()) {
+            // If form is invalid, show error message
+            Swal.fire({
+                icon: 'error',
+                title: 'Form Incomplete',
+                text: 'Please fill out all required fields before submitting.',
+                confirmButtonColor: 'var(--main-color)'
+            });
+            return;
+        }
+
+        // Show loading indicator
+        Swal.fire({
+            title: 'Processing your application',
+            html: 'Please wait while we submit your information...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Simulate form submission (replace with actual AJAX call)
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Thank you for applying for a loan with Unlad Plus!',
+                text: "We've successfully received your application and our team will get back to you shortly.",
+                showConfirmButton: true,
+                confirmButtonColor: 'var(--main-color)',
+                timer: 5000,
+                timerProgressBar: true
+            }).then((result) => {
+                // Submit the form after the alert is closed
+                this.submit();
+            });
+        }, 2000);
+    });
+
+    // Loan Calculator Script
     const calcAmount = document.getElementById('calcAmount');
     const inputAmount = document.getElementById('inputAmount');
     const calcTerm = document.getElementById('calcTerm');
@@ -698,7 +746,15 @@ if ($bg_result && $bg_result->num_rows > 0) {
       resultTotal.textContent = formatCurrency(totalPayment);
       resultMonthly.textContent = formatCurrency(monthlyPayment);
     });
-  </script>
+
+    // Same as current address checkbox functionality
+    document.getElementById('sameAsCurrent').addEventListener('change', function() {
+        if (this.checked) {
+            const currentAddress = document.getElementById('currentAddress').value;
+            document.getElementById('permanentAddress').value = currentAddress;
+        }
+    });
+</script>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5">
