@@ -167,9 +167,8 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     return ($result && $result->num_rows > 0) ? $result->fetch_assoc()['image_path'] : "";
 }
 ?>
-
 <style>
-.main-content-wrapper {
+.bg-content-wrapper {
     height: calc(100vh - 120px);
     overflow-y: auto;
     padding: 20px;
@@ -179,21 +178,21 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     background-color: #f5f5f5;
 }
 
-.settings-container {
+.bg-settings-container {
     max-width: 1200px;
     margin: 0 auto;
     min-height: 100%;
     box-sizing: border-box;
 }
 
-.top-row {
+.bg-top-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
-.settings-card {
+.bg-image-card {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -204,7 +203,7 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     box-sizing: border-box;
 }
 
-.card-header {
+.bg-card-header {
     border-bottom: 1px solid #eee;
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
@@ -213,7 +212,7 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     justify-content: space-between;
 }
 
-.card-title {
+.bg-card-title {
     font-size: 1.25rem;
     color: #333;
     margin: 0;
@@ -222,12 +221,12 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     gap: 0.5rem;
 }
 
-.image-preview-container {
+.bg-image-preview-container {
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
-.image-preview {
+.bg-image-preview {
     max-width: 100%;
     height: auto;
     max-height: 200px;
@@ -237,7 +236,7 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     object-fit: contain;
 }
 
-.no-image {
+.bg-no-image {
     padding: 2rem;
     background: #f8f9fa;
     border-radius: 8px;
@@ -246,18 +245,18 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     margin: auto 0;
 }
 
-.upload-form {
+.bg-upload-form {
     margin-top: 1.5rem;
 }
 
-.form-label {
+.bg-form-label {
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
     color: #444;
 }
 
-.form-control {
+.bg-form-control {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
@@ -266,14 +265,14 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     font-size: 1rem;
 }
 
-.btn-group {
+.bg-btn-group {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
     flex-wrap: wrap;
 }
 
-.btn {
+.bg-btn {
     padding: 0.6rem 1.2rem;
     border-radius: 5px;
     font-weight: 500;
@@ -286,38 +285,38 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     font-size: 0.9rem;
 }
 
-.btn-primary {
+.bg-btn-primary {
     background-color: #dc3545;
     color: white;
 }
 
-.btn-primary:hover {
+.bg-btn-primary:hover {
     background-color: #c82333;
 }
 
-.btn-danger {
+.bg-btn-danger {
     background-color: #6c757d;
     color: white;
 }
 
-.btn-danger:hover {
+.bg-btn-danger:hover {
     background-color: #5a6268;
 }
 
-.loan-icons-grid {
+.bg-loan-icons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
 
-.loan-icon-card {
+.bg-loan-icon-card {
     border: 1px solid #eee;
     border-radius: 8px;
     padding: 1rem;
 }
 
-.text-preview {
+.bg-text-preview {
     background: #f8f9fa;
     padding: 0.5rem;
     border-radius: 5px;
@@ -325,97 +324,97 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
     text-align: center;
 }
 
-.alert {
+.bg-alert {
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
-.alert-info {
+.bg-alert-info {
     background-color: #d1ecf1;
     color: #0c5460;
     border: 1px solid #bee5eb;
 }
 
 @media (max-width: 992px) {
-    .main-content-wrapper {
+    .bg-content-wrapper {
         width: 100%;
         margin-left: 0;
         padding: 15px;
     }
     
-    .top-row {
+    .bg-top-row {
         grid-template-columns: 1fr;
     }
     
-    .loan-icons-grid {
+    .bg-loan-icons-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .loan-icons-grid {
+    .bg-loan-icons-grid {
         grid-template-columns: 1fr;
     }
     
-    .settings-card {
+    .bg-image-card {
         padding: 1rem;
     }
     
-    .btn-group {
+    .bg-btn-group {
         flex-direction: column;
     }
     
-    .btn {
+    .bg-btn {
         width: 100%;
     }
 }
 </style>
 
-<div class="main-content-wrapper">
-    <div class="settings-container">
-        <div class="settings-header">
-            <h1>Website Image Management</h1>
+<div class="bg-content-wrapper">
+    <div class="bg-settings-container">
+        <div class="bg-card-header">
+            <h1 class="bg-card-title">Website Image Management</h1>
         </div>
 
         <?php if (!empty($message)): ?>
-            <div class="alert alert-info"><?php echo htmlspecialchars($message); ?></div>
+            <div class="bg-alert bg-alert-info"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
 
         <!-- Top Row - BG and MVL Cards -->
-        <div class="top-row">
+        <div class="bg-top-row">
             <!-- Background Image Card -->
-            <div class="settings-card">
-                <div class="card-header">
-                    <h2 class="card-title">
+            <div class="bg-image-card">
+                <div class="bg-card-header">
+                    <h2 class="bg-card-title">
                         <i class="fas fa-image"></i> Background Image
                     </h2>
                 </div>
                 
-                <div class="image-preview-container">
+                <div class="bg-image-preview-container">
                     <p class="current-image-label">Current Background:</p>
                     <?php if ($bg_image): ?>
-                        <img src="<?php echo htmlspecialchars($bg_image); ?>" alt="Current Background" class="image-preview">
+                        <img src="<?php echo htmlspecialchars($bg_image); ?>" alt="Current Background" class="bg-image-preview">
                     <?php else: ?>
-                        <div class="no-image">
+                        <div class="bg-no-image">
                             No background image set
                         </div>
                     <?php endif; ?>
                 </div>
                 
-                <div class="upload-form">
+                <div class="bg-upload-form">
                     <form method="POST" enctype="multipart/form-data">
-                        <label for="bg-upload" class="form-label">Upload New Background:</label>
-                        <input type="file" id="bg-upload" name="bg-image" class="form-control" accept="image/*">
+                        <label for="bg-upload" class="bg-form-label">Upload New Background:</label>
+                        <input type="file" id="bg-upload" name="bg-image" class="bg-form-control" accept="image/*">
                         
-                        <div class="btn-group">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="bg-btn-group">
+                            <button type="submit" class="bg-btn bg-btn-primary">
                                 <i class="fas fa-upload"></i> Upload
                             </button>
                             
                             <?php if ($bg_image): ?>
-                                <button type="submit" name="remove-bg" class="btn btn-danger">
+                                <button type="submit" name="remove-bg" class="bg-btn bg-btn-danger">
                                     <i class="fas fa-trash"></i> Remove
                                 </button>
                             <?php endif; ?>
@@ -425,36 +424,36 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
             </div>
 
             <!-- MVL Promo Image Card -->
-            <div class="settings-card">
-                <div class="card-header">
-                    <h2 class="card-title">
+            <div class="bg-image-card">
+                <div class="bg-card-header">
+                    <h2 class="bg-card-title">
                         <i class="fas fa-store"></i> MVL Promo Image
                     </h2>
                 </div>
                 
-                <div class="image-preview-container">
+                <div class="bg-image-preview-container">
                     <p class="current-image-label">Current MVL Image:</p>
                     <?php if ($mvl_image): ?>
-                        <img src="<?php echo htmlspecialchars($mvl_image); ?>" alt="Current MVL Image" class="image-preview">
+                        <img src="<?php echo htmlspecialchars($mvl_image); ?>" alt="Current MVL Image" class="bg-image-preview">
                     <?php else: ?>
-                        <div class="no-image">
+                        <div class="bg-no-image">
                             No MVL image set
                         </div>
                     <?php endif; ?>
                 </div>
                 
-                <div class="upload-form">
+                <div class="bg-upload-form">
                     <form method="POST" enctype="multipart/form-data">
-                        <label for="mvl-upload" class="form-label">Upload New MVL Image:</label>
-                        <input type="file" id="mvl-upload" name="mvl-image" class="form-control" accept="image/*">
+                        <label for="mvl-upload" class="bg-form-label">Upload New MVL Image:</label>
+                        <input type="file" id="mvl-upload" name="mvl-image" class="bg-form-control" accept="image/*">
                         
-                        <div class="btn-group">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="bg-btn-group">
+                            <button type="submit" class="bg-btn bg-btn-primary">
                                 <i class="fas fa-upload"></i> Upload
                             </button>
                             
                             <?php if ($mvl_image): ?>
-                                <button type="submit" name="remove-mvl" class="btn btn-danger">
+                                <button type="submit" name="remove-mvl" class="bg-btn bg-btn-danger">
                                     <i class="fas fa-trash"></i> Remove
                                 </button>
                             <?php endif; ?>
@@ -465,58 +464,58 @@ function fetchLatestWebsiteImage($type, $identifier = null) {
         </div>
 
         <!-- Loan Requirements Section -->
-        <div class="settings-card mt-4">
-            <div class="card-header">
-                <h2 class="card-title">
+        <div class="bg-image-card mt-4">
+            <div class="bg-card-header">
+                <h2 class="bg-card-title">
                     <i class="fas fa-list-check"></i> Loan Requirement Icons & Text
                 </h2>
             </div>
             
             <form method="POST" enctype="multipart/form-data">
-                <div class="loan-icons-grid">
+                <div class="bg-loan-icons-grid">
                     <?php foreach (['adult', 'market', 'house', 'responsibility'] as $type): ?>
-                        <div class="loan-icon-card">
-                            <div class="image-preview-container">
+                        <div class="bg-loan-icon-card">
+                            <div class="bg-image-preview-container">
                                 <div class="form-group">
                                     <label for="<?php echo $type; ?>_line1">Title:</label>
                                     <input type="text" id="<?php echo $type; ?>_line1" 
                                            name="<?php echo $type; ?>_line1" 
-                                           class="form-control mb-2" 
+                                           class="bg-form-control mb-2" 
                                            value="<?php echo htmlspecialchars($loan_texts[$type]['line1']); ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="<?php echo $type; ?>_line2">Description:</label>
                                     <input type="text" id="<?php echo $type; ?>_line2" 
                                            name="<?php echo $type; ?>_line2" 
-                                           class="form-control" 
+                                           class="bg-form-control" 
                                            value="<?php echo htmlspecialchars($loan_texts[$type]['line2']); ?>">
                                 </div>
                                 
                                 <?php if ($loan_images[$type]): ?>
                                     <img src="<?php echo htmlspecialchars($loan_images[$type]); ?>" 
                                          alt="<?php echo htmlspecialchars($loan_texts[$type]['line1'].' '.$loan_texts[$type]['line2']); ?>" 
-                                         class="image-preview mt-2" style="max-height: 100px;">
+                                         class="bg-image-preview mt-2" style="max-height: 100px;">
                                 <?php else: ?>
-                                    <div class="no-image mt-2" style="padding: 1rem; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                    <div class="bg-no-image mt-2" style="padding: 1rem; height: 100px; display: flex; align-items: center; justify-content: center;">
                                         <i class="fas fa-image fa-2x text-muted"></i>
                                     </div>
                                 <?php endif; ?>
                             </div>
                             
-                            <div class="upload-form mt-3">
-                                <label for="loan-<?php echo $type; ?>-upload" class="form-label">Upload/Replace Icon:</label>
+                            <div class="bg-upload-form mt-3">
+                                <label for="loan-<?php echo $type; ?>-upload" class="bg-form-label">Upload/Replace Icon:</label>
                                 <input type="file" id="loan-<?php echo $type; ?>-upload" 
                                        name="loan-<?php echo $type; ?>-image" 
-                                       class="form-control mb-2" 
+                                       class="bg-form-control mb-2" 
                                        accept="image/*">
                                 
-                                <div class="btn-group">
-                                    <button type="submit" name="update_texts" class="btn btn-primary">
+                                <div class="bg-btn-group">
+                                    <button type="submit" name="update_texts" class="bg-btn bg-btn-primary">
                                         <i class="fas fa-save"></i> Save Changes
                                     </button>
                                     
                                     <?php if ($loan_images[$type]): ?>
-                                        <button type="submit" name="remove-loan-<?php echo $type; ?>" class="btn btn-danger">
+                                        <button type="submit" name="remove-loan-<?php echo $type; ?>" class="bg-btn bg-btn-danger">
                                             <i class="fas fa-trash"></i> Remove Icon
                                         </button>
                                     <?php endif; ?>
