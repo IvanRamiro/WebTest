@@ -104,7 +104,7 @@ if ($stmt->execute()) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        $mail->setFrom('sonatavann@gmail.com', 'FAST CASH');
+        $mail->setFrom('sonatavann@gmail.com', 'Unlad Plus Loan');
         $mail->addAddress($email, "$firstName $lastName");
         $mail->addBCC('sonatavann@gmail.com');
         $mail->addReplyTo($email, "$firstName $lastName");
@@ -119,7 +119,7 @@ if ($stmt->execute()) {
         $mail->Subject = "Loan Application Received";
         $mail->Body = "
             <p>Dear $firstName,</p>
-            <p>Thank you for applying for a loan with <strong>FAST CASH</strong>. Below is a summary of your submitted application:</p>
+            <p>Thank you for applying for a loan with <strong>UNLAD PLUS LOAN</strong>. Below is a summary of your submitted application:</p>
 
             <h3>Personal Information</h3>
             <ul>
@@ -173,7 +173,7 @@ if ($stmt->execute()) {
             </ul>
 
             <br><p>We will contact you shortly after verification.</p>
-            <p>Regards,<br><strong>FAST CASH Team</strong></p>
+            <p>Regards,<br><strong>UNLAD PLUS LOAN Team</strong></p>
         ";
 
         $mail->send();

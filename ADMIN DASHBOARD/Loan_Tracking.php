@@ -2,6 +2,25 @@
 <?php include 'config.php'; ?>
 
 <style>
+    :root {
+        --blue: rgba(77,35,121,255);
+        --secondary: #f6c23e;
+        --white: #ffffff;
+        --black1: #333;
+        --black2: #666;
+        --gray: #e0e0e0;
+        --font-sm: 14px;
+        --font-md: 16px;
+        --font-lg: 24px;
+        --spacing-sm: 10px;
+        --spacing-md: 15px;
+        --spacing-lg: 20px;
+        --radius: 8px;
+        --transition-fast: 0.2s;
+        --transition-medium: 0.3s;
+        --transition-slow: 0.5s;
+    }
+
     .dashboard-container {
         position: relative;
         width: 100%;
@@ -144,6 +163,11 @@
         padding: var(--spacing-md);
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         color: var(--black1);
+    }
+
+    /* Add this for row dividers */
+    tr.loan-divider {
+        border-top: 2px solid var(--blue);
     }
 
     tr:last-child {
@@ -310,6 +334,17 @@
         transform: translateY(-2px);
     }
 
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
     /* Responsive Design */
     @media (max-width: 992px) {
         .dashboard-container {
@@ -368,11 +403,11 @@
         ");
         $totalLent = $stmt->fetch(PDO::FETCH_ASSOC)['total_lent'] ?? 0;
 
-        // ACTIVE LOANS (from loan_application)
+        // ACTIVE LOANS (from loan_tracking)
         $stmt = $pdo->query("
             SELECT COUNT(*) as active_loans 
-            FROM loan_application 
-            WHERE status = 'approved'
+            FROM loan_tracking 
+            WHERE status = 'active'
         ");
         $activeLoans = $stmt->fetch(PDO::FETCH_ASSOC)['active_loans'] ?? 0;
 
@@ -428,8 +463,9 @@
                                 la.loan_term,
                                 la.status,
                                 la.submitted_at,
-                                lt.current_balance,
-                                lt.status as tracking_status
+                                IFNULL(lt.current_balance, la.loan_amount) as current_balance,
+                                IFNULL(lt.status, 'active') as tracking_status,
+                                IFNULL(lt.total_paid, 0) as total_paid
                             FROM loan_application la
                             LEFT JOIN loan_tracking lt ON la.id = lt.loan_id
                             WHERE la.status = 'approved'
@@ -437,10 +473,17 @@
                             LIMIT 15
                         ");
 
+                        $prevLoanId = null;
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            $status = $row['tracking_status'] ?? 'active';
+                            // Add divider if this is a new loan (grouping would be better, but this is simple)
+                            if ($prevLoanId !== null && $prevLoanId != $row['id']) {
+                                echo '<tr class="loan-divider"></tr>';
+                            }
+                            $prevLoanId = $row['id'];
+                            
+                            $status = $row['tracking_status'];
                             $statusClass = 'badge-' . $status;
-                            $currentBalance = $row['current_balance'] ?? $row['loan_amount'];
+                            $currentBalance = $row['current_balance'];
                             
                             echo '
                             <tr>
@@ -574,7 +617,8 @@
     // Modal functions
     function showPaymentModal(loanId, currentBalance) {
         document.getElementById('loanId').value = loanId;
-        document.getElementById('paymentAmount').placeholder = currentBalance;
+        document.getElementById('paymentAmount').placeholder = "Current balance: ₱" + currentBalance.toFixed(2);
+        document.getElementById('paymentAmount').max = currentBalance;
         document.getElementById('paymentAmount').value = '';
         document.getElementById('paymentDate').valueAsDate = new Date();
         document.getElementById('paymentModal').style.display = 'block';
@@ -588,25 +632,32 @@
     function submitPayment(event) {
         event.preventDefault();
         
-        const formData = new FormData();
-        formData.append('loan_id', document.getElementById('loanId').value);
-        formData.append('amount', document.getElementById('paymentAmount').value);
-        formData.append('date', document.getElementById('paymentDate').value);
-        formData.append('type', document.getElementById('paymentType').value);
-        formData.append('notes', document.getElementById('paymentNotes').value);
+        const loanId = document.getElementById('loanId').value;
+        const amount = parseFloat(document.getElementById('paymentAmount').value);
+        const date = document.getElementById('paymentDate').value;
+        const type = document.getElementById('paymentType').value;
+        const notes = document.getElementById('paymentNotes').value;
         
         fetch('process_payment.php', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                loan_id: loanId,
+                amount: amount,
+                date: date,
+                type: type,
+                notes: notes
+            })
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                const msg = `Payment of ₱${data.data.payment_amount} recorded for ${data.data.borrower}.\nNew balance: ₱${data.data.new_balance}`;
-                alert(msg);
+                alert(`Payment of ₱${data.amount} recorded successfully.`);
                 location.reload();
             } else {
-                alert('Payment failed: ' + data.message);
+                alert('Error: ' + data.message);
             }
         })
         .catch(error => {
@@ -615,7 +666,6 @@
         });
     }
 
-    // Close modal when clicking outside
     window.onclick = function(event) {
         if (event.target == document.getElementById('paymentModal')) {
             closeModal();
