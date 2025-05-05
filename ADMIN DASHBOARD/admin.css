@@ -435,18 +435,23 @@ body {
     color: var(--black2);
 }
 
-.details-grid {
+/* Dashboard Tables and Charts */
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 30px;
-    margin-top: 20px;
+    grid-gap: 30px;
 }
 
-.chart-card, .activity-card {
+.itemOrders, .recentCustomers {
+    position: relative;
+    min-height: 400px;
     background: var(--white);
     padding: 20px;
-    border-radius: var(--radius);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius);
 }
 
 .cardHeader {
@@ -459,11 +464,13 @@ body {
 .cardHeader h2 {
     font-weight: 600;
     color: var(--blue);
+    padding: 0;
+    background: transparent;
 }
 
-.table-container {
-    max-height: 400px;
-    overflow-y: auto;
+canvas {
+    width: 100% !important;
+    max-height: 300px;
 }
 
 table {
@@ -509,6 +516,7 @@ table td h4 span {
     color: var(--blue);
 }
 
+/* Status Labels */
 .status {
     padding: 2px 4px;
     border-radius: 4px;
@@ -645,12 +653,6 @@ table td h4 span {
     align-items: center;
     justify-content: center;
     gap: 10px;
-}
-
-@media (max-width: 992px) {
-    .details-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
