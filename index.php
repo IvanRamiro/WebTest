@@ -158,122 +158,138 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 </section>
 
 
-<!-- Market Vendor Loan Section -->
+<!-- Market Vendor Loan Section - Enhanced Version -->
 <section class="mvl-section py-5" aria-labelledby="mvl-heading">
     <div class="container px-lg-4 px-md-3 px-sm-2">
         <div class="row g-4 mx-0">
-            <!-- MVL Promo Content -->
+            <!-- MVL Promo Content - Enhanced Card -->
             <div class="col-lg-6 px-3">
                 <?php if (!empty($mvl_image)): ?>
-                <div class="mvl-card bg-white p-4 rounded-3 shadow-sm h-100">
-                    <figure class="mvl-image mb-4 mx-0">
+                <div class="mvl-card bg-white p-0 rounded-4 shadow-sm h-100 overflow-hidden">
+                    <figure class="mvl-image mb-0 mx-0 position-relative">
                         <img src="<?php echo $mvl_image; ?>" 
                             alt="Market Vendor Loan Advertisement" 
-                            class="img-fluid rounded-3 w-100">
+                            class="img-fluid w-100">
+                        <div class="image-overlay"></div>
                         <figcaption class="visually-hidden">Market Vendor Loan Promotional Image</figcaption>
                     </figure>
                     
-                    <div class="mvl-text-content px-2">
-                        <span class="text-primary fw-bold small d-block mb-2">LEARN MORE ABOUT OUR LOANS</span>
-                        <h2 id="mvl-heading" class="fw-bold mb-3">Grow your business with <span class="text-primary">UNLAD PLUS LOAN</span></h2>
-                        <p class="text-muted mb-4">Apply for a loan, boost your capital, and increase your inventory. We've made it easy for you so you can focus on growing your business.</p>
-                        <a href="apply.php" class="btn btn-primary px-4 py-2 fw-bold" aria-label="Apply online for UNLAD PLUS LOAN">
-                            APPLY ONLINE <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
+                    <div class="mvl-text-content p-4 position-relative">
+                        <span class="badge bg-primary text-white mb-2 px-3 py-1 rounded-pill">LEARN MORE ABOUT OUR LOANS</span>
+                        <h2 id="mvl-heading" class="fw-bold mb-3 display-5">Grow your business with <span class="text-primary">UNLAD PLUS LOAN</span></h2>
+                        <p class="text-muted mb-4 fs-5">We provide fast and easy loans tailored for market vendors and small business owners. Get the capital you need to expand your inventory and grow your business.</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="apply.php" class="btn btn-primary px-4 py-3 fw-bold rounded-pill" aria-label="Apply online for UNLAD PLUS LOAN">
+                                APPLY ONLINE <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary px-4 py-3 fw-bold rounded-pill">
+                                LEARN MORE
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <?php endif; ?>
             </div>
 
-            <!-- Loan Requirements -->
-            <div class="col-lg-6">
-                <div class="requirements-card bg-white p-4 rounded-3 shadow-sm h-100">
-                    <span class="text-primary fw-bold small d-block mb-2">LOAN REQUIREMENTS</span>
-                    <h2 class="fw-bold mb-4">Who can apply for a <strong class="text-primary">UNLAD PLUS LOAN?</strong></h2>
+<div class="col-lg-6">
+    <div class="requirements-card bg-white p-4 rounded-4 shadow-sm h-100">
+        <span class="badge bg-primary text-white mb-2 px-3 py-1 rounded-pill">LOAN REQUIREMENTS</span>
+        <h2 class="fw-bold mb-4 display-5">Who can apply for a <strong class="text-primary">UNLAD PLUS LOAN?</strong></h2>
+        <p class="text-muted mb-4">Our loans are designed for hardworking individuals who meet these simple requirements:</p>
 
-                    <div class="requirements-grid">
-                        <div class="row g-3">
-                            <!-- Age Requirement -->
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <?php if (!empty($loan_images['adult']) && file_exists($loan_images['adult'])): ?>
-                                        <img src="<?php echo $loan_images['adult']; ?>" 
-                                             alt="Age Requirement: <?php echo $loan_texts['adult']['line1'].' '.$loan_texts['adult']['line2']; ?>" 
-                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <?php else: ?>
-                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                            <i class="fas fa-user fa-2x text-muted"></i>
-                                        </div>
-                                    <?php endif; ?>
-                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['adult']['line1']; ?><br><?php echo $loan_texts['adult']['line2']; ?></p>
-                                </article>
-                            </div>
-                            
-                            <!-- Store Owner Requirement -->
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <?php if (!empty($loan_images['market']) && file_exists($loan_images['market'])): ?>
-                                        <img src="<?php echo $loan_images['market']; ?>" 
-                                             alt="Requirement: <?php echo $loan_texts['market']['line1'].' '.$loan_texts['market']['line2']; ?>" 
-                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <?php else: ?>
-                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                            <i class="fas fa-store fa-2x text-muted"></i>
-                                        </div>
-                                    <?php endif; ?>
-                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['market']['line1']; ?><br><?php echo $loan_texts['market']['line2']; ?></p>
-                                </article>
-                            </div>
-                            
-                            <!-- Resident Requirement -->
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <?php if (!empty($loan_images['house']) && file_exists($loan_images['house'])): ?>
-                                        <img src="<?php echo $loan_images['house']; ?>" 
-                                             alt="Requirement: <?php echo $loan_texts['house']['line1'].' '.$loan_texts['house']['line2']; ?>" 
-                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <?php else: ?>
-                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                            <i class="fas fa-home fa-2x text-muted"></i>
-                                        </div>
-                                    <?php endif; ?>
-                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['house']['line1']; ?><br><?php echo $loan_texts['house']['line2']; ?></p>
-                                </article>
-                            </div>
-                            
-                            <!-- Responsible Borrower -->
-                            <div class="col-6 col-md-3">
-                                <article class="requirement-item text-center p-3">
-                                    <?php if (!empty($loan_images['responsibility']) && file_exists($loan_images['responsibility'])): ?>
-                                        <img src="<?php echo $loan_images['responsibility']; ?>" 
-                                             alt="Requirement: <?php echo $loan_texts['responsibility']['line1'].' '.$loan_texts['responsibility']['line2']; ?>" 
-                                             class="img-fluid mb-3" style="height: 60px; width: auto;">
-                                    <?php else: ?>
-                                        <div class="no-image-placeholder" style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                                            <i class="fas fa-handshake fa-2x text-muted"></i>
-                                        </div>
-                                    <?php endif; ?>
-                                    <p class="mb-0 fw-medium"><?php echo $loan_texts['responsibility']['line1']; ?><br><?php echo $loan_texts['responsibility']['line2']; ?></p>
-                                </article>
-                            </div>
+        <div class="requirements-grid">
+            <div class="row g-3">
+                <!-- Age Requirement -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3 rounded-3 h-100 d-flex flex-column">
+                    <div class="icon-container rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px;">
+                            <?php if (!empty($loan_images['adult']) && file_exists($loan_images['adult'])): ?>
+                                <img src="<?php echo $loan_images['adult']; ?>" 
+                                     alt="Age Requirement: <?php echo $loan_texts['adult']['line1'].' '.$loan_texts['adult']['line2']; ?>" 
+                                     class="img-fluid h-100 w-auto" style="object-fit: contain;">
+                            <?php else: ?>
+                                <i class="fas fa-user fa-2x text-primary"></i>
+                            <?php endif; ?>
                         </div>
-                    </div>
-
-                    <div class="eligibility-cta mt-4 pt-3 border-top">
-                        <p class="mb-3">Want to know if you're eligible for <strong class="text-primary">UNLAD PLUS LOAN?</strong></p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="#" class="btn btn-outline-primary flex-grow-1" aria-label="Affordability and Suitability Assessment">
-                                Affordability & Suitability Assessment
-                            </a>
-                            <a href="#" class="btn btn-outline-primary flex-grow-1" aria-label="Review Your Assessment Result">
-                                Review Your Assessment Result
-                            </a>
+                        <div class="mt-auto">
+                            <h5 class="fw-bold mb-1"><?php echo $loan_texts['adult']['line1']; ?></h5>
+                            <p class="mb-0 text-muted small"><?php echo $loan_texts['adult']['line2']; ?></p>
                         </div>
-                    </div>
+                    </article>
+                </div>
+                
+                <!-- Store Owner Requirement -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3 rounded-3 h-100 d-flex flex-column">
+                    <div class="icon-container rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px;">
+                            <?php if (!empty($loan_images['market']) && file_exists($loan_images['market'])): ?>
+                                <img src="<?php echo $loan_images['market']; ?>" 
+                                     alt="Requirement: <?php echo $loan_texts['market']['line1'].' '.$loan_texts['market']['line2']; ?>" 
+                                     class="img-fluid h-100 w-auto" style="object-fit: contain;">
+                            <?php else: ?>
+                                <i class="fas fa-store fa-2x text-primary"></i>
+                            <?php endif; ?>
+                        </div>
+                        <div class="mt-auto">
+                            <h5 class="fw-bold mb-1"><?php echo $loan_texts['market']['line1']; ?></h5>
+                            <p class="mb-0 text-muted small"><?php echo $loan_texts['market']['line2']; ?></p>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Resident Requirement -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3 rounded-3 h-100 d-flex flex-column">
+                    <div class="icon-container rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px;">
+                            <?php if (!empty($loan_images['house']) && file_exists($loan_images['house'])): ?>
+                                <img src="<?php echo $loan_images['house']; ?>" 
+                                     alt="Requirement: <?php echo $loan_texts['house']['line1'].' '.$loan_texts['house']['line2']; ?>" 
+                                     class="img-fluid h-100 w-auto" style="object-fit: contain;">
+                            <?php else: ?>
+                                <i class="fas fa-home fa-2x text-primary"></i>
+                            <?php endif; ?>
+                        </div>
+                        <div class="mt-auto">
+                            <h5 class="fw-bold mb-1"><?php echo $loan_texts['house']['line1']; ?></h5>
+                            <p class="mb-0 text-muted small"><?php echo $loan_texts['house']['line2']; ?></p>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Responsible Borrower -->
+                <div class="col-6 col-md-3">
+                    <article class="requirement-item text-center p-3 rounded-3 h-100 d-flex flex-column">
+                    <div class="icon-container rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px;">
+                            <?php if (!empty($loan_images['responsibility']) && file_exists($loan_images['responsibility'])): ?>
+                                <img src="<?php echo $loan_images['responsibility']; ?>" 
+                                     alt="Requirement: <?php echo $loan_texts['responsibility']['line1'].' '.$loan_texts['responsibility']['line2']; ?>" 
+                                     class="img-fluid h-100 w-auto" style="object-fit: contain;">
+                            <?php else: ?>
+                                <i class="fas fa-handshake fa-2x text-primary"></i>
+                            <?php endif; ?>
+                        </div>
+                        <div class="mt-auto">
+                            <h5 class="fw-bold mb-1"><?php echo $loan_texts['responsibility']['line1']; ?></h5>
+                            <p class="mb-0 text-muted small"><?php echo $loan_texts['responsibility']['line2']; ?></p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
+
+        <div class="eligibility-cta mt-4 pt-4 border-top">
+            <h4 class="mb-3">Check your eligibility for <strong class="text-primary">UNLAD PLUS LOAN</strong></h4>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="#" class="btn btn-primary flex-grow-1 py-3 rounded-pill" aria-label="Affordability and Suitability Assessment">
+                    <i class="fas fa-calculator me-2"></i> Assessment Tool
+                </a>
+                <a href="#" class="btn btn-outline-primary flex-grow-1 py-3 rounded-pill" aria-label="Review Your Assessment Result">
+                    <i class="fas fa-chart-line me-2"></i> Check Results
+                </a>
+            </div>
+        </div>
     </div>
+</div>
 </section>
 
 <!-- Testimonials Section -->
