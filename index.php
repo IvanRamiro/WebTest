@@ -199,6 +199,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
         <div class="requirements-grid">
             <div class="row g-3">
+                
                 <!-- Age Requirement -->
                 <div class="col-6 col-md-3">
                     <article class="requirement-item text-center p-3 rounded-3 h-100 d-flex flex-column">
@@ -299,19 +300,44 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
         <h2 id="testimonials-heading">What Our <strong>Customers Say About Us</strong></h2>
         
         <div class="row mt-4">
-            <?php while ($row = $testimonials->fetch_assoc()): ?>
+            <?php 
+            $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DESC");
+            
+            if ($testimonials->num_rows > 0): 
+                while ($row = $testimonials->fetch_assoc()): 
+                    $thumbnailPath = htmlspecialchars($row['thumbnail_path']);
+                    
+                    if (!empty($thumbnailPath) && !preg_match('/^https?:\/\//i', $thumbnailPath) && 
+                        !file_exists($thumbnailPath) && file_exists("ADMIN DASHBOARD/" . $thumbnailPath)) {
+                        $thumbnailPath = "ADMIN DASHBOARD/" . $thumbnailPath;
+                    }
+            ?>
                 <article class="col-md-6 col-lg-4 mb-4" aria-labelledby="testimonial-<?= $row['id']; ?>-heading">
                     <a href="<?= htmlspecialchars($row['video_url']); ?>" target="_blank" class="video-link">
                         <div class="video-thumbnail shadow-sm rounded">
-                            <img src="<?= htmlspecialchars($row['thumbnail_path']); ?>" alt="Testimonial Video" class="img-fluid rounded">
+                            <img src="<?= $thumbnailPath ?>" 
+                                 alt="Testimonial Video: <?= htmlspecialchars($row['title']); ?>" 
+                                 class="img-fluid rounded"
+                                 onerror="this.src='assets/img/testimonial-fallback.jpg'">
                             <div class="play-overlay">
                                 <i class="fas fa-play-circle"></i>
                             </div>
                         </div>
-                        <h3 id="testimonial-<?= $row['id']; ?>-heading" class="visually-hidden">Testimonial Video</h3>
+                        <h3 id="testimonial-<?= $row['id']; ?>-heading" class="visually-hidden">
+                            <?= htmlspecialchars($row['title']); ?> Testimonial
+                        </h3>
                     </a>
                 </article>
-            <?php endwhile; ?>
+            <?php 
+                endwhile; 
+            else: 
+            ?>
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        No testimonials available yet. Please check back later.
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -322,7 +348,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     </a>
 </section>
 
-<!-- Number Speak Section -->
 <section id="number-speak" class="number-speak-section py-5 text-center bg-light" aria-labelledby="number-speak-heading">
     <div class="container">
         <h2 id="number-speak-heading" class="fw-bold">Our Journey in Numbers</h2>
