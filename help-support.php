@@ -72,29 +72,41 @@ if ($bg_result && $bg_result->num_rows > 0) {
 
 <!-- Hero Section -->
 <section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
-    <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
-        <div class="container">
-            <!-- Collapsible Navigation -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav text-center">
-                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="help-support.php">Help & Support</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="about-us.php">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="apply.php">Apply</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="news-events.php">News and Events</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="contact-us.php">Contact Us</a></li>
-                </ul>
-            </div>
-            <!-- Search Form (Responsive) -->
-            <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-            </form>
+<nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
+    <div class="container">
+        <!-- Collapsible Navigation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'help-support.php' ? 'active' : ''; ?>" href="help-support.php">Help & Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'about-us.php' ? 'active' : ''; ?>" href="about-us.php">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'apply.php' ? 'active' : ''; ?>" href="apply.php">Apply</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'news-events.php' ? 'active' : ''; ?>" href="news-events.php">News and Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'contact-us.php' ? 'active' : ''; ?>" href="contact-us.php">Contact Us</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+        <!-- Search Form (Responsive) -->
+        <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</nav>
     
   <!-- Hero Content -->
 <div class="container h-100 d-flex align-items-center">
