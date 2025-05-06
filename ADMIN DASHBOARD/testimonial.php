@@ -142,7 +142,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 .input-group input:focus,
 .input-group select:focus,
 .input-group textarea:focus {
-    border-color: var(--blue);
+    border-color: var(--primary);
     outline: none;
     box-shadow: 0 0 0 3px rgba(77, 35, 121, 0.2);
 }
@@ -181,7 +181,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
 .success { 
     background: rgba(46, 204, 113, 0.2); 
-    color: var(--blue);
+    color: var(--primary);
 }
 .error { 
     background: rgba(231, 76, 60, 0.2); 
@@ -206,7 +206,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 .cardHeader h2 {
     font-size: var(--font-lg);
     margin: 0;
-    color: var(--blue);
+    color: var(--primary);
 }
 
 .testimonial-table {
@@ -221,7 +221,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     padding: var(--spacing-md);
     text-align: left;
     font-weight: 600;
-    color: var(--blue);
+    color: var(--primary);
     position: sticky;
     top: 0;
 }
@@ -233,7 +233,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 }
 
 .testimonial-table tr:hover td {
-    background-color: var(--blue);
+    background-color: var(--primary);
     color: var(--white);
 }
 
@@ -274,7 +274,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
 .edit-btn {
     background: rgba(46, 204, 113, 0.1);
-    color: var(--blue);
+    color: var(--primary);
     border: 1px solid rgba(46, 204, 113, 0.2);
 }
 
