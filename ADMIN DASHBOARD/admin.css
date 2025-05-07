@@ -1,4 +1,3 @@
-/* =================== GLOBAL STYLES ================== */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 :root {
@@ -13,17 +12,14 @@
     --spacing-md: 16px;
     --spacing-lg: 24px;
     
-    /* Font Variables */
     --font-sm: 0.9rem;
     --font-md: 1.1rem;
     --font-lg: 1.4rem;
     
-    /* Animation Variables */
     --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-medium: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-slow: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
-    /* Other Variables */
     --radius: 12px;
 }
 
@@ -686,7 +682,393 @@ table td h4 span {
     box-shadow: 0 6px 15px rgba(255, 195, 1, 0.4);
 }
 
-/* =================== RESPONSIVE DESIGN ================== */
+/* ==================== DASHBOARD WIDGETS ==================== */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 120px);
+}
+
+.dashboard-widget {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.calendar-main-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.calendar-nav-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.calendar-nav-btn {
+    background: var(--gray);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 8px;
+    font-size: 1rem;
+    white-space: nowrap;
+    color: var(--black1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-nav-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-actions-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.calendar-day-header {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--black2);
+    font-weight: 500;
+    padding: 5px;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    min-height: 40px;
+}
+
+.calendar-day:hover {
+    background: rgba(77, 35, 121, 0.1);
+}
+
+.calendar-day.today {
+    background: var(--secondary);
+    color: var(--black1);
+    font-weight: bold;
+}
+
+.calendar-day.other-month {
+    color: var(--black2);
+    opacity: 0.5;
+}
+
+.calendar-day.has-note::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.todo-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: rgba(77, 35, 121, 0.2);
+    border-radius: 10px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--gray);
+    transition: all var(--transition-fast);
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.todo-checkbox {
+    margin-right: 10px;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    color: var(--black2);
+}
+
+.todo-status {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.todo-status.pending {
+    background: #ffc301;
+    color: var(--black1);
+}
+
+.todo-status.in-progress {
+    background: #1795ce;
+    color: white;
+}
+
+.todo-status.done {
+    background: #8de02b;
+    color: white;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.todo-action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black2);
+    transition: all var(--transition-fast);
+}
+
+.todo-action-btn:hover {
+    color: var(--primary);
+}
+
+.todo-add {
+    display: flex;
+    margin-top: 15px;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--black2);
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.todo-submit {
+    padding: 0 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.todo-submit:hover {
+    background: var(--secondary);
+    color: var(--black1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 1.3rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--black2);
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-btn {
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.modal-btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.modal-btn-primary:hover {
+    background: var(--secondary);
+    color: var(--black1);
+}
+
+.modal-btn-secondary {
+    background: var(--gray);
+    color: var(--black1);
+    border: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--black2);
+    border-radius: 6px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--black2);
+    border-radius: 6px;
+    background: white;
+}
+
+@media (max-width: 992px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-widget {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-container {
+        padding: 10px;
+    }
+    
+    .widget-title {
+        font-size: 1.1rem;
+    }
+    
+    .calendar-day {
+        padding: 5px;
+        min-height: 35px;
+    }
+    
+    .todo-item {
+        padding: 10px;
+    }
+}
+
 @media (max-width: 992px) {
     .search {
         width: 100%;
@@ -722,7 +1104,6 @@ table td h4 span {
         grid-template-columns: 1fr;
     }
 
-    /* Settings responsive */
     .settings-container {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
@@ -753,7 +1134,6 @@ table td h4 span {
         z-index: 1001;
     }
 
-    /* Settings responsive */
     .settings-card {
         padding: 20px 15px;
     }

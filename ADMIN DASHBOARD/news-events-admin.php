@@ -402,7 +402,6 @@ $events = $conn->query("SELECT * FROM newsevents ORDER BY is_featured DESC, crea
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Show SweetAlert notifications from PHP
     <?php if (isset($_SESSION['swal'])): ?>
         Swal.fire({
             icon: '<?= $_SESSION['swal']['icon'] ?>',
@@ -416,7 +415,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <?php unset($_SESSION['swal']); ?>
     <?php endif; ?>
 
-    // Delete confirmation
     document.querySelectorAll('.delete-event').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -439,7 +437,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission confirmation
     document.getElementById('eventForm').addEventListener('submit', function(e) {
         const form = this;
         const isEdit = <?= $editing ? 'true' : 'false' ?>;
@@ -462,7 +459,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Cancel button confirmation
     const cancelBtn = document.querySelector('.btn-secondary');
     if (cancelBtn) {
         cancelBtn.addEventListener('click', function(e) {
