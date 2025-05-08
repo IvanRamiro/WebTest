@@ -35,14 +35,14 @@
         }
 
         .stat-card {
-            background: white;
+            background-color:rgb(241, 255, 255);
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border-top: 4px solid transparent;
+            border-top: 6px solid transparent;
         }
 
         .stat-card:hover {
@@ -232,7 +232,7 @@
         }
 
         .modal-header {
-            background-color: #2c3e50;
+            background-color: var(--primary);
             color: white;
             border-bottom: none;
             padding: 1.5rem;

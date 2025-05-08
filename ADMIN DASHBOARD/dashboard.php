@@ -10,98 +10,132 @@
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="dashboard.js" defer></script>
+
 </head>
 <body>
     
-<div class="main-content">
-        <div class="dashboard-container">
-            <div class="dashboard-widget">
-                <h2 class="calendar-main-header">CALENDAR</h2>
-                <div class="calendar-header">
-                    <div class="widget-title" id="current-month-year">CALENDAR</div>
-                    <div class="calendar-nav-actions">
-                        <button class="calendar-nav-btn" id="prev-month"><i class="fas fa-chevron-left"></i> Prev</button>
-                        <button class="calendar-nav-btn" id="today-btn">Today</button>
-                        <button class="calendar-nav-btn" id="next-month">Next <i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    <div class="calendar-nav-actions">
-                        <button class="calendar-nav-btn" id="month-view">Month View</button>
-                        <button class="calendar-nav-btn" id="add-event">+ Add Event</button>
-                    </div>
-                </div>
-                <div class="calendar-grid" id="calendar-grid">
-                </div>
+<div class="dashboard-grid">
+    <div class="calendar-container">
+        <h2 class="calendar-main-header">CALENDAR</h2>
+        <div class="calendar-header">
+            <div class="widget-title" id="current-month-year">CALENDAR</div>
+            <div class="calendar-nav-actions">
+                <button class="calendar-nav-btn" id="prev-month"><i class="fas fa-chevron-left"></i> Prev</button>
+                <button class="calendar-nav-btn" id="today-btn">Today</button>
+                <button class="calendar-nav-btn" id="next-month">Next <i class="fas fa-chevron-right"></i></button>
             </div>
-
-            <div class="dashboard-widget">
-                <div class="widget-header">
-                    <h3 class="widget-title">To-Do List</h3>
-                    <button id="filter-todos" style="background: none; border: none; cursor: pointer;">
-                        <i class="fas fa-filter" style="color: var(--black2);"></i>
-                    </button>
-                </div>
-                <div class="todo-list" id="todo-list">
-                </div>
-                <form class="todo-add" id="todo-form">
-                    <input type="text" class="todo-input" id="new-todo" placeholder="Add new task..." required>
-                    <button type="submit" class="todo-submit">Add</button>
-                </form>
+            <div class="calendar-nav-actions">
+                <button class="calendar-nav-btn" id="month-view">Month View</button>
+                <button class="calendar-nav-btn" id="add-event">+ Add Event</button>
             </div>
         </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
     </div>
 
-    <div class="modal" id="event-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Add Event</h3>
-                <button class="modal-close" id="close-event-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label" for="event-date">Date</label>
-                    <input type="date" class="form-control" id="event-date">
+    <div class="todo-container">
+        <div class="widget-header">
+            <h3 class="widget-title">To-Do List</h3>
+            <button id="filter-todos" style="background: none; border: none; cursor: pointer;">
+                <i class="fas fa-filter" style="color: var(--black2);"></i>
+            </button>
+        </div>
+        <div class="todo-list" id="todo-list"></div>
+        <form class="todo-add" id="todo-form">
+            <input type="text" class="todo-input" id="new-todo" placeholder="Add new task..." required>
+            <button type="submit" class="todo-submit">Add</button>
+        </form>
+    </div>
+
+<!-- Recent Logs Container -->
+<div class="logs-container">
+    <h3>Recent Customer Applications</h3>
+    <?php
+    include 'config.php';
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $stmt = $pdo->query("
+            SELECT first_name, last_name, submitted_at 
+            FROM loan_application 
+            ORDER BY submitted_at DESC 
+            LIMIT 5
+        ");
+        
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $time = date("h:i A", strtotime($row['submitted_at']));
+            $date = date("M j, Y", strtotime($row['submitted_at']));
+            echo '
+            <div class="log-item">
+                <div class="log-content">
+                    <i class="fas fa-user-circle log-icon"></i>
+                    <strong>'.htmlspecialchars($row['first_name'].' '.htmlspecialchars($row['last_name'])).'</strong>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="event-content">Event Details</label>
-                    <textarea class="form-control" id="event-content" rows="4" placeholder="Enter event description"></textarea>
+                <div class="log-time">
+                    '.$time.' on '.$date.'
                 </div>
+            </div>';
+        }
+    } catch(PDOException $e) {
+        echo '<div class="log-item">Error loading recent applications: '.htmlspecialchars($e->getMessage()).'</div>';
+    }
+    ?>
+</div>
+
+<!-- Modals (same as before) -->
+<div class="modal" id="event-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Add Event</h3>
+            <button class="modal-close" id="close-event-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label" for="event-date">Date</label>
+                <input type="date" class="form-control" id="event-date">
             </div>
-            <div class="modal-footer">
-                <button class="modal-btn modal-btn-secondary" id="cancel-event">Cancel</button>
-                <button class="modal-btn modal-btn-primary" id="save-event">Save</button>
+            <div class="form-group">
+                <label class="form-label" for="event-content">Event Details</label>
+                <textarea class="form-control" id="event-content" rows="4" placeholder="Enter event description"></textarea>
             </div>
         </div>
-    </div>
-
-    <div class="modal" id="todo-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Edit Task</h3>
-                <button class="modal-close" id="close-todo-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label" for="edit-todo-text">Task</label>
-                    <input type="text" class="form-control" id="edit-todo-text">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="edit-todo-status">Status</label>
-                    <select class="form-select" id="edit-todo-status">
-                        <option value="pending">Pending</option>
-                        <option value="in-progress">In Progress</option>
-                        <option value="done">Done</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn modal-btn-secondary" id="cancel-todo">Cancel</button>
-                <button class="modal-btn modal-btn-primary" id="save-todo">Save</button>
-                <button class="modal-btn modal-btn-secondary" id="delete-todo" style="background: #f44336; color: white;">Delete</button>
-            </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" id="cancel-event">Cancel</button>
+            <button class="modal-btn modal-btn-primary" id="save-event">Save</button>
         </div>
     </div>
+</div>
 
-    <script>
+<div class="modal" id="todo-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Edit Task</h3>
+            <button class="modal-close" id="close-todo-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label" for="edit-todo-text">Task</label>
+                <input type="text" class="form-control" id="edit-todo-text">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="edit-todo-status">Status</label>
+                <select class="form-select" id="edit-todo-status">
+                    <option value="pending">Pending</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" id="cancel-todo">Cancel</button>
+            <button class="modal-btn modal-btn-primary" id="save-todo">Save</button>
+            <button class="modal-btn modal-btn-secondary" id="delete-todo" style="background: #f44336; color: white;">Delete</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript (same as before) -->
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     let currentDate = new Date();
     let currentMonth = currentDate.getMonth();

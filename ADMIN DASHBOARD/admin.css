@@ -2,7 +2,9 @@
 
 :root {
     --primary: #4d2379;
+    --primary2: #894fa0;
     --secondary: #ffc301;
+    --secondary2: #ffe571;
     --white: #fff;
     --gray: #f5f5f5;
     --black1: #222;
@@ -215,11 +217,10 @@ body {
     will-change: transform, background-color;
 }
 
-/* Update the title transition */
 .logout-section a .title {
     white-space: nowrap;
     transition: all var(--transition-medium);
-    width: auto; /* Ensure width is auto when expanded */
+    width: auto;
 }
 
 .navigation.active .logout-section a .title {
@@ -228,8 +229,6 @@ body {
     margin-left: 0;
     transform: translateX(-10px);
 }
-
-/* Ensure the icon stays centered when collapsed */
 .navigation.active .logout-section a {
     justify-content: center;
     padding: 12px 0;
@@ -512,7 +511,7 @@ table td h4 span {
     color: var(--white);
     transition: all var(--transition-fast);
 }
-
+    
 .status.delivered { background: #8de02b; }
 .status.pending { background: var(--secondary); }
 .status.return { background: #f00; }
@@ -682,42 +681,55 @@ table td h4 span {
     box-shadow: 0 6px 15px rgba(255, 195, 1, 0.4);
 }
 
-/* ==================== DASHBOARD WIDGETS ==================== */
-.dashboard-container {
+/* ==================== DASHBOARD GRID LAYOUT ==================== */
+.dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
+    width: 100%;
+    height: 100vh;
     padding: 20px;
-    min-height: calc(100vh - 120px);
+    box-sizing: border-box;
 }
 
-.dashboard-widget {
+.calendar-container {
+    grid-area: 1 / 1 / 5 / 5;
     background: var(--white);
     border-radius: var(--radius);
-    padding: 20px;
+    margin-bottom: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    height: fit-content;
+    padding: 20px;
+    overflow: hidden;
 }
 
-.widget-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.todo-container {
+    grid-area: 1 / 5 / 4 / 7;
+    background: var(--primary2);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    overflow: hidden;
 }
 
-.widget-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--primary);
+.logs-container {
+    grid-area: 4 / 5 / 7 / 7;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    overflow: hidden;
 }
 
+/* ==================== CALENDAR COMPONENT ==================== */
 .calendar-main-header {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--white);
+    background: var(--primary);
+    text-align: center;
     margin-bottom: 15px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     border-bottom: 2px solid var(--gray);
 }
 
@@ -763,16 +775,6 @@ table td h4 span {
     gap: 8px;
 }
 
-.calendar-actions-container {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-left: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 0 10px;
-}
-
 .calendar-day-header {
     font-size: 0.8rem;
     text-align: center;
@@ -816,6 +818,20 @@ table td h4 span {
     height: 5px;
     border-radius: 50%;
     background: var(--primary);
+}
+
+/* ==================== TODO LIST COMPONENT ==================== */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
 }
 
 .todo-list {
@@ -938,6 +954,43 @@ table td h4 span {
     color: var(--black1);
 }
 
+.logs-container h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    color: var(--primary);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.log-item:last-child {
+    border-bottom: none;
+}
+
+.log-content {
+    flex: 1;
+}
+
+.log-time {
+    color: var(--primary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    margin-left: 15px;
+}
+
+.log-icon {
+    margin-right: 10px;
+    color: var(--secondary);
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -952,7 +1005,7 @@ table td h4 span {
 }
 
 .modal-content {
-    background: white;
+    background: var(--primary2);
     padding: 25px;
     border-radius: var(--radius);
     width: 90%;
@@ -969,7 +1022,7 @@ table td h4 span {
 
 .modal-title {
     font-size: 1.3rem;
-    color: var(--white);
+    color: var(--black1);
     font-weight: 600;
 }
 
@@ -1015,6 +1068,7 @@ table td h4 span {
     border: none;
 }
 
+/* ==================== FORM ELEMENTS ==================== */
 .form-group {
     margin-bottom: 15px;
 }
@@ -1040,25 +1094,22 @@ table td h4 span {
     background: white;
 }
 
-@media (max-width: 992px) {
-    .dashboard-container {
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-rows: auto auto auto;
         grid-template-columns: 1fr;
+        height: auto;
     }
     
-    .dashboard-widget {
-        width: 100%;
+    .calendar-container,
+    .todo-container,
+    .logs-container {
+        grid-area: auto;
     }
 }
 
-@media (max-width: 576px) {
-    .dashboard-container {
-        padding: 10px;
-    }
-    
-    .widget-title {
-        font-size: 1.1rem;
-    }
-    
+@media (max-width: 768px) {
     .calendar-day {
         padding: 5px;
         min-height: 35px;
@@ -1066,6 +1117,26 @@ table td h4 span {
     
     .todo-item {
         padding: 10px;
+    }
+    
+    .widget-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-grid {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .calendar-nav-actions {
+        flex-wrap: wrap;
+    }
+    
+    .calendar-nav-btn {
+        padding: 4px 8px;
+        font-size: 0.9rem;
     }
 }
 

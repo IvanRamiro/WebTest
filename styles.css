@@ -4,7 +4,6 @@
   --text-color: #000;
   --subheader-color: #fff;
 }
-
 .top-bar {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -32,9 +31,10 @@
   list-style: none;
 }
 
+/* Increased text size for contact information */
 .top-bar nav li p {
   margin-bottom: 0;
-  font-size: 0.875rem;
+  font-size: 1rem; /* Increased from 0.875rem */
   color: var(--text-color);
   text-align: center;
 }
@@ -43,6 +43,7 @@
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
+  font-size: 1rem; /* Added to increase link text size */
 }
 
 .top-bar nav a:hover {
@@ -53,11 +54,13 @@
   background-color: var(--main-color);
   border: none;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   transition: background-color 0.3s ease;
   border-radius: 0.375rem;
+  min-width: 100px;
+  text-align: center;
 }
 
 .top-bar .btn-primary:hover {

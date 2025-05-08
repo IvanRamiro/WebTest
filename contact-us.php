@@ -28,43 +28,25 @@ if ($bg_result && $bg_result->num_rows > 0) {
     
 <!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Logo Section -->
-            <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
+    <div class="container-fluid px-3 px-md-4 px-lg-5">
+        <div class="d-flex align-items-center justify-content-between flex-nowrap">
+            <!-- Logo Section - Fixed width with min-width -->
+            <div class="d-flex align-items-center" style="min-width: 180px;">
                 <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
                 <span class="brand-name fw-bold fs-5">UNLAD PLUS LOAN</span>
             </div>
 
-            <!-- Contact & Links -->
-            <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
-                <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
-                            <a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a>
-                        </p>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Contact & Links - Auto width with no flex-wrap -->
+            <div class="d-flex flex-nowrap gap-4">
+                <div><strong>Customer Service</strong><br><a href="tel:(02)1234-5678">(02) 1234-5678</a></div>
+                <div><strong>Help & Support</strong><br><a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a></div>
+                <div class="d-none d-lg-block"><strong>Careers</strong><br><a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a></div>
+                <div class="d-none d-xl-block"><strong>Complaints</strong><br><a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a></div>
+            </div>
 
-            <!-- Loan Inquiry Button -->
-            <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
+            <!-- Login Button -->
+            <div>
+                <a href="login.php" class="btn btn-primary text-white px-3 py-1">Login</a>
             </div>
         </div>
     </div>
@@ -74,7 +56,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
 <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
     <div class="container">
-        <!-- Collapsible Navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -100,7 +81,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </li>
             </ul>
         </div>
-        <!-- Search Form (Responsive) -->
         <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>

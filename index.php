@@ -88,43 +88,25 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
     
 <!-- Header Section -->
 <header class="top-bar bg-light py-2 border-bottom" role="banner">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Logo Section -->
-            <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
+    <div class="container-fluid px-3 px-md-4 px-lg-5">
+        <div class="d-flex align-items-center justify-content-between flex-nowrap">
+            <!-- Logo Section - Fixed width with min-width -->
+            <div class="d-flex align-items-center" style="min-width: 180px;">
                 <img src="Images/UNLAD.PNG" alt="UNLAD PLUS LOAN" class="logo-img me-2" height="50">
                 <span class="brand-name fw-bold fs-5">UNLAD PLUS LOAN</span>
             </div>
 
-            <!-- Contact & Links -->
-            <nav class="col-12 col-md-7 mb-3 mb-md-0" aria-label="Main Contact Links">
-                <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-4 list-unstyled mb-0">
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Customer Service</strong><br>
-                            <a href="tel:(02)5310-2796">(02) 1234-5678</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Help & Support</strong><br>
-                            <a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Careers</strong><br>
-                            <a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="mb-0 text-center text-md-start"><strong>Complaints</strong><br>
-                            <a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a>
-                        </p>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Contact & Links - Auto width with no flex-wrap -->
+            <div class="d-flex flex-nowrap gap-4">
+                <div><strong>Customer Service</strong><br><a href="tel:(02)1234-5678">(02) 1234-5678</a></div>
+                <div><strong>Help & Support</strong><br><a href="mailto:support@unladplusloan.com">support@unladplusloan.com</a></div>
+                <div class="d-none d-lg-block"><strong>Careers</strong><br><a href="mailto:careers@unladplusloan.com">careers@unladplusloan.com</a></div>
+                <div class="d-none d-xl-block"><strong>Complaints</strong><br><a href="mailto:complaints@unladplusloan.com">complaints@unladplusloan.com</a></div>
+            </div>
 
-            <!-- Loan Inquiry Button -->
-            <div class="col-12 col-md-2 text-center text-md-end">
-                <a href="login.php" class="btn text-white px-3 py-1 fw-bold fs-7" style="background-color: var(--main-color);">Login</a>
+            <!-- Login Button -->
+            <div>
+                <a href="login.php" class="btn btn-primary text-white px-3 py-1">Login</a>
             </div>
         </div>
     </div>
