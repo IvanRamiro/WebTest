@@ -57,6 +57,6 @@
             </label>
         </div>
         <div class="user">
-            <img src="../Images/UNLAD.PNG" alt="User">
+            <img src="../Images/UNLAD.PNG" alt="User"> 
         </div>
     </div>
