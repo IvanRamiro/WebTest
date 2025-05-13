@@ -98,7 +98,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="Images/ABSOLUTE.jpg" alt="Unlad Plus Loan Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
+                    <img src="Images/Unlad plus.jpg" alt="Unlad Plus Loan Team" class="img-fluid rounded shadow-lg animate__animated animate__fadeInLeft">
                 </div>
                 <div class="col-lg-6">
                     <h2 class="display-5 fw-bold mb-4" style="color: var(--main-color);">About <span style="color: var(--secondary-color);">Unlad Plus Loan</span></h2>

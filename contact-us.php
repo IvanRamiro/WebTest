@@ -135,13 +135,12 @@ if ($bg_result && $bg_result->num_rows > 0) {
             </div>
         </div>
 
-        <!-- Contact Info Column -->
-        <div class="col-lg-6">
+        <!-- Contact Info Column
+        /*<div class="col-lg-6">
             <div class="card shadow-sm h-100">
                 <div class="card-body p-4">
                     <h2 class="card-title fw-bold mb-4">Our Offices</h2>
                     
-                    <!-- Map -->
                     <div class="map-container mb-4 rounded overflow-hidden">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.123456789012!2d120.987654321!3d14.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b123456789ab%3A0x1234567890abcdef!2sGudlyf%20Property%20Corp.%2C%20Grace%20Westpark%2C%20Caloocan%20City!5e0!3m2!1sen!2sph!4v1234567890" 
@@ -155,7 +154,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                         </iframe>
                     </div>
                     
-                    <!-- Office Locations -->
                     <div class="office-info mb-4">
                         <h3 class="h5 fw-bold"><i class="fas fa-building me-2" style="color: var(--main-color);"></i> Caloocan Head Office</h3>
                         <p class="ms-4">
@@ -176,7 +174,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                     
                     <hr class="my-4">
                     
-                    <!-- Quick Contacts -->
                     <div class="quick-contacts">
                         <h3 class="h5 fw-bold mb-3">Quick Contacts</h3>
                         <ul class="list-unstyled">
@@ -197,7 +194,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
             </div>
         </div>
-    </div>
+    </div>  -->
     
     <!-- Departments Section -->
     <section class="mt-5">

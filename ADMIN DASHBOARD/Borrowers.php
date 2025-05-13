@@ -513,7 +513,6 @@
 
     <!-- STATS SECTION -->
     <div class="stats-section">
-        <!-- Total Amount Lent Card -->
         <div class="stat-card">
             <div class="card-header">
                 <span class="card-title">Total Lent</span>
