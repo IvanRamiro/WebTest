@@ -102,10 +102,10 @@ if ($bg_result && $bg_result->num_rows > 0) {
     <!-- Contact Options Section -->
     <div class="row g-4">
         <!-- Contact Form Column -->
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="card shadow-sm h-100">
                 <div class="card-body p-4">
-                    <h2 class="card-title fw-bold mb-4">Send Us a Message</h2>
+                    <h2 class="card-title fw-bold mb-4" style="font-size: 2rem;">Send Us a Message</h2>
                     <form action="send-mail.php" method="post">
                         <div class="mb-3">
                             <label for="name" class="form-label">Full Name</label>
@@ -134,67 +134,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </div>
             </div>
         </div>
-
-        <!-- Contact Info Column
-        /*<div class="col-lg-6">
-            <div class="card shadow-sm h-100">
-                <div class="card-body p-4">
-                    <h2 class="card-title fw-bold mb-4">Our Offices</h2>
-                    
-                    <div class="map-container mb-4 rounded overflow-hidden">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.123456789012!2d120.987654321!3d14.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b123456789ab%3A0x1234567890abcdef!2sGudlyf%20Property%20Corp.%2C%20Grace%20Westpark%2C%20Caloocan%20City!5e0!3m2!1sen!2sph!4v1234567890" 
-                            width="100%" 
-                            height="250" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            aria-label="Unlad Plus Loan Caloocan Office Location">
-                        </iframe>
-                    </div>
-                    
-                    <div class="office-info mb-4">
-                        <h3 class="h5 fw-bold"><i class="fas fa-building me-2" style="color: var(--main-color);"></i> Caloocan Head Office</h3>
-                        <p class="ms-4">
-                            Gudlyf Property Corp., Grace Westpark<br>
-                            Caloocan City, Metro Manila<br>
-                            <strong>Tel:</strong> <a href="tel:(02)1234-5678" class="text-decoration-none">(02) 1234-5678</a>
-                        </p>
-                    </div>
-                    
-                    <div class="office-info">
-                        <h3 class="h5 fw-bold"><i class="fas fa-map-marker-alt me-2" style="color: var(--main-color);"></i> CDO Sub Office</h3>
-                        <p class="ms-4">
-                            1267 Bolonsiri Road, Camaman-an,<br>
-                            Cagayan de Oro City 9000<br>
-                            <strong>Tel:</strong> <a href="tel:(088)327-9462" class="text-decoration-none">(088) 327-9462</a>
-                        </p>
-                    </div>
-                    
-                    <hr class="my-4">
-                    
-                    <div class="quick-contacts">
-                        <h3 class="h5 fw-bold mb-3">Quick Contacts</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <i class="fas fa-envelope me-2" style="color: var(--main-color);"></i>
-                                <strong>General:</strong> <a href="mailto:wecare@unladplusloan.com" class="text-decoration-none">wecare@unladplusloan.com</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-user-tie me-2" style="color: var(--main-color);"></i>
-                                <strong>Hiring:</strong> <a href="mailto:hiring@unladplusloan.com" class="text-decoration-none">hiring@unladplusloan.com</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-exclamation-triangle me-2" style="color: var(--main-color);"></i>
-                                <strong>Complaints:</strong> <a href="mailto:complaints@unladplusloan.com" class="text-decoration-none">complaints@unladplusloan.com</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  -->
+    </div>
     
     <!-- Departments Section -->
     <section class="mt-5">
