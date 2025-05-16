@@ -377,135 +377,40 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
         <div class="text-center mb-5">
             <h6 class="text-primary">OUR BRANCHES</h6>
             <h2 id="branches-heading" class="fw-bold">Visit Our <strong class="text-primary">Branch Locations</strong></h2>
-            <p class="lead">We have multiple branches across Metro Manila to serve you better</p>
+            <p class="lead">We have multiple branches to serve you better</p>
         </div>
 
         <div class="row g-4">
-            <!-- Branch 1 (Main Branch) -->
-            <div class="col-lg-4">
-                <div class="branch-column-container p-3 border rounded">
-                    <div class="branch-card h-100">
-                        <div class="map-container">
-                            <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Favoredland%20Bldg.%2C%201930%20RIZAL%20Avenue%2C%20Tayuman%2C%20Sta.%20Cruz%2C%20Manila&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    style="border:0" 
-                                    allowfullscreen=""
-                                    aria-label="Map of Main Branch location"></iframe>
-                        </div>
-                        <div class="branch-info p-3">
-                            <h4 class="fw-bold mb-2">MAIN BRANCH</h4>
-                            <p class="mb-0">Favoredland Bldg., 1930 RIZAL Avenue, Tayuman, Sta. Cruz, Manila</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Branch 2 -->
-            <div class="col-lg-4">
-                <div class="branch-column-container p-3 border rounded">
-                    <div class="branch-card h-100">
-                        <div class="map-container">
-                            <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Evans%20Studio%2C%204002%20Malvar%20St.%2C%20cor.%20Evangelista%20St.%20Bangkal%2C%20Makati%20City&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    style="border:0" 
-                                    allowfullscreen=""
-                                    aria-label="Map of Branch 2 location"></iframe>
-                        </div>
-                        <div class="branch-info p-3">
-                            <h4 class="fw-bold mb-2">BRANCH 2</h4>
-                            <p class="mb-0">Evans Studio, 4002 Malvar St., cor. Evangelista St. Bangkal, Makati City</p>
+            <?php
+            $branches = $conn->query("SELECT * FROM branch_locations ORDER BY id");
+            
+            if ($branches->num_rows > 0) {
+                while ($branch = $branches->fetch_assoc()) {
+                    ?>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="branch-card h-100 border rounded overflow-hidden shadow-sm">
+                            <div class="map-container" style="height: 250px;">
+                                <iframe src="<?= htmlspecialchars($branch['map_link']) ?>" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy"
+                                        aria-label="Map of <?= htmlspecialchars($branch['branch_name']) ?>">
+                                </iframe>
+                            </div>
+                            <div class="p-3">
+                                <h4 class="fw-bold mb-1"><?= htmlspecialchars($branch['branch_name']) ?></h4>
+                                <p class="mb-0 text-muted"><?= htmlspecialchars($branch['branch_address']) ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Branch 3 -->
-            <div class="col-lg-4">
-                <div class="branch-column-container p-3 border rounded">
-                    <div class="branch-card h-100">
-                        <div class="map-container">
-                            <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Arca%20Commercial%20Place%20Bldg.%2C%20J.P.%20Rizal%20Street%2C%20Karuhatan%2C%20Valenzuela%20City&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    style="border:0" 
-                                    allowfullscreen=""
-                                    aria-label="Map of Branch 3 location"></iframe>
-                        </div>
-                        <div class="branch-info p-3">
-                            <h4 class="fw-bold mb-2">BRANCH 3</h4>
-                            <p class="mb-0">Unit 1-D Arca Commercial Place Bldg. # 3 J.P. Rizal Street, Brgy. Karuhatan Valenzuela City</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Branch 4 -->
-            <div class="col-lg-4">
-                <div class="branch-column-container p-3 border rounded">
-                    <div class="branch-card h-100">
-                        <div class="map-container">
-                            <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Julio%20Antonio%20II%20Bldg.%2C%20Maysilo%20Circle%2C%20Brgy.%20Plainview%2C%20Mandaluyong%20City&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    style="border:0" 
-                                    allowfullscreen=""
-                                    aria-label="Map of Branch 4 location"></iframe>
-                        </div>
-                        <div class="branch-info p-3">
-                            <h4 class="fw-bold mb-2">BRANCH 4</h4>
-                            <p class="mb-0">Julio Antonio II Bldg. Maysilo Circle, Brgy. Plainview, Mandaluyong City</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Branch 5 -->
-            <div class="col-lg-4">
-                <div class="branch-column-container p-3 border rounded">
-                    <div class="branch-card h-100">
-                        <div class="map-container">
-                            <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Maligaya%20Market%2C%20Commonwealth%20Avenue%2C%20Tandang%20Sora%2C%20Quezon%20City&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    style="border:0" 
-                                    allowfullscreen=""
-                                    aria-label="Map of Branch 5 location"></iframe>
-                        </div>
-                        <div class="branch-info p-3">
-                            <h4 class="fw-bold mb-2">BRANCH 5</h4>
-                            <p class="mb-0">B1 L5 Maligaya Market Commonwealth, Tandang Sora, Quezon City</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Branch 6 -->
-            <div class="col-lg-4">
-                <div class="branch-column-container p-3 border rounded">
-                    <div class="branch-card h-100">
-                        <div class="map-container">
-                            <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Framar%20Center%2C%20A.%20Mabini%20Street%2C%20Kapasigan%2C%20Pasig%20City&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    style="border:0" 
-                                    allowfullscreen=""
-                                    aria-label="Map of Branch 6 location"></iframe>
-                        </div>
-                        <div class="branch-info p-3">
-                            <h4 class="fw-bold mb-2">BRANCH 6</h4>
-                            <p class="mb-0">FRAMAR CENTER Unit 206 #11 A. Mabini St., Brgy. Kapsigan Pasig City</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <?php
+                }
+            } else {
+                echo '<div class="col-12"><div class="alert alert-info">No branch locations available yet.</div></div>';
+            }
+            ?>
         </div>
     </div>
 </section>

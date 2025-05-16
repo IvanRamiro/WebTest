@@ -165,7 +165,6 @@
         color: var(--black1);
     }
 
-    /* Add this for row dividers */
     tr.loan-divider {
         border-top: 2px solid var(--blue);
     }
