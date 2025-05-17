@@ -152,7 +152,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 </section>
 
 
-<!-- Market Vendor Loan Section - Enhanced Version -->
+<!-- Market Vendor Loan Section -->
 <section class="mvl-section py-5" aria-labelledby="mvl-heading">
     <div class="container px-lg-4 px-md-3 px-sm-2">
         <div class="row g-4 mx-0">
@@ -275,7 +275,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
         <div class="eligibility-cta mt-4 pt-4 border-top">
             <h4 class="mb-3">Check your eligibility for <strong class="text-primary">UNLAD PLUS LOAN</strong></h4>
             <div class="d-flex flex-wrap gap-2">
-                <a href="#" class="btn btn-primary flex-grow-1 py-3 rounded-pill" aria-label="Affordability and Suitability Assessment">
+                <a href="help-support.php" class="btn btn-primary flex-grow-1 py-3 rounded-pill" aria-label="Affordability and Suitability Assessment">
                     <i class="fas fa-calculator me-2"></i> Assessment Tool
                 </a>
                 <a href="#" class="btn btn-outline-primary flex-grow-1 py-3 rounded-pill" aria-label="Review Your Assessment Result">
@@ -388,20 +388,23 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                 while ($branch = $branches->fetch_assoc()) {
                     ?>
                     <div class="col-lg-4 col-md-6">
-                        <div class="branch-card h-100 border rounded overflow-hidden shadow-sm">
-                            <div class="map-container" style="height: 250px;">
-                                <iframe src="<?= htmlspecialchars($branch['map_link']) ?>" 
-                                        width="100%" 
-                                        height="100%" 
-                                        style="border:0;" 
-                                        allowfullscreen="" 
-                                        loading="lazy"
-                                        aria-label="Map of <?= htmlspecialchars($branch['branch_name']) ?>">
-                                </iframe>
+                        <div class="branch-card bg-white rounded-3 shadow-sm h-100">
+                            <div class="map-container p-3">
+                                <div class="map-wrapper rounded-3 overflow-hidden">
+                                    <iframe src="<?= htmlspecialchars($branch['map_link']) ?>" 
+                                            width="100%" 
+                                            height="250" 
+                                            style="border:0;" 
+                                            allowfullscreen="" 
+                                            loading="lazy"
+                                            aria-label="Map of <?= htmlspecialchars($branch['branch_name']) ?>"
+                                            class="map-iframe">
+                                    </iframe>
+                                </div>
                             </div>
-                            <div class="p-3">
+                            <div class="branch-info p-3 pt-0">
                                 <h4 class="fw-bold mb-1"><?= htmlspecialchars($branch['branch_name']) ?></h4>
-                                <p class="mb-0 text-muted"><?= htmlspecialchars($branch['branch_address']) ?></p>
+                                <p class="text-muted mb-0"><?= htmlspecialchars($branch['branch_address']) ?></p>
                             </div>
                         </div>
                     </div>

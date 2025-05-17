@@ -31,10 +31,9 @@
   list-style: none;
 }
 
-/* Increased text size for contact information */
 .top-bar nav li p {
   margin-bottom: 0;
-  font-size: 1rem; /* Increased from 0.875rem */
+  font-size: 1rem;
   color: var(--text-color);
   text-align: center;
 }
@@ -43,7 +42,7 @@
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem; /* Added to increase link text size */
+  font-size: 1rem;
 }
 
 .top-bar nav a:hover {
@@ -194,10 +193,6 @@
   }
 }
 
-.mvl-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
 .mvl-card {
   border: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -267,29 +262,129 @@
   background-color: rgba(77, 35, 121, 0.1);
 }
 
-/* Responsive adjustments */
+
+/* Badge Color Adjustments */
+.requirements-card .badge {
+    background-color: var(--primary-color, #4d2379);
+    color: white;
+}
+
+/* Heading Color Adjustments */
+.requirements-card h2 {
+    color: var(--dark-text, #333);
+}
+
+.requirements-card h2 strong.text-primary {
+    color: var(--primary-color, #4d2379) !important;
+}
+
+/* Icon Container Colors */
+.icon-container {
+    background-color: rgba(77, 35, 121, 0.1); /* 10% opacity of primary color */
+}
+
+.icon-container i {
+    color: var(--primary-color, #4d2379);
+}
+
+/* Eligibility Section Colors */
+.eligibility-cta h4 {
+    color: var(--dark-text, #333);
+}
+
+.eligibility-cta h4 strong {
+    color: var(--primary-color, #4d2379);
+}
+
+/* Button Color Adjustments */
+.btn-primary {
+    background-color: var(--primary-color, #4d2379);
+    border-color: var(--primary-color, #4d2379);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color, #4d2379);
+    border-color: var(--primary-color, #4d2379);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color, #4d2379);
+    color: white;
+}
+/* =============================================
+   MVL SECTION - RESPONSIVENESS & COLOR FIXES ONLY
+   ============================================= */
+
+/* Color Corrections */
+.text-primary {
+    color: var(--main-color, #4d2379) !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--main-color, #4d2379) !important;
+    color: white !important;
+}
+
+.icon-container i {
+    color: var(--main-color, #4d2379) !important;
+}
+
+.eligibility-cta h4 strong {
+    color: var(--main-color, #4d2379) !important;
+}
+
+.btn-primary {
+    background-color: var(--main-color, #4d2379);
+    border-color: var(--main-color, #4d2379);
+}
+
+.btn-outline-primary {
+    color: var(--main-color, #4d2379);
+    border-color: var(--main-color, #4d2379);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--main-color, #4d2379);
+    color: white;
+}
+
+/* Responsive Adjustments Only */
 @media (max-width: 991.98px) {
-  .mvl-text-content h2 {
-    font-size: 2rem;
-  }
-  
-  .mvl-text-content p {
-    font-size: 1rem;
-  }
-  
-  .requirement-item {
-    padding: 1.5rem 1rem;
-  }
+    .mvl-text-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .requirements-card h2 {
+        font-size: 1.7rem;
+    }
+    
+    .icon-container {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media (max-width: 767.98px) {
-  .mvl-card, .requirements-card {
-    border-radius: 1rem;
-  }
-  
-  .eligibility-cta .btn {
-    width: 100%;
-  }
+    .mvl-text-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .requirements-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .icon-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .icon-container i {
+        font-size: 1.5rem;
+    }
+    
+    .eligibility-cta .btn {
+        width: 100%;
+    }
 }
 
 /* Testimonials */
@@ -383,43 +478,77 @@ section .btn-primary:hover {
       font-size: 2.5rem;
   }
 }
+/* =============================================
+   BRANCHES SECTION STYLES
+   Clean card layout with properly framed maps
+   ============================================= */
 
-/* Branches */
-.branch-column-container {
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.branch-column-container:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transform: translateY(-5px);
-}
-
+/* Branch Card Container */
 .branch-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.map-container {
-    position: relative;
     overflow: hidden;
-    padding-top: 56.25%;
-    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.map-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Map Container - with proper margins */
+.map-container {
+    padding: 15px 15px 0 15px; /* Top margin for the map */
+    background: #fff5e7;
+}
+
+/* Map Wrapper - creates the framed look */
+.map-wrapper {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--main-color);
+    aspect-ratio: 16/9; /* Maintain map proportions */
+}
+
+/* Map Iframe - fills the container */
+.map-iframe {
     width: 100%;
     height: 100%;
+    min-height: 200px;
+    display: block;
     border: 0;
 }
 
+/* Branch Info - address section */
 .branch-info {
+    padding: 15px;
     flex-grow: 1;
+}
+
+.branch-info h4 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.branch-info p {
+    color: #6c757d;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .map-container {
+        padding: 12px 12px 0 12px;
+    }
+    
+    .branch-info {
+        padding: 12px;
+    }
+    
+    .branch-info h4 {
+        font-size: 1rem;
+    }
 }
 
 /* News & Events Section */
