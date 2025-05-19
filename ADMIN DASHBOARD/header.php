@@ -35,7 +35,6 @@
                 <li><a href="background.php"><span class="icon"><i class="fa-solid fa-photo-film"></i></span> <span class="title">Background</span></a></li>
                 <li><a href="testimonial.php"><span class="icon"><i class="fa-solid fa-comment-dots"></i></span> <span class="title">Testimonials</span></a></li>
                 <li><a href="Branches.php"><span class="icon"><i class="fa-solid fa-location-dot"></i></span> <span class="title">Branches Map</span></a></li>
-                <li><a href="settings.php"><span class="icon"><i class="fa-solid fa-sliders"></i></span> <span class="title">Settings</span></a></li>
             </ul>
         </div>
         

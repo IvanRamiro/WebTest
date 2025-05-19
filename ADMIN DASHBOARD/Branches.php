@@ -178,6 +178,7 @@ $branches = $conn->query("SELECT * FROM branch_locations ORDER BY id");
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
+    font-weight: 200;
 }
 
 .branch-table th {
@@ -194,7 +195,12 @@ $branches = $conn->query("SELECT * FROM branch_locations ORDER BY id");
 }
 
 .branch-table tr:hover {
-    background-color: rgba(77, 35, 121, 0.05);
+    background-color: rgba(119, 0, 255, 0.05);
+}
+
+.branch-table tr:hover td {
+    color: #000;
+    font-weight: 200;
 }
 
 .branch-actions {

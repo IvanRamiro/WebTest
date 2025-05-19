@@ -176,7 +176,7 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                             <a href="apply.php" class="btn btn-primary px-4 py-3 fw-bold rounded-pill" aria-label="Apply online for UNLAD PLUS LOAN">
                                 APPLY ONLINE <i class="fas fa-arrow-right ms-2"></i>
                             </a>
-                            <a href="#" class="btn btn-outline-primary px-4 py-3 fw-bold rounded-pill">
+                            <a href="about-us.php" class="btn btn-outline-primary px-4 py-3 fw-bold rounded-pill">
                                 LEARN MORE
                             </a>
                         </div>
@@ -274,12 +274,9 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
 
         <div class="eligibility-cta mt-4 pt-4 border-top">
             <h4 class="mb-3">Check your eligibility for <strong class="text-primary">UNLAD PLUS LOAN</strong></h4>
-            <div class="d-flex flex-wrap gap-2">
+            <div class="d-flex flex-wrap">
                 <a href="help-support.php" class="btn btn-primary flex-grow-1 py-3 rounded-pill" aria-label="Affordability and Suitability Assessment">
                     <i class="fas fa-calculator me-2"></i> Assessment Tool
-                </a>
-                <a href="#" class="btn btn-outline-primary flex-grow-1 py-3 rounded-pill" aria-label="Review Your Assessment Result">
-                    <i class="fas fa-chart-line me-2"></i> Check Results
                 </a>
             </div>
         </div>
