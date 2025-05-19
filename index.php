@@ -142,12 +142,6 @@ $testimonials = $conn->query("SELECT * FROM Testimonials ORDER BY created_at DES
                 </li>
             </ul>
         </div>
-        <!-- Search Form (Responsive) -->
-        <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
 </nav>
 </section>
 

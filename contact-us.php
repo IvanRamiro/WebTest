@@ -56,6 +56,7 @@ if ($bg_result && $bg_result->num_rows > 0) {
 <section class="hero" style="height: 500px; background: url('<?php echo $bg_image; ?>') no-repeat center center / cover;">
 <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0 w-100 z-3" style="background-color: var(--main-color);" role="navigation">
     <div class="container">
+        <!-- Collapsible Navigation -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -81,11 +82,6 @@ if ($bg_result && $bg_result->num_rows > 0) {
                 </li>
             </ul>
         </div>
-        <form class="d-none d-lg-flex ms-3" role="search" aria-label="Search the site">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light" type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
 </nav>
 </section>
 
