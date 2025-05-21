@@ -49,11 +49,7 @@
 <div class="main">
     <div class="topbar">
         <div class="toggle"><i class="fa-solid fa-bars"></i></div>
-        <div class="search">
-            <label>
-                <input type="text" placeholder="Search here">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </label>
+        <div>
         </div>
         <div class="user">
             <img src="../Images/UNLAD.PNG" alt="User"> 

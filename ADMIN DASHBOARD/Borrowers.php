@@ -3,22 +3,33 @@
 
 <style>
     :root {
-        --blue: rgba(77,35,121,255);
-        --secondary: #f6c23e;
-        --white: #ffffff;
-        --black1: #333;
+        --primary: #34344A;
+        --primary2: #9297C4;
+        --secondary: #ffbd42;
+        --secondary2: #EE5622;
+        --white: #fff;
+        --gray: #f5f5f5;
+        --black1: #222;
         --black2: #666;
-        --gray: #e0e0e0;
-        --font-sm: 14px;
-        --font-md: 16px;
-        --font-lg: 24px;
-        --spacing-sm: 10px;
-        --spacing-md: 15px;
-        --spacing-lg: 20px;
-        --radius: 8px;
-        --transition-fast: 0.2s;
-        --transition-medium: 0.3s;
-        --transition-slow: 0.5s;
+        
+        --pending: #f6c23e;
+        --approved: #1cc88a;
+        --rejected: #e74a3b;
+        
+        --spacing-sm: 8px;
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        
+        --font-sm: 0.9rem;
+        --font-md: 1.1rem;
+        --font-lg: 1.4rem;
+        
+        --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --transition-medium: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --transition-slow: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        
+        --radius: 12px;
+        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .dashboard-container {
@@ -35,7 +46,7 @@
         background: var(--white);
         padding: var(--spacing-lg);
         border-radius: var(--radius);
-        box-shadow: 0 var(--spacing-sm) 25px rgba(0, 0, 0, 0.08);
+        box-shadow: var(--card-shadow);
         animation: slideIn var(--transition-slow) both;
     }
 
@@ -50,21 +61,24 @@
         background: var(--white);
         padding: var(--spacing-lg);
         border-radius: var(--radius);
-        box-shadow: 0 var(--spacing-sm) 25px rgba(0, 0, 0, 0.08);
+        box-shadow: var(--card-shadow);
         transition: all var(--transition-medium);
-        border-left: 4px solid var(--blue);
+        border-left: 4px solid var(--primary);
         cursor: pointer;
     }
 
     .stat-card:hover {
-        background: var(--blue);
+        background: var(--secondary2);
         transform: translateY(-5px);
         box-shadow: 0 var(--spacing-md) 30px rgba(0, 0, 0, 0.15);
     }
 
     .stat-card:hover .numbers,
     .stat-card:hover .cardName,
-    .stat-card:hover .iconBx {
+    .stat-card:hover .iconBx,
+    .stat-card:hover .card-title,
+    .stat-card:hover .card-value,
+    .stat-card:hover .card-footer {
         color: var(--white);
     }
 
@@ -82,10 +96,6 @@
         text-transform: uppercase;
     }
 
-    .stat-card:hover .card-title {
-        color: var(--white);
-    }
-
     .card-icon {
         width: 40px;
         height: 40px;
@@ -95,18 +105,14 @@
         justify-content: center;
         font-size: 1.3rem;
         color: var(--white);
-        background: var(--blue);
+        background: var(--primary);
     }
 
     .card-value {
         font-weight: 600;
         font-size: var(--font-lg);
-        color: var(--blue);
+        color: var(--primary);
         margin: var(--spacing-sm) 0;
-    }
-
-    .stat-card:hover .card-value {
-        color: var(--white);
     }
 
     .card-footer {
@@ -115,10 +121,6 @@
         display: flex;
         align-items: center;
         gap: var(--spacing-sm);
-    }
-
-    .stat-card:hover .card-footer {
-        color: rgba(255, 255, 255, 0.8);
     }
 
     .section-header {
@@ -130,7 +132,7 @@
 
     .section-title {
         font-weight: 600;
-        color: var(--blue);
+        color: var(--primary);
         background: rgba(77, 35, 121, 0.1);
         padding: var(--spacing-sm) var(--spacing-md);
         border-radius: var(--radius);
@@ -150,7 +152,7 @@
     }
 
     th {
-        background: var(--blue);
+        background: var(--secondary2);
         color: var(--white);
         padding: var(--spacing-md);
         text-align: left;
@@ -166,22 +168,24 @@
     }
 
     tr.loan-divider {
-        border-top: 2px solid var(--blue);
+        border-top: 2px solid var(--primary);
     }
 
     tr:last-child {
         border-bottom: none;
     }
-
+    
     tr:hover {
-        background: var(--blue);
+        background: var(--secondary2);
         color: var(--white);
     }
+    
 
     tr:hover td {
         color: var(--white);
+        background-color: var(--secondary2);
     }
-
+    
     .badge {
         padding: 2px 8px;
         border-radius: 4px;
@@ -191,7 +195,7 @@
     }
 
     .badge-active {
-        background: #8de02b;
+        background: var(--approved);
     }
 
     .badge-completed {
@@ -199,7 +203,7 @@
     }
 
     .badge-defaulted {
-        background: #f00;
+        background: var(--rejected);
     }
 
     .update-btn {
@@ -215,7 +219,7 @@
     }
 
     .update-btn:hover {
-        background: #f55112;
+        background: var(--secondary2);
         box-shadow: 0 6px 16px rgba(77, 35, 121, 0.4);
         transform: translateY(-2px);
     }
@@ -254,7 +258,7 @@
     }
 
     .modal-header h3 {
-        color: var(--blue);
+        color: var(--primary);
         font-weight: 600;
     }
 
@@ -266,7 +270,7 @@
     }
 
     .close:hover {
-        color: var(--blue);
+        color: var(--primary);
     }
 
     .form-group {
@@ -290,7 +294,7 @@
     }
 
     .form-control:focus {
-        border-color: var(--blue);
+        border-color: var(--primary);
         outline: none;
         box-shadow: 0 0 0 3px rgba(77, 35, 121, 0.2);
     }
@@ -322,13 +326,13 @@
     }
 
     .btn-primary {
-        background: var(--blue);
+        background: var(--primary);
         color: var(--white);
         box-shadow: 0 4px 12px rgba(77, 35, 121, 0.3);
     }
 
     .btn-primary:hover {
-        background: #3a1a5e;
+        background: var(--primary2);
         box-shadow: 0 6px 16px rgba(77, 35, 121, 0.4);
         transform: translateY(-2px);
     }

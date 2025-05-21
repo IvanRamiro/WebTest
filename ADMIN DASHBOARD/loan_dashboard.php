@@ -125,7 +125,7 @@
         }
 
         .applications-table th {
-            background-color: rgba(77,35,121,255);
+            background-color: var(--secondary2);
             color: white;
             font-weight: 600;
             text-align: left;
@@ -140,7 +140,7 @@
         }
 
         .applications-table tr:hover {
-            background-color: rgba(77,35,121,255);
+            background-color: var(--secondary2);
         }
 
         .applications-table .status-badge {
